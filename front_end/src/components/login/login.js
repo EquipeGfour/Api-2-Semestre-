@@ -1,6 +1,6 @@
 import React from "react"
 import "./style.css"
-function Login(){
+function Login(props){
     return(
         <div className="loginContainer">
             <h1>Login</h1>
@@ -18,7 +18,7 @@ function Login(){
                 <label className="active" for="first_name2">Senha</label>
                 </div>
             </div>
-            <a className="waves-effect waves-light btn-large btnAzul">Entrar</a>
+            <a className="waves-effect waves-light btn-large btnAzul" onClick={(e) => this.props.funcao('dadosPessoais',e)}>Entrar</a>
 
         </div> 
         </div>
