@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from '../config/db.js'
 
-const Endereco = db.define('Colaborador',{
+const Endereco = db.define('Endereco',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,

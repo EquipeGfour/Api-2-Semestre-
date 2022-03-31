@@ -1,17 +1,20 @@
 import { Sequelize } from "sequelize";
-import db from '../config/db.js'
+import db from "../config/db"
 
-const GradeCurso = db.define('GradeCurso',{
+
+const Cargos = db.define('Cargo',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
         allowNull: false,
         primaryKey: true
     },
-    nome_curso:{
+    cargo:{
         type:Sequelize.STRING,
-        allowNull:true,
+        allowNull:false
     }
 })
 
-export default GradeCurso
+Cargos.belongsTo(Colaborador,{foreignKey:'Colaborador_id'})
+
+export default Cargo

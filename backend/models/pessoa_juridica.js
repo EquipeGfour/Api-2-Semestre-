@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from '../config/db.js'
 
-const PessoaJuridica = db.define('Colaborador',{
+const PessoaJuridica = db.define('PessoaJuridica',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
