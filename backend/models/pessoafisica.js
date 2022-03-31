@@ -1,11 +1,11 @@
-import { Sequelize } from "sequelize/types";
-import db from "../config/db";
+import { Sequelize } from "sequelize";
+import db from "../config/db.js";
+import Colaborador from "./colaborador.js";
 
-const pessoafisica = db.define('pessoafisica',{
+
+const pessoafisica = db.define('pessoa_fisicas',{
     id:{
         type:Sequelize.INTEGER,
-        autoIncrement:true,
-        allowNull:false,
         primaryKey:true
     },
     cpf:{
@@ -20,7 +20,7 @@ const pessoafisica = db.define('pessoafisica',{
         type:Sequelize.STRING,
         allowNull:false
     },
-    estadocivil:{
+    estado_civil:{
         type:Sequelize.STRING,
         allowNull:false
     },
@@ -35,7 +35,7 @@ const pessoafisica = db.define('pessoafisica',{
 
 })
 
-
-pessoafisica.belongsTo(Colaborador,{foreignKey:'Colaborador_id'})
+// Colaborador.hasOne(pessoafisica)
+pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'id'}})
 
 export default pessoafisica

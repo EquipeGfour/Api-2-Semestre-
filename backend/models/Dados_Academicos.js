@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "../config/db"
+import db from "../config/db.js"
 import Colaborador from './colaborador.js'
 
 const DadosAcademicos = db.define('DadosAcademicos',{

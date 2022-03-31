@@ -36,10 +36,6 @@ const Colaborador = db.define('colaboradors',{
         type:Sequelize.DATE,
         allowNull:true
     },
-    idade:{
-        type:Sequelize.INTEGER,
-        allowNull:true
-    },
     pesquisa_desligamento:{
         type:Sequelize.STRING,
         allowNull:true
@@ -56,18 +52,10 @@ const Colaborador = db.define('colaboradors',{
         type:Sequelize.STRING,
         allowNull: true
     },
-    tempo_casa:{
-        type:Sequelize.INTEGER,
-        allowNull:true
-    },
     tipo_desligamento:{
         type:Sequelize.STRING,
         allowNull:true
     },
-    data_desligamento:{
-        type:Sequelize.DATE,
-        allowNull:true
-    }
 })
 
 export default Colaborador
