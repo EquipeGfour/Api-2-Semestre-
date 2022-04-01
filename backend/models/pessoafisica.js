@@ -32,10 +32,14 @@ const pessoafisica = db.define('pessoa_fisicas',{
         type:Sequelize.STRING,
         allowNull:false
     },
+    tipo_arquivo_pessoa_fisica:{
+        type:Sequelize.STRING,
+        allowNull:false
+    }
 
 })
 
-// Colaborador.hasOne(pessoafisica)
+
 pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'id'}})
 
 export default pessoafisica
