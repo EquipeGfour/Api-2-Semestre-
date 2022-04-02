@@ -1,6 +1,5 @@
 import Colaborador from "../models/colaborador.js"
 
-
 export const verify = async (req, res) => {
     try{
         const dados = await Colaborador.findOne({ where: { email: req.body.email, senha:req.body.senha} })

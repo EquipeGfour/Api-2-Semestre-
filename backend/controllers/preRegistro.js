@@ -1,14 +1,5 @@
 import Colaborador from "../models/colaborador.js";
-import NodeMailer  from "nodemailer"
-
-
-const transporter = NodeMailer.createTransport({ 
-    service: 'gmail', 
-    auth: { 
-       user: 'gfourtestes@gmail.com ', 
-       pass: 'testes321' 
-     } 
-    });
+import { transporter } from "../config/email.js";
 
 export const insertPreRegistro = async(req, res) => {
     try{
@@ -19,12 +10,18 @@ export const insertPreRegistro = async(req, res) => {
             senha:senha
         });
 
-
         const mailOptions = {
-            from: 'gfourtestes@gmail.com', // sender address
-            to: `${email} `, // receiver (use array of string for a list)
-            subject: 'Subject of your email', // Subject line
-            html:`<p>seu token para login<p> <strong> ${senha} </strong>`
+            from: 'gfourtestes@gmail.com', 
+            to: `${email} `, 
+            subject: 'G-four token de acesso', 
+            html:`<h2>Sua senha foi gerada </h2>
+            <p>seu token para login:<p><br> <strong> ${senha} </strong>`,
+            attachments: [{
+                filename: 'Fatec.jpg', //nome do arquivo  
+                path: 'C:/Users/ITX Gamer/Desktop/Api-2-Semestre-/imagens_gerais/Fatec.jpg',  //caminho do arquivo
+                // cid: 'caminho' 
+            }]
+            
     };
     
     transporter.sendMail(mailOptions, (err, info) => {
@@ -33,19 +30,16 @@ export const insertPreRegistro = async(req, res) => {
         else
           console.log(info);
      });
-    
-
-        return res.json('Registro Inserido')
+        return res.json('Registro Inserido') 
         
     }catch (error) {
         res.json({ message: error.message });
     }
 }
-
 function geradorSenha (){
     const rand=()=>Math.random(0).toString(36).substr(2);
     const token=(length)=>(rand()+rand()+rand()+rand()).substr(0,length);
-    return token(12)
+    return token(12).toUpperCase()
 }
 
 
