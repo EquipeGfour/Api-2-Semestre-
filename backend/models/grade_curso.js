@@ -1,7 +1,8 @@
 import { Sequelize } from "sequelize";
 import db from '../config/db.js'
+import TrilhaAprendizado from "./trilha_aprendizado.js";
 
-const GradeCurso = db.define('Colaborador',{
+const GradeCurso = db.define('GradeCursos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -13,5 +14,7 @@ const GradeCurso = db.define('Colaborador',{
         allowNull:true,
     }
 })
+
+GradeCurso.belongsTo(TrilhaAprendizado,{foreignKey:'Trilha_Aprendizados_ID'})
 
 export default GradeCurso

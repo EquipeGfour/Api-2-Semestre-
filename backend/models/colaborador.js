@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from '../config/db.js'
 
-const Colaborador = db.define('Colaborador',{
+const Colaborador = db.define('colaboradors',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -36,10 +36,6 @@ const Colaborador = db.define('Colaborador',{
         type:Sequelize.DATE,
         allowNull:true
     },
-    idade:{
-        type:Sequelize.INTEGER,
-        allowNull:true
-    },
     pesquisa_desligamento:{
         type:Sequelize.STRING,
         allowNull:true
@@ -56,18 +52,10 @@ const Colaborador = db.define('Colaborador',{
         type:Sequelize.STRING,
         allowNull: true
     },
-    tempo_casa:{
-        type:Sequelize.INTEGER,
-        allowNull:true
-    },
     tipo_desligamento:{
         type:Sequelize.STRING,
         allowNull:true
     },
-    data_desligamento:{
-        type:Sequelize.DATE,
-        allowNull:true
-    }
 })
 
 export default Colaborador

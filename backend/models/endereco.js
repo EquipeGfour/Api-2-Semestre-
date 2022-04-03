@@ -1,7 +1,8 @@
 import { Sequelize } from "sequelize";
 import db from '../config/db.js'
+import Colaborador from "./colaborador.js";
 
-const Endereco = db.define('Colaborador',{
+const Endereco = db.define('Enderecos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -34,4 +35,8 @@ const Endereco = db.define('Colaborador',{
     }
 })
 
+Endereco.belongsTo(Colaborador,{foreignKey:'Colaborador_id'})
+
 export default Endereco
+
+
