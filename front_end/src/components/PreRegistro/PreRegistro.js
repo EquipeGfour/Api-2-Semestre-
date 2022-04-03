@@ -1,11 +1,11 @@
 import React from "react"
 import "./style.css"
 
-function PrimeiroAcesso (){
+function PreRegistro (){
     return(
 
         <div className="acessoContainer">
-        <h1>Primeiro Acesso</h1>
+        <h1>Pré-Registro</h1>
     <div className="centralizar">
        <div className="row">
             <div className="input-field col s12">
@@ -16,10 +16,12 @@ function PrimeiroAcesso (){
 
         <div className="row">
             <div className="input-field col s12">
-            <input value="CPF" id="first_name2" type="text" className="validate"/>
-            <label className="active" for="first_name2">CPF</label>
+            <input value="Email" id="first_name2" type="text" className="validate"/>
+            <label className="active" for="first_name2">Email</label>
             </div>
         </div>
+
+
         <a className="waves-effect waves-light btn-large btnAzul">Registrar</a>
 
     </div> 
@@ -30,4 +32,4 @@ function PrimeiroAcesso (){
 
 }
 
-export default PrimeiroAcesso
+export default PreRegistro

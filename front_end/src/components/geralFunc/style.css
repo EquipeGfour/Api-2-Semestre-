@@ -1,0 +1,52 @@
+.geralContainer{
+    padding: 1rem;
+    width: 100%;
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    color: white;
+    
+    
+}
+
+.titulo{
+    color: #53C4CD;
+    font-size: 60px;
+    
+}
+
+.barPesquisa{
+    margin-top: 4rem;
+    background-color: #53C4CD;
+    margin-bottom: 2rem; 
+    border-radius: 30px;  
+    
+    
+   
+}
+
+.campos{
+   
+    color: #53C4CD;
+}
+
+table{
+    margin-top: 5rem;
+}
+
+tr{
+    border-bottom: 1px solid #53C4CD;
+}
+
+.Pesquisa{
+    width: 35%;
+    margin: 0 auto;
+    background-color: transparent !important;
+
+}
+
+.Pesquisa .nav-wrapper i,.Pesquisa{
+    height: 64px;
+    line-height: 64px;
+    color: white;
+}

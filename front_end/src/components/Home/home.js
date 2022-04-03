@@ -18,19 +18,19 @@ function Home (){
             
             
             <div className="col s4 divColab">            
-                <img className="imgColab" src={Colab}></img>
-                <div>Colaborador</div>         
+            <button className=" waves-effect  botaoFunc"><img className="imgColab" src={Colab}></img></button>
+                <div className="btnNome">Colaborador</div>         
             </div>
 
             <div class="col s4">
-                <img className="imgColab" src={Organograma}></img>
-                <div>Organograma</div>            
+            <button className="waves-effect botaoFunc"><img className="imgColab" src={Organograma}></img></button>
+                <div className="btnNome">Organograma</div>            
             </div>
 
 
             <div class="col s4">
-                <img className="imgColab" src={Trilha}></img>
-                <div>Desenvolvimento</div>
+            <button className="waves-effect botaoFunc"><img className="imgColab" src={Trilha}></img></button>
+                <div className="btnNome">Desenvolvimento</div>
             </div>
 
 
@@ -41,19 +41,19 @@ function Home (){
 
         <div className="row blocoBaixo">
 
-            <div class="col s4">
-                <img className="imgColab" src={Desligado}></img>
-                <div>Desligado</div>
+            <div class=" col s4">
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={Desligado}></img></button>
+                <div className="btnNome">Desligados</div>
             </div>
 
             <div class="col s4">
-                <img className="imgColab" src={Holerite}></img>
-                <div>Demonstrativos</div>
+            <button className="waves-effect botaoFunc"><img className="imgColab" src={Holerite}></img></button>
+                <div className="btnNome">Financeiro</div>
             </div>
 
             <div class="col s4">
-                <img className="imgColab" src={PreRegistro}></img>
-                <div>Pré-Registro</div>
+            <button className="waves-effect botaoFunc"><img className="imgColab" src={PreRegistro}></img></button>
+                <div className="btnNome">Pré-Registro</div>
             </div>
 
         </div>

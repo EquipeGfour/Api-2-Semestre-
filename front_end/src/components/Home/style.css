@@ -26,7 +26,35 @@
     width: 200px;
     height: 200px;
     background: #54C5CE;
-    border: 20px solid #54C5CE;
+    border: 0px solid #54C5CE;
     box-sizing:content-box;
     border-radius: 20px;
+}
+
+.botaoFunc{
+    background-color:#54C5CE;;
+    border-radius: 20px;
+    border: #53C4CD;
+   
+    outline: none;
+    
+    
+}
+
+.btnNome{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.botaoFunc:hover {
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+  
+
+    background-color: #54C5CE;
+    box-shadow: 0 5px #54C5CE;
+    transform: translateY(-8px);
+  
 }

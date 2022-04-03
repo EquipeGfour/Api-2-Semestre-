@@ -1,10 +1,14 @@
-
-.loginContainer{
-    margin-top: 6rem;
+.dadosContainer{
+    margin-top: 8rem;
     color: #53C4CD;
     text-align: center;
     
 }
+
+.row .input-field:first-child{
+    padding-right: 4rem;
+} 
+
 
 .input-field input[type=text]{
     margin-top: 50px;
@@ -22,10 +26,11 @@
     
 }
 
-.centralizar{
-    margin: 0 auto;
+.esquerda{
+    margin: 2rem;
     width: 50%;
     margin-top: 6rem;
+    padding: 0 2rem !important;
 }
 
 .btnAzul{
