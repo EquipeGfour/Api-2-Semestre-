@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css"
 
 
+
 function Administrador (){
     return(
         <div className="dadosContainer row">
@@ -154,7 +155,7 @@ function Administrador (){
 
               
 
-                <a className="waves-effect waves-light btn-large btnAzul">Confirmar Alterações</a>
+                <a className="waves-effect waves-light btn-large btnAzulAdmin">Confirmar Alterações</a>
 
             
 

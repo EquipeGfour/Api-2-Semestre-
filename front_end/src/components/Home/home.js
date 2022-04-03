@@ -1,5 +1,6 @@
 import React from "react"
 import "./style.css"
+import {Link,Navigate,useNavigate} from 'react-router-dom';
 import Colab from '../img/colab.png'
 import Organograma from '../img/organograma.png'
 import Trilha from '../img/trilha.png'
@@ -17,7 +18,8 @@ function Home (){
             
             
             
-            <div className="col s4 divColab">            
+            <div className="col s4 divColab">
+                        
             <button className=" waves-effect  botaoFunc"><img className="imgColab" src={Colab}></img></button>
                 <div className="btnNome">Colaborador</div>         
             </div>

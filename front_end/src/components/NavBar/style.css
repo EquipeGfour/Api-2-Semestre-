@@ -2,7 +2,12 @@
     background-color: #54C5CE;
 }
 
+.geral{
+    background-color: #fff;
+}
+
 .socialbar{
+    margin-left: 1.5rem;
     display: block;
     height: 25px;
     padding-top: 4px;
@@ -28,4 +33,12 @@
     -ms-grid-rows: auto auto;
     grid-template-rows: auto auto;
     background-color: #fff;
+}
+
+.youtube { 
+        
+    width: 18px;
+    height: 18px;
+    text-decoration: none;
+    
 }
