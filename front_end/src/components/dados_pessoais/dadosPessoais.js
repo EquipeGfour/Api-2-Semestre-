@@ -46,8 +46,8 @@ function DadosPessoais(){
                         <label className="active" for="first_name2">Data de Nascimento</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Idade" id="first_name2" type="text" className="validate"/>
-                        <label className="active" for="first_name2">Idade</label>
+                        <input value="Complemento" id="first_name2" type="text" className="validate"/>
+                        <label className="active" for="first_name2">Complemento</label>
                     </div>
                 </div>
 
@@ -57,21 +57,26 @@ function DadosPessoais(){
                         <input value="Endereço (Rua ou Avenida e Número)" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Endereço</label>
                     </div>
-                    <div className="input-field col s6">
-                        <input value="Complemento" id="first_name2" type="text" className="validate"/>
-                        <label className="active" for="first_name2">Complemento</label>
-                    </div>
-                </div>
 
-                <div className="row">
-                    <div className="input-field col s6">
+                     <div className="input-field col s6">
                         <input value="Bairro" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Bairro</label>
                     </div>
+
+                </div>
+
+                <div className="row">
+                   
                     <div className="input-field col s6">
                         <input value="Cidade" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Cidade</label>
                     </div>
+
+                    <div className="input-field col s6">
+                        <input value="Estado" id="first_name2" type="text" className="validate"/>
+                        <label className="active" for="first_name2">Estado</label>
+                    </div>
+
                 </div>
 
 
@@ -80,10 +85,12 @@ function DadosPessoais(){
                         <input value="CEP" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">CEP</label>
                     </div>
+
                     <div className="input-field col s6">
-                        <input value="Estado" id="first_name2" type="text" className="validate"/>
-                        <label className="active" for="first_name2">Estado</label>
+                        <input value="(DDD) Telefone" id="first_name2" type="text" className="validate"/>
+                        <label className="active" for="first_name2">Telefone</label>
                     </div>
+
                 </div>
 
                 <div className="row">
@@ -91,10 +98,12 @@ function DadosPessoais(){
                         <input value="Região" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Região</label>
                     </div>
+
                     <div className="input-field col s6">
-                        <input value="(DDD) Telefone" id="first_name2" type="text" className="validate"/>
-                        <label className="active" for="first_name2">Telefone</label>
+                        <input value="Estado Civil" id="first_name2" type="text" className="validate"/>
+                        <label className="active" for="first_name2">Estado Civil</label>
                     </div>
+
                 </div>
 
 
@@ -102,12 +111,15 @@ function DadosPessoais(){
                 <div className="row">
                     <div className="input-field col s6">
                         <input value="Email" id="first_name2" type="text" className="validate"/>
-                        <label className="active" for="first_name2">Email</label>
+                        <label className="active" for="first_name2">Email</label>                   
+
                     </div>
+
                     <div className="input-field col s6">
-                        <input value="Estado Civil" id="first_name2" type="text" className="validate"/>
-                        <label className="active" for="first_name2">Estado Civil</label>
+                        <input value="Línguas" id="first_name2" type="text" className="validate"/>
+                        <label className="active" for="first_name2">Línguas</label>
                     </div>
+
                 </div>
 
                 <div className="row">
@@ -128,10 +140,7 @@ function DadosPessoais(){
                         <input value="Status" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Status</label>
                     </div>
-                    <div className="input-field col s6">
-                        <input value="Línguas" id="first_name2" type="text" className="validate"/>
-                        <label className="active" for="first_name2">Línguas</label>
-                    </div>
+
                 </div>
 
                 <a className="waves-effect waves-light btn-large btnAzul">Enviar</a>

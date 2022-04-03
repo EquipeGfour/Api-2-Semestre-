@@ -1,0 +1,32 @@
+/**{
+    border: solid 1px chocolate;
+}*/
+
+.loginContainer{
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    
+    
+}
+
+.blocoCima{
+    margin-top: 6rem; 
+}
+
+.blocoBaixo{
+    margin-top: 4rem;
+}
+
+.divColab{
+    text-align: center;
+}
+
+.imgColab{
+    width: 200px;
+    height: 200px;
+    background: #54C5CE;
+    border: 20px solid #54C5CE;
+    box-sizing:content-box;
+    border-radius: 20px;
+}
