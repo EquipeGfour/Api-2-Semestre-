@@ -25,6 +25,10 @@ const DadosAcademicos = db.define('DadosAcademicos',{
         type:Sequelize.STRING,
         allowNull:false
     },
+    tipo_arquivo_academicos:{
+        type:Sequelize.STRING,
+        allowNull:false
+    }
 
 })
 DadosAcademicos.belongsTo(Colaborador,{foreignKey:'Colaborador_id'})

@@ -44,6 +44,10 @@ const Contrato = db.define('Contrato',{
     plano_saude:{
         type:Sequelize.STRING,
         allowNull:true
+    },
+    tipo_arquivo_contrato:{
+        type:Sequelize.STRING,
+        allowNull:false
     }
 })
 
