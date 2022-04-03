@@ -1,0 +1,72 @@
+/*{
+    border:  solid 1px chocolate;
+}*/
+.uploadContainer{
+    margin-top: 8rem;
+    color: #53C4CD;
+    text-align: center;
+    
+}
+
+.input-field input[type=text]{
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.input-field input[type=text] + label {
+    color: #53C4CD;
+    font-size: 30px;
+    
+}
+
+.validate{
+    color: #fff;
+    
+}
+
+.centralizar{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 6rem;
+}
+
+.uploadContainer .btnAzulCarregar{
+    margin-top: 2rem ;
+    width: 30%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:#414042;
+    font-size: 20px;
+
+
+}
+
+.btnCarregar{
+    margin-top: 5rem;
+    border: 2px solid #53C4CD ;
+    background-color: transparent;
+    width: 30%;
+    
+}
+
+.Nuvem{
+    font-size: 35px;
+    color: #53C4CD;
+    margin-right: 150px;
+    vertical-align: middle;
+    
+    
+
+    margin-bottom: 0.5rem;
+}
+
+
+.box2{
+    margin-left: 2.8rem;
+}
+
+.checkBox{
+    margin-top: 5rem;
+    
+}
