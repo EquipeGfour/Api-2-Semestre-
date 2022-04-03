@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 
-const db = new Sequelize('ionic','root','sua senha' ,{
+const db = new Sequelize('ionic','root','cadmax123' ,{
     host:'localhost',
     dialect:'mysql',
     port:'3306'

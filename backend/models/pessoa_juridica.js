@@ -2,8 +2,8 @@ import { Sequelize } from "sequelize";
 import db from '../config/db.js'
 import Colaborador from './colaborador.js'
 
-const PessoaJuridica = db.define('PessoaJuridica',{
-    id:{
+const PessoaJuridica = db.define('Pessoa_juridicas',{
+    colaboradorId:{
         type:Sequelize.INTEGER,
         primaryKey: true
     },
@@ -29,7 +29,8 @@ const PessoaJuridica = db.define('PessoaJuridica',{
     }  
 })
 
-PessoaJuridica.belongsTo(Colaborador,{foreignKey:{name:'id'}})
+PessoaJuridica.Colaborador = PessoaJuridica.belongsTo(Colaborador,{foreignKey:{name:'colaboradorId'}})
+PessoaJuridica.hasOne(Colaborador)
 
 
 export default PessoaJuridica

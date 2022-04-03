@@ -58,4 +58,6 @@ const Colaborador = db.define('colaboradors',{
     },
 })
 
+
+
 export default Colaborador

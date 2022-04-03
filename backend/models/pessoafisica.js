@@ -4,42 +4,44 @@ import Colaborador from "./colaborador.js";
 
 
 const pessoafisica = db.define('pessoa_fisicas',{
-    id:{
+    colaboradorId:{
         type:Sequelize.INTEGER,
         primaryKey:true
     },
+    
     cpf:{
         type:Sequelize.STRING,
-        allowNull:false,
+        allowNull:true,
     },
     naturalidade:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     nacionalidade:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     estado_civil:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     genero:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     raca:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     tipo_arquivo_pessoa_fisica:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     }
 
 })
 
 
-pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'id'}})
+pessoafisica.Colaborador =  pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'colaboradorId'}})
+Colaborador.hasOne(pessoafisica)
 
 export default pessoafisica
