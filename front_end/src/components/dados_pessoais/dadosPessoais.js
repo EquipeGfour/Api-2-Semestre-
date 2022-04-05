@@ -3,7 +3,7 @@ import "./style.css"
 
 function DadosPessoais(){
     return(
-        <div className="dadosContainer row">
+        <div className="dadosContainer row dados_pessoais">
             <h1>Dados Pessoais</h1>
             <div className="col s12 esquerda">
                 <div className="row">

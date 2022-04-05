@@ -1,6 +1,7 @@
 import React from "react"
 import "./styleup.css"
 import {MdCloudUpload} from "react-icons/md"
+import {TextInput} from "react-materialize"
 
 function Upload (){
     return(
@@ -9,7 +10,15 @@ function Upload (){
             <h1>Uploads</h1>
             
             <div className="row">
-                <a className="waves-effect waves-light btn-large btnCarregar" ><MdCloudUpload className="Nuvem"/>Clique para carregar</a>
+            <div className="file-field input-field">
+                <div class=" waves-effect waves-light  btnCarregar">
+                    <span><MdCloudUpload className="Nuvem"/>Clique para carregar</span>
+                    <input type="file"/>
+                </div>
+               
+                
+                </div>
+                
                 
                 
                 

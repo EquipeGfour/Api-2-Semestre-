@@ -5,6 +5,7 @@
     margin-top: 8rem;
     color: #53C4CD;
     text-align: center;
+    padding-bottom: 5rem;
     
 }
 
@@ -47,6 +48,8 @@
     border: 2px solid #53C4CD ;
     background-color: transparent;
     width: 30%;
+    padding: 0.5rem;
+    
     
 }
 
@@ -62,11 +65,21 @@
 }
 
 
-.box2{
-    margin-left: 2.8rem;
-}
+
 
 .checkBox{
     margin-top: 5rem;
+    width: 30%;
+    padding-left: 4rem;
     
+}
+
+.checkBox p{
+    text-align: left;
+}
+
+
+.file-field input-field{
+    width: 100%;
+
 }

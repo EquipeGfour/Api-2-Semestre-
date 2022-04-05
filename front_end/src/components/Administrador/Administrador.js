@@ -5,7 +5,7 @@ import "./style.css"
 
 function Administrador (){
     return(
-        <div className="dadosContainer row">
+        <div className="dadosContainer row tela_adm">
             <h1>Administrador</h1>
             <div className="col s12 esquerda">
                 <div className="row">
