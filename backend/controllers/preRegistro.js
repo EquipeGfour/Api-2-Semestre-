@@ -1,25 +1,21 @@
-import Colaborador from "../models/colaborador.js";
-import pessoafisica from "../models/pessoafisica.js";
-import PessoaJuridica from "../models/pessoa_juridica.js";
 import { sendMail } from "../functions/sendEmail.js";
 import { geradorSenha } from "../functions/gerador_senha.js";
+import { createPessoaFisica } from "../service/pessoaFisicaService.js";
+import { createPessoaJuridica } from "../service/pessoJuridicaService.js";
 
 export const insertPreRegistroCpf = async(req, res) => {
     try{
         const senha = geradorSenha()
         const email = req.body.email
-        const dados = await pessoafisica.create({
+        const pessoaFisica = {
             cpf:req.body.cpf,
             colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
                 senha:senha,
             }
-        },{
-            include: [{
-            association: pessoafisica.Colaborador}]
         }
-        );
+        const dados = await createPessoaFisica(pessoaFisica)
         await sendMail(email,senha)
         return res.json(dados) 
         
@@ -31,18 +27,15 @@ export const insertPreRegistroCnpj = async(req, res) => {
     try{
         const senha = geradorSenha()
         const email = req.body.email
-        const dados = await PessoaJuridica.create({
+        const pessoaJuridica = {
             cnpj:req.body.cnpj,
             colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
                 senha:senha,
             }
-        },{
-            include: [{
-            association: PessoaJuridica.Colaborador}]
         }
-        );
+        const dados = await createPessoaJuridica(pessoaJuridica);
         await sendMail(email,senha)
         return res.json(dados)
 

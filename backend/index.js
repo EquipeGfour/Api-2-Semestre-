@@ -14,8 +14,10 @@ try {
 } catch (error) {
     console.error('Connection error:', error);
 }
+
 app.use(cors());
 app.use(express.json());
+
 app.use('/colab',ColaboradorRouter)
 
 app.use('/login', LoginRouter)

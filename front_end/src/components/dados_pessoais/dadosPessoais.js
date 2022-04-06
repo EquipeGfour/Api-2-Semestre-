@@ -51,7 +51,6 @@ function DadosPessoais(){
                     </div>
                 </div>
 
-
                 <div className="row">
                     <div className="input-field col s6">
                         <input value="Endereço (Rua ou Avenida e Número)" id="first_name2" type="text" className="validate"/>
@@ -106,8 +105,6 @@ function DadosPessoais(){
 
                 </div>
 
-
-
                 <div className="row">
                     <div className="input-field col s6">
                         <input value="Email" id="first_name2" type="text" className="validate"/>
@@ -146,15 +143,6 @@ function DadosPessoais(){
                 <a className="waves-effect waves-light btn-large btnAzul">Enviar</a>
 
             </div>
-
-
-
-
-
-
-
-
-            
 
         </div>
           
