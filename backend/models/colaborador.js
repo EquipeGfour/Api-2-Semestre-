@@ -1,5 +1,6 @@
-import { Sequelize } from "sequelize";
+import Cargos from "./cargo.js";
 import db from '../config/db.js'
+import { Sequelize } from "sequelize";
 
 const Colaborador = db.define('colaboradors',{
     id:{
@@ -58,6 +59,8 @@ const Colaborador = db.define('colaboradors',{
     },
 })
 
+Colaborador.Cargos = Colaborador.hasMany(Cargos, {foreignKey:"Colaborador_ID"})
+Cargos.Colaborador = Cargos.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_id'}})
 
 
 export default Colaborador

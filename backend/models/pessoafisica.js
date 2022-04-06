@@ -41,7 +41,7 @@ const pessoafisica = db.define('pessoa_fisicas',{
 })
 
 
-pessoafisica.Colaborador =  pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'colaboradorId'}})
+pessoafisica.Colaborador = pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'colaboradorId'}})
 
 
 export default pessoafisica

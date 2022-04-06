@@ -1,6 +1,8 @@
-import { Sequelize } from "sequelize";
-import db from "../config/db.js"
 import Colaborador from "./colaborador.js";
+import db from "../config/db.js"
+import { Sequelize } from "sequelize";
+
+
 
 const Cargos = db.define('Cargo',{
     id:{
@@ -15,6 +17,6 @@ const Cargos = db.define('Cargo',{
     }
 })
 
-Cargos.belongsTo(Colaborador,{foreignKey:'Colaborador_id'})
 
-export default Cargo
+
+export default Cargos

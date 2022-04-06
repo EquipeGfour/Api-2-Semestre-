@@ -3,6 +3,7 @@ import { geradorSenha } from "../functions/gerador_senha.js";
 import { createPessoaFisica } from "../service/pessoaFisicaService.js";
 import { createPessoaJuridica } from "../service/pessoJuridicaService.js";
 
+
 export const insertPreRegistroCpf = async(req, res) => {
     try{
         const senha = geradorSenha()
@@ -23,6 +24,8 @@ export const insertPreRegistroCpf = async(req, res) => {
         res.json({ message: error.message });
     }
 }
+
+
 export const insertPreRegistroCnpj = async(req, res) => {
     try{
         const senha = geradorSenha()
