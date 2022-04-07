@@ -1,6 +1,4 @@
--- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-03-31 20:26:35.924
-
+DROP DATABASE ionic;
 CREATE DATABASE ionic;
 
 use ionic;
@@ -32,7 +30,11 @@ CREATE TABLE Colaboradors (
     nome varchar(300) ,
     email varchar(300) ,
     senha varchar(300) ,
-    tipo_pessoa varchar(40) ,
+    naturalidade varchar(200),
+    nacionalidade varchar(200),
+    estado_civil varchar(200),
+    genero varchar(200),
+    raca varchar(100),
     ddd varchar(300) ,
     numero varchar(300) ,
     data_nascimento date ,
@@ -117,22 +119,17 @@ CREATE TABLE Grade_Cursos (
 
 -- Table: Pessoa_Fisicas
 CREATE TABLE Pessoa_Fisicas (
-    colaboradorId int NOT NULL,
+    Colaborador_ID int NOT NULL,
     cpf int,
-    naturalidade varchar(200),
-    nacionalidade varchar(200),
-    estado_civil varchar(200),
-    genero varchar(200),
-    raca varchar(100),
 	tipo_arquivo_pessoa_fisica varchar(200) ,
     createdAt date NOT NULL,
     updatedAt date ,
-    CONSTRAINT Pessoa_Fisicas_pk PRIMARY KEY (colaboradorId)
+    CONSTRAINT Pessoa_Fisicas_pk PRIMARY KEY (Colaborador_ID)
 );
 
 -- Table: Pessoa_Juridicas
 CREATE TABLE Pessoa_Juridicas (
-    colaboradorId int NOT NULL,
+    Colaborador_ID int NOT NULL,
     cnpj int ,
     empresa_contratada varchar(300) ,
     tempo_formalizacao varchar(300) ,
@@ -140,13 +137,13 @@ CREATE TABLE Pessoa_Juridicas (
     data_fundacao varchar(300) ,
     createdAt date NOT NULL,
     updatedAt date ,
-    CONSTRAINT Pessoa_Juridicas_pk PRIMARY KEY (colaboradorId)
+    CONSTRAINT Pessoa_Juridicas_pk PRIMARY KEY (Colaborador_ID)
 );
 
 -- Table: Trilha_Aprendizados
 CREATE TABLE Trilha_Aprendizados (
     ID int NOT NULL AUTO_INCREMENT,
-    Pessoa_Fisicas_colaboradorId int ,
+    Pessoa_Fisicas_Colaborador_ID int ,
     status_curso varchar(200) ,
     data_inicio date ,
     data_fim date ,
@@ -194,7 +191,6 @@ ALTER TABLE Pessoa_Juridicas ADD CONSTRAINT Pessoa_Juridica_Colaborador FOREIGN 
 
 -- Reference: Trilha_Aprendizado_Pessoa_Fisica (table: Trilha_Aprendizados)
 ALTER TABLE Trilha_Aprendizados ADD CONSTRAINT Trilha_Aprendizado_Pessoa_Fisica FOREIGN KEY Trilha_Aprendizado_Pessoa_Fisica (ID)
-    REFERENCES Pessoa_Fisicas (colaboradorId);
+    REFERENCES Pessoa_Fisicas (Colaborador_ID);
 
 -- End of file.
-

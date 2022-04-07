@@ -21,7 +21,23 @@ const Colaborador = db.define('colaboradors',{
         type:Sequelize.STRING,
         allowNull:true
     },
-    tipo_pessoa:{
+    naturalidade:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
+    nacionalidade:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
+    estado_civil:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
+    genero:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
+    raca:{
         type:Sequelize.STRING,
         allowNull:true
     },

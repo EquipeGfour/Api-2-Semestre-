@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from "../config/db.js"
 import Colaborador from './colaborador.js'
 
-const DadosAcademicos = db.define('DadosAcademicos',{
+const DadosAcademicos = db.define('Dados_Academicos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -11,26 +11,27 @@ const DadosAcademicos = db.define('DadosAcademicos',{
     },
     formacao:{
         type:Sequelize.INTEGER,
-        allowNull:false
+        allowNull:true
     },
     cursos:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     termo_PI:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     linguas:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     tipo_arquivo_academicos:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     }
 
 })
-DadosAcademicos.belongsTo(Colaborador,{foreignKey:'Colaborador_id'})
+Colaborador.DadosAcademicos = Colaborador.hasMany(DadosAcademicos, {foreignKey:"Colaborador_ID"})
+DadosAcademicos.Colaborador = DadosAcademicos.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_id'}})
 
-export default Contrato
+export default DadosAcademicos
