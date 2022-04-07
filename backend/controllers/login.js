@@ -9,11 +9,13 @@ export const verify = async (req, res) => {
         const senha = req.body.senha
 
         const dados = await sequelize.query(`
-            select c.email,c.senha,c.ID, c.nome, pf.cpf, pj.cnpj
+            select c.email,c.senha,c.ID, c.nome,ca.cargo, pf.cpf, pj.cnpj
                 from colaboradors c left join pessoa_fisicas as pf 
                     on c.ID = pf.Colaborador_ID 
                 left join pessoa_juridicas as pj 
                     on c.ID = pj.Colaborador_ID
+                left join cargos as ca 
+                    on c.ID = ca.Colaborador_ID
                 where c.email = '${email}' and c.senha = '${senha}'`,
             {type:sequelize.QueryTypes.SELECT})
         
