@@ -4,7 +4,7 @@ import Colaborador from "./colaborador.js";
 
 
 const pessoafisica = db.define('pessoa_fisicas',{
-    colaboradorId:{
+    Colaborador_ID:{
         type:Sequelize.INTEGER,
         primaryKey:true
     },
@@ -41,7 +41,7 @@ const pessoafisica = db.define('pessoa_fisicas',{
 })
 
 
-pessoafisica.Colaborador = pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'colaboradorId'}})
+pessoafisica.Colaborador = pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
 
 
 export default pessoafisica

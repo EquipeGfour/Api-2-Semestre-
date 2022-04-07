@@ -173,8 +173,8 @@ ALTER TABLE Dados_Academicos ADD CONSTRAINT Dados_Academicos_Colaborador FOREIGN
     REFERENCES Colaboradors (ID);
 
 -- Reference: Departamento_Cargo (table: Cargos)
-ALTER TABLE Cargos ADD CONSTRAINT Departamento_Cargo FOREIGN KEY Departamento_Cargo (ID)
-    REFERENCES Departamentos (ID);
+ALTER TABLE Departamentos ADD CONSTRAINT Cargo_Departamento FOREIGN KEY Cargo_Departamento (ID)
+    REFERENCES Cargos (ID);
 
 -- Reference: Endereco_Colaborador (table: Colaboradors)
 ALTER TABLE Enderecos ADD CONSTRAINT Endereco_Colaborador FOREIGN KEY Endereco_Colaborador (Colaborador_ID)
@@ -185,11 +185,11 @@ ALTER TABLE Grade_Cursos ADD CONSTRAINT Grade_Curso_Trilha_Aprendizado FOREIGN K
     REFERENCES Trilha_Aprendizados (ID);
 
 -- Reference: Pessoa_Fisica_Colaborador (table: Pessoa_Fisicas)
-ALTER TABLE Pessoa_Fisicas ADD CONSTRAINT Pessoa_Fisica_Colaborador FOREIGN KEY Pessoa_Fisica_Colaborador (colaboradorId)
+ALTER TABLE Pessoa_Fisicas ADD CONSTRAINT Pessoa_Fisica_Colaborador FOREIGN KEY Pessoa_Fisica_Colaborador (Colaborador_ID)
     REFERENCES Colaboradors (ID);
 
 -- Reference: Pessoa_Juridica_Colaborador (table: Pessoa_Juridicas)
-ALTER TABLE Pessoa_Juridicas ADD CONSTRAINT Pessoa_Juridica_Colaborador FOREIGN KEY Pessoa_Juridica_Colaborador (colaboradorId)
+ALTER TABLE Pessoa_Juridicas ADD CONSTRAINT Pessoa_Juridica_Colaborador FOREIGN KEY Pessoa_Juridica_Colaborador (Colaborador_ID)
     REFERENCES Colaboradors (ID);
 
 -- Reference: Trilha_Aprendizado_Pessoa_Fisica (table: Trilha_Aprendizados)
