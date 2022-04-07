@@ -7,25 +7,29 @@ function Administrador (){
     return(
         <div className="dadosContainer row tela_adm">
             <h1>Administrador</h1>
+            <form>
             <div className="col s12 esquerda">
+
+            
+
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Data de Admissão" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Data de Admissão" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Data de Admissão</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Tempo de Casa" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Tempo de Casa" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Tempo de Casa</label>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Contrato" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Contrato" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Contrato</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Empresa Contratada" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Empresa Contratada" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Empresa Contratada</label>
                     </div>
                 </div>
@@ -33,22 +37,22 @@ function Administrador (){
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Natureza Jurídica" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Natureza Jurídica" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Natureza Jurídica</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Data de Fundação" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Data de Fundação" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Data de Fundação</label>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Tempo de Formalização" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Tempo de Formalização" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Tempo de Formalização</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Área" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Área" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Área</label>
                     </div>
                 </div>
@@ -56,22 +60,22 @@ function Administrador (){
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Base" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Base" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Base</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Head" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Head" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Head</label>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Domínio" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Domínio" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Domínio</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Cargo" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Cargo" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Cargo</label>
                     </div>
                 </div>
@@ -79,22 +83,22 @@ function Administrador (){
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Nível" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Nível" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Nível</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Faixa Salarial" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Faixa Salarial" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Faixa Salarial</label>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Plano de Saúde" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Plano de Saúde" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Plano de Saúde</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Vale Transporte" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Vale Transporte" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Vale Transporte</label>
                     </div>
                 </div>
@@ -103,32 +107,32 @@ function Administrador (){
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Vale Refeição" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Vale Refeição" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Vale Refeição</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Auxilio Creche" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Auxilio Creche" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Auxilio Creche</label>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Contrato de Trabalho" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Contrato de Trabalho" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Contrato de Trabalho</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Termo de PI" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Termo de PI" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Termo de PI</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Código de Conduta e Ética" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Código de Conduta e Ética" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Código de Conduta e Ética</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Data de Desligamento" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Data de Desligamento" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Data de Desligamento</label>
                     </div>
                 </div>
@@ -138,17 +142,17 @@ function Administrador (){
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value="Tipo de Desligamento" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Tipo de Desligamento" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Tipo de Desligamento</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value="Pesquisa de Desligamento" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Pesquisa de Desligamento" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Pesquisa de Desligamento</label>
                     </div>
                 </div>
 
                 <div className="input-field col s6">
-                        <input value="Distrato" id="first_name2" type="text" className="validate"/>
+                        <input placeholder="Distrato" id="first_name2" type="text" className="validate"/>
                         <label className="active" for="first_name2">Distrato</label>
                     </div>
                 </div>
@@ -167,7 +171,7 @@ function Administrador (){
 
 
             
-
+            </form>
         </div>
           
     )

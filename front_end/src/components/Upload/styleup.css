@@ -33,7 +33,7 @@
 
 .uploadContainer .btnAzulCarregar{
     margin-top: 2rem ;
-    width: 30%;
+    width: 20%;
     padding:  0;
     border-radius: 30px;
     background-color: #53C4CD;
@@ -42,6 +42,8 @@
 
 
 }
+
+
 
 .btnCarregar{
     margin-top: 5rem;

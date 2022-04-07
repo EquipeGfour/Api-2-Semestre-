@@ -9,14 +9,14 @@ function PreRegistro (){
     <div className="centralizar">
        <div className="row">
             <div className="input-field col s12">
-            <input value="Nome Completo" id="first_name2" type="text" className="validate"/>
+            <input placerholder="Nome Completo" id="first_name2" type="text" className="validate"/>
             <label className="active" for="first_name2">Nome</label>
             </div>
         </div>
 
         <div className="row">
             <div className="input-field col s12">
-            <input value="Email" id="first_name2" type="text" className="validate"/>
+            <input placerholder="Email" id="first_name2" type="text" className="validate"/>
             <label className="active" for="first_name2">Email</label>
             </div>
         </div>
