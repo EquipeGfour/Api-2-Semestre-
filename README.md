@@ -88,26 +88,26 @@ Nosso objetivo é desenvolver uma página website para uma :
 
 <br>
 
-## :bar_chart: Backlog Total
+## :bar_chart:Backlog Total
 
 
 
 <br>
 
-## :mortar_board: Equipe 
+## :mortar_board:Equipe 
 
 
 <div id='equipe'>
-    <h3><img src="imagens%20gerais/logo_abacate1.png"> Equipe Gfour</h3>
+    <h3>Equipe Gfour</h3>
     
 
 Integrantes da Equipe | Função | Linkedin | Github| Avatar|
 :--------- | :------: | :-------: | :-------: | :------: |
-Natalia Bessa de Moura | PO | [Linkedin](https://www.linkedin.com/in/natalia-bessa-59b671220/) | [Github](https://github.com/lirabessa)|<img src = "imagens%20gerais/natalia.jpg" width="60" height="60">|     
-Rodrigo Ribeiro dos Santos | SM | [Linkedin](https://www.linkedin.com/in/rodrigo-ribeiro-5008211b8/) | [Github](https://github.com/rodrigoribeiro027)|<img src = "imagens%20gerais/rodrigo1.jpg" width="60" height="60">|
-Rafael Peressoni Waltrick | DT | [Linkedin](https://www.linkedin.com/in/rafael-p-waltrick-7211b4221) |  [Github](https://github.com/rafawaltrick)|<img src = "imagens%20gerais/rafa(1).jpg" width="60" height="60">|
-Nicolas Lima de Holanda Galindo | DT | [Linkedin](https://www.linkedin.com/in/nicolas-lima-2a75a3220/) | [Github](https://github.com/Nicolas734)|<img src = "imagens%20gerais/nicolas.jpg" width="60" height="60">| 
-Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens%20gerais/raniel1.jpg" width="60" height="60">|
+Natalia Bessa de Moura | PO | [Linkedin](https://www.linkedin.com/in/natalia-bessa-59b671220/) | [Github](https://github.com/lirabessa)|<img src = "imagens_gerais/natalia.jpg" width="60" height="60">|     
+Rodrigo Ribeiro dos Santos | SM | [Linkedin](https://www.linkedin.com/in/rodrigo-ribeiro-5008211b8/) | [Github](https://github.com/rodrigoribeiro027)|<img src = "imagens_gerais/rodrigo1.jpg" width="60" height="60">|
+Rafael Peressoni Waltrick | DT | [Linkedin](https://www.linkedin.com/in/rafael-p-waltrick-7211b4221) |  [Github](https://github.com/rafawaltrick)|<img src = "imagens_gerais/rafa(1).jpg" width="60" height="60">|
+Nicolas Lima de Holanda Galindo | DT | [Linkedin](https://www.linkedin.com/in/nicolas-lima-2a75a3220/) | [Github](https://github.com/Nicolas734)|<img src = "imagens_gerais/nicolas.jpg" width="60" height="60">| 
+Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens_gerais/raniel1.jpg" width="60" height="60">|
 <br>
 
    
@@ -119,6 +119,6 @@ Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/ra
 
 
 
- <h1 align="center"> <img src = "imagens%20gerais/Fatec.jpg" height="90" /></h1>
+ <h1 align="center"> <img src = "imagens_gerais/Fatec.jpg" height="90" /></h1>
  
- <h5 align="center"> <img src = "imagens%20gerais/faTec.png" width="20" height="20" /> Projeto Integrador 2021 - Fatec São José dos Campos </h5>
+ <h5 align="center"> <img src = "imagens_gerais/faTec.png" width="20" height="20" /> Projeto Integrador 2021 - Fatec São José dos Campos </h5>
