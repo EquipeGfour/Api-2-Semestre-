@@ -31,7 +31,7 @@ const DadosAcademicos = db.define('Dados_Academicos',{
     }
 
 })
-Colaborador.DadosAcademicos = Colaborador.hasMany(DadosAcademicos, {foreignKey:"Colaborador_ID"})
-DadosAcademicos.Colaborador = DadosAcademicos.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_id'}})
+Colaborador.DadosAcademicos = Colaborador.hasMany(DadosAcademicos,{foreignKey:'Colaborador_ID',as:"DadosAcademicos"})
+DadosAcademicos.Colaborador = DadosAcademicos.belongsTo(Colaborador,{foreignKey:'Colaborador_ID',as:"DadosAcademicos"})
 
 export default DadosAcademicos

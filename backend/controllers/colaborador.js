@@ -54,28 +54,19 @@ export const inserirDadosColab  = async (req,res)=>{
                         ddd:req.body.ddd,
                         numero:req.body.numero,
                         data_nascimento:req.body.data_nascimento,
-                            dadosAcademicos:{
-                                formacao:req.body.formacao,
-                                cursos:req.body.cursos,
-                                linguas:req.body.linguas
+                        DadosAcademicos:{
+                            formacao:req.body.formacao,
+                            cursos:req.body.cursos,
+                            linguas:req.body.linguas
                             }
                     }
             
         },{ 
             include:[
-            {model:Colaborador,include:{model:DadosAcademicos}}
+            {model:Colaborador,include:{model:DadosAcademicos,as:"DadosAcademicos"}}
         ] 
         })
-        // const dadosAcademicos = await DadosAcademicos.create({
-        //     Colaborador_ID:dados_pessoais.id,
-        //     formacao:req.body.formacao,
-        //     cursos:req.body.cursos,
-        //     linguas:req.body.linguas
-            
-        
-        // },{ transaction: t })
-        
-    
+
         res.json({
             dados_pessoais
         })

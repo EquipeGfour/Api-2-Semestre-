@@ -1,4 +1,6 @@
-DROP DATABASE ionic;
+
+DROP DATABASE IF EXISTS ionic;
+
 CREATE DATABASE ionic;
 
 use ionic;
