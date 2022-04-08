@@ -9,8 +9,10 @@ import preRegistroRouter from './routes/preRegistroRouter.js'
 const app = express();
 
 try {
-    await db.authenticate();
-    console.log('Banco de Dados Conectado.');
+    db.authenticate().then(()=>{
+        console.log('Banco de Dados Conectado.');
+    });
+    
 } catch (error) {
     console.error('Connection error:', error);
 }

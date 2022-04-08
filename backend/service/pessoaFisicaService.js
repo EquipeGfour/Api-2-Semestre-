@@ -10,10 +10,10 @@ export const createPessoaFisica = async(dados) =>{
 }
 
 export const findAllPessoaFisica = async () =>{
-    const pessoafisica = await pessoafisica.findAll({
+    const pessoa = await pessoafisica.findAll({
         include:Colaborador
     });
-    return pessoafisica
+    return pessoa
 }
 
 

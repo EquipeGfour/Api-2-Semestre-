@@ -3,7 +3,7 @@ import db from "../config/db.js";
 import Colaborador from "./colaborador.js";
 
 
-const pessoafisica = db.define('pessoa_fisicas',{
+const pessoafisica = db.define('Pessoa_Fisicas',{
     Colaborador_ID:{
         type:Sequelize.INTEGER,
         primaryKey:true

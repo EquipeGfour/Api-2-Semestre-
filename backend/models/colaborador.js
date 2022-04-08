@@ -2,7 +2,7 @@ import Cargos from "./cargo.js";
 import db from '../config/db.js'
 import { Sequelize } from "sequelize";
 
-const Colaborador = db.define('colaboradors',{
+const Colaborador = db.define('Colaboradors',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -57,10 +57,7 @@ const Colaborador = db.define('colaboradors',{
         type:Sequelize.STRING,
         allowNull:true
     },
-    base:{
-        type:Sequelize.STRING,
-        allowNull:true
-    },
+    
     status:{
         type:Sequelize.STRING,
         allowNull:true

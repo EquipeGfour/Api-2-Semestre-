@@ -4,7 +4,7 @@ import Cargo from "../models/cargo.js";
 import Endereco from "../models/endereco.js";
 import sequelize from "../config/db.js"
 import DadosAcademicos from "../models/Dados_Academicos.js"
-
+import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
 export const getAllColaborador = async (req, res) => {
     try {
         const colaborador = await Colaborador.findAll();
