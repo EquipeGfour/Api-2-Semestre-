@@ -19,7 +19,7 @@ export const verify = async (req, res) => {
                 where c.email = '${email}' and c.senha = '${senha}'`,
             {type:sequelize.QueryTypes.SELECT})
         
-        if(dados === null ){
+        if(dados.length < 1 ){
             res.status(401).json({"message":"Email ou Senha incorretos"})
         }
         else{
