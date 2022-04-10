@@ -3,8 +3,7 @@ import Colaborador from "../models/colaborador.js"
 
 export const createPessoaFisica = async(dados) =>{
     const res = await pessoafisica.create(dados,{
-        include: [{
-        association: pessoafisica.Colaborador}]
+        include:Colaborador
     })
     return res
 }

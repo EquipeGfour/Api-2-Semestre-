@@ -10,7 +10,7 @@ export const insertPreRegistroCpf = async(req, res) => {
         const email = req.body.email
         const pessoaFisica = {
             cpf:req.body.cpf,
-            colaborador:{
+            Colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
                 senha:senha,
@@ -32,7 +32,7 @@ export const insertPreRegistroCnpj = async(req, res) => {
         const email = req.body.email
         const pessoaJuridica = {
             cnpj:req.body.cnpj,
-            colaborador:{
+            Colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
                 senha:senha,
