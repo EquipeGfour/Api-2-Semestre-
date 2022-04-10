@@ -34,41 +34,51 @@ export const testeCargo = async (req,res) => {
     }
 }
 
-
 export const inserirDadosColab  = async (req,res)=>{
     const t = await sequelize.transaction();
     try{
+        console.log(res.body)
+
+        const colabId = {
+            id:req.body.id,
+            nacionalidade:req.body.nacionalidade,
+            naturalidade:req.body.naturalidade,
+            estado_civil:req.body.estado_civil,
+            genero:req.body.genero,
+            raca:req.body.raca,
+            ddd:req.body.ddd,
+            numero:req.body.numero,
+            data_nascimento:req.body.data_nascimento,
+            DadosAcademicos:{
+                formacao:req.body.formacao,
+                cursos:req.body.cursos,
+                linguas:req.body.linguas
+                }
+        }
+
+        const atualizados = await Colaborador.update(colabId,{
+            where:{
+                id:req.body.id
+            },
+            include:{model:DadosAcademicos,as:"DadosAcademicos"}
+        })
+
         const dados_pessoais = await Endereco.create({
+                    
                     estado:req.body.estado,
                     cep:req.body.cep,
                     regiao:req.body.regiao,
                     cidade:req.body.cidade,
                     bairro:req.body.bairro,
                     complemento:req.body.complemento,
-                        Colaborador:{
-                        nacionalidade:req.body.nacionalidade,
-                        naturalidade:req.body.naturalidade,
-                        estado_civil:req.body.estado_civil,
-                        genero:req.body.genero,
-                        raca:req.body.raca,
-                        ddd:req.body.ddd,
-                        numero:req.body.numero,
-                        data_nascimento:req.body.data_nascimento,
-                        DadosAcademicos:{
-                            formacao:req.body.formacao,
-                            cursos:req.body.cursos,
-                            linguas:req.body.linguas
-                            }
-                    }
+                    Colaborador_ID:req.body.id
+                        
             
-        },{ 
-            include:[
-            {model:Colaborador,include:{model:DadosAcademicos,as:"DadosAcademicos"}}
-        ] 
         })
 
         res.json({
-            dados_pessoais
+            dados_pessoais, atualizados
+
         })
     }catch(error){
         res.json({ message: error.message });
