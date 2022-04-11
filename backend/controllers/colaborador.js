@@ -49,11 +49,7 @@ export const inserirDadosColab  = async (req,res)=>{
             ddd:req.body.ddd,
             numero:req.body.numero,
             data_nascimento:req.body.data_nascimento,
-            DadosAcademicos:{
-                formacao:req.body.formacao,
-                cursos:req.body.cursos,
-                linguas:req.body.linguas
-                }
+            
         }
 
         const atualizados = await Colaborador.update(colabId,{
@@ -63,7 +59,40 @@ export const inserirDadosColab  = async (req,res)=>{
             include:{model:DadosAcademicos,as:"DadosAcademicos"}
         })
 
-        const dados_pessoais = await Endereco.create({
+        const dadosA = await DadosAcademicos.findOne({
+            where:{
+                Colaborador_ID:req.body.id
+            }
+        }).then(id=>{
+            if(id){
+                return DadosAcademicos.update({
+                    formacao:req.body.formacao,
+                    cursos:req.body.cursos,
+                    linguas:req.body.linguas,
+                    Colaborador_ID:req.body.id
+                },{
+                    where:{
+                        Colaborador_ID:req.body.id
+                    }
+                })
+            }
+        else{
+            return DadosAcademicos.create({
+                formacao:req.body.formacao,
+                cursos:req.body.cursos,
+                linguas:req.body.linguas,
+                Colaborador_ID:req.body.id
+            })
+        }
+        })
+
+        const enredeco = await Endereco.findOne({
+            where:{
+                Colaborador_ID:req.body.id
+            }
+        }).then(id=>{
+            if(id){
+                return Endereco.update({
                     
                     estado:req.body.estado,
                     cep:req.body.cep,
@@ -72,12 +101,27 @@ export const inserirDadosColab  = async (req,res)=>{
                     bairro:req.body.bairro,
                     complemento:req.body.complemento,
                     Colaborador_ID:req.body.id
-                        
-            
+        },
+        {where:{
+            Colaborador_ID:req.body.id
+        }
+    })
+        }else{
+            return Endereco.create({
+                    
+                estado:req.body.estado,
+                cep:req.body.cep,
+                regiao:req.body.regiao,
+                cidade:req.body.cidade,
+                bairro:req.body.bairro,
+                complemento:req.body.complemento,
+                Colaborador_ID:req.body.id
+    })
+        } 
         })
 
         res.json({
-            dados_pessoais, atualizados
+            enredeco, atualizados, dadosA
 
         })
     }catch(error){
