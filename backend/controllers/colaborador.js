@@ -1,10 +1,11 @@
 import Colaborador from "../models/colaborador.js";
-import pessoafisica from "../models/pessoafisica.js"
 import Cargo from "../models/cargo.js";
 import Endereco from "../models/endereco.js";
-import sequelize from "../config/db.js"
-import DadosAcademicos from "../models/Dados_Academicos.js"
+import sequelize from "../config/db.js";
+import DadosAcademicos from "../models/Dados_Academicos.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
+import { atualizarColaborador } from "../service/colaboradorService.js";
+
 export const getAllColaborador = async (req, res) => {
     try {
         const colaborador = await Colaborador.findAll();
@@ -35,11 +36,15 @@ export const testeCargo = async (req,res) => {
 }
 
 export const inserirDadosColab  = async (req,res)=>{
-    const t = await sequelize.transaction();
+    
     try{
+
+        const t = await sequelize.transaction();
+
         console.log(res.body)
 
-        const colabId = {
+        const colabId = req.body.id
+        const objColab = {
             id:req.body.id,
             nome:req.body.nome,
             email:req.body.email,
@@ -51,81 +56,42 @@ export const inserirDadosColab  = async (req,res)=>{
             ddd:req.body.ddd,
             numero:req.body.numero,
             data_nascimento:req.body.data_nascimento,
-            
         }
 
-        const atualizados = await Colaborador.update(colabId,{
-            where:{
-                id:req.body.id
-            }
-        })
-
-        const dadosA = await DadosAcademicos.findOne({
-            where:{
-                Colaborador_ID:req.body.id
-            }
-        }).then(id=>{
-            if(id){
-                return DadosAcademicos.update({
-                    formacao:req.body.formacao,
-                    cursos:req.body.cursos,
-                    linguas:req.body.linguas,
-                    Colaborador_ID:req.body.id
-                },{
-                    where:{
-                        Colaborador_ID:req.body.id
-                    }
-                })
-            }
-        else{
-            return DadosAcademicos.create({
-                formacao:req.body.formacao,
-                cursos:req.body.cursos,
-                linguas:req.body.linguas,
-                Colaborador_ID:req.body.id
-            })
-        }
-        })
-
-        const enredeco = await Endereco.findOne({
-            where:{
-                Colaborador_ID:req.body.id
-            }
-        }).then(id=>{
-            if(id){
-                return Endereco.update({
-                    
-                    estado:req.body.estado,
-                    cep:req.body.cep,
-                    regiao:req.body.regiao,
-                    cidade:req.body.cidade,
-                    bairro:req.body.bairro,
-                    complemento:req.body.complemento,
-                    Colaborador_ID:req.body.id
-        },
-        {where:{
+        const objDadosAcademicos = {
+            formacao:req.body.formacao,
+            cursos:req.body.cursos,
+            linguas:req.body.linguas,
             Colaborador_ID:req.body.id
         }
-    })
-        }else{
-            return Endereco.create({
-                    
-                estado:req.body.estado,
-                cep:req.body.cep,
-                regiao:req.body.regiao,
-                cidade:req.body.cidade,
-                bairro:req.body.bairro,
-                complemento:req.body.complemento,
-                Colaborador_ID:req.body.id
-    })
-        } 
-        })
 
-        res.json({
-            enredeco, atualizados, dadosA
+        const objEndereco = {
+            estado:req.body.estado,
+            cep:req.body.cep,
+            regiao:req.body.regiao,
+            cidade:req.body.cidade,
+            bairro:req.body.bairro,
+            complemento:req.body.complemento,
+            Colaborador_ID:req.body.id
+        }
 
-        })
+        const dados = await atualizarColaborador(colabId, objColab, objDadosAcademicos, objEndereco, t)
+        res.json(dados)
+
     }catch(error){
+        await t.rollback()
         res.json({ message: error.message });
+    }
+}
+
+
+export const geralFunc = async (req,res) =>{
+    try{
+        const dados = await sequelize.query(`select c.nome, ca.cargo, c.email, c.numero, a.area from colaboradors c left join cargos as ca on c.Cargos_ID = ca.ID
+        left join departamentos as a on a.ID = ca.Departamento_ID;`,{type:sequelize.QueryTypes.SELECT})
+        res.json({dados})
+    }
+    catch(error){
+        res.json({message:error.message})
     }
 }

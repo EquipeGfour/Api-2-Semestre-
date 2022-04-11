@@ -11,7 +11,7 @@ CREATE TABLE Acessos (
     ID int NOT NULL AUTO_INCREMENT,
     Cargos_ID int ,
     nivel_acesso int ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Acessos_pk PRIMARY KEY (ID)
 );
@@ -19,9 +19,9 @@ CREATE TABLE Acessos (
 -- Table: Cargos
 CREATE TABLE Cargos (
     ID int NOT NULL AUTO_INCREMENT,
-    Colaborador_ID int ,
+    Departamento_ID int ,
     cargo varchar(300) ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Cargos_pk PRIMARY KEY (ID)
 );
@@ -29,6 +29,7 @@ CREATE TABLE Cargos (
 -- Table: Colaboradors
 CREATE TABLE Colaboradors (
     ID int NOT NULL AUTO_INCREMENT,
+    Cargos_ID int ,
     nome varchar(300) ,
     email varchar(300) ,
     senha varchar(300) ,
@@ -44,7 +45,7 @@ CREATE TABLE Colaboradors (
     status varchar(200) ,
     dominio varchar(300) ,
     tipo_desligamento varchar(300),
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Colaboradors_pk PRIMARY KEY (ID)
 );
@@ -63,7 +64,7 @@ CREATE TABLE Contratos (
     base varchar(300) ,
     data_Admissao date ,
     plano_saude varchar(40) ,
-    createdAt int NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt int ,
     data_desligamento date ,
     tipo_arquivo_contrato varchar(200) ,
@@ -79,7 +80,7 @@ CREATE TABLE Dados_Academicos (
     termo_PI varchar(200) ,
     linguas varchar(200) ,
     tipo_arquivo_academicos varchar(200) ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Dados_Academicos_pk PRIMARY KEY (ID)
 );
@@ -89,7 +90,7 @@ CREATE TABLE Departamentos (
     ID int NOT NULL AUTO_INCREMENT,
     area varchar(300) ,
     head varchar(300) ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Departamentos_pk PRIMARY KEY (ID)
 );
@@ -104,7 +105,7 @@ CREATE TABLE Enderecos (
     bairro varchar(300) ,
     complemento varchar(300) ,
     Colaborador_ID int ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Enderecos_pk PRIMARY KEY (ID)
 );
@@ -114,7 +115,7 @@ CREATE TABLE Grade_Cursos (
     ID int NOT NULL AUTO_INCREMENT,
     Trilha_Aprendizados_ID int ,
     nome_curso varchar(200) ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Grade_Cursos_pk PRIMARY KEY (ID)
 );
@@ -124,7 +125,7 @@ CREATE TABLE Pessoa_Fisicas (
     Colaborador_ID int NOT NULL,
     cpf int,
 	tipo_arquivo_pessoa_fisica varchar(200) ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Pessoa_Fisicas_pk PRIMARY KEY (Colaborador_ID)
 );
@@ -137,7 +138,7 @@ CREATE TABLE Pessoa_Juridicas (
     tempo_formalizacao varchar(300) ,
     natureza_juridica varchar(300) ,
     data_fundacao varchar(300) ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Pessoa_Juridicas_pk PRIMARY KEY (Colaborador_ID)
 );
@@ -149,7 +150,7 @@ CREATE TABLE Trilha_Aprendizados (
     status_curso varchar(200) ,
     data_inicio date ,
     data_fim date ,
-    createdAt date NOT NULL,
+    createdAt date default now() NOT NULL,
     updatedAt date ,
     CONSTRAINT Trilha_Aprendizados_pk PRIMARY KEY (ID)
 );
@@ -160,8 +161,11 @@ ALTER TABLE Acessos ADD CONSTRAINT Acesso_Cargo FOREIGN KEY Acesso_Cargo (Cargos
     REFERENCES Cargos (ID);
 
 -- Reference: Cargo_Colaborador (table: Cargos)
-ALTER TABLE Cargos ADD CONSTRAINT Cargo_Colaborador FOREIGN KEY Cargo_Colaborador (Colaborador_ID)
-    REFERENCES Colaboradors (ID);
+ALTER TABLE Colaboradors ADD CONSTRAINT Colaboradors_Cargo FOREIGN KEY Colaboradors_Cargo (Cargos_ID)
+    REFERENCES Cargos (ID);
+    
+ALTER TABLE Cargos ADD CONSTRAINT Departamento_Cargo FOREIGN KEY Departamento_Cargo (Departamento_ID)
+    REFERENCES Departamentos (ID);
 
 -- Reference: Contrato_Colaborador (table: Contratos)
 ALTER TABLE Contratos ADD CONSTRAINT Contrato_Colaborador FOREIGN KEY Contrato_Colaborador (Colaborador_ID)
@@ -170,10 +174,6 @@ ALTER TABLE Contratos ADD CONSTRAINT Contrato_Colaborador FOREIGN KEY Contrato_C
 -- Reference: Dados_Academicos_Colaborador (table: Dados_Academicos)
 ALTER TABLE Dados_Academicos ADD CONSTRAINT Dados_Academicos_Colaborador FOREIGN KEY Dados_Academicos_Colaborador (Colaborador_ID)
     REFERENCES Colaboradors (ID);
-
--- Reference: Departamento_Cargo (table: Cargos)
-ALTER TABLE Departamentos ADD CONSTRAINT Cargo_Departamento FOREIGN KEY Cargo_Departamento (ID)
-    REFERENCES Cargos (ID);
 
 -- Reference: Endereco_Colaborador (table: Colaboradors)
 ALTER TABLE Enderecos ADD CONSTRAINT Endereco_Colaborador FOREIGN KEY Endereco_Colaborador (Colaborador_ID)

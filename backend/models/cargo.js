@@ -11,6 +11,10 @@ const Cargos = db.define('Cargo',{
         allowNull: false,
         primaryKey: true
     },
+    Departamento_ID:{
+        type:Sequelize.INTEGER,
+        primaryKey:true
+    },
     cargo:{
         type:Sequelize.STRING,
         allowNull:false

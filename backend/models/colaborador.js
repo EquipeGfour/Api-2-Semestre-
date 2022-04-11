@@ -9,6 +9,10 @@ const Colaborador = db.define('Colaboradors',{
         allowNull: false,
         primaryKey: true
     },
+    Cargos_ID:{
+        type:Sequelize.INTEGER,
+        primaryKey:true
+    },
     nome:{
         type:Sequelize.STRING,
         allowNull:true,
