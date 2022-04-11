@@ -81,9 +81,9 @@ Nosso objetivo é desenvolver uma página website para uma :
 <img src = "" width="680" height="511">
 
 * **Reuniões e Apresentações:** Discord e Microsoft Teams;
-* **Banco de Dados:** ;
-* **Back-end:**  JavaScript;
-* **Front-end:** HTML, CSS e JavaScript;
+* **Banco de Dados Relacional:** MySQL e Vertabelo;
+* **Back-end:**  JavaScript, Sequelize e Express;
+* **Front-end:** HTML, CSS, JavaScript, React e Axios;
 * **Ferramentas:** Github, Visual Studio Code, Figma,Slack.
 
 <br>
@@ -121,4 +121,4 @@ Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/ra
 
  <h1 align="center"> <img src = "imagens_gerais/Fatec.jpg" height="90" /></h1>
  
- <h5 align="center"> <img src = "imagens_gerais/faTec.png" width="20" height="20" /> Projeto Integrador 2021 - Fatec São José dos Campos </h5>
+ <h5 align="center"> <img src = "imagens_gerais/faTec.png" width="20" height="20" /> Projeto Integrador 2022 - Fatec São José dos Campos </h5>
