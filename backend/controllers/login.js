@@ -12,7 +12,7 @@ export const verify = async (req, res) => {
                 left join pessoa_juridicas as pj 
                     on c.ID = pj.Colaborador_ID
                 left join cargos as ca 
-                    on c.ID = ca.Colaborador_ID
+                    on c.Cargos_ID = ca.ID
                 where c.email = '${email}' and c.senha = '${senha}'`,
             {type:sequelize.QueryTypes.SELECT})
         

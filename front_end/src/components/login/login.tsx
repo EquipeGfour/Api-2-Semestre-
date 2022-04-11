@@ -16,7 +16,7 @@ const Login : React.FC=(props)=> {
         axios.post('http://localhost:5000/login/',{
             email: email,
             senha: senha
-        }).then(res=>{
+        }).then(res=>{            
             setCookie('ionic-user',res.data.dados[0])
             const cargo=res.data.dados[0].cargo
             if (cargo === 'Administrador'|| cargo === 'Gestor'){
