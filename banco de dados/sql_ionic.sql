@@ -11,7 +11,7 @@ CREATE TABLE Acessos (
     ID int NOT NULL AUTO_INCREMENT,
     Cargos_ID int ,
     nivel_acesso int ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Acessos_pk PRIMARY KEY (ID)
 );
@@ -21,7 +21,7 @@ CREATE TABLE Cargos (
     ID int NOT NULL AUTO_INCREMENT,
     Departamento_ID int ,
     cargo varchar(300) ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Cargos_pk PRIMARY KEY (ID)
 );
@@ -45,7 +45,7 @@ CREATE TABLE Colaboradors (
     status varchar(200) ,
     dominio varchar(300) ,
     tipo_desligamento varchar(300),
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Colaboradors_pk PRIMARY KEY (ID)
 );
@@ -64,7 +64,7 @@ CREATE TABLE Contratos (
     base varchar(300) ,
     data_Admissao date ,
     plano_saude varchar(40) ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt int ,
     data_desligamento date ,
     tipo_arquivo_contrato varchar(200) ,
@@ -80,7 +80,7 @@ CREATE TABLE Dados_Academicos (
     termo_PI varchar(200) ,
     linguas varchar(200) ,
     tipo_arquivo_academicos varchar(200) ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Dados_Academicos_pk PRIMARY KEY (ID)
 );
@@ -90,7 +90,7 @@ CREATE TABLE Departamentos (
     ID int NOT NULL AUTO_INCREMENT,
     area varchar(300) ,
     head varchar(300) ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Departamentos_pk PRIMARY KEY (ID)
 );
@@ -105,7 +105,7 @@ CREATE TABLE Enderecos (
     bairro varchar(300) ,
     complemento varchar(300) ,
     Colaborador_ID int ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Enderecos_pk PRIMARY KEY (ID)
 );
@@ -115,7 +115,7 @@ CREATE TABLE Grade_Cursos (
     ID int NOT NULL AUTO_INCREMENT,
     Trilha_Aprendizados_ID int ,
     nome_curso varchar(200) ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Grade_Cursos_pk PRIMARY KEY (ID)
 );
@@ -125,7 +125,7 @@ CREATE TABLE Pessoa_Fisicas (
     Colaborador_ID int NOT NULL,
     cpf int,
 	tipo_arquivo_pessoa_fisica varchar(200) ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Pessoa_Fisicas_pk PRIMARY KEY (Colaborador_ID)
 );
@@ -138,7 +138,7 @@ CREATE TABLE Pessoa_Juridicas (
     tempo_formalizacao varchar(300) ,
     natureza_juridica varchar(300) ,
     data_fundacao varchar(300) ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Pessoa_Juridicas_pk PRIMARY KEY (Colaborador_ID)
 );
@@ -150,7 +150,7 @@ CREATE TABLE Trilha_Aprendizados (
     status_curso varchar(200) ,
     data_inicio date ,
     data_fim date ,
-    createdAt date default now() NOT NULL,
+    createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Trilha_Aprendizados_pk PRIMARY KEY (ID)
 );
