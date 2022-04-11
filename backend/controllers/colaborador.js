@@ -41,6 +41,8 @@ export const inserirDadosColab  = async (req,res)=>{
 
         const colabId = {
             id:req.body.id,
+            nome:req.body.nome,
+            email:req.body.email,
             nacionalidade:req.body.nacionalidade,
             naturalidade:req.body.naturalidade,
             estado_civil:req.body.estado_civil,
@@ -55,8 +57,7 @@ export const inserirDadosColab  = async (req,res)=>{
         const atualizados = await Colaborador.update(colabId,{
             where:{
                 id:req.body.id
-            },
-            include:{model:DadosAcademicos,as:"DadosAcademicos"}
+            }
         })
 
         const dadosA = await DadosAcademicos.findOne({
