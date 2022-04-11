@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link,Navigate,useNavigate} from 'react-router-dom';
-import "./style.css"
+import "./style10.css"
 import axios from "axios"
 import {useCookies} from 'react-cookie'
 
@@ -45,12 +45,14 @@ const Login : React.FC=(props)=> {
                 </div>
             </div>
 
-            <div className="row">
+            <div className="row senha">
                 <div className="input-field col s12">
-                <input value={senha} id="first_name2" type="text" className="validate" onChange={ (e) => setSenha(e.target.value)}/>
-                <label className="active" htmlFor="first_name2">Senha</label>
+                <input value={senha} id="password" type="password" className="validate" onChange={ (e) => setSenha(e.target.value)}/>
+                <label htmlFor="password">Senha</label>
                 </div>
             </div>
+
+
             
             <a className="waves-effect waves-light btn-large btnAzulLogin" onClick={GetLogin}>Entrar</a>
             

@@ -1,7 +1,8 @@
 import React from "react"
+import {Link,Navigate,useNavigate} from 'react-router-dom';
 import "./style.css"
 
-function PreRegistro (){
+function PreRegistro1 (){
     return(
 
         <div className="acessoContainer">
@@ -21,6 +22,13 @@ function PreRegistro (){
             </div>
         </div>
 
+        <div className="row">
+            <div className="input-field col s12">
+            <input placerholder="CPF" id="first_name2" type="text" className="validate"/>
+            <label className="active" for="first_name2">CPF</label>
+            </div>
+        </div>
+
 
         <a className="waves-effect waves-light btn-large btnAzul">Registrar</a>
 
@@ -32,4 +40,4 @@ function PreRegistro (){
 
 }
 
-export default PreRegistro
+export default PreRegistro1

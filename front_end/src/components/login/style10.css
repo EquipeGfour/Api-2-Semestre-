@@ -39,3 +39,19 @@
 
 
 }
+
+.senha{
+    font-size: 60px;
+}
+
+.input-field input[type=password] + label {
+    color: #53C4CD;
+    font-size: 30px;
+    
+}
+
+.input-field input[type=password] + label {
+    color: #53C4CD;
+    font-size: 30px;
+    
+}

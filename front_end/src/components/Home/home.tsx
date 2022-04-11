@@ -8,6 +8,9 @@ import Holerite from '../img/holerite.png'
 import Desligado from '../img/desligado.png'
 import PreRegistro from '../img/preregistro.png'
 import {useCookies} from 'react-cookie'
+import GeralFunc from "../geralFunc/geralFunc";
+import PreRegistro1 from "../PreRegistro/PreRegistro";
+
 
 const Home: React.FC=(props)=>{
 
@@ -21,9 +24,11 @@ const Home: React.FC=(props)=>{
             <h3>Bem-Vindo Administrador</h3>       
         
         <div className="row blocoCima">        
-            <div className="col s4 divColab">                        
-                <button className=" waves-effect  botaoFunc"><img className="imgColab" src={Colab}></img></button>
-                <div className="btnNome">Colaborador</div>         
+            <div className="col s4 divColab">
+                <Link to="/geral-funcionarios"   >                   
+                <button className=" waves-effect  botaoFunc" onClick={GeralFunc}> <img className="imgColab" src={Colab}></img></button>
+                </Link>  
+                <div className="btnNome">Colaborador</div>
             </div>
 
             <div className="col s4">
@@ -37,6 +42,7 @@ const Home: React.FC=(props)=>{
             </div>
         </div>
 
+        
         <div className="row blocoBaixo">
             <div className=" col s4">
                 <button className="waves-effect botaoFunc"><img className="imgColab" src={Desligado}></img></button>
@@ -44,12 +50,14 @@ const Home: React.FC=(props)=>{
             </div>
 
             <div className="col s4">
-            <button className="waves-effect botaoFunc"><img className="imgColab" src={Holerite}></img></button>
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={Holerite}></img></button>
                 <div className="btnNome">Financeiro</div>
             </div>
 
             <div className="col s4">
-            <button className="waves-effect botaoFunc"><img className="imgColab" src={PreRegistro}></img></button>
+                <Link to="/pre-registro">
+                <button className="waves-effect botaoFunc" onClick={PreRegistro1}><img className="imgColab" src={PreRegistro}></img></button>
+                </Link>
                 <div className="btnNome">Pré-Registro</div>
             </div>
         </div>     
