@@ -1,6 +1,7 @@
 import Colaborador from "../models/colaborador.js";
 import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
+import PessoaJuridica from "../models/pessoa_juridica.js";
 
 
 
@@ -55,3 +56,29 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
 
     return {dadosColab,dadosAcademicos,dadosEndereco}
 }
+
+export const atualizarColaboradorCnpj = async(colabId,objCnpj,t)=>{
+
+    
+    const dadosCnpj = await PessoaJuridica.findOne({
+        where:{
+            Colaborador_ID:colabId
+        }
+    }).then(id=>{
+        if(id){
+            return PessoaJuridica.update(objCnpj,{
+                where:{
+                    Colaborador_ID:colabId
+                },
+                transaction:t
+            })
+        }
+    else{
+        return PessoaJuridica.create(objCnpj,{transaction:t})
+    }
+    })
+    await t.commit()
+
+    return {dadosCnpj}
+}
+ 

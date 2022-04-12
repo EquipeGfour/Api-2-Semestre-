@@ -2,7 +2,9 @@ import Colaborador from "../models/colaborador.js";
 import Cargo from "../models/cargo.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
-import { atualizarColaborador } from "../service/colaboradorService.js";
+import { atualizarColaborador,atualizarColaboradorCnpj } from "../service/colaboradorService.js";
+
+
 
 
 export const getAllColaborador = async (req, res) => {
@@ -82,6 +84,30 @@ export const inserirDadosColab  = async (req,res)=>{
         res.json({ message: error.message });
     }
 }
+
+export const inserirDadosColabCnpj = async(req,res)=>{
+    const t = await sequelize.transaction();
+    try{
+        console.log(res.body)
+
+        const colabId = req.body.id
+
+        const objCnpj = {
+            cnpj:req.body.cnpj,
+            empresa_contratada:req.body.empresa_contratada,
+            tempo_formalizacao:req.body.tempo_formalizacao,
+            natureza_juridica:req.body.natureza_juridica,
+            data_fundacao:req.body.data_fundacao
+        }
+        const dadosCnpj= await atualizarColaboradorCnpj(colabId,objCnpj,t)
+        res.json(dadosCnpj)
+
+    }catch(error){
+        await t.rollback()
+        res.json({message: error.message});
+    }
+}
+
 
 
 export const geralFunc = async (req,res) =>{

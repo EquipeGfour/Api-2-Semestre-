@@ -52,8 +52,7 @@ const PreRegistro1: React.FC=()=>{
             M.toast({html:'Preencha TODOS os campos !',classes:"modalerro rounded"})
         }else{
             EnviaDados()
-        }      
-
+        }    
     }
 
     return(
