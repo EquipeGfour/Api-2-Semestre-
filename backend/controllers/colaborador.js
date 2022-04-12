@@ -87,8 +87,14 @@ export const inserirDadosColab  = async (req,res)=>{
 
 export const geralFunc = async (req,res) =>{
     try{
-        const dados = await sequelize.query(`select c.nome, ca.cargo, c.email, c.numero, a.area from colaboradors c left join cargos as ca on c.Cargos_ID = ca.ID
-        left join departamentos as a on a.ID = ca.Departamento_ID;`,{type:sequelize.QueryTypes.SELECT})
+        const dados = await sequelize.query(
+        `select c.nome, ca.cargo, c.email, c.telefone, a.area 
+            from colaboradors c 
+        left join cargos as ca 
+            on c.Cargos_ID = ca.ID
+        left join departamentos as a 
+            on a.ID = ca.Departamento_ID;`,
+        {type:sequelize.QueryTypes.SELECT})
         res.json({dados})
     }
     catch(error){

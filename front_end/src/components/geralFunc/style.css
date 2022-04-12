@@ -1,3 +1,7 @@
+@font-face {
+    font-family:'IonicCoolvetica' ;
+    src: url('../../../static/coolvetica\ rg.otf');
+}
 .geralContainer{
     padding: 1rem;
     width: 100%;
@@ -7,12 +11,13 @@
     color: white;
     
     
+    
 }
 
 .titulo{
     color: #53C4CD;
     font-size: 60px;
-    
+    font-family: 'IonicCoolvetica';
 }
 
 .barPesquisa{

@@ -1,8 +1,13 @@
+@font-face {
+    font-family:'IonicCoolvetica' ;
+    src: url('../../../static/coolvetica\ rg.otf');
+}
 
 .loginContainer{
     margin-top: 8rem;
     color: #53C4CD;
     text-align: center;
+    font-family: 'IonicCoolvetica';
     
 }
 

@@ -1,9 +1,13 @@
 import React from 'react'
+import {Link,Navigate,useNavigate} from 'react-router-dom';
 import "./style.css"
 import {useCookies} from 'react-cookie'
 import axios from 'axios'
+import M from 'materialize-css/dist/js/materialize'
+
 
 const DadosPessoais:React.FC=(props)=>{
+    const navigate = useNavigate()
     const [cookie,setCookie]=useCookies(['ionic-user'])
     
 
@@ -64,14 +68,106 @@ const DadosPessoais:React.FC=(props)=>{
             curso,
             status
         }
-        console.error('tem erro',dados)
+
+    if(!ValidaCampo()){
+
         axios.post('http://localhost:5000/colab/novo',dados).then(res=>{
-            console.log(res)
+
+        M.toast({html:'Cadastro Realizado com Sucesso !', classes:"modal1 rounded"})
+            navigate('/')
 
         }).catch(erro=>{
             console.error('Erro', erro.response)
 
         })
+
+    }
+       
+    }
+
+    const ValidaCampo = ()=>{
+        let faltaDados = false
+        if(nacionalidade === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Nacionalidade !', classes:"modalerro rounded"})
+        }
+
+        if(naturalidade === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Naturalidade !', classes:"modalerro rounded"})
+        }
+
+        if(genero === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Gênero !', classes:"modalerro rounded"})
+        }
+
+        if(raca === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Raça!', classes:"modalerro rounded"})
+        }
+
+        if(datanascimento === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Data de Nascimento!', classes:"modalerro rounded"})
+        }
+
+        if(endereco === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Endereço !', classes:"modalerro rounded"})
+        }
+
+        if(bairro === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Bairro !', classes:"modalerro rounded"})
+        }
+
+        if(cidade=== ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Cidade !', classes:"modalerro rounded"})
+        }
+
+        if(cep === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Cep!', classes:"modalerro rounded"})
+        }
+
+        if(telefone === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Telefone !', classes:"modalerro rounded"})
+        }
+
+        if(regiao === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Região !', classes:"modalerro rounded"})
+        }
+
+        if(estadocivil=== ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Estado Civil !', classes:"modalerro rounded"})
+        }
+
+        if(linguas === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Línguas !', classes:"modalerro rounded"})
+        }
+
+        if(formacao === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Formação !', classes:"modalerro rounded"})
+        }
+
+        if(curso === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Curso !', classes:"modalerro rounded"})
+        }
+
+        if(status === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Status !', classes:"modalerro rounded"})
+        }
+
+        return faltaDados
 
     }
 

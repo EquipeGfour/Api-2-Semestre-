@@ -1,7 +1,13 @@
+@font-face {
+    font-family:'IonicCoolvetica' ;
+    src: url('../../../static/coolvetica\ rg.otf');
+}
+
 .dadosContainer{
     margin-top: 8rem;
     color: #53C4CD;
     text-align: center;
+    font-family: 'IonicCoolvetica';
     
 }
 
@@ -43,4 +49,9 @@
     font-size: 20px;
 
 
+}
+
+.modal1{
+    background-color: #53C4CD;
+    margin-top: 4rem;
 }

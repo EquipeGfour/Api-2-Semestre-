@@ -22,20 +22,20 @@ const PreRegistro1: React.FC=()=>{
             nome
         }).then(res=>{
 
-            M.toast({html:'Pré Registro realizado com sucesso!',class:"modal"})
+            M.toast({html:'Pré Registro realizado com sucesso!',classes:"modal1 rounded"})
             setEmail('')
             setCpf('')
             setNome('')
 
         }).catch(erro=>{
-            M.toast({html:'Não tem ERRO (lascou tudo)!',class:"modalerro"})
+            M.toast({html:'Não tem ERRO (lascou tudo)!',classes:"modalerro rounded"})
         });
     }
 
 
     const RegistraDados = () =>{
         if(email === '' && cpf === '' && nome === ''){
-            M.toast({html:'Preencha TODOS os campos !',class:"modalerro"})
+            M.toast({html:'Preencha TODOS os campos !',classes:"modalerro rounded"})
         }else{
             EnviaDados()
         }      
