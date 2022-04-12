@@ -8,7 +8,7 @@ import M from 'materialize-css/dist/js/materialize'
 
 const Login : React.FC=(props)=> {
     const navigate = useNavigate()
-    const [cookie,setCookie] = useCookies(['ionic-user'])
+    const [cookie,setCookie] = useCookies(['ionic-user', 'ionic-JWT'])
     const [email,setEmail] = React.useState('')
     const [senha,setSenha] = React.useState('')
 
@@ -19,6 +19,7 @@ const Login : React.FC=(props)=> {
             senha: senha
         }).then(res=>{            
             setCookie('ionic-user',res.data.dados[0])
+            setCookie('ionic-JWT', res.data.token)
 
             const cargo=res.data.dados[0].cargo
             const cpf=res.data.dados[0].cpf

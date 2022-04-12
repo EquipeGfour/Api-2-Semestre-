@@ -24,7 +24,7 @@ const PessoaJuridica = db.define('Pessoa_juridicas',{
         allowNull:true
     },
     data_fundacao:{
-        type:Sequelize.DATE,
+        type:Sequelize.STRING,
         allowNull:true
     }  
 })

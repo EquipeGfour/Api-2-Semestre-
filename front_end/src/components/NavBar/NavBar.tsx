@@ -6,11 +6,35 @@ import Youtube from '../img/youtube.png'
 import Facebook from '../img/facebook.png'
 import Linkedin from '../img/linkedin.png'
 import Instagram from '../img/instagram.png'
+import {useCookies} from 'react-cookie'
+
+import M from 'materialize-css/dist/js/materialize'
 
 
+const NavBar:React.FC=(props)=>{
 
+    const [cookie,setCookie,removeCookie] = useCookies(['ionic-user'])
+    const [logout,setLogout] = React.useState(false)
 
-function NavBar(){
+    React.useEffect(()=>{
+        const logado = cookie['ionic-user']
+        if(logado){
+            setLogout(true)
+            console.log(logado)
+        }else{
+            console.log('não logado')
+            
+        }
+       
+    })
+
+    const Desloga=()=>{
+        removeCookie('ionic-user')
+        setLogout(false)
+        M.toast({html:'Deslogado com Sucesso!',classes:"modalerro rounded"})
+        window.location.replace('/')
+    }
+
 return(
 
 //---------Social Media-----------//
@@ -32,8 +56,7 @@ return(
        <img className='youtube' src={Instagram}></img> </a>
 
     </div>
-
-
+    
 
     <nav>
 
@@ -41,6 +64,9 @@ return(
                 <a href="!" className="brand-logo">
                         <img src={Img}></img>
                 </a>
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    {logout?<li><a className='botaoLog' onClick={Desloga}>Logout</a></li>:null}
+                </ul>
 
         </div>
     </nav>

@@ -5,6 +5,7 @@ import {useCookies} from 'react-cookie'
 import axios from 'axios'
 import M from 'materialize-css/dist/js/materialize'
 import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
+import { CriaHeader } from '../../functions';
 
 
 const DadosEmpresa:React.FC=(props)=>{
@@ -40,7 +41,7 @@ const DadosEmpresa:React.FC=(props)=>{
 
     if(!ValidaCampo()){
 
-        axios.post('http://localhost:5000/colab/cnpj',dados).then(res=>{
+        axios.post('http://localhost:5000/colab/cnpj',dados,{headers:CriaHeader()}).then(res=>{
             M.toast({html:'Cadastro Realizado com Sucesso !', classes:"modal1 rounded"})
             navigate('/')
 

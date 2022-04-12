@@ -2,6 +2,7 @@ import React from "react"
 import "./style.css"
 import {useCookies} from 'react-cookie'
 import axios from 'axios'
+import { CriaHeader } from "../../functions"
 
 const GeralFunc:React.FC=(props)=>{
 
@@ -9,7 +10,7 @@ const GeralFunc:React.FC=(props)=>{
 
   const BuscaDados = () =>{
 
-    axios.get('http://localhost:5000/colab/geral').then(res=>{
+    axios.get('http://localhost:5000/colab/geral',{headers:CriaHeader()}).then(res=>{
       console.log(res)
       setColaboradores(res.data.dados)
 
@@ -59,8 +60,8 @@ const GeralFunc:React.FC=(props)=>{
 
         <tbody>
 
-          {colaboradores.map(colab=>(
-             <tr>
+          {colaboradores.map((colab,index)=>(
+             <tr key={index}>
              <td>{colab.nome}</td>
              <td>{colab.cargo}</td>
              <td>{colab.departamento}</td>

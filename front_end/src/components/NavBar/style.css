@@ -42,3 +42,12 @@
     text-decoration: none;
     
 }
+
+.botaoLog{
+    color: black !important;
+}
+
+.modalerro{
+    background-color: #cd6153;
+    margin-top: 4rem;
+}

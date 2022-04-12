@@ -5,6 +5,7 @@ import axios from "axios"
 import {useCookies} from 'react-cookie'
 import M from 'materialize-css/dist/js/materialize'
 import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
+import { CriaHeader } from "../../functions";
 
 
 const PreRegistro1: React.FC=()=>{
@@ -33,7 +34,8 @@ const PreRegistro1: React.FC=()=>{
             obj.cnpj=cpfCnpj
         }
 
-        axios.post(url, obj).then(res=>{
+        axios.post(url, obj,{headers:CriaHeader()}).then(res=>{
+
 
             M.toast({html:'Pré Registro realizado com sucesso!',classes:"modal1 rounded"})
             setEmail('')

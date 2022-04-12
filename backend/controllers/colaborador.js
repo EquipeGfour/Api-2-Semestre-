@@ -53,9 +53,8 @@ export const inserirDadosColab  = async (req,res)=>{
             naturalidade:req.body.naturalidade,
             estado_civil:req.body.estado_civil,
             genero:req.body.genero,
-            raca:req.body.raca,
-            ddd:req.body.ddd,
-            numero:req.body.numero,
+            raca:req.body.raca,            
+            telefone:req.body.telefone,
             data_nascimento:req.body.data_nascimento,
         }
 

@@ -4,6 +4,7 @@ import "./style.css"
 import {useCookies} from 'react-cookie'
 import axios from 'axios'
 import M from 'materialize-css/dist/js/materialize'
+import { CriaHeader } from '../../functions';
 
 
 const DadosPessoais:React.FC=(props)=>{
@@ -71,7 +72,7 @@ const DadosPessoais:React.FC=(props)=>{
 
     if(!ValidaCampo()){
 
-        axios.post('http://localhost:5000/colab/novo',dados).then(res=>{
+        axios.post('http://localhost:5000/colab/novo',dados, {headers:CriaHeader()}).then(res=>{
 
         M.toast({html:'Cadastro Realizado com Sucesso !', classes:"modal1 rounded"})
             navigate('/')
