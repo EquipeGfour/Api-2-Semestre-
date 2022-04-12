@@ -11,37 +11,36 @@ const DadosEmpresa:React.FC=(props)=>{
     const navigate = useNavigate()
     const [cookie,setCookie]=useCookies(['ionic-user'])
     
-
-    const [empresacontratada,setEmpresacontratada] = React.useState('')
+    const [nomecompleto,setNomecompleto] = React.useState('')
+    const [empresa_contratada,setEmpresacontratada] = React.useState('')
     const [cnpj,setCnpj] = React.useState('')
-    const [datafundacao,setDatafundacao] = React.useState('')
-    const [tempoformalizacao,setTempoformalizacao] = React.useState('')
-    const [naturezajuridica,setNaturezajuridica] = React.useState('')
+    const [data_fundacao,setDatafundacao] = React.useState('')
+    const [tempo_formalizacao,setTempoformalizacao] = React.useState('')
+    const [natureza_juridica,setNaturezajuridica] = React.useState('')
     
     React.useEffect(()=>{
-        console.log(cookie['ionic-user'])
+        
         const logado = cookie['ionic-user']
-        setEmpresacontratada(logado.nome)
+        setNomecompleto(logado.nome)
         setCnpj(logado.cnpj)
         
     },[])
 
-    const sendData = ()=>{
-        console.log(cookie)
-        const logado = cookie['ionic-user']
-        console.log(logado)
+    const sendData = ()=>{        
+        const logado = cookie['ionic-user']       
         const dados={
             id:logado.ID,
-            empresacontratada,
+            nome:nomecompleto,
+            empresa_contratada,
             cnpj,        
-            datafundacao,
-            tempoformalizacao,
-            naturezajuridica
+            data_fundacao,
+            tempo_formalizacao,
+            natureza_juridica
         }
 
     if(!ValidaCampo()){
 
-        axios.post('http://localhost:5000/colab/novo',dados).then(res=>{
+        axios.post('http://localhost:5000/colab/cnpj',dados).then(res=>{
             M.toast({html:'Cadastro Realizado com Sucesso !', classes:"modal1 rounded"})
             navigate('/')
 
@@ -53,17 +52,17 @@ const DadosEmpresa:React.FC=(props)=>{
 
     const ValidaCampo = ()=>{
         let faltaDados = false
-        if(datafundacao === ''){
+        if(data_fundacao === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Data de Fundação !', classes:"modalerro rounded"})
         }
 
-        if(tempoformalizacao === ''){
+        if(tempo_formalizacao === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Tempo Formalização !', classes:"modalerro rounded"})
         }
 
-        if(naturezajuridica === ''){
+        if(natureza_juridica === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Natureza Jurídica !', classes:"modalerro rounded"})
         }
@@ -80,31 +79,39 @@ const DadosEmpresa:React.FC=(props)=>{
             <div className="col s12 esquerda">
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value={empresacontratada} placeholder="Nome Empresa" id="first_name2" type="text" className="validate" onChange={ (e) => setEmpresacontratada(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Nome Empresa</label>
+                        <input value={nomecompleto} placeholder="Nome Funcionário" id="first_name2" 
+                        type="text" className="validate" onChange={ (e) => setNomecompleto(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Nome Funcionário</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value = {cnpj} placeholder="CNPJ" id="first_name2" type="text" className="validate"onChange={ (e) => setCnpj(e.target.value) }/>
+                        <input value = {cnpj} placeholder="CNPJ" id="first_name2" 
+                        type="text" className="validate"onChange={ (e) => setCnpj(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">CNPJ</label>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value={datafundacao}  placeholder="Data Fundação" id="first_name2" type="text" className="validate" onChange={ (e) => setDatafundacao(e.target.value) }/>
+                        <input value={data_fundacao}  placeholder="Data Fundação" id="first_name2" type="text" className="validate" onChange={ (e) => setDatafundacao(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Data Fundação</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value={tempoformalizacao} placeholder="Tempo Formalização" id="first_name2" type="text" className="validate" onChange={ (e) => setTempoformalizacao(e.target.value) }/>
+                        <input value={tempo_formalizacao} placeholder="Tempo Formalização" id="first_name2" type="text" className="validate" onChange={ (e) => setTempoformalizacao(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Tempo Formalização</label>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value={naturezajuridica}  placeholder="Natureza Jurídica" id="first_name2" type="text" className="validate" onChange={ (e) => setNaturezajuridica(e.target.value) }/>
+                        <input value={natureza_juridica}  placeholder="Natureza Jurídica" id="first_name2" type="text" className="validate" onChange={ (e) => setNaturezajuridica(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Natureza Jurídica</label>
                     </div>
+
+                    <div className="input-field col s6">
+                        <input value={empresa_contratada}  placeholder="Empresa Contratada" id="first_name2" type="text" className="validate" onChange={ (e) => setEmpresacontratada(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Empresa Contratada</label>
+                    </div>
+
                 </div>
             </div>
             <a className="waves-effect waves-light btn-large btnAzul" onClick={sendData}>Enviar</a>            

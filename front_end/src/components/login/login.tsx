@@ -3,6 +3,7 @@ import {Link,Navigate,useNavigate} from 'react-router-dom';
 import "./style10.css"
 import axios from "axios"
 import {useCookies} from 'react-cookie'
+import M from 'materialize-css/dist/js/materialize'
 
 
 const Login : React.FC=(props)=> {
@@ -18,15 +19,24 @@ const Login : React.FC=(props)=> {
             senha: senha
         }).then(res=>{            
             setCookie('ionic-user',res.data.dados[0])
+
             const cargo=res.data.dados[0].cargo
+            const cpf=res.data.dados[0].cpf
+            const cnpj=res.data.dados[0].cnpj
+
             if (cargo === 'Administrador'|| cargo === 'Gestor'){
                 navigate('home-admin')
-            }else{
+            }else if(cpf){
+                console.log(res.data.dados[0])
                 navigate('dados-pessoais')
+            }else if(cnpj){
+                navigate('dados-empresa')
+            }else{
+                M.toast({html:'Nenhum CPF/CNPJ está cadasrado, Entre em contato com o Administrador',classes:"modalerro rounded"})
             }
         }).catch(erro=>{
-             console.error('erro de login')
-             console.log(erro.response)
+            console.error('erro de login')
+            console.log(erro.response)
         })
 
             
