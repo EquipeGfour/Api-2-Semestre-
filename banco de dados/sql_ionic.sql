@@ -122,7 +122,7 @@ CREATE TABLE Grade_Cursos (
 -- Table: Pessoa_Fisicas
 CREATE TABLE Pessoa_Fisicas (
     Colaborador_ID int NOT NULL,
-    cpf int,
+    cpf varchar(15),
 	tipo_arquivo_pessoa_fisica varchar(200) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
@@ -132,7 +132,7 @@ CREATE TABLE Pessoa_Fisicas (
 -- Table: Pessoa_Juridicas
 CREATE TABLE Pessoa_Juridicas (
     Colaborador_ID int NOT NULL,
-    cnpj int ,
+    cnpj varchar(20) ,
     empresa_contratada varchar(300) ,
     tempo_formalizacao varchar(300) ,
     natureza_juridica varchar(300) ,

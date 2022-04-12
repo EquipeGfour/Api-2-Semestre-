@@ -4,6 +4,7 @@ import "./style.css"
 import axios from "axios"
 import {useCookies} from 'react-cookie'
 import M from 'materialize-css/dist/js/materialize'
+import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
 
 
 const PreRegistro1: React.FC=()=>{
@@ -15,17 +16,30 @@ const PreRegistro1: React.FC=()=>{
     const [cnpj,setCnpj] = React.useState('')
     const [nome,setNome] = React.useState('')
 
+    const [cpfCnpj, setCpfCnpj] = React.useState("");
+    const [mask, setMask] = React.useState("");
+
     const EnviaDados = () =>{
-        axios.post('http://localhost:5000/preRegistro/cpf', {
+        let url='http://localhost:5000/preRegistro/cpf'
+        let obj = {
             email,
-            cpf,
-            nome
-        }).then(res=>{
+            cpf:cpfCnpj,
+            nome,
+            cnpj:null  
+        }
+
+        if(mask === "CNPJ"){
+            url = 'http://localhost:5000/preRegistro/cnpj'
+            obj.cnpj=cpfCnpj
+        }
+
+        axios.post(url, obj).then(res=>{
 
             M.toast({html:'Pré Registro realizado com sucesso!',classes:"modal1 rounded"})
             setEmail('')
-            setCpf('')
+            setCpfCnpj('')
             setNome('')
+            console.log(res)
 
         }).catch(erro=>{
             M.toast({html:'Não tem ERRO (lascou tudo)!',classes:"modalerro rounded"})
@@ -63,8 +77,18 @@ const PreRegistro1: React.FC=()=>{
 
             <div className="row">
                 <div className="input-field col s12">
-                <input value={cpf} placeholder="CPF" id="first_name2" type="text" className="validate" onChange={ (e) => setCpf(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">CPF</label>
+                <CpfCnpj
+                    value={cpfCnpj}
+                    placeholder="CPF ou CNPJ"
+                    className="validate"
+                    id="first_name2"
+                    type="text"
+                    onChange={(event, type) => {
+                    setCpfCnpj(event.target.value);
+                    setMask(type)
+                    
+                    }}/>               
+                <label className="active" htmlFor="first_name2">CPF ou CNPJ</label>                         
                 </div>
             </div>
 

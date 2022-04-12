@@ -8,7 +8,7 @@ const PessoaJuridica = db.define('Pessoa_juridicas',{
         primaryKey: true
     },
     cnpj:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:true,
     },
     empresa_contratada:{
