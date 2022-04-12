@@ -6,8 +6,8 @@ import {useCookies} from 'react-cookie'
 
 
 const Login : React.FC=(props)=> {
-    const navigate=useNavigate()
-    const [cookie,setCookie]=useCookies(['ionic-user'])
+    const navigate = useNavigate()
+    const [cookie,setCookie] = useCookies(['ionic-user'])
     const [email,setEmail] = React.useState('')
     const [senha,setSenha] = React.useState('')
 
@@ -32,7 +32,6 @@ const Login : React.FC=(props)=> {
             
  
     } 
-
     
     return(
         <div className="loginContainer">

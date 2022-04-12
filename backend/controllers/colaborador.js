@@ -36,10 +36,10 @@ export const testeCargo = async (req,res) => {
 }
 
 export const inserirDadosColab  = async (req,res)=>{
-    
+     const t = await sequelize.transaction();
     try{
 
-        const t = await sequelize.transaction();
+       
 
         console.log(res.body)
 

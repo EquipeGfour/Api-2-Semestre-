@@ -38,7 +38,11 @@ const DadosPessoais:React.FC=(props)=>{
     },[])
 
     const sendData = ()=>{
+        console.log(cookie)
+        const logado = cookie['ionic-user']
+        console.log(logado)
         const dados={
+            id:logado.ID,
             nome:nomecompleto,
             cpf,        
             nacionalidade,
@@ -60,7 +64,7 @@ const DadosPessoais:React.FC=(props)=>{
             curso,
             status
         }
-
+        console.error('tem erro',dados)
         axios.post('http://localhost:5000/colab/novo',dados).then(res=>{
             console.log(res)
 

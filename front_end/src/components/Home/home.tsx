@@ -12,7 +12,7 @@ import GeralFunc from "../geralFunc/geralFunc";
 import PreRegistro1 from "../PreRegistro/PreRegistro";
 
 
-const Home: React.FC=(props)=>{
+const Home: React.FC=()=>{
 
     const [cookie,setCookie]=useCookies(['ionic-user'])
     React.useEffect(()=>{
@@ -26,7 +26,7 @@ const Home: React.FC=(props)=>{
         <div className="row blocoCima">        
             <div className="col s4 divColab">
                 <Link to="/geral-funcionarios"   >                   
-                <button className=" waves-effect  botaoFunc" onClick={GeralFunc}> <img className="imgColab" src={Colab}></img></button>
+                <button className=" waves-effect  botaoFunc"> <img className="imgColab" src={Colab}></img></button>
                 </Link>  
                 <div className="btnNome">Colaborador</div>
             </div>
@@ -56,7 +56,7 @@ const Home: React.FC=(props)=>{
 
             <div className="col s4">
                 <Link to="/pre-registro">
-                <button className="waves-effect botaoFunc" onClick={PreRegistro1}><img className="imgColab" src={PreRegistro}></img></button>
+                <button className="waves-effect botaoFunc" ><img className="imgColab" src={PreRegistro}></img></button>
                 </Link>
                 <div className="btnNome">Pré-Registro</div>
             </div>

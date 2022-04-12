@@ -19,16 +19,16 @@ return(
    
    
     <div className= "socialbar">
-       <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank" class="link-9">            
+       <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank" className="link-9">            
        <img className='youtube' src={Youtube}></img> </a>
 
-       <a href="hhttps://www.linkedin.com/company/ness-health/?originalSubdomain=br" target="_blank" class="link-9">            
+       <a href="hhttps://www.linkedin.com/company/ness-health/?originalSubdomain=br" target="_blank" className="link-9">            
        <img className='youtube' src={Linkedin}></img> </a>
 
-       <a href="https://web.facebook.com/ness.health/?_rdc=1&_rdr" target="_blank" class="link-9">            
+       <a href="https://web.facebook.com/ness.health/?_rdc=1&_rdr" target="_blank" className="link-9">            
        <img className='youtube' src={Facebook}></img> </a>           
 
-       <a href="https://www.instagram.com/ionic.health/" target="_blank" class="link-9">            
+       <a href="https://www.instagram.com/ionic.health/" target="_blank" className="link-9">            
        <img className='youtube' src={Instagram}></img> </a>
 
     </div>
