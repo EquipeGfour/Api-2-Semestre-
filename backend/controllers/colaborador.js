@@ -1,10 +1,9 @@
 import Colaborador from "../models/colaborador.js";
 import Cargo from "../models/cargo.js";
-import Endereco from "../models/endereco.js";
 import sequelize from "../config/db.js";
-import DadosAcademicos from "../models/Dados_Academicos.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
 import { atualizarColaborador } from "../service/colaboradorService.js";
+
 
 export const getAllColaborador = async (req, res) => {
     try {
