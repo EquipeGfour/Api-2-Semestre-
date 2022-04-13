@@ -45,12 +45,8 @@ const Colaborador = db.define('Colaboradors',{
         type:Sequelize.STRING,
         allowNull:true
     },
-    ddd:{
-        type:Sequelize.INTEGER,
-        allowNull:true
-    },
-    numero:{
-        type:Sequelize.INTEGER,
+    telefone:{
+        type:Sequelize.STRING,
         allowNull:true
     },
     data_nascimento:{
