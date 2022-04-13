@@ -31,7 +31,7 @@ O desafio é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvo
 ## :pushpin: Objetivos
 Nosso objetivo é desenvolver uma página website para uma :
 
- **Requisitos Funcionais**
+ 🛠️ **Requisitos Funcionais**
 
 :heavy_check_mark: Cadastros de Colaboradores.<br>
 :heavy_check_mark:Repositório para documentos dos colaboradores.<br>
@@ -43,7 +43,7 @@ Nosso objetivo é desenvolver uma página website para uma :
 :heavy_check_mark:Dossiê gerado em PDF por colaborador para consulta do administrador e gestor.
 
 
- **Requisitos Não Funcionais**
+ 🛠️ **Requisitos Não Funcionais**
  
 :heavy_check_mark:Linguagens NodeJS, TypeScript, Javascript (EXIGIDO Fatec).<br>
 :heavy_check_mark:Banco de Dados Relacional (EXIGIDO Fatec).•Documentação de testes funcionais.<br>
@@ -56,9 +56,9 @@ Nosso objetivo é desenvolver uma página website para uma :
 
 ## :calendar: Cronograma
 
-- [x] KICK OFF - 14/03 
+ :heavy_check_mark: KICK OFF - 14/03 
 
-- [x] SPRINT 1 - 25/03 à 14/04
+ :heavy_check_mark: SPRINT 1 - 25/03 à 14/04
 
 - [x] SPRINT 2 - 25/04 à 15/05
 
@@ -69,16 +69,70 @@ Nosso objetivo é desenvolver uma página website para uma :
 
 <br>
 
+## ⛏️ Como rodar a aplicação
 
-## :bulb: Metodologia Utilizada
+### Pré-requisitos
 
-* **Metodologia Ágil:** Framework [Scrum](https://blog.contaazul.com/metodologia-scrum#:~:text=a%20planilha%20agora-,O%20que%20%C3%A9%20a%20metodologia%20Scrum,desenvolvedores%20de%20softwares%20e%20sistemas.)
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:<br>
+```Git, Node.js e um editor de código-fonte (recomendado VSCode).```
+
+### 🎲 Rodando o Front End
+
+```bash
+# Clone este repositório
+$ git clone https://github.com/EquipeGfour/Api-2-Semestre-.git
+
+# Configurações de ambiente
+$ Após clonar o repositório entre no arquivo chamado .env.exemplo e copie as informações contidas nele.
+$ Crie um novo arquivo na raiz do diretório do back end chamado .env e cole as informações, preencha os campos vazios com suas configurações.
+
+# Rodar o script do banco de dados
+$ Acesse o arquivo sql_ionic.sql no diretório do banco de dados e copie todo script e cole no seu banco de dados.
+
+# Acesse a pasta do projeto no terminal do editor de código-fonte:
+$ cd .\Api-2-Semestre-\
+
+# Vá para a pasta server
+$ cd .\front_end\
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação 
+$ npm install
+```
+
+
+### 🎲 Rodando o Back End
+
+```bash
+# Acesse a pasta do projeto no terminal do editor de código-fonte:
+$ cd .\Api-2-Semestre-\
+
+# Vá para a pasta server
+$ cd .\backend\
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação 
+$ npm install
+
+```
+
+
+### 🎲 Acesso do administrador
+```
+$ Email =  admin@ionic.com
+$ Senha =  adminionic
+```
 
 <br>
 
 ## :wrench: Tecnologias Utilizadas
 
 <img src = "https://user-images.githubusercontent.com/8519765/162982481-348548b5-f6f9-4302-99d7-bbd71112d6e2.png" width="500" height="500">
+
 
 * **Reuniões e Apresentações:** Discord e Microsoft Teams;
 * **Banco de Dados Relacional:** MySQL e Vertabelo;
@@ -105,6 +159,10 @@ Login do colaborador
 
 <br>
 
+
+## :bulb: Metodologia Utilizada
+
+* **Metodologia Ágil:** Framework [Scrum](https://blog.contaazul.com/metodologia-scrum#:~:text=a%20planilha%20agora-,O%20que%20%C3%A9%20a%20metodologia%20Scrum,desenvolvedores%20de%20softwares%20e%20sistemas.)<br>
 ## :mortar_board:Equipe 
 
 
