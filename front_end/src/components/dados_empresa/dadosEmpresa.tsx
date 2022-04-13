@@ -68,6 +68,11 @@ const DadosEmpresa:React.FC=(props)=>{
             M.toast({html:'Preencha o campo Natureza Jurídica !', classes:"modalerro rounded"})
         }
 
+        if(empresa_contratada=== ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Empresa Contratada !', classes:"modalerro rounded"})
+        }
+
        
         return faltaDados
 
