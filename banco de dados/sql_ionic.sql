@@ -194,4 +194,7 @@ ALTER TABLE Pessoa_Juridicas ADD CONSTRAINT Pessoa_Juridica_Colaborador FOREIGN 
 ALTER TABLE Trilha_Aprendizados ADD CONSTRAINT Trilha_Aprendizado_Pessoa_Fisica FOREIGN KEY Trilha_Aprendizado_Pessoa_Fisica (ID)
     REFERENCES Pessoa_Fisicas (Colaborador_ID);
 
--- End of file.
+use ionic;
+insert into Departamentos(ID, area, createdAt) values (1, "Administracao", "2022-04-13");
+insert into Cargos(ID, Departamento_ID, cargo, createdAt) values (1, 1, "Administrador", "2022-04-13");
+insert into Colaboradors(ID, Cargos_ID, nome, email, senha, createdAt) values (1, 1, "Admin", "admin@ionic.com", "adminionic", "2022-04-13");
