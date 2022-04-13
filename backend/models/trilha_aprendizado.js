@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from '../config/db.js'
 import pessoafisica from "./pessoafisica.js"
 
-const TrilhaAprendizado = db.define('TrilhaAprendizado',{
+const TrilhaAprendizado = db.define('Trilha_Aprendizados',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,

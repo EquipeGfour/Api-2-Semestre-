@@ -4,7 +4,7 @@ import { Sequelize } from "sequelize";
 
 
 
-const Cargos = db.define('Cargo',{
+const Cargos = db.define('Cargos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
