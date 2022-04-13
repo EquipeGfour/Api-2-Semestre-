@@ -113,10 +113,10 @@ export const geralFunc = async (req,res) =>{
     try{
         const dados = await sequelize.query(
         `select c.nome, ca.cargo, c.email, c.telefone, a.area 
-            from colaboradors c 
-        left join cargos as ca 
+            from Colaboradors c 
+        left join Cargos as ca 
             on c.Cargos_ID = ca.ID
-        left join departamentos as a 
+        left join Departamentos as a 
             on a.ID = ca.Departamento_ID;`,
         {type:sequelize.QueryTypes.SELECT})
         res.json({dados})
