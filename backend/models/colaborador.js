@@ -50,7 +50,7 @@ const Colaborador = db.define('Colaboradors',{
         allowNull:true
     },
     data_nascimento:{
-        type:Sequelize.DATE,
+        type:Sequelize.STRING,
         allowNull:true
     },
     pesquisa_desligamento:{

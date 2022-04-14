@@ -14,7 +14,7 @@ const Endereco = db.define('Enderecos',{
         allowNull:true,
     },
     cep:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:true
     },
     regiao:{

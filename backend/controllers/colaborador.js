@@ -103,10 +103,10 @@ export const inserirDadosColabCnpj = async(req,res)=>{
 
     }catch(error){
         await t.rollback()
+        console.log(error)
         res.json({message: error.message});
     }
 }
-
 
 
 export const geralFunc = async (req,res) =>{
