@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize/types";
+import { Sequelize } from "sequelize";
 import db from '../config/db.js';
 import cargo from './cargo.js'
 
@@ -15,7 +15,7 @@ const Departamento = db.define('Departamentos',{
     },
     head:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     }
 })
 

@@ -4,6 +4,7 @@ import cors from "cors";
 import ColaboradorRouter from './routes/colaboradorRouter.js';
 import LoginRouter from './routes/loginRouter.js'
 import preRegistroRouter from './routes/preRegistroRouter.js'
+import departamentoRouter from './routes/departamentoRouter.js'
 
 
 const app = express();
@@ -25,5 +26,7 @@ app.use('/colab',ColaboradorRouter)
 app.use('/login', LoginRouter)
 
 app.use('/preRegistro', preRegistroRouter)
+
+app.use('/departamento', departamentoRouter)
 
 app.listen(5000 , ()=> console.log('Servidor rodando na porta 5000. :D'))

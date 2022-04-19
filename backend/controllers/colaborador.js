@@ -5,8 +5,6 @@ import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
 import { atualizarColaborador,atualizarColaboradorCnpj } from "../service/colaboradorService.js";
 
 
-
-
 export const getAllColaborador = async (req, res) => {
     try {
         const colaborador = await Colaborador.findAll();
