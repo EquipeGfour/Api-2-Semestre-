@@ -4,6 +4,7 @@ import cors from "cors";
 import ColaboradorRouter from './routes/colaboradorRouter.js';
 import LoginRouter from './routes/loginRouter.js'
 import preRegistroRouter from './routes/preRegistroRouter.js'
+import cargoRouter from './routes/cargoRouter.js'
 
 
 const app = express();
@@ -23,6 +24,8 @@ app.use(express.json());
 app.use('/colab',ColaboradorRouter)
 
 app.use('/login', LoginRouter)
+
+app.use('/cargo', cargoRouter)
 
 app.use('/preRegistro', preRegistroRouter)
 
