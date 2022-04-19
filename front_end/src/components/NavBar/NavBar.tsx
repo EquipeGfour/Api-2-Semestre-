@@ -7,9 +7,9 @@ import Facebook from '../img/facebook.png'
 import Linkedin from '../img/linkedin.png'
 import Instagram from '../img/instagram.png'
 import {useCookies} from 'react-cookie'
-
+import GeralDep from "../geralDepartamento/geralDep"
 import M from 'materialize-css/dist/js/materialize'
-
+import {Link,Navigate,useNavigate} from 'react-router-dom';
 
 const NavBar:React.FC=(props)=>{
 
@@ -67,6 +67,19 @@ return(
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     {logout?<li><a className='botaoLog' onClick={Desloga}>Logout</a></li>:null}
                 </ul>
+
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                
+                   <li><a className='botaoLog'>Funcionários</a></li>
+                
+                </ul>
+
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                 <li><a className='botaoLog'>Departamentos</a></li>
+                </ul>
+
+
+
 
         </div>
     </nav>

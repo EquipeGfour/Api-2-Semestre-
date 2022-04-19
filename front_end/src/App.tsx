@@ -13,6 +13,9 @@ import GeralFunc from './components/geralFunc/geralFunc';
 import PreRegistro from "./components/PreRegistro/PreRegistro"
 import Home from "./components/Home/home"
 import DadosEmpresa from "./components/dados_empresa/dadosEmpresa"
+import GeralDep from "./components/geralDepartamento/geralDep"
+
+
 type state = {
   tela: string
 }
@@ -41,7 +44,10 @@ render(){
 
   return(
     <div>
-      <NavBar/>
+      <NavBar>
+      </NavBar>
+
+
       <BrowserRouter>
         <Routes>
 
@@ -53,6 +59,7 @@ render(){
           <Route path='home-admin' element={<Home/>}/>
           <Route path='upload' element={<Upload/>}/>
           <Route path='pre-registro' element={<PreRegistro/>}/>
+          <Route path='geral-departamentos' element={<GeralDep/>}/>
         </Routes>      
       </BrowserRouter>
       
