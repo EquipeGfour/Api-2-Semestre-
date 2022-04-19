@@ -9,7 +9,7 @@ const router = Router()
 
 router.get('/', verifyJWT, getAllColaborador)
 router.get('/pessoa', verifyJWT, testePessoaFisica)
-router.get('/cargo', inserirCargo)
+router.get('/cargo', testeCargo)
 router.post('/novo', verifyJWT, inserirDadosColab)
 router.get('/geral', verifyJWT,geralFunc)
 router.post('/cnpj', verifyJWT, inserirDadosColabCnpj)
