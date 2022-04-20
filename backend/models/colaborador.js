@@ -72,8 +72,7 @@ const Colaborador = db.define('Colaboradors',{
     },
 })
 
-Colaborador.Cargos = Colaborador.hasMany(Cargos, {foreignKey:"Colaborador_ID"})
-Cargos.Colaborador = Cargos.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_id'}})
+Colaborador.Cargos = Colaborador.belongsTo(Cargos,{foreignKey:{name:'Cargos_ID'}})
 
 
 export default Colaborador

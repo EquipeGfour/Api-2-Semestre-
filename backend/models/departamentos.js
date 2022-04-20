@@ -1,5 +1,6 @@
-import { Sequelize } from "sequelize/types";
+import { Sequelize } from "sequelize";
 import db from '../config/db.js';
+import Cargos from "./cargo.js";
 import cargo from './cargo.js'
 
 const Departamento = db.define('Departamentos',{
@@ -19,6 +20,6 @@ const Departamento = db.define('Departamentos',{
     }
 })
 
-Departamento.belongsTo(cargo,{foreignKey:'cargo_id'})
+Cargos.belongsTo(Departamento,{foreignKey:'Departamento_ID'})
 
 export default Departamento

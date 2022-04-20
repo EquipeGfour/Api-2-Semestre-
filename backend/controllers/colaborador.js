@@ -3,7 +3,7 @@ import Cargo from "../models/cargo.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
 import { atualizarColaborador,atualizarColaboradorCnpj } from "../service/colaboradorService.js";
-
+import Departamento from "../models/departamentos.js";
 
 
 
@@ -122,6 +122,27 @@ export const geralFunc = async (req,res) =>{
         res.json({dados})
     }
     catch(error){
+        res.json({message:error.message})
+    }
+}
+
+export const getCargoColaborador = async (req,res) =>{
+    try{ 
+        const cargo_colab = await Colaborador.findAll({
+            include:{
+                model:Cargo,
+                include:{
+                    model:Departamento,
+                    where:{
+                        ID:req.params.id
+                    },
+                    required:true
+                },
+                required:true
+            }
+        });
+        res.json(cargo_colab)
+    }catch(error){
         res.json({message:error.message})
     }
 }
