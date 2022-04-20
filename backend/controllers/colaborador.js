@@ -1,5 +1,6 @@
 import Colaborador from "../models/colaborador.js";
 import Cargo from "../models/cargo.js";
+import Departamento from "../models/departamentos.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
 import { atualizarColaborador,atualizarColaboradorCnpj } from "../service/colaboradorService.js";
@@ -10,7 +11,7 @@ export const getAllColaborador = async (req, res) => {
         const colaborador = await Colaborador.findAll();
         res.json(colaborador);
     } catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }  
 }
 
@@ -19,27 +20,33 @@ export const testePessoaFisica = async (req, res) =>{
         const pessoafisica = await findAllPessoaFisica()
         res.json(pessoafisica)
     }catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 }
 
 export const testeCargo = async (req,res) => {
     try{
         const dados = await Colaborador.findAll({
-            include:Cargo
+            attributes:['nome','telefone','ID','email'],
+            include:{
+                model:Cargo,
+                attributes:['cargo','ID'],
+                include:{
+                    model:Departamento,
+                    attributes:['area','ID']
+                },
+                
+            }
         });
         res.json(dados)
     }catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 }
 
 export const inserirDadosColab  = async (req,res)=>{
-     const t = await sequelize.transaction();
+    const t = await sequelize.transaction();
     try{
-
-       
-
         console.log(res.body)
 
         const colabId = req.body.id
@@ -78,7 +85,7 @@ export const inserirDadosColab  = async (req,res)=>{
 
     }catch(error){
         await t.rollback()
-        res.json({ message: error.message });
+        res.status(400).json({ message: error.message });
     }
 }
 
@@ -102,24 +109,27 @@ export const inserirDadosColabCnpj = async(req,res)=>{
     }catch(error){
         await t.rollback()
         console.log(error)
-        res.json({message: error.message});
+        res.status(400).json({message: error.message});
     }
 }
 
 
 export const geralFunc = async (req,res) =>{
     try{
-        const dados = await sequelize.query(
-        `select c.nome, ca.cargo, c.email, c.telefone, a.area 
-            from Colaboradors c 
-        left join Cargos as ca 
-            on c.Cargos_ID = ca.ID
-        left join Departamentos as a 
-            on a.ID = ca.Departamento_ID;`,
-        {type:sequelize.QueryTypes.SELECT})
+        const dados = await Colaborador.findAll({
+            attributes:['nome','telefone','ID','email'],
+            include:{
+                model:Cargo,
+                attributes:['cargo','ID'],
+                include:{
+                    model:Departamento,
+                    attributes:['area','ID']
+                },
+            }
+        });
         res.json({dados})
     }
     catch(error){
-        res.json({message:error.message})
+        res.status(500).json({message:error.message})
     }
 }
