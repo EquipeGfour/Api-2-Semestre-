@@ -68,6 +68,7 @@ const GeralDep:React.FC=(props)=>{
               <td>5</td>
               <td>Masanori Do Pastel</td>
               <td>5</td>
+              <td> <i className="material-icons">fullscreen</i></td>   
               <td> <i className="material-icons">delete_forever</i></td>             
             </tr>
 
@@ -76,6 +77,7 @@ const GeralDep:React.FC=(props)=>{
               <td>3</td>
               <td>Arakaki do Oriente</td>
               <td>20</td>
+              <td> <i className="material-icons">fullscreen</i></td>  
               <td> <i className="material-icons">delete_forever</i></td>             
             </tr>
           

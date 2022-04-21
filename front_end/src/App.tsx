@@ -16,6 +16,7 @@ import DadosEmpresa from "./components/dados_empresa/dadosEmpresa"
 import GeralDep from "./components/geralDepartamento/geralDep"
 import NovoDepartamento from "./components/Novo_Departamento/NovoDepartamento"
 import NovoCargo from "./components/Novo_Cargo/NovoCargo"
+import DetalheDep from "./components/detalheDepartamento/detalheDep"
 
 type state = {
   tela: string
@@ -63,6 +64,7 @@ render(){
           <Route path='geral-departamentos' element={<GeralDep/>}/>
           <Route path='novo-departamento' element={<NovoDepartamento/>}/>
           <Route path='novo-cargo' element={<NovoCargo/>}/>
+          <Route path='detalhe-departamento' element={<DetalheDep/>}/>
         </Routes>      
       </BrowserRouter>
       

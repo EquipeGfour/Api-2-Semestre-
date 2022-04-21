@@ -1,0 +1,74 @@
+@font-face {
+    font-family:'IonicCoolvetica' ;
+    src: url('../../../static/coolvetica\ rg.otf');
+}
+.geralContainer{
+    padding: 1rem;
+    width: 100%;
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    color: white;
+    
+    
+    
+}
+
+.titulo{
+    color: #53C4CD;
+    font-size: 60px;
+    font-family: 'IonicCoolvetica';
+}
+
+
+
+.campos{
+   
+    color: #53C4CD;
+}
+
+table{
+    margin-top: 1rem;
+}
+
+tr{
+    border-bottom: 1px solid #53C4CD;
+}
+
+.Pesquisa{
+    width: 35%;
+    margin: 0 auto;
+    background-color: transparent !important;
+
+}
+
+
+.infodep{
+    background-color: #53C4CD;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    
+}
+
+.infodep1{
+    margin-top: 2rem;
+    background-color: #393B42;
+    color: rgb(255, 255, 255);
+    border: none !important
+    
+}
+
+.collapsible-body{
+    border-bottom: none !important;
+}
+
+.collapsible-header{
+    border-bottom: none !important;
+}
+
+
+
+.btnAzulLogin{
+    margin-top: 6rem;
+    color:  white;
+}
