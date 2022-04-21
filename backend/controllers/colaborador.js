@@ -4,7 +4,7 @@ import Departamento from "../models/departamentos.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
 import { atualizarColaborador,atualizarColaboradorCnpj } from "../service/colaboradorService.js";
-import Departamento from "../models/departamentos.js";
+
 
 export const getAllColaborador = async (req, res) => {
     try {

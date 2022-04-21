@@ -2,6 +2,7 @@ import Cargos from "./cargo.js";
 import db from '../config/db.js'
 import { Sequelize } from "sequelize";
 
+
 const Colaborador = db.define('Colaboradors',{
     id:{
         type:Sequelize.INTEGER,
@@ -73,6 +74,7 @@ const Colaborador = db.define('Colaboradors',{
     },
 })
 
+Cargos.Colaborador = Cargos.hasMany(Colaborador, {foreignKey:'Cargos_ID'})
 Colaborador.Cargos = Colaborador.belongsTo(Cargos,{foreignKey:{name:'Cargos_ID'}})
 
 
