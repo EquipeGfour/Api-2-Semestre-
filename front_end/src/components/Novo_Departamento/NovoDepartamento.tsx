@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import "./style.css"
 import axios from "axios"
@@ -9,8 +9,27 @@ import { CriaHeader } from "../../functions";
 
 
 const NovoDepartamento: React.FC=()=>{
-
+    const navigate=useNavigate()
+    const [departamento,setDepartamento] = useState('')
     
+    const sendData=()=>{
+        if(departamento === ""){
+            M.toast({html:'Preencha o nome do Departamento!', classes:"modalerro rounded"})
+            return
+        }
+
+
+        axios.post('http://localhost:5000/departamento/inserirDepart', {area:departamento}, {headers:CriaHeader()}).then(res=>{
+            M.toast({html:'Departamento criado com sucesso!', classes:"modal1 rounded"})
+            navigate('/geral-departamentos')  
+        }).catch(erro=>{
+            M.toast({html:'Preencha o nome do Departamento!', classes:"modalerro rounded"})
+            console.error('Erro', erro.response)
+        })
+
+
+    }
+
 
     return(
 
@@ -19,16 +38,14 @@ const NovoDepartamento: React.FC=()=>{
             <div className="centralizar">
             <div className="row">
                 <div className="input-field col s12">
-                <input  placeholder="Nome" id="first_name2" type="text" className="validate" />
+                <input value={departamento} placeholder="Nome" id="first_name2" type="text" className="validate" onChange={e=>setDepartamento(e.target.value)} />
                 <label className="active" htmlFor="first_name2">Departamento</label>
                 </div>
-            </div>
-
-            
+            </div>       
             
 
 
-            <a className="waves-effect waves-light btn-large btnAzul" >Salvar</a>
+        <a className="waves-effect waves-light btn-large btnAzul" onClick={sendData}>Salvar</a>
 
         
         </div> 

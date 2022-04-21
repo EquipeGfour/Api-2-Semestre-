@@ -46,11 +46,12 @@ render(){
 
   return(
     <div>
-      <NavBar>
-      </NavBar>
+      
 
 
-      <BrowserRouter>
+      <BrowserRouter>        
+        <NavBar>
+        </NavBar>
         <Routes>
 
           <Route path='/' element={<Login/>}/>
@@ -64,7 +65,7 @@ render(){
           <Route path='geral-departamentos' element={<GeralDep/>}/>
           <Route path='novo-departamento' element={<NovoDepartamento/>}/>
           <Route path='novo-cargo' element={<NovoCargo/>}/>
-          <Route path='detalhe-departamento' element={<DetalheDep/>}/>
+          <Route path='detalhe-departamento/:id' element={<DetalheDep/>}/>
         </Routes>      
       </BrowserRouter>
       

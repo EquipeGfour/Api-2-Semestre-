@@ -63,8 +63,8 @@ const GeralFunc:React.FC=(props)=>{
           {colaboradores.map((colab,index)=>(
              <tr key={index}>
              <td>{colab.nome}</td>
-             <td>{colab.cargo}</td>
-             <td>{colab.departamento}</td>
+             <td>{colab.Cargo?.cargo}</td>
+             <td>{colab.Cargo?.Departamento?.area}</td>
              <td>{colab.email}</td>
              <td>{colab.telefone}</td>
            </tr>

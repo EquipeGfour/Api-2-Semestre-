@@ -1,30 +1,39 @@
-import React from "react"
+import React, { useState } from "react"
 import "./style.css"
 import {useCookies} from 'react-cookie'
 import axios from 'axios'
 import { CriaHeader } from "../../functions"
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 
+
+interface Departamento{
+  Cargos: any[]
+  ID: number
+  area: string
+  head: string
+  qtdCargos: number
+  totalColab: number
+}
+
+
 const GeralDep:React.FC=(props)=>{
+  const [departamento,setDepartamento]=useState<Departamento[]>([])
+  const BuscaDados = () =>{
 
-  // const [colaboradores,setColaboradores] = React.useState([])
+    axios.get('http://localhost:5000/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{
+      console.log(res)
+      setDepartamento(res.data)
 
-  // const BuscaDados = () =>{
+    }).catch(erro=>{
+      console.error(erro)
 
-  //   axios.get('http://localhost:5000/colab/geral',{headers:CriaHeader()}).then(res=>{
-  //     console.log(res)
-  //     setColaboradores(res.data.dados)
+    })
 
-  //   }).catch(erro=>{
-  //     console.error(erro)
+  }
 
-  //   })
-
-  // }
-
-  // React.useEffect(()=>{
-  //   BuscaDados()
-  // },[])
+  React.useEffect(()=>{
+    BuscaDados()
+  },[])
 
 
     return(
@@ -49,42 +58,31 @@ const GeralDep:React.FC=(props)=>{
         <thead className="campos">
           <tr>
               <th>Nome Departamento</th>
-              <th>Funcionários</th>
+              <th>Num.Funcionários</th>
               <th>Responsável</th>
-              <th>Cargos</th>
-              
-              
-              
+              <th>Num. de Cargos</th>             
           </tr>
-
-
         </thead>
 
         <tbody>
+          {departamento.map((d:Departamento)=>(
+              <tr key={d.ID}>
+                <td>{d.area}</td>
+                <td>{d.totalColab}</td>
+                <td>{d.head}</td>
+                <td>{d.qtdCargos}</td>
+                <td><Link to={`/detalhe-departamento/${d.ID}`}><i className="material-icons">fullscreen</i></Link></td>   
+                <td> <i className="material-icons">delete_forever</i></td>             
+              </tr>
+          ))}          
+             
 
-          
-             <tr>
-              <td>Pastelaria</td>
-              <td>5</td>
-              <td>Masanori Do Pastel</td>
-              <td>5</td>
-              <td> <i className="material-icons">fullscreen</i></td>   
-              <td> <i className="material-icons">delete_forever</i></td>             
-            </tr>
 
-            <tr>
-              <td>Acadêmico</td>
-              <td>3</td>
-              <td>Arakaki do Oriente</td>
-              <td>20</td>
-              <td> <i className="material-icons">fullscreen</i></td>  
-              <td> <i className="material-icons">delete_forever</i></td>             
-            </tr>
           
         </tbody>
       </table>
 
-      <a className="waves-effect waves-light btn-large btnAzulLogin">Novo Departamento</a>
+      <Link to={"/novo-departamento"} className="waves-effect waves-light btn-large btnAzulLogin">Novo Departamento</Link>
 </div>
     )
 }

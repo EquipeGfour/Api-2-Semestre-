@@ -12,7 +12,7 @@ import M from 'materialize-css/dist/js/materialize'
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 
 const NavBar:React.FC=(props)=>{
-
+    const navigate=useNavigate()
     const [cookie,setCookie,removeCookie] = useCookies(['ionic-user'])
     const [logout,setLogout] = React.useState(false)
 
@@ -32,28 +32,27 @@ const NavBar:React.FC=(props)=>{
         removeCookie('ionic-user')
         setLogout(false)
         M.toast({html:'Deslogado com Sucesso!',classes:"modalerro rounded"})
-        window.location.replace('/')
+        navigate('/')
     }
 
 return(
 
 //---------Social Media-----------//
-<div className='geral'>
-   
-   
-   
+<div className='geral'> 
+
+
     <div className= "socialbar">
-       <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank" className="link-9">            
-       <img className='youtube' src={Youtube}></img> </a>
+    <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank" className="link-9">            
+    <img className='youtube' src={Youtube}></img> </a>
 
-       <a href="hhttps://www.linkedin.com/company/ness-health/?originalSubdomain=br" target="_blank" className="link-9">            
-       <img className='youtube' src={Linkedin}></img> </a>
+    <a href="hhttps://www.linkedin.com/company/ness-health/?originalSubdomain=br" target="_blank" className="link-9">            
+    <img className='youtube' src={Linkedin}></img> </a>
 
-       <a href="https://web.facebook.com/ness.health/?_rdc=1&_rdr" target="_blank" className="link-9">            
-       <img className='youtube' src={Facebook}></img> </a>           
+    <a href="https://web.facebook.com/ness.health/?_rdc=1&_rdr" target="_blank" className="link-9">            
+    <img className='youtube' src={Facebook}></img> </a>           
 
-       <a href="https://www.instagram.com/ionic.health/" target="_blank" className="link-9">            
-       <img className='youtube' src={Instagram}></img> </a>
+    <a href="https://www.instagram.com/ionic.health/" target="_blank" className="link-9">            
+    <img className='youtube' src={Instagram}></img> </a>
 
     </div>
     
@@ -64,19 +63,19 @@ return(
                 <a href="!" className="brand-logo">
                         <img src={Img}></img>
                 </a>
+                {logout?(
+                <>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    {logout?<li><a className='botaoLog' onClick={Desloga}>Logout</a></li>:null}
+                    <li><a className='botaoLog' onClick={Desloga}>Logout</a></li>
+                </ul>
+
+                <ul id="nav-mobile" className="right hide-on-med-and-down">                  
+                    <li><Link className='botaoLog' to={'/geral-funcionarios'}>Funcionários</Link></li>               
                 </ul>
 
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                
-                   <li><a className='botaoLog'>Funcionários</a></li>
-                
-                </ul>
-
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                 <li><a className='botaoLog'>Departamentos</a></li>
-                </ul>
+                    <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
+                </ul></>):null}
 
 
 
