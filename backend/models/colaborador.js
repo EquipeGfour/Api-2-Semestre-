@@ -73,7 +73,6 @@ const Colaborador = db.define('Colaboradors',{
     },
 })
 
-
 Colaborador.Cargos = Colaborador.belongsTo(Cargos,{foreignKey:{name:'Cargos_ID'}})
 
 

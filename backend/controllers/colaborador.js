@@ -4,7 +4,7 @@ import Departamento from "../models/departamentos.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
 import { atualizarColaborador,atualizarColaboradorCnpj } from "../service/colaboradorService.js";
-
+import Departamento from "../models/departamentos.js";
 
 export const getAllColaborador = async (req, res) => {
     try {
@@ -131,5 +131,26 @@ export const geralFunc = async (req,res) =>{
     }
     catch(error){
         res.status(500).json({message:error.message})
+    }
+}
+
+export const getCargoColaborador = async (req,res) =>{
+    try{ 
+        const cargo_colab = await Colaborador.findAll({
+            include:{
+                model:Cargo,
+                include:{
+                    model:Departamento,
+                    where:{
+                        ID:req.params.id
+                    },
+                    required:true
+                },
+                required:true
+            }
+        });
+        res.json(cargo_colab)
+    }catch(error){
+        res.json({message:error.message})
     }
 }

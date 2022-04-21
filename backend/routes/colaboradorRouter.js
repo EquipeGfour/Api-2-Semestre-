@@ -1,5 +1,6 @@
 import { Router }  from "express";
 import { getAllColaborador, testeCargo, testePessoaFisica,inserirDadosColab, geralFunc,inserirDadosColabCnpj} from "../controllers/colaborador.js";
+
 import {verifyJWT} from "../controllers/login.js"
 
 const router = Router()
