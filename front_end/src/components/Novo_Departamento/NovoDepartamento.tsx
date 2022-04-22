@@ -30,6 +30,9 @@ const NovoDepartamento: React.FC=()=>{
 
     }
 
+    React.useEffect(()=>{
+        document.title='Novo-Departamento'
+    },[])
 
     return(
 

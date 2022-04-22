@@ -4,7 +4,8 @@ import {useCookies} from 'react-cookie'
 import axios from 'axios'
 import { CriaHeader } from "../../functions"
 import {Link,Navigate,useNavigate} from 'react-router-dom';
-
+import M from 'materialize-css/dist/js/materialize'
+import ReactTooltip from 'react-tooltip';
 
 interface Departamento{
   Cargos: any[]
@@ -31,8 +32,13 @@ const GeralDep:React.FC=(props)=>{
 
   }
 
-  React.useEffect(()=>{
-    BuscaDados()
+  React.useEffect(()=>{    
+    document.title='Departamentos-Geral'
+  
+
+    BuscaDados()  
+    
+
   },[])
 
 
@@ -54,7 +60,7 @@ const GeralDep:React.FC=(props)=>{
         </div>
     </div>
 
-    <table className="highlight responsive-table centered">
+    <table className="highlight responsive-table tablegeral centered">
         <thead className="campos">
           <tr>
               <th>Nome Departamento</th>
@@ -71,8 +77,12 @@ const GeralDep:React.FC=(props)=>{
                 <td>{d.totalColab}</td>
                 <td>{d.head}</td>
                 <td>{d.qtdCargos}</td>
-                <td><Link to={`/detalhe-departamento/${d.ID}`}><i className="material-icons">fullscreen</i></Link></td>   
-                <td> <i className="material-icons">delete_forever</i></td>             
+                <td><Link to={`/detalhe-departamento/${d.ID}`}>
+                  <ReactTooltip />
+                
+                  <i className="material-icons" data-tip='Ver Cargos'>search</i>
+                  </Link></td>   
+                <td><i className="material-icons">delete_forever</i></td>             
               </tr>
           ))}          
              

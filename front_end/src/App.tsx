@@ -53,7 +53,6 @@ render(){
         <NavBar>
         </NavBar>
         <Routes>
-
           <Route path='/' element={<Login/>}/>
           <Route path='dados-pessoais' element={<DadosPessoais/>}/>
           <Route path='dados-empresa' element={<DadosEmpresa/>}/>

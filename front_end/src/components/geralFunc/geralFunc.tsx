@@ -22,6 +22,7 @@ const GeralFunc:React.FC=(props)=>{
   }
 
   React.useEffect(()=>{
+    document.title='Geral-Funcionários'
     BuscaDados()
   },[])
 
@@ -44,7 +45,7 @@ const GeralFunc:React.FC=(props)=>{
         </div>
     </div>
 
-    <table className="highlight responsive-table centered">
+    <table className="highlight responsive-table tablefunc centered">
         <thead className="campos">
           <tr>
               <th>Nome</th>

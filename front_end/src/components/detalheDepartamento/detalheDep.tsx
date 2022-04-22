@@ -43,7 +43,8 @@ const DetalheDep:React.FC=(props)=>{
     })
   }
 
-  React.useEffect(()=>{
+  React.useEffect(()=>{    
+    document.title='Departamento-Detalhe'
     
     BuscaDados()
     
@@ -57,7 +58,7 @@ const DetalheDep:React.FC=(props)=>{
 
       <ul className="collapsible expandable infodep1">
         {cargo.map((c:Cargo)=>(
-           <li className="" key={c.id}>
+           <li className="blocos" key={c.id}>
               <div className="collapsible-header infodep" ><i className="material-icons"></i>{c.cargo}</div>
               <div className="collapsible-body">
               <table className="highlight responsive-table centered">
@@ -73,7 +74,7 @@ const DetalheDep:React.FC=(props)=>{
                       <tr key={colab.id}>
                         <td>{colab.nome}</td>
                         <td>{colab.email}</td>
-                        <td>{colab.telefone}</td> 
+                        <td>{colab.telefone}</td>                        
                       </tr>
 
                     ))}                        
@@ -81,6 +82,7 @@ const DetalheDep:React.FC=(props)=>{
               </table>
               </div>
            </li>
+          
 
     ))}
       

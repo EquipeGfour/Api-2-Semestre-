@@ -16,7 +16,7 @@ const Home: React.FC=()=>{
 
     const [cookie,setCookie]=useCookies(['ionic-user'])
     React.useEffect(()=>{
-        console.log(cookie['ionic-user'])
+        document.title='Home Admin'
     },[])
 
     return(

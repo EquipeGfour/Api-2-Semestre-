@@ -38,12 +38,13 @@ const Login : React.FC=(props)=> {
         }).catch(erro=>{
             console.error('erro de login')
             console.log(erro.response)
-        })
-
-            
-
+        })          
     } 
     
+    React.useEffect(()=>{
+        document.title='Login'
+    },[])
+
     return(
         <div className="loginContainer">
             <h1>Login</h1>

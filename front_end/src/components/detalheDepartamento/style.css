@@ -23,16 +23,18 @@
 
 
 .campos{
-   
+  
     color: #53C4CD;
 }
 
 table{
-    margin-top: 1rem;
+    margin-top: 0;
+    background-color: #393B42;
 }
 
 tr{
     border-bottom: 1px solid #53C4CD;
+    
 }
 
 .Pesquisa{
@@ -47,28 +49,34 @@ tr{
     background-color: #53C4CD;
     border-radius: 10px;
     color: rgb(0, 0, 0);
+    margin-top: 2rem;
+    
     
 }
 
 .infodep1{
     margin-top: 2rem;
-    background-color: #393B42;
+    /*background-color: #393B42;*/
     color: rgb(255, 255, 255);
-    border: none !important
+    border: none !important;
+    -webkit-box-shadow: none; 
+    box-shadow: none;
     
 }
 
 .collapsible-body{
+    padding: 0 10px;
     border-bottom: none !important;
 }
 
 .collapsible-header{
     border-bottom: none !important;
+   
 }
-
 
 
 .btnAzulLogin{
     margin-top: 6rem;
     color:  white;
 }
+

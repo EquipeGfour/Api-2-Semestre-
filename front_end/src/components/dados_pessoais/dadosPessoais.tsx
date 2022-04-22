@@ -39,7 +39,9 @@ const DadosPessoais:React.FC=(props)=>{
         const logado = cookie['ionic-user']
         setNomecompleto(logado.nome)
         setCpf(logado.cpf)
-        setEmail(logado.email)
+        setEmail(logado.email)        
+        document.title='Dados Pessoais'
+        
     },[])
 
     const sendData = ()=>{

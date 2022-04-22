@@ -10,7 +10,9 @@ import { CriaHeader } from "../../functions";
 
 const NovoCargo: React.FC=()=>{
 
-    
+    React.useEffect(()=>{
+        document.title='Novo-Cargo'
+    },[])
 
     return(
 
