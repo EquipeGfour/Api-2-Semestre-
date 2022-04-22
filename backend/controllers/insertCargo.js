@@ -4,7 +4,7 @@ export const inserirCargo = async (req,res) =>{
     try{
         const areaCargo = await Cargos.create({
             cargo:req.body.cargo,
-            Departamento_ID:req.body.Departamento_ID
+            Departamento_ID:req.params.id
         });
         return res.json(areaCargo);    
     }catch(error){

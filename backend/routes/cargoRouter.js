@@ -7,6 +7,6 @@ import { verifyJWT } from "../controllers/login.js";
 
 const router = Router()
 
-router.post('/insertCargo',verifyJWT,inserirCargo)
+router.post('/insertCargo/:id',verifyJWT,inserirCargo)
 router.get('/getCargo/:id',verifyJWT,getCargosDepartamentos)
 export default router

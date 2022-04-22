@@ -73,8 +73,13 @@ return(
                     <li><Link className='botaoLog' to={'/geral-funcionarios'}>Funcionários</Link></li>               
                 </ul>
 
+
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
+                </ul>
+                
+                <ul id="nav-mobile" className="right hide-on-med-and-down">                  
+                    <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
                 </ul></>):null}
 
 

@@ -87,7 +87,7 @@ const DetalheDep:React.FC=(props)=>{
     ))}
       
       </ul>
-          <Link to={'/novo-cargo'} className="waves-effect waves-light btn-large btnAzulLogin">Novo Cargo</Link>
+        <Link to={`/novo-cargo/${id}`} className="waves-effect waves-light btn-large btnAzulLogin">Novo Cargo</Link>
 </div>
     )
 }

@@ -63,7 +63,7 @@ render(){
           <Route path='pre-registro' element={<PreRegistro/>}/>
           <Route path='geral-departamentos' element={<GeralDep/>}/>
           <Route path='novo-departamento' element={<NovoDepartamento/>}/>
-          <Route path='novo-cargo' element={<NovoCargo/>}/>
+          <Route path='novo-cargo/:id' element={<NovoCargo/>}/>
           <Route path='detalhe-departamento/:id' element={<DetalheDep/>}/>
         </Routes>      
       </BrowserRouter>
