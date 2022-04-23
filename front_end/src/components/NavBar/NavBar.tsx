@@ -24,8 +24,7 @@ const NavBar:React.FC=(props)=>{
         }else{
             console.log('não logado')
             
-        }
-       
+        }       
     })
 
     const Desloga=()=>{
@@ -42,26 +41,24 @@ return(
 
 
     <div className= "socialbar">
-    <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank" className="link-9">            
-    <img className='youtube' src={Youtube}></img> </a>
+        <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank" className="link-9">            
+        <img className='youtube' src={Youtube}></img> </a>
 
-    <a href="hhttps://www.linkedin.com/company/ness-health/?originalSubdomain=br" target="_blank" className="link-9">            
-    <img className='youtube' src={Linkedin}></img> </a>
+        <a href="hhttps://www.linkedin.com/company/ness-health/?originalSubdomain=br" target="_blank" className="link-9">            
+        <img className='youtube' src={Linkedin}></img> </a>
 
-    <a href="https://web.facebook.com/ness.health/?_rdc=1&_rdr" target="_blank" className="link-9">            
-    <img className='youtube' src={Facebook}></img> </a>           
+        <a href="https://web.facebook.com/ness.health/?_rdc=1&_rdr" target="_blank" className="link-9">            
+        <img className='youtube' src={Facebook}></img> </a>           
 
-    <a href="https://www.instagram.com/ionic.health/" target="_blank" className="link-9">            
-    <img className='youtube' src={Instagram}></img> </a>
-
+        <a href="https://www.instagram.com/ionic.health/" target="_blank" className="link-9">            
+        <img className='youtube' src={Instagram}></img> </a>
     </div>
     
 
     <nav>
-
         <div className="nav-wrapper navbarBackground" >
                 <a href="!" className="brand-logo">
-                        <img src={Img}></img>
+                    <img src={Img}></img>
                 </a>
                 {logout?(
                 <>
@@ -70,9 +67,8 @@ return(
                 </ul>
 
                 <ul id="nav-mobile" className="right hide-on-med-and-down">                  
-                    <li><Link className='botaoLog' to={'/geral-funcionarios'}>Funcionários</Link></li>               
+                    <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
                 </ul>
-
 
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
@@ -81,10 +77,6 @@ return(
                 <ul id="nav-mobile" className="right hide-on-med-and-down">                  
                     <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
                 </ul></>):null}
-
-
-
-
         </div>
     </nav>
 </div>
