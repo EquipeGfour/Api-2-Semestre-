@@ -151,6 +151,7 @@ export const getCargoColaborador = async (req,res) =>{
         });
         res.json(cargo_colab)
     }catch(error){
-        res.json({message:error.message})
+
+     res.status(400).json({message:error.message})
     }
 }
