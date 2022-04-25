@@ -47,7 +47,7 @@ export const testeCargo = async (req,res) => {
 export const inserirDadosColab  = async (req,res)=>{
     const t = await sequelize.transaction();
     try{
-        console.log(res.body)
+        
 
         const colabId = req.body.id
         const objColab = {
