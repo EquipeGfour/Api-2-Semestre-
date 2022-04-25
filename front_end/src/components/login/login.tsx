@@ -36,14 +36,15 @@ const Login : React.FC=(props)=> {
                 M.toast({html:'Nenhum CPF/CNPJ está cadasrado, Entre em contato com o Administrador',classes:"modalerro rounded"})
             }
         }).catch(erro=>{
-            console.error('erro de login')
-            console.log(erro.response)
-        })
-
             
-
+            console.log(erro.response)
+        })          
     } 
     
+    React.useEffect(()=>{
+        document.title='Login'
+    },[])
+
     return(
         <div className="loginContainer">
             <h1>Login</h1>

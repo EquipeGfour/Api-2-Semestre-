@@ -17,7 +17,7 @@ const Cargos = db.define('Cargos',{
     },
     cargo:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull: true
     }
 })
 

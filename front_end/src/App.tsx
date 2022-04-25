@@ -13,6 +13,12 @@ import GeralFunc from './components/geralFunc/geralFunc';
 import PreRegistro from "./components/PreRegistro/PreRegistro"
 import Home from "./components/Home/home"
 import DadosEmpresa from "./components/dados_empresa/dadosEmpresa"
+import GeralDep from "./components/geralDepartamento/geralDep"
+import NovoDepartamento from "./components/Novo_Departamento/NovoDepartamento"
+import NovoCargo from "./components/Novo_Cargo/NovoCargo"
+import DetalheDep from "./components/detalheDepartamento/detalheDep"
+import DetalheFunc from './components/detalheFunc/detalheFunc';
+
 type state = {
   tela: string
 }
@@ -41,10 +47,13 @@ render(){
 
   return(
     <div>
-      <NavBar/>
-      <BrowserRouter>
-        <Routes>
+      
 
+
+      <BrowserRouter>        
+        <NavBar>
+        </NavBar>
+        <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='dados-pessoais' element={<DadosPessoais/>}/>
           <Route path='dados-empresa' element={<DadosEmpresa/>}/>
@@ -53,6 +62,11 @@ render(){
           <Route path='home-admin' element={<Home/>}/>
           <Route path='upload' element={<Upload/>}/>
           <Route path='pre-registro' element={<PreRegistro/>}/>
+          <Route path='geral-departamentos' element={<GeralDep/>}/>
+          <Route path='novo-departamento' element={<NovoDepartamento/>}/>
+          <Route path='novo-cargo/:id' element={<NovoCargo/>}/>
+          <Route path='detalhe-departamento/:id' element={<DetalheDep/>}/>
+          <Route path='detalhe-funcionario' element={<DetalheFunc/>}/>
         </Routes>      
       </BrowserRouter>
       
