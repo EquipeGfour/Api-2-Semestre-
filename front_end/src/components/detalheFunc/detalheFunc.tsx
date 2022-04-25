@@ -8,27 +8,11 @@ import M from 'materialize-css/dist/js/materialize'
 
 const DetalheFunc:React.FC=(props)=>{
   document.title='Detalhe-Funcionário'
-
-  // const [colaboradores,setColaboradores] = React.useState([])
-
-  // const BuscaDados = () =>{
-
-  //   axios.get('http://localhost:5000/colab/geral',{headers:CriaHeader()}).then(res=>{
-  //     console.log(res)
-  //     setColaboradores(res.data.dados)
-
-  //   }).catch(erro=>{
-  //     console.error(erro)
-
-  //   })
-
-  // }
+  
 
   React.useEffect(()=>{
     var el = document.querySelector('#tabs-swipe-demo')
     var instance = M.Tabs.init(el, Option);
-  //   document.title='Geral-Funcionários'
-  //   BuscaDados()
   },[])
 
 
@@ -199,45 +183,5 @@ return(
   </div>
 </div>
 )}
-//         {/* <div className="nav-wrapper barPesquisa">
-//         <form>
-//             <div className="input-field">
-//             <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
-//             <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-//             <i className="material-icons">close</i>
-//             </div>
-//         </form>
-//         </div>
-//     </div>
 
-//     <table className="highlight responsive-table tablefunc centered">
-//         <thead className="campos">
-//           <tr>
-//               <th>Nome</th>
-//               <th>Cargo</th>
-//               <th>Área</th>
-//               <th>Email</th>
-//               <th>Telefone</th>
-              
-//           </tr>
-
-
-//         </thead>
-
-//         <tbody>
-
-//           {colaboradores.map((colab,index)=>(
-//              <tr key={index}>
-//              <td>{colab.nome}</td>
-//              <td>{colab.Cargo?.cargo}</td>
-//              <td>{colab.Cargo?.Departamento?.area}</td>
-//              <td>{colab.email}</td>
-//              <td>{colab.telefone}</td>
-//            </tr>
-//           ))}
-//         </tbody>
-//       </table>
-// </div> */}
-//     )
-// }
 export default DetalheFunc
