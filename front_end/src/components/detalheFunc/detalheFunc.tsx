@@ -32,10 +32,10 @@ const DetalheFunc:React.FC=(props)=>{
   },[])
 
 
-    return(
+return(
 <div>
   <div className="container">
-    <img className="responsive-img fotoColab" src="https://i1.sndcdn.com/avatars-000326011759-902upi-t500x500.jpg"/> 
+    <img className="responsive-img fotoColab" src={Colab}/> 
       <div className="row">
         <form className="col s12 dadosBasicos">
           <div className="">
