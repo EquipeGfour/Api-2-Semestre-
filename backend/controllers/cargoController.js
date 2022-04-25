@@ -16,7 +16,7 @@ export const getCargosDepartamentos = async (req,res) => {
             attributes:['id','area'],
             where:{id:req.params.id}
         })
-        console.log("Variavel: ", req.params.id)
+       
         res.json(dados)
     }catch(error){
         res.status(500).json({ message:error })
