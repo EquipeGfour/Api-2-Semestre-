@@ -35,7 +35,7 @@
     color: #53C4CD;
 }
 
-.tablefunc{
+.tablegeral{
     margin-top: 5rem;
 }
 
@@ -54,4 +54,8 @@ tr{
     height: 64px;
     line-height: 64px;
     color: white;
+}
+.btnAzulLogin{
+    margin-top: 6rem;
+    color:  white;
 }

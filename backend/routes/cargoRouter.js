@@ -7,7 +7,7 @@ import { deletarAll } from "../controllers/deleteAll.js";
 
 const router = Router()
 
-router.post('/insertCargo',verifyJWT,inserirCargo)
+router.post('/insertCargo/:id',verifyJWT,inserirCargo)
 router.get('/getCargo/:id',verifyJWT,getCargosDepartamentos)
 router.delete('/getDeleteCargo/:id',verifyJWT,deletarAll)
 export default router

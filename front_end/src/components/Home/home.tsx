@@ -16,7 +16,7 @@ const Home: React.FC=()=>{
 
     const [cookie,setCookie]=useCookies(['ionic-user'])
     React.useEffect(()=>{
-        console.log(cookie['ionic-user'])
+        document.title='Home Admin'
     },[])
 
     return(
@@ -28,17 +28,17 @@ const Home: React.FC=()=>{
                 <Link to="/geral-funcionarios"   >                   
                 <button className=" waves-effect  botaoFunc"> <img className="imgColab" src={Colab}></img></button>
                 </Link>  
-                <div className="btnNome">Colaborador</div>
+                <div className="btnNomeHome">Colaboradores e Departamentos</div>
             </div>
 
             <div className="col s4">
             <button className="waves-effect botaoFunc"><img className="imgColab" src={Organograma}></img></button>
-                <div className="btnNome">Organograma</div>            
+                <div className="btnNomeHome">Organograma</div>            
             </div>
 
             <div className="col s4">
             <button className="waves-effect botaoFunc"><img className="imgColab" src={Trilha}></img></button>
-                <div className="btnNome">Desenvolvimento</div>
+                <div className="btnNomeHome">Desenvolvimento</div>
             </div>
         </div>
 
@@ -46,19 +46,19 @@ const Home: React.FC=()=>{
         <div className="row blocoBaixo">
             <div className=" col s4">
                 <button className="waves-effect botaoFunc"><img className="imgColab" src={Desligado}></img></button>
-                <div className="btnNome">Desligados</div>
+                <div className="btnNomeHome">Desligados</div>
             </div>
 
             <div className="col s4">
                 <button className="waves-effect botaoFunc"><img className="imgColab" src={Holerite}></img></button>
-                <div className="btnNome">Financeiro</div>
+                <div className="btnNomeHome">Financeiro</div>
             </div>
 
             <div className="col s4">
                 <Link to="/pre-registro">
                 <button className="waves-effect botaoFunc" ><img className="imgColab" src={PreRegistro}></img></button>
                 </Link>
-                <div className="btnNome">Pré-Registro</div>
+                <div className="btnNomeHome">Pré-Registro</div>
             </div>
         </div>     
         

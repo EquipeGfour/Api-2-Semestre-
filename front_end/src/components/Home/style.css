@@ -41,9 +41,10 @@
     
 }
 
-.btnNome{
+.btnNomeHome{
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-size: 20px;
 }
 
 .botaoFunc:hover {

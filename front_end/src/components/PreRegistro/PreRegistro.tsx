@@ -57,6 +57,9 @@ const PreRegistro1: React.FC=()=>{
         }    
     }
 
+    React.useEffect(()=>{
+        document.title='Pré-Registro'
+    },[])
     return(
 
     <div className="acessoContainer">

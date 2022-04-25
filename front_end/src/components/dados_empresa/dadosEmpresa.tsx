@@ -23,7 +23,9 @@ const DadosEmpresa:React.FC=(props)=>{
         
         const logado = cookie['ionic-user']
         setNomecompleto(logado.nome)
-        setCnpj(logado.cnpj)
+        setCnpj(logado.cnpj)        
+        document.title='Dados Empresa'
+        
         
     },[])
 
