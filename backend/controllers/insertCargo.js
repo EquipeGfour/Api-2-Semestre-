@@ -8,7 +8,7 @@ export const inserirCargo = async (req,res) =>{
         });
         return res.json(areaCargo);    
     }catch(error){
-        res.json({message: error.message});
+       res.status(400).json({message: error.message});
 
     }
 }
