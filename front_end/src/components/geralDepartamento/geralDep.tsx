@@ -22,7 +22,7 @@ const GeralDep:React.FC=(props)=>{
   const BuscaDados = () =>{
 
     axios.get('http://localhost:5000/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{
-      console.log(res)
+      
       setDepartamento(res.data)
 
     }).catch(erro=>{
