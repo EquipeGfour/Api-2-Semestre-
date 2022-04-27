@@ -2,8 +2,6 @@ import Colaborador from "./colaborador.js";
 import db from "../config/db.js"
 import { Sequelize } from "sequelize";
 
-
-
 const Cargos = db.define('Cargos',{
     id:{
         type:Sequelize.INTEGER,
@@ -20,7 +18,5 @@ const Cargos = db.define('Cargos',{
         allowNull: true
     }
 })
-
-
 
 export default Cargos

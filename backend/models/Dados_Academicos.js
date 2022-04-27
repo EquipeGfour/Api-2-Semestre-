@@ -25,12 +25,8 @@ const DadosAcademicos = db.define('Dados_Academicos',{
         type:Sequelize.STRING,
         allowNull:true
     },
-    tipo_arquivo_academicos:{
-        type:Sequelize.STRING,
-        allowNull:true
-    }
-
 })
+
 Colaborador.DadosAcademicos = Colaborador.hasMany(DadosAcademicos,{foreignKey:'Colaborador_ID',as:"DadosAcademicos"})
 DadosAcademicos.Colaborador = DadosAcademicos.belongsTo(Colaborador,{foreignKey:'Colaborador_ID',as:"DadosAcademicos"})
 
