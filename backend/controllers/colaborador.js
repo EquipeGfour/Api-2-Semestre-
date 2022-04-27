@@ -9,6 +9,7 @@ import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
 import Contrato from "../models/contrato.js";
 
+
 export const getAllColaborador = async (req, res) => {
     try {
         const colaborador = await Colaborador.findAll();
