@@ -3,7 +3,6 @@ import Colaborador from '../models/colaborador.js';
 import pessoafisica from '../models/pessoafisica.js';
 import PessoaJuridica from '../models/pessoa_juridica.js';
 
-
 export const PdfContrato = async (req, res) => { 
     const {id,nome,cpf} = req.query;
     const user = await Colaborador.findOne({
