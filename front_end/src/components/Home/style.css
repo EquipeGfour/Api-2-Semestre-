@@ -4,7 +4,7 @@
 
 .loginContainer{
     margin-top: 6rem;
-    color: #53C4CD;
+    color: #fff;
     text-align: center;
     
     
@@ -25,16 +25,16 @@
 .imgColab{
     width: 200px;
     height: 200px;
-    background: #54C5CE;
-    border: 0px solid #54C5CE;
+    background: #58595B;
+    border: 0px solid #58595B;
     box-sizing:content-box;
     border-radius: 20px;
 }
 
 .botaoFunc{
-    background-color:#54C5CE;;
+    background-color:#58595B;;
     border-radius: 20px;
-    border: #53C4CD;
+    border: #58595B;
    
     outline: none;
     
@@ -54,8 +54,8 @@
 
   
 
-    background-color: #54C5CE;
-    box-shadow: 0 5px #54C5CE;
+    background-color: #54c5ce;
+    box-shadow: 0 5px #54c5ce;
     transform: translateY(-8px);
   
 }
