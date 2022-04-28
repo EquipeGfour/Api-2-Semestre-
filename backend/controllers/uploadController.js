@@ -22,7 +22,6 @@ export const baixar = async (req,res) => {
     try{
         const idArquivo = req.params.id
         const dados = await pegarArquivoById(idArquivo)
-        console.log(dados)
         res.download(caminhoArquivo + `/${dados.nome_arquivos}${dados.extensao}`)
     }catch(error){
         res.status(500).json({ message:error.message })
