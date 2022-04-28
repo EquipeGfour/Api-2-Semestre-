@@ -63,7 +63,7 @@ export const PdfContrato = async (req, res) => {
         
         </p> 
     <div style='text-align:center;padding-top:50vh'>
-        <h3 >Nome Completo do assinante do Contrato:</h3>
+        <h3 >Nome Completo do Assinante do Contrato:</h3>
         
         <h4 style='text-decoration: underline'>${user.nome} </h4>
         
