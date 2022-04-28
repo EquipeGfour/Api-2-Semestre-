@@ -19,7 +19,7 @@ const Home: React.FC=()=>{
     },[])
 
     return(
-    <div className="loginContainer">
+    <div className="loginContainer titulo">
             <h3>Bem-Vindo Administrador</h3>       
         
         <div className="row blocoCima">        
@@ -41,6 +41,7 @@ const Home: React.FC=()=>{
             </div>
         </div>
 
+        <hr className="linha"></hr>
         
         <div className="row blocoBaixo">
             <div className=" col s12 m4 l4">

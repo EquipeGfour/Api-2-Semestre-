@@ -4,10 +4,14 @@
 
 .loginContainer{
     margin-top: 6rem;
-    color: #fff;
+    color: #53C4CD;
     text-align: center;
     
     
+}
+
+.titulo{
+    color: #53C4CD !important;
 }
 
 .blocoCima{
@@ -45,6 +49,7 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 20px;
+    color: #f2f2f2;
 }
 
 .botaoFunc:hover {
@@ -58,4 +63,14 @@
     box-shadow: 0 5px #54c5ce;
     transform: translateY(-8px);
   
+}
+
+.linha{
+    width: 80%;
+    border-color: #54c5ce;
+}
+
+hr{
+    color: #54c5ce !important;
+    background-color: #54c5ce; 
 }
