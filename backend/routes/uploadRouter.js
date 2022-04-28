@@ -12,5 +12,4 @@ router.post('/enviar/:id', verifyJWT, upload.array("arquivo",8), dadosUpload);
 
 router.get('/listarAquivos/:id', verifyJWT, listarArquivos)
 
-
 export default router
