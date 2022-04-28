@@ -4,7 +4,6 @@ import { upload } from "../functions/upload.js";
 import { verifyJWT } from "../controllers/login.js";
 import { dadosUpload, baixar, listarArquivos } from "../controllers/uploadController.js";
 
-
 const router = Router()
 
 
