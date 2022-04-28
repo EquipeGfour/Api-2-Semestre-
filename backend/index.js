@@ -7,7 +7,6 @@ import preRegistroRouter from './routes/preRegistroRouter.js'
 import departamentoRouter from './routes/departamentoRouter.js'
 import cargoRouter from './routes/cargoRouter.js'
 import pdf_router from './routes/pdf_router.js'
-
 import uploadRouter from './routes/uploadRouter.js'
 
 const app = express();
