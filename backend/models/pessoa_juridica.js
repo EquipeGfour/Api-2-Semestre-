@@ -31,6 +31,4 @@ const PessoaJuridica = db.define('Pessoa_Juridicas',{
 
 PessoaJuridica.Colaborador = PessoaJuridica.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
 
-
-
 export default PessoaJuridica

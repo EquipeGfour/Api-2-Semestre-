@@ -13,9 +13,6 @@ const Acessos = db.define('Acessos',{
         type:Sequelize.INTEGER,
         allowNull:false
     },
-
-
-
 })
 Acessos.belongsTo(cargos,{foreignKey:'Cargo_id'})
 

@@ -45,10 +45,6 @@ const Contrato = db.define('Contratos',{
         type:Sequelize.STRING,
         allowNull:true
     },
-    tipo_arquivo_contrato:{
-        type:Sequelize.STRING,
-        allowNull:false
-    }
 })
 
 Colaborador.Contrato = Colaborador.hasMany(Contrato,{foreignKey:'Colaborador_ID'})

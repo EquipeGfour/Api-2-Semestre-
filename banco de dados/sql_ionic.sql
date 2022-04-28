@@ -6,6 +6,17 @@ CREATE DATABASE ionic;
 use ionic;
 
 -- tables
+-- Table: Arquivos
+CREATE TABLE Arquivos (
+    ID int NOT NULL AUTO_INCREMENT,
+    nome_arquivos varchar(300) ,
+    extensao varchar(300),
+    Colaborador_ID int not null,
+    createdAt date NOT NULL default (current_date()),
+    updatedAt date ,
+    CONSTRAINT Arquivos_pk PRIMARY KEY (ID)
+);
+
 -- Table: Acessos
 CREATE TABLE Acessos (
     ID int NOT NULL AUTO_INCREMENT,
@@ -66,7 +77,6 @@ CREATE TABLE Contratos (
     createdAt date NOT NULL default (current_date()),
     updatedAt int ,
     data_desligamento date ,
-    tipo_arquivo_contrato varchar(200) ,
     CONSTRAINT Contrato_pk PRIMARY KEY (ID)
 );
 
@@ -78,7 +88,6 @@ CREATE TABLE Dados_Academicos (
     cursos varchar(200) ,
     termo_PI varchar(200) ,
     linguas varchar(200) ,
-    tipo_arquivo_academicos varchar(200) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Dados_Academicos_pk PRIMARY KEY (ID)
@@ -123,7 +132,6 @@ CREATE TABLE Grade_Cursos (
 CREATE TABLE Pessoa_Fisicas (
     Colaborador_ID int NOT NULL,
     cpf varchar(15),
-	tipo_arquivo_pessoa_fisica varchar(200) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Pessoa_Fisicas_pk PRIMARY KEY (Colaborador_ID)
@@ -155,6 +163,11 @@ CREATE TABLE Trilha_Aprendizados (
 );
 
 -- foreign keys
+
+-- Reference: Arquivos_Colaborador (table: Colaboradors)
+ALTER TABLE Arquivos ADD CONSTRAINT Arquivo_Colaborador FOREIGN KEY Arquivo_Colaborador (Colaborador_ID)
+    REFERENCES Colaboradors (ID);
+
 -- Reference: Acesso_Cargo (table: Acessos)
 ALTER TABLE Acessos ADD CONSTRAINT Acesso_Cargo FOREIGN KEY Acesso_Cargo (Cargos_ID)
     REFERENCES Cargos (ID);
