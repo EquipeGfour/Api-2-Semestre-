@@ -6,7 +6,6 @@ import PessoaJuridica from '../models/pessoa_juridica.js';
 
 export const PdfContrato = async (req, res) => { 
     const {id,nome,cpf} = req.query;
-    console.log(req.query,req.params);
     const user = await Colaborador.findOne({
         where: { id:id},
         include:[{ 
