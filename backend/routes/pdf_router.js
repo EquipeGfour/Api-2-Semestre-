@@ -6,4 +6,3 @@ const router = Router()
 router.get('/gerarpdf',PdfContrato)
 
 export default  router;
-
