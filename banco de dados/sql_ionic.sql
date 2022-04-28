@@ -11,7 +11,7 @@ CREATE TABLE Arquivos (
     ID int NOT NULL AUTO_INCREMENT,
     nome_arquivos varchar(300) ,
     extensao varchar(300),
-    Colaborador_ID int,
+    Colaborador_ID int not null,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT Arquivos_pk PRIMARY KEY (ID)

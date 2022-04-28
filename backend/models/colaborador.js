@@ -74,5 +74,6 @@ Cargos.Colaborador = Cargos.hasMany(Colaborador, {foreignKey:'Cargos_ID'})
 Colaborador.Cargos = Colaborador.belongsTo(Cargos,{foreignKey:{name:'Cargos_ID'}})
 
 Arquivos.Colaborador = Arquivos.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
+Colaborador.Arquivos = Colaborador.hasMany(Arquivos, {foreignKey:'Colaborador_ID'})
 
 export default Colaborador
