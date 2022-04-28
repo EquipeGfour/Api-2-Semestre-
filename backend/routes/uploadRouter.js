@@ -6,7 +6,7 @@ import { dadosUpload, baixar, listarArquivos } from "../controllers/uploadContro
 
 const router = Router()
 
-router.get('/baixar/:id', baixar)
+router.get('/baixar/:id', verifyJWT, baixar)
 
 router.post('/enviar/:id', verifyJWT, upload.array("arquivo",8), dadosUpload);
 
