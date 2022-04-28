@@ -1,7 +1,7 @@
 import Cargos from "./cargo.js";
 import db from '../config/db.js'
 import { Sequelize } from "sequelize";
-
+import Arquivos from "./arquivos.js";
 
 const Colaborador = db.define('Colaboradors',{
     id:{
@@ -68,14 +68,12 @@ const Colaborador = db.define('Colaboradors',{
         type:Sequelize.STRING,
         allowNull: true
     },
-    tipo_desligamento:{
-        type:Sequelize.STRING,
-        allowNull:true
-    },
 })
 
 Cargos.Colaborador = Cargos.hasMany(Colaborador, {foreignKey:'Cargos_ID'})
 Colaborador.Cargos = Colaborador.belongsTo(Cargos,{foreignKey:{name:'Cargos_ID'}})
 
+Arquivos.Colaborador = Arquivos.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
+Colaborador.Arquivos = Colaborador.hasMany(Arquivos, {foreignKey:'Colaborador_ID'})
 
 export default Colaborador
