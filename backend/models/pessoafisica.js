@@ -13,14 +13,9 @@ const pessoafisica = db.define('Pessoa_Fisicas',{
         type:Sequelize.STRING,
         allowNull:true,
     },
-    tipo_arquivo_pessoa_fisica:{
-        type:Sequelize.STRING,
-        allowNull:true
-    }
-
 })
 
-
+Colaborador.pessoafisica = Colaborador.hasOne(pessoafisica,{foreignKey:'Colaborador_ID'})
 pessoafisica.Colaborador = pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
 
 

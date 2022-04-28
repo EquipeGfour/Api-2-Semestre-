@@ -4,7 +4,10 @@ import Departamento from "../models/departamentos.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
 import { atualizarColaborador,atualizarColaboradorCnpj } from "../service/colaboradorService.js";
-
+import pessoafisica from "../models/pessoafisica.js";
+import Endereco from "../models/endereco.js";
+import DadosAcademicos from "../models/Dados_Academicos.js";
+import Contrato from "../models/contrato.js";
 
 export const getAllColaborador = async (req, res) => {
     try {
@@ -153,5 +156,49 @@ export const getCargoColaborador = async (req,res) =>{
     }catch(error){
 
      res.status(400).json({message:error.message})
+    }
+}
+
+
+export const getColaboradorById = async (req,res) =>{
+    try{
+        const colab = await Colaborador.findAll({
+            where:{
+                ID:req.params.id
+            },
+            include:[
+                {
+                    model:pessoafisica,
+                    attributes:['cpf','Colaborador_ID']
+                },
+                {
+                    model:Endereco,
+                    attributes:['ID','estado','cidade','bairro','cep','complemento','regiao']
+                },
+                {
+                    model:DadosAcademicos,
+                    as:"DadosAcademicos",
+                    attributes:['ID','formacao','cursos',
+                    ['linguas','Idiomas'],'termo_PI']
+                },
+                {
+                    model:Contrato,
+                    attributes:['ID','faixa_salarial','auxilio_creche','vale_refeicao',
+                    'distrato','contrato_trabalho','codigo_conduta_etica','vale_transporte',
+                    'data_Admissao','plano_saude','tipo_arquivo_contrato']
+                },
+                {
+                    model:Cargo,
+                    attributes:['cargo','ID'],
+                    include:{
+                        model:Departamento,
+                        attributes:['area','ID']
+                    }
+                }
+            ]
+        })
+        res.json(colab)
+    }catch(error){
+        res.status(400).json({message:error.message})
     }
 }

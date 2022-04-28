@@ -35,6 +35,7 @@ const Endereco = db.define('Enderecos',{
     }
 })
 
+Colaborador.Endereco = Colaborador.hasMany(Endereco,{foreignKey:'Colaborador_ID'})
 Endereco.Colaborador = Endereco.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
 
 export default Endereco

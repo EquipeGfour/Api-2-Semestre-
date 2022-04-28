@@ -6,7 +6,8 @@ import LoginRouter from './routes/loginRouter.js'
 import preRegistroRouter from './routes/preRegistroRouter.js'
 import departamentoRouter from './routes/departamentoRouter.js'
 import cargoRouter from './routes/cargoRouter.js'
-
+import pdf_router from './routes/pdf_router.js'
+import uploadRouter from './routes/uploadRouter.js'
 
 const app = express();
 
@@ -31,5 +32,9 @@ app.use('/cargo', cargoRouter)
 app.use('/preRegistro', preRegistroRouter)
 
 app.use('/departamento', departamentoRouter)
+
+app.use('/pdf',pdf_router)
+
+app.use('/upload', uploadRouter)
 
 app.listen(5000 , ()=> console.log('Servidor rodando na porta 5000. :D'))
