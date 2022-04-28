@@ -15,7 +15,6 @@ export const PdfContrato = async (req, res) => {
             model:PessoaJuridica
         }]
 
-        
     });
     console.log(user);
     const titulo ="Contrato"
