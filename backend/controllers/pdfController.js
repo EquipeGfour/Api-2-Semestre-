@@ -28,7 +28,7 @@ export const PdfContrato = async (req, res) => {
         <p>A pessoa ${user.nome}, inscrita no (CNPJ)/(CPF) nº ${user.Pessoa_Juridica ? user.Pessoa_Juridica.cnpj : user.Pessoa_Fisica.cpf} , com sede em SAO PAULO ,
         doravante denominado CONTRATANTE e neste ato representada na forma de seus atos constitutivos,
         com a naturalidade ${user.naturalidade} ,
-        inscrito no CPF sob o nº. ${user.Pessoa_Juridica ? user.Pessoa_Juridica.cnpj : user.Pessoa_Fisica.cpf} 
+        inscrito no CPF/CNPJ sob o nº. ${user.Pessoa_Juridica ? user.Pessoa_Juridica.cnpj : user.Pessoa_Fisica.cpf} 
         portador da data de nascimento ${user.data_nascimento}.
         Decidem as partes, na melhor forma de direito, 
         celebrar o presente CONTRATO DE PRESTAÇÃO DE SERVIÇOS,
