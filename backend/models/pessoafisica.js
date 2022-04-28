@@ -15,7 +15,7 @@ const pessoafisica = db.define('Pessoa_Fisicas',{
     },
 })
 
-Colaborador.pessoafisica = Colaborador.hasMany(pessoafisica,{foreignKey:'Colaborador_ID'})
+Colaborador.pessoafisica = Colaborador.hasOne(pessoafisica,{foreignKey:'Colaborador_ID'})
 pessoafisica.Colaborador = pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
 
 
