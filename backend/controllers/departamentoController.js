@@ -1,3 +1,6 @@
+import Cargos from "../models/cargo.js"
+import Colaborador from "../models/colaborador.js"
+import Departamento from "../models/departamentos.js"
 import { departDados, createDepart } from "../service/departamentoService.js"
 
 
@@ -33,7 +36,7 @@ export const getCargosDepartamentos = async (req,res) => {
     try{
         const dados = await Departamento.findOne({
             include:[{
-                model:Cargo,
+                model:Cargos,
                     attributes:['id','cargo','Departamento_ID'],
                 include:{
                     model:Colaborador,

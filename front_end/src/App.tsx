@@ -6,7 +6,7 @@ import './App.css';
 
 import NavBar from './components/NavBar/NavBar';
 import DadosPessoais from './components/dados_pessoais/dadosPessoais';
-import Upload from './components/Upload/Upload';
+import Upload from './components/Upload/Upload.';
 import Login from './components/login/login';
 import Administrador from './components/Administrador/Administrador.js'
 import GeralFunc from './components/geralFunc/geralFunc';
