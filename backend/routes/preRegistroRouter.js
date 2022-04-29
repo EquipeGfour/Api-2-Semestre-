@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { insertPreRegistroCpf } from "../controllers/preRegistro.js";
-import { insertPreRegistroCnpj } from "../controllers/preRegistro.js";
-import {verifyJWT} from "../controllers/login.js"
+import { insertPreRegistroCpf } from "../controllers/preRegistroController.js";
+import { insertPreRegistroCnpj } from "../controllers/preRegistroController.js";
+import {verifyJWT} from "../controllers/loginController.js"
 
 const router = Router()
 

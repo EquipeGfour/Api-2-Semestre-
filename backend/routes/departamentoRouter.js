@@ -1,7 +1,6 @@
 import { Router } from "express";
-import { getCargosDepartamentos } from "../controllers/cargoController.js";
-import { getAllDepartamento, inserirDepartamanto } from "../controllers/departamentoController.js";
-import { verifyJWT } from "../controllers/login.js";
+import { getAllDepartamento, getCargosDepartamentos, inserirDepartamanto } from "../controllers/departamentoController.js";
+import { verifyJWT } from "../controllers/loginController.js";
 
 const router = Router()
 

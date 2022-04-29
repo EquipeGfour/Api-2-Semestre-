@@ -15,6 +15,11 @@ const Colaborador = db.define('Colaboradors',{
         primaryKey: true
         
     },
+    gestor_ID:{
+        type:Sequelize.INTEGER,
+        primaryKey: true
+        
+    },
     nome:{
         type:Sequelize.STRING,
         allowNull:true,
@@ -75,5 +80,8 @@ Colaborador.Cargos = Colaborador.belongsTo(Cargos,{foreignKey:{name:'Cargos_ID'}
 
 Arquivos.Colaborador = Arquivos.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
 Colaborador.Arquivos = Colaborador.hasMany(Arquivos, {foreignKey:'Colaborador_ID'})
+
+Colaborador.Colaborador = Colaborador.belongsTo(Colaborador,{foreignKey:{name:'gestor_ID'}, as:'Gestor'})
+Colaborador.Colaborador = Colaborador.hasMany(Colaborador, {foreignKey:'gestor_ID', as:'funcionarios'})
 
 export default Colaborador

@@ -21,7 +21,7 @@ export const insertPreRegistroCpf = async(req, res) => {
         return res.json(dados) 
         
     }catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 }
 
@@ -43,7 +43,7 @@ export const insertPreRegistroCnpj = async(req, res) => {
         return res.json(dados)
 
     }catch (error) {
-        res.json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 }
 

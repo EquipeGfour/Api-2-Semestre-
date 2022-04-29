@@ -1,9 +1,8 @@
 import { Router } from "express";
-import { getCargosDepartamentos } from "../controllers/cargoController.js";
-import { getCargoColaborador } from "../controllers/colaborador.js";
-import { inserirCargo } from "../controllers/insertCargo.js";
-import { verifyJWT } from "../controllers/login.js";
+import { inserirCargo } from "../controllers/cargoController.js";
+import { verifyJWT } from "../controllers/loginController.js";
 import { deletarAll } from "../controllers/deleteAll.js";
+import { getCargosDepartamentos } from "../controllers/departamentoController.js";
 
 const router = Router()
 

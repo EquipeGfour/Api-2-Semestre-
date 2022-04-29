@@ -1,7 +1,3 @@
-import Colaborador from "../models/colaborador.js";
-import Cargo from "../models/cargo.js";
-import sequelize from "../config/db.js";
-import Departamento from "../models/departamentos.js";
 import Cargos from "../models/cargo.js";
 
 

@@ -41,6 +41,7 @@ CREATE TABLE Cargos (
 CREATE TABLE Colaboradors (
     ID int NOT NULL AUTO_INCREMENT,
     Cargos_ID int ,
+    gestor_ID int ,
     nome varchar(300) ,
     email varchar(300) ,
     senha varchar(300) ,
@@ -175,6 +176,10 @@ ALTER TABLE Acessos ADD CONSTRAINT Acesso_Cargo FOREIGN KEY Acesso_Cargo (Cargos
 -- Reference: Cargo_Colaborador (table: Cargos)
 ALTER TABLE Colaboradors ADD CONSTRAINT Colaboradors_Cargo FOREIGN KEY Colaboradors_Cargo (Cargos_ID)
     REFERENCES Cargos (ID);
+    
+-- Reference: Colaborador_Colaborador (table: Colaboradors)
+ALTER TABLE Colaboradors ADD CONSTRAINT Colaboradors_Colaborador FOREIGN KEY Colaboradors_Colaborador (gestor_ID)
+    REFERENCES Colaboradors (ID);
     
 ALTER TABLE Cargos ADD CONSTRAINT Departamento_Cargo FOREIGN KEY Departamento_Cargo (Departamento_ID)
     REFERENCES Departamentos (ID);
