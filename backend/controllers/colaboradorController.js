@@ -151,7 +151,7 @@ export const getCargoColaborador = async (req, res) => {
 
 export const getColaboradorById = async (req, res) => {
     try {
-        const colab = await Colaborador.findAll({
+        const colab = await Colaborador.findOne({
             where: {
                 ID: req.params.id
             },

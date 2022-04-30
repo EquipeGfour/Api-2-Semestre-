@@ -66,7 +66,7 @@ render(){
           <Route path='novo-departamento' element={<NovoDepartamento/>}/>
           <Route path='novo-cargo/:id' element={<NovoCargo/>}/>
           <Route path='detalhe-departamento/:id' element={<DetalheDep/>}/>
-          <Route path='detalhe-funcionario' element={<DetalheFunc/>}/>
+          <Route path='detalhe-funcionario/:id' element={<DetalheFunc/>}/>
         </Routes>      
       </BrowserRouter>
       

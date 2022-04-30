@@ -3,6 +3,8 @@ import "./style.css"
 import {useCookies} from 'react-cookie'
 import axios from 'axios'
 import { CriaHeader } from "../../functions"
+import ReactTooltip from 'react-tooltip';
+import {Link,Navigate,useNavigate} from 'react-router-dom';
 
 const GeralFunc:React.FC=(props)=>{
 
@@ -11,7 +13,7 @@ const GeralFunc:React.FC=(props)=>{
   const BuscaDados = () =>{
 
     axios.get('http://localhost:5000/colab/geral',{headers:CriaHeader()}).then(res=>{
-      console.log(res)
+     
       setColaboradores(res.data.dados)
 
     }).catch(erro=>{
@@ -68,6 +70,11 @@ const GeralFunc:React.FC=(props)=>{
              <td>{colab.Cargo?.Departamento?.area}</td>
              <td>{colab.email}</td>
              <td>{colab.telefone}</td>
+             <td><Link to={`/detalhe-funcionario/${colab.ID}`}>
+                  <ReactTooltip />
+                
+                  <i className="material-icons" data-tip='Ver Funcionário'>search</i>
+                  </Link></td>   
            </tr>
           ))}
         </tbody>
