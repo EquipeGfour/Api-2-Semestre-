@@ -3,15 +3,12 @@ import Cargo from "../models/cargo.js";
 import Departamento from "../models/departamentos.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
-import { atualizarColaborador, atualizarColaboradorCnpj } from "../service/colaboradorService.js";
-import pessoafisica from "../models/pessoafisica.js";
-import Endereco from "../models/endereco.js";
-import DadosAcademicos from "../models/Dados_Academicos.js";
-import Contrato from "../models/contrato.js";
+import { atualizarColaborador, atualizarColaboradorCnpj, Geralfuncionarios, getGestorById, getTodosColab, PegarCargoColab,pegarColabById } from "../service/colaboradorService.js";
+
 
 export const getAllColaborador = async (req, res) => {
     try {
-        const colaborador = await Colaborador.findAll();
+        const colaborador = await getTodosColab();
         res.json(colaborador);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -109,17 +106,7 @@ export const inserirDadosColabCnpj = async (req, res) => {
 
 export const geralFunc = async (req, res) => {
     try {
-        const dados = await Colaborador.findAll({
-            attributes: ['nome', 'telefone', 'ID', 'email'],
-            include: {
-                model: Cargo,
-                attributes: ['cargo', 'ID'],
-                include: {
-                    model: Departamento,
-                    attributes: ['area', 'ID']
-                },
-            }
-        });
+        const dados = await Geralfuncionarios();
         res.json({ dados })
     }
     catch (error) {
@@ -127,68 +114,22 @@ export const geralFunc = async (req, res) => {
     }
 }
 
+// Não está sendo usado porem esta funcionando
 export const getCargoColaborador = async (req, res) => {
     try {
-        const cargo_colab = await Colaborador.findAll({
-            include: {
-                model: Cargo,
-                include: {
-                    model: Departamento,
-                    where: {
-                        ID: req.params.id
-                    },
-                    required: true
-                },
-                required: true
-            }
-        });
+        const id = req.params.id
+        const cargo_colab = await PegarCargoColab(id);
         res.json(cargo_colab)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
 }
 
-
 export const getColaboradorById = async (req, res) => {
     try {
-        const colab = await Colaborador.findAll({
-            where: {
-                ID: req.params.id
-            },
-            include: [
-                {
-                    model: Colaborador, as: 'Gestor'
-                },
-                {
-                    model: pessoafisica,
-                    attributes: ['cpf', 'Colaborador_ID']
-                },
-                {
-                    model: Endereco,
-                    attributes: ['ID', 'estado', 'cidade', 'bairro', 'cep', 'complemento', 'regiao']
-                },
-                {
-                    model: DadosAcademicos,
-                    as: "DadosAcademicos",
-                    attributes: ['ID', 'formacao', 'cursos',
-                        ['linguas', 'Idiomas'], 'termo_PI']
-                },
-                {
-                    model: Contrato,
-                    attributes: ['ID', 'faixa_salarial', 'auxilio_creche', 'vale_refeicao',
-                        'distrato', 'contrato_trabalho', 'codigo_conduta_etica', 'vale_transporte',
-                        'data_Admissao', 'plano_saude']
-                },
-                {
-                    model: Cargo,
-                    attributes: ['cargo', 'ID'],
-                    include: {
-                        model: Departamento,
-                        attributes: ['area', 'ID']
-                    }
-                }
-            ]
-        })
+        const id = req.params.id
+        const colab = await pegarColabById(id);
+        console.log(colab)
         res.json(colab)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -198,16 +139,7 @@ export const getColaboradorById = async (req, res) => {
 export const pegarGestorById = async (req, res) => {
     try {
         const id = req.params.id
-        const dados = await Colaborador.findOne({
-            where: {
-                id
-            },
-            attributes: ['id', 'nome'],
-            include: {
-                model: Colaborador, as: 'funcionarios',
-                attributes: ['id', 'nome', ['gestor_ID', 'pid']],
-            }
-        })
+        const dados = await getGestorById(id);
         const result = dados.dataValues.funcionarios.map(f=>f.dataValues)
         delete dados.dataValues.funcionarios
         res.json([dados.dataValues, ...result])
@@ -215,6 +147,3 @@ export const pegarGestorById = async (req, res) => {
         res.status(500).json({ message: error })
     }
 }
-
-
-

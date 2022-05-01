@@ -19,3 +19,20 @@ export const departDados = async () => {
 export const createDepart = async (area) => {
     return await Departamento.create( { area } )
 }
+
+export const pegarCargoDepart = async(id) =>{
+    const GetcargoDepart = await Departamento.findOne({
+        
+        include:[{
+            model:Cargos,
+                attributes:['id','cargo','Departamento_ID'],
+            include:{
+                model:Colaborador,
+                attributes:['id','nome','email','telefone']
+            }
+        }],
+        attributes:['id','area'],
+        where:{id}
+    })
+    return GetcargoDepart
+}
