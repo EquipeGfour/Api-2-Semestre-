@@ -41,7 +41,7 @@ const GeralFunc:React.FC=(props)=>{
             <div className="input-field">
             <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
             <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-            <i className="material-icons">close</i>
+            <i className="material-icons pesquisa">close</i>
             </div>
         </form>
         </div>
@@ -54,25 +54,20 @@ const GeralFunc:React.FC=(props)=>{
               <th>Cargo</th>
               <th>Área</th>
               <th>Email</th>
-              <th>Telefone</th>
-              
+              <th>Telefone</th>              
           </tr>
-
-
         </thead>
 
         <tbody>
-
           {colaboradores.map((colab,index)=>(
-             <tr key={index}>
-             <td>{colab.nome}</td>
-             <td>{colab.Cargo?.cargo}</td>
-             <td>{colab.Cargo?.Departamento?.area}</td>
-             <td>{colab.email}</td>
-             <td>{colab.telefone}</td>
-             <td><Link to={`/detalhe-funcionario/${colab.ID}`}>
-                  <ReactTooltip />
-                
+            <tr key={index}>
+            <td>{colab.nome}</td>
+            <td>{colab.Cargo?.cargo}</td>
+            <td>{colab.Cargo?.Departamento?.area}</td>
+            <td>{colab.email}</td>
+            <td>{colab.telefone}</td>
+            <td><Link to={`/detalhe-funcionario/${colab.ID}`}>
+                  <ReactTooltip />                
                   <i className="material-icons" data-tip='Ver Funcionário'>search</i>
                   </Link></td>   
            </tr>

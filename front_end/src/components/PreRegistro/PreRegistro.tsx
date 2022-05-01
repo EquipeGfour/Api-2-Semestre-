@@ -16,17 +16,23 @@ const PreRegistro1: React.FC=()=>{
     const [cpf,setCpf] = React.useState('')
     const [cnpj,setCnpj] = React.useState('')
     const [nome,setNome] = React.useState('')
+    const [cargo,setCargo] = React.useState('')
+    const [head,setHead] = React.useState('')
+    const [id,setId] = React.useState('')
 
     const [cpfCnpj, setCpfCnpj] = React.useState("");
     const [mask, setMask] = React.useState("");
 
     const EnviaDados = () =>{
-        let url='http://localhost:5000/preRegistro/cpf'
+        let url='http://localhost:5000/preRegistro/cpf'         
         let obj = {
             email,
             cpf:cpfCnpj,
             nome,
-            cnpj:null  
+            cnpj:null,
+            cargo,
+            head,
+            id  
         }
 
         if(mask === "CNPJ"){
@@ -36,11 +42,12 @@ const PreRegistro1: React.FC=()=>{
 
         axios.post(url, obj,{headers:CriaHeader()}).then(res=>{
 
-
             M.toast({html:'Pré Registro realizado com sucesso!',classes:"modal1 rounded"})
             setEmail('')
             setCpfCnpj('')
             setNome('')
+            setCargo('')
+            setHead('')
             console.log(res)
 
         }).catch(erro=>{
@@ -60,6 +67,7 @@ const PreRegistro1: React.FC=()=>{
     React.useEffect(()=>{
         document.title='Pré-Registro'
     },[])
+
     return(
 
     <div className="acessoContainer">
@@ -94,7 +102,23 @@ const PreRegistro1: React.FC=()=>{
                     }}/>               
                 <label className="active" htmlFor="first_name2">CPF ou CNPJ</label>                         
                 </div>
+
+                <div className="row">
+                    <div className="input-field col s12">
+                        <input value={cargo} placeholder="Cargo" id="first_name2" type="text" className="validate" onChange={ (e) => setCargo(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Cargo</label>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="input-field col s12">
+                        <input value={head} placeholder="Head do Departamento" id="first_name2" type="text" className="validate" onChange={ (e) => setHead(e.target.value)}/>
+                        <label className="active" htmlFor="first_name2">Head do Departamento</label>
+                    </div>
+                </div>
             </div>
+            
+        
 
 
             <a className="waves-effect waves-light btn-large btnAzul" onClick={RegistraDados}>Registrar</a>
