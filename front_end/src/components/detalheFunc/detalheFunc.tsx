@@ -7,26 +7,6 @@ import Colab from '../img/colab.png'
 import M from 'materialize-css/dist/js/materialize'
 import { useParams } from "react-router-dom"
 
-/*
-Cargos_ID: null
-Contratos: []
-DadosAcademicos: []
-Enderecos: []
-Pessoa_Fisica:
-Colaborador_ID: 2
-cpf: "283.940.390-20"
-data_nascimento: null
-email: "nicolau@india"
-estado_civil: null
-genero: null
-id: 2
-nacionalidade: null
-naturalidade: null
-nome: "Nicolau da India"
-raca: null
-senha: "GJBZZEUKSB9X"
-telefone: null
-*/
 
 const DetalheFunc: React.FC = (props) => {
   const { id } = useParams();
@@ -41,6 +21,17 @@ const DetalheFunc: React.FC = (props) => {
   const [telefone, setTelefone]=useState('');
   const [raca, setRaca]=useState('');
   const [dataNascimento, setDataNascimento]=useState('');
+  const [endereco, setEndereco]=useState('');
+  const [estado, setEstado]=useState('');
+  const [cidade, setCidade]=useState('');
+  const [bairro, setBairro]=useState('');
+  const [cep, setCep]=useState('');
+  const [complemento, setComplemento]=useState('');
+  const [regiao, setRegiao]=useState('');
+  const [formacao, setFormacao]=useState('');
+  const [idiomas, setIdiomas]=useState('');
+  const [curso, setCurso]=useState('');
+
   const getColabById = (id: string) => {
     axios.get(`http://localhost:5000/colab/funcionario/${id}`, { headers: CriaHeader() }).then(res => {
       console.log(res);
@@ -55,7 +46,16 @@ const DetalheFunc: React.FC = (props) => {
       setTelefone(res.data.telefone);
       setRaca(res.data.raca);
       setDataNascimento(res.data.data_nascimento);
-      //res.data.DadosAcademicos.[0].formacao
+      setEndereco(res.data.Enderecos[0].endereco);
+      setEstado(res.data.Enderecos[0].estado);
+      setCidade(res.data.Enderecos[0].cidade);
+      setBairro(res.data.Enderecos[0].bairro);
+      setCep(res.data.Enderecos[0].cep);
+      setComplemento(res.data.Enderecos[0].complemento);
+      setRegiao(res.data.Enderecos[0].regiao);
+      setFormacao(res.data.DadosAcademicos[0].formacao);
+      setIdiomas(res.data.DadosAcademicos[0].Idiomas);
+      setCurso(res.data.DadosAcademicos[0].cursos);
     })
   }
 
@@ -160,36 +160,36 @@ const DetalheFunc: React.FC = (props) => {
             <div className="col s12 dadosPessoais">
               <div className="row">
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Endereço" id="first_name2" type="text" className="validate" />
+                  <input placeholder="Endereço" id="first_name2" type="text" className="validate" value={endereco}onChange={()=>setEndereco} />
                   <label className="active fonte" htmlFor="first_name2">Endereço</label>
                 </div>
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Estado" id="first_name2" type="text" className="validate dadoRecebido1" />
+                  <input placeholder="Estado" id="first_name2" type="text" className="validate dadoRecebido1" value={estado}onChange={()=>setEstado} />
                   <label className="active fonte" htmlFor="first_name2">Estado</label>
                 </div>
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Cidade" id="first_name2" type="text" className="validate" />
+                  <input placeholder="Cidade" id="first_name2" type="text" className="validate" value={cidade}onChange={()=>setCidade} />
                   <label className="active fonte" htmlFor="first_name2">Cidade</label>
                 </div>
               </div>
 
               <div className="row">
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Bairro" id="first_name2" type="text" className="validate" />
+                  <input placeholder="Bairro" id="first_name2" type="text" className="validate" value={bairro}onChange={()=>setBairro}/>
                   <label className="active fonte" htmlFor="first_name2">Bairro</label>
                 </div>
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="CEP" id="first_name2" type="text" className="validate dadoRecebido1" />
+                  <input placeholder="CEP" id="first_name2" type="text" className="validate dadoRecebido1" value={cep}onChange={()=>setCep}/>
                   <label className="active fonte" htmlFor="first_name2">CEP</label>
                 </div>
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Complemento" id="first_name2" type="text" className="validate" />
+                  <input placeholder="Complemento" id="first_name2" type="text" className="validate" value={complemento}onChange={()=>setComplemento}/>
                   <label className="active fonte" htmlFor="first_name2">Complemento</label>
                 </div>
               </div>
               <div className="row">
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Região" id="first_name2" type="text" className="validate" />
+                  <input placeholder="Região" id="first_name2" type="text" className="validate" value={regiao}onChange={()=>setRegiao}/>
                   <label className="active fonte" htmlFor="first_name2">Região</label>
                 </div>
               </div>
@@ -203,15 +203,15 @@ const DetalheFunc: React.FC = (props) => {
             <div className="col s12 dadosPessoais">
               <div className="row">
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Formação" id="first_name2" type="text" className="validate" />
+                  <input placeholder="Formação" id="first_name2" type="text" className="validate" value={formacao}onChange={()=>setFormacao}/>
                   <label className="active fonte" htmlFor="first_name2">Formação</label>
                 </div>
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Curso" id="first_name2" type="text" className="validate dadoRecebido1" />
+                  <input placeholder="Curso" id="first_name2" type="text" className="validate dadoRecebido1" value={curso}onChange={()=>setCurso}/>
                   <label className="active fonte" htmlFor="first_name2">Curso</label>
                 </div>
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Idiomas" id="first_name2" type="text" className="validate" />
+                  <input placeholder="Idiomas" id="first_name2" type="text" className="validate" value={idiomas}onChange={()=>setIdiomas}/>
                   <label className="active fonte" htmlFor="first_name2">Idiomas</label>
                 </div>
               </div>
