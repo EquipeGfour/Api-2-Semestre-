@@ -37,8 +37,11 @@
 }
 
 .tablegeral{
-    margin-top: 5rem;
+    margin-top: 5rem !important;
+    width: 75%;
+    margin: 0 auto; 
 }
+
 
 tr{
     border-bottom: 1px solid #53C4CD;
@@ -60,3 +63,8 @@ tr{
     margin-top: 6rem;
     color:  white;
 }
+
+.delete{
+    color: rgb(245, 75, 75)
+}
+

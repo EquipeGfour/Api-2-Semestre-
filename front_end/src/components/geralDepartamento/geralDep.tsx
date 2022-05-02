@@ -82,7 +82,7 @@ const GeralDep:React.FC=(props)=>{
                 
                   <i className="material-icons" data-tip='Ver Cargos'>search</i>
                   </Link></td>   
-                <td><i className="material-icons">delete_forever</i></td>             
+                <td><i className="material-icons delete">delete_forever</i></td>             
               </tr>
           ))}          
              

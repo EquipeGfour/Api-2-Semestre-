@@ -18,25 +18,28 @@
     color: #53C4CD;
     font-size: 60px;
     font-family: 'IonicCoolvetica';
+    margin: 0 auto;
 }
 
 .barPesquisa{
-    margin-top: 4rem;
-    background-color: #53C4CD;
+    margin-top: 4rem !important;
+    background-color: #ffffff !important;
     margin-bottom: 2rem; 
     border-radius: 30px;  
-    
+    margin: 0 auto;
+    color: black !important;
     
    
 }
 
-.campos{
-   
+.campos{   
     color: #53C4CD;
 }
 
 .tablefunc{
-    margin-top: 5rem;
+    margin-top: 5rem !important;
+    width: 75%;
+    margin: 0 auto; 
 }
 
 tr{
@@ -54,4 +57,16 @@ tr{
     height: 64px;
     line-height: 64px;
     color: white;
+}
+
+.nav-wrapper .input-field input[type=search] {
+    border-radius: 30px;
+}
+
+.material-icons{
+    color: #53C4CD;
+}
+
+.pesquisa{
+    color: rgb(2, 2, 2) !important;
 }
