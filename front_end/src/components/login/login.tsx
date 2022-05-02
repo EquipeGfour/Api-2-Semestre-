@@ -12,6 +12,9 @@ const Login : React.FC=(props)=> {
     const [email,setEmail] = React.useState('')
     const [senha,setSenha] = React.useState('')
 
+    const teclaEnter = (event)=>{
+        if(event.key==='Enter') GetLogin()
+    }
     const GetLogin = async () =>{       
               
         axios.post('http://localhost:5000/login/',{
@@ -58,7 +61,7 @@ const Login : React.FC=(props)=> {
 
             <div className="row senha">
                 <div className="input-field col s12">
-                <input value={senha} id="password" type="password" className="validate" onChange={ (e) => setSenha(e.target.value)}/>
+                <input value={senha} id="password" type="password" className="validate" onChange={ (e) => setSenha(e.target.value)} onKeyDown={teclaEnter}/>
                 <label htmlFor="password">Senha</label>
                 </div>
             </div>
