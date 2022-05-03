@@ -43,7 +43,7 @@ const DadosEmpresa:React.FC=(props)=>{
 
     if(!ValidaCampo()){
 
-        axios.post('http://localhost:5000/colab/cnpj',dados,{headers:CriaHeader()}).then(res=>{
+        axios.post('/api/colab/cnpj',dados,{headers:CriaHeader()}).then(res=>{
             M.toast({html:'Cadastro Realizado com Sucesso !', classes:"modal1 rounded"})
             navigate('/')
 

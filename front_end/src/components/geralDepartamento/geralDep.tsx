@@ -21,7 +21,7 @@ const GeralDep:React.FC=(props)=>{
   const [departamento,setDepartamento]=useState<Departamento[]>([])
   const BuscaDados = () =>{
 
-    axios.get('http://localhost:5000/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{
+    axios.get('/api/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{
       
       setDepartamento(res.data)
 

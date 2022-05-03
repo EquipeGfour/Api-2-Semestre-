@@ -30,7 +30,7 @@ const PreRegistro1: React.FC=()=>{
     const [mask, setMask] = React.useState("");
 
     const EnviaDados = () =>{
-        let url='http://localhost:5000/preRegistro/cpf'         
+        let url='/api/preRegistro/cpf'         
         let obj = {
             email,
             cpf:cpfCnpj,
@@ -42,7 +42,7 @@ const PreRegistro1: React.FC=()=>{
         }
 
         if(mask === "CNPJ"){
-            url = 'http://localhost:5000/preRegistro/cnpj'
+            url = '/api/preRegistro/cnpj'
             obj.cnpj=cpfCnpj
         }
 

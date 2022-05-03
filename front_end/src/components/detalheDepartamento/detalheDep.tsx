@@ -31,7 +31,7 @@ const DetalheDep:React.FC=(props)=>{
   const {id}=useParams()
   const BuscaDados = () =>{
     
-    axios.get(`http://localhost:5000/cargo/getCargo/${id}`,{headers:CriaHeader()}).then(res=>{
+    axios.get(`/api/cargo/getCargo/${id}`,{headers:CriaHeader()}).then(res=>{
       console.log(res)
       setCargo(res.data.Cargos)
       setDepartamento(res.data.area)

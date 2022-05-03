@@ -19,7 +19,7 @@ const NovoDepartamento: React.FC=()=>{
         }
 
 
-        axios.post('http://localhost:5000/departamento/inserirDepart', {area:departamento}, {headers:CriaHeader()}).then(res=>{
+        axios.post('/api/departamento/inserirDepart', {area:departamento}, {headers:CriaHeader()}).then(res=>{
             M.toast({html:'Departamento criado com sucesso!', classes:"modal1 rounded"})
             navigate('/geral-departamentos')  
         }).catch(erro=>{
