@@ -12,7 +12,7 @@ const GeralFunc:React.FC=(props)=>{
 
   const BuscaDados = () =>{
 
-    axios.get('http://localhost:5000/colab/geral',{headers:CriaHeader()}).then(res=>{
+    axios.get('/api/colab/geral',{headers:CriaHeader()}).then(res=>{
      
       setColaboradores(res.data.dados)
 

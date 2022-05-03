@@ -21,7 +21,7 @@ const NovoCargo: React.FC=()=>{
         }
         
         
-        axios.post(`http://localhost:5000/cargo/insertCargo/${id}`,{cargo}, {headers:CriaHeader()}).then(res=>{
+        axios.post(`/api/cargo/insertCargo/${id}`,{cargo}, {headers:CriaHeader()}).then(res=>{
             M.toast({html:'Departamento criado com sucesso!', classes:"modal1 rounded"})
             navigate(`/detalhe-departamento/${id}`)
         }).catch(erro=>{
