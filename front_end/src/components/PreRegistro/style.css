@@ -57,3 +57,16 @@
     background-color: #cd6153;
     margin-top: 4rem;
 }
+
+.select-wrapper input.select-dropdown {
+    color:#fff;
+}
+
+.input-field>label {
+    font-size: 24px;
+    color: #53C4CD;
+}
+
+.select-wrapper .caret {
+    fill:#fff;
+}

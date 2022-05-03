@@ -10,6 +10,12 @@ import { CriaHeader } from "../../functions";
 
 const PreRegistro1: React.FC=()=>{
 
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var el = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(el, Option);
+    });
+
     const navigate = useNavigate()
     const [cookie,setCookie] = useCookies(['ionic-user'])
     const [email,setEmail] = React.useState('')
@@ -97,18 +103,36 @@ const PreRegistro1: React.FC=()=>{
                     type="text"
                     onChange={(event, type) => {
                     setCpfCnpj(event.target.value);
-                    setMask(type)
-                    
+                    setMask(type)                    
                     }}/>               
                 <label className="active" htmlFor="first_name2">CPF ou CNPJ</label>                         
                 </div>
 
-                <div className="row">
-                    <div className="input-field col s12">
-                        <input value={cargo} placeholder="Cargo" id="first_name2" type="text" className="validate" onChange={ (e) => setCargo(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Cargo</label>
-                    </div>
+
+                <div className="row">    
+                <div className="input-field col s12 seletor ">
+                    <select>
+                        <option value="" disabled selected>Departamento</option>                        
+                        <option value="1">Dep1</option>
+                        <option value="2">Dep2</option>
+                        <option value="3">Dep3</option>                          
+                    </select>
+                    <label>Departamento</label>
                 </div>
+            </div> 
+
+                <div className="row">    
+                <div className="input-field col s12 seletor ">
+                    <select>
+                        <option value="" disabled selected>Cargo</option>                          
+                        <option value="1">Cargo1</option>
+                        <option value="2">Cargo2</option>
+                        <option value="3">Cargo3</option>                           
+                    </select>
+                    <label>Cargo</label>
+                </div>
+            </div>           
+
 
                 <div className="row">
                     <div className="input-field col s12">
@@ -118,6 +142,7 @@ const PreRegistro1: React.FC=()=>{
                 </div>
             </div>
             
+
         
 
 
