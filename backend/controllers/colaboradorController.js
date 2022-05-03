@@ -69,6 +69,7 @@ export const inserirDadosColab = async (req, res) => {
             Colaborador_ID: req.body.id
         }
         const objEndereco = {
+            rua: req.body.rua,
             estado: req.body.estado,
             cep: req.body.cep,
             regiao: req.body.regiao,
@@ -165,7 +166,7 @@ export const getColaboradorById = async (req, res) => {
                 },
                 {
                     model: Endereco,
-                    attributes: ['ID', 'estado', 'cidade', 'bairro', 'cep', 'complemento', 'regiao']
+                    attributes: ['ID', 'rua', 'estado', 'cidade', 'bairro', 'cep', 'complemento', 'regiao']
                 },
                 {
                     model: DadosAcademicos,

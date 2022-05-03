@@ -20,7 +20,7 @@ const DadosPessoais:React.FC=(props)=>{
     const [raca,setRaca] = React.useState('')
     const [datanascimento,setDatanascimento] = React.useState('')
     const [complemento,setComplemento] = React.useState('')
-    const [endereco,setEndereco] = React.useState('')
+    const [rua,setRua] = React.useState('')
     const [bairro,setBairro] = React.useState('')
     const [cidade,setCidade] = React.useState('')
     const [estado,setEstado] = React.useState('')
@@ -31,7 +31,7 @@ const DadosPessoais:React.FC=(props)=>{
     const [email,setEmail] = React.useState('')
     const [linguas,setLinguas] = React.useState('')
     const [formacao,setFormacao] = React.useState('')
-    const [curso,setCurso] = React.useState('')
+    const [cursos,setCursos] = React.useState('')
     const [status,setStatus] = React.useState('')
 
     React.useEffect(()=>{
@@ -58,8 +58,9 @@ const DadosPessoais:React.FC=(props)=>{
             raca,
             data_nascimento:datanascimento,
             complemento,
-            endereco,
+            rua,
             bairro,
+            estado,
             cidade,
             cep,
             telefone,
@@ -68,7 +69,7 @@ const DadosPessoais:React.FC=(props)=>{
             email,
             linguas,
             formacao,
-            curso,
+            cursos,
             status
         }
 
@@ -115,9 +116,14 @@ const DadosPessoais:React.FC=(props)=>{
             M.toast({html:'Preencha o campo Data de Nascimento!', classes:"modalerro rounded"})
         }
 
-        if(endereco === ''){
+        if(rua === ''){
             faltaDados = true
-            M.toast({html:'Preencha o campo Endereço !', classes:"modalerro rounded"})
+            M.toast({html:'Preencha o campo Rua!', classes:"modalerro rounded"})
+        }
+
+        if(estado === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo Estado!', classes:"modalerro rounded"})
         }
 
         if(bairro === ''){
@@ -160,7 +166,7 @@ const DadosPessoais:React.FC=(props)=>{
             M.toast({html:'Preencha o campo Formação !', classes:"modalerro rounded"})
         }
 
-        if(curso === ''){
+        if(cursos === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Curso !', classes:"modalerro rounded"})
         }
@@ -226,8 +232,8 @@ const DadosPessoais:React.FC=(props)=>{
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value={endereco} placeholder="Endereço (Rua ou Avenida e Número)" id="first_name2" type="text" className="validate" onChange={ (e) => setEndereco(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Endereço</label>
+                        <input value={rua} placeholder="Endereço (Rua ou Avenida e Número)" id="first_name2" type="text" className="validate" onChange={ (e) => setRua(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Rua/Número</label>
                     </div>
 
                      <div className="input-field col s6">
@@ -298,7 +304,7 @@ const DadosPessoais:React.FC=(props)=>{
                         <label className="active" htmlFor="first_name2">Formação</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value={curso} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={ (e) => setCurso(e.target.value) }/>
+                        <input value={cursos} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={ (e) => setCursos(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Curso</label>
                     </div>
                 </div>

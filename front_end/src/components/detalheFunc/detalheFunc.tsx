@@ -21,7 +21,7 @@ const DetalheFunc: React.FC = (props) => {
   const [telefone, setTelefone]=useState('');
   const [raca, setRaca]=useState('');
   const [dataNascimento, setDataNascimento]=useState('');
-  const [endereco, setEndereco]=useState('');
+  const [rua, setRua]=useState('');
   const [estado, setEstado]=useState('');
   const [cidade, setCidade]=useState('');
   const [bairro, setBairro]=useState('');
@@ -46,7 +46,7 @@ const DetalheFunc: React.FC = (props) => {
       setTelefone(res.data.telefone);
       setRaca(res.data.raca);
       setDataNascimento(res.data.data_nascimento);
-      setEndereco(res.data.Enderecos[0].endereco);
+      setRua(res.data.Enderecos[0].rua);
       setEstado(res.data.Enderecos[0].estado);
       setCidade(res.data.Enderecos[0].cidade);
       setBairro(res.data.Enderecos[0].bairro);
@@ -160,8 +160,8 @@ const DetalheFunc: React.FC = (props) => {
             <div className="col s12 dadosPessoais">
               <div className="row">
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Endereço" id="first_name2" type="text" className="validate" value={endereco}onChange={()=>setEndereco} />
-                  <label className="active fonte" htmlFor="first_name2">Endereço</label>
+                  <input placeholder="Rua/Número" id="first_name2" type="text" className="validate" value={rua}onChange={()=>setRua} />
+                  <label className="active fonte" htmlFor="first_name2">Rua/Número</label>
                 </div>
                 <div className=" input-field col s4 espaço">
                   <input placeholder="Estado" id="first_name2" type="text" className="validate dadoRecebido1" value={estado}onChange={()=>setEstado} />

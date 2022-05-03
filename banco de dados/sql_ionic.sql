@@ -107,6 +107,7 @@ CREATE TABLE Departamentos (
 -- Table: Enderecos
 CREATE TABLE Enderecos (
     ID int NOT NULL AUTO_INCREMENT,
+    rua varchar(300),
     estado varchar(200) ,
     regiao varchar(300) ,
     cep varchar(300) ,

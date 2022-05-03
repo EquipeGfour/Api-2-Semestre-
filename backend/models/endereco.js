@@ -21,6 +21,11 @@ const Endereco = db.define('Enderecos',{
         type:Sequelize.STRING,
         allowNull: true
     },
+
+    rua:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
     cidade:{
         type:Sequelize.STRING,
         allowNull:true
