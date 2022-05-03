@@ -107,9 +107,10 @@ const PreRegistro1: React.FC=()=>{
                     }}/>               
                 <label className="active" htmlFor="first_name2">CPF ou CNPJ</label>                         
                 </div>
+            </div>
 
 
-                <div className="row">    
+            <div className="row">    
                 <div className="input-field col s12 seletor ">
                     <select>
                         <option value="" disabled selected>Departamento</option>                        
@@ -121,7 +122,7 @@ const PreRegistro1: React.FC=()=>{
                 </div>
             </div> 
 
-                <div className="row">    
+            <div className="row">    
                 <div className="input-field col s12 seletor ">
                     <select>
                         <option value="" disabled selected>Cargo</option>                          
@@ -140,7 +141,7 @@ const PreRegistro1: React.FC=()=>{
                         <label className="active" htmlFor="first_name2">Head do Departamento</label>
                     </div>
                 </div>
-            </div>
+            
             
 
         
