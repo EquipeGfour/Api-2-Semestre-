@@ -1,0 +1,17 @@
+{
+  "name": "api-2-semestre-",
+  "version": "1.0.0",
+  "description": "<br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd backend && node index.js",
+    "dev": "cd backend && nodemon index.js",
+    "client": "cd front_end && npm run start",
+    "heroku-postbuild": "node ./node_modules/@heroku-cli/node/bin/node-build.js"
+  },
+  "proxy": "http://localhost:5000",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/EquipeGfour/Api-2-Semestre-#readme"
+}
