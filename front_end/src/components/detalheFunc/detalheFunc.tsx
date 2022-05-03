@@ -36,8 +36,8 @@ const DetalheFunc: React.FC = (props) => {
     axios.get(`http://localhost:5000/colab/funcionario/${id}`, { headers: CriaHeader() }).then(res => {
       console.log(res);
       setNome(res.data.nome);
-      setCargo(res.data.Cargo.cargo);
-      setDepartamento(res.data.Cargo.Departamento.area);
+      setCargo(res.data.Cargo?.cargo);
+      setDepartamento(res.data.Cargo?.Departamento.area);
       setCpf(res.data.Pessoa_Fisica.cpf);
       setNaturalidade(res.data.naturalidade);
       setNacionalidade(res.data.nacionalidade);
