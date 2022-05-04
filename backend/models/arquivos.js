@@ -1,7 +1,7 @@
 import {Sequelize} from 'sequelize';
 import db from "../config/db.js"
 
-const Arquivos = db.define('Arquivos',{
+const Arquivos = db.define('arquivos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,

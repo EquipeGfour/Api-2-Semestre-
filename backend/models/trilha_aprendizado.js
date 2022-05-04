@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from '../config/db.js'
 import pessoafisica from "./pessoafisica.js"
 
-const TrilhaAprendizado = db.define('Trilha_Aprendizados',{
+const TrilhaAprendizado = db.define('trilha_aprendizados',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -23,6 +23,6 @@ const TrilhaAprendizado = db.define('Trilha_Aprendizados',{
     }
 })
 
-TrilhaAprendizado.belongsTo(pessoafisica,{foreignKey:'Pessoa_Fisica_id'})
+TrilhaAprendizado.belongsTo(pessoafisica,{foreignKey:'pessoa_fisica_id'})
 
 export default TrilhaAprendizado

@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from '../config/db.js';
 import Cargos from "./cargo.js";
 
-const Departamento = db.define('Departamentos',{
+const Departamento = db.define('departamentos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,

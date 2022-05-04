@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from '../config/db.js'
 import Colaborador from "./colaborador.js";
 
-const Endereco = db.define('Enderecos',{
+const Endereco = db.define('enderecos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,

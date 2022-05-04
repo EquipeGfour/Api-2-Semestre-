@@ -2,7 +2,7 @@ import Colaborador from "./colaborador.js";
 import db from "../config/db.js"
 import { Sequelize } from "sequelize";
 
-const Cargos = db.define('Cargos',{
+const Cargos = db.define('cargos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,

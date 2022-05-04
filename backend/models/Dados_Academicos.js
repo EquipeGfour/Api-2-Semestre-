@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from "../config/db.js"
 import Colaborador from './colaborador.js'
 
-const DadosAcademicos = db.define('Dados_Academicos',{
+const DadosAcademicos = db.define('dados_academicos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,

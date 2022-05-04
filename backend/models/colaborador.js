@@ -3,7 +3,7 @@ import db from '../config/db.js'
 import { Sequelize } from "sequelize";
 import Arquivos from "./arquivos.js";
 
-const Colaborador = db.define('Colaboradors',{
+const Colaborador = db.define('colaboradors',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
