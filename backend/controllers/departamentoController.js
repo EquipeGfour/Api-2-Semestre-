@@ -37,7 +37,7 @@ export const getCargosDepartamentos = async (req,res) => {
         const dados = await Departamento.findOne({
             include:[{
                 model:Cargos,
-                    attributes:['id','cargo','Departamento_ID'],
+                    attributes:['id','cargo','departamento_id'],
                 include:{
                     model:Colaborador,
                     attributes:['id','nome','email','telefone']

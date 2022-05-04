@@ -66,7 +66,7 @@ export const inserirDadosColab = async (req, res) => {
             formacao: req.body.formacao,
             cursos: req.body.cursos,
             linguas: req.body.linguas,
-            Colaborador_ID: req.body.id
+            colaborador_id: req.body.id
         }
         const objEndereco = {
             rua: req.body.rua,
@@ -76,7 +76,7 @@ export const inserirDadosColab = async (req, res) => {
             cidade: req.body.cidade,
             bairro: req.body.bairro,
             complemento: req.body.complemento,
-            Colaborador_ID: req.body.id
+            colaborador_id: req.body.id
         }
         const dados = await atualizarColaborador(colabId, objColab, objDadosAcademicos, objEndereco, t)
         res.json(dados)
@@ -162,7 +162,7 @@ export const getColaboradorById = async (req, res) => {
                 },
                 {
                     model: pessoafisica,
-                    attributes: ['cpf', 'Colaborador_ID']
+                    attributes: ['cpf', 'colaborador_id']
                 },
                 {
                     model: Endereco,
@@ -172,7 +172,7 @@ export const getColaboradorById = async (req, res) => {
                     model: DadosAcademicos,
                     as: "DadosAcademicos",
                     attributes: ['ID', 'formacao', 'cursos',
-                        ['linguas', 'Idiomas'], 'termo_PI']
+                        ['linguas', 'Idiomas'], 'termo_pi']
                 },
                 {
                     model: Contrato,
@@ -206,7 +206,7 @@ export const pegarGestorById = async (req, res) => {
             attributes: ['id', 'nome'],
             include: {
                 model: Colaborador, as: 'funcionarios',
-                attributes: ['id', 'nome', ['gestor_ID', 'pid']],
+                attributes: ['id', 'nome', ['gestor_id', 'pid']],
             }
         })
         const result = dados.dataValues.funcionarios.map(f=>f.dataValues)

@@ -15,7 +15,7 @@ interface Colaborador{
 
 interface Cargo{
   Colaboradors: Colaborador[]
-  Departamento_ID: number
+  departamento_id: number
   cargo: string
   createdAt: string
   id: number

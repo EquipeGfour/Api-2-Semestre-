@@ -67,7 +67,7 @@ const PreRegistro1: React.FC=()=>{
             cnpj:null,
             head,
             id,
-            Cargos_ID:cargo  
+            cargos_id:cargo  
         }
 
         if(mask === "CNPJ"){

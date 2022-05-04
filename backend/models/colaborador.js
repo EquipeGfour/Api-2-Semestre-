@@ -10,12 +10,12 @@ const Colaborador = db.define('Colaboradors',{
         allowNull: false,
         primaryKey: true
     },
-    Cargos_ID:{
+    cargos_id:{
         type:Sequelize.INTEGER,
         primaryKey: true
         
     },
-    gestor_ID:{
+    gestor_id:{
         type:Sequelize.INTEGER,
         primaryKey: true
         
@@ -75,13 +75,13 @@ const Colaborador = db.define('Colaboradors',{
     },
 })
 
-Cargos.Colaborador = Cargos.hasMany(Colaborador, {foreignKey:'Cargos_ID'})
-Colaborador.Cargos = Colaborador.belongsTo(Cargos,{foreignKey:{name:'Cargos_ID'}})
+Cargos.Colaborador = Cargos.hasMany(Colaborador, {foreignKey:'cargos_id'})
+Colaborador.Cargos = Colaborador.belongsTo(Cargos,{foreignKey:{name:'cargos_id'}})
 
-Arquivos.Colaborador = Arquivos.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
-Colaborador.Arquivos = Colaborador.hasMany(Arquivos, {foreignKey:'Colaborador_ID'})
+Arquivos.Colaborador = Arquivos.belongsTo(Colaborador,{foreignKey:{name:'colaborador_id'}})
+Colaborador.Arquivos = Colaborador.hasMany(Arquivos, {foreignKey:'colaborador_id'})
 
-Colaborador.Colaborador = Colaborador.belongsTo(Colaborador,{foreignKey:{name:'gestor_ID'}, as:'Gestor'})
-Colaborador.Colaborador = Colaborador.hasMany(Colaborador, {foreignKey:'gestor_ID', as:'funcionarios'})
+Colaborador.Colaborador = Colaborador.belongsTo(Colaborador,{foreignKey:{name:'gestor_id'}, as:'Gestor'})
+Colaborador.Colaborador = Colaborador.hasMany(Colaborador, {foreignKey:'gestor_id', as:'funcionarios'})
 
 export default Colaborador

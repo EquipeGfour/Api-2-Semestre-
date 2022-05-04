@@ -14,7 +14,7 @@ export const insertPreRegistroCpf = async(req, res) => {
             Colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
-                Cargos_ID:req.body.Cargos_ID,
+                cargos_id:req.body.cargos_id,
                 senha:senha,
             }
         }
@@ -37,7 +37,7 @@ export const insertPreRegistroCnpj = async(req, res) => {
             Colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
-                Cargos_ID:req.body.Cargos_ID,
+                cargos_id:req.body.cargos_id,
                 senha:senha,
             }
         }
@@ -56,7 +56,7 @@ export const getDepartCargo =  async (req, res) => {
             attributes:['id','area'],
             include:{
                 model:Cargos,
-                attributes:['id', 'cargo', 'Departamento_ID']
+                attributes:['id', 'cargo', 'departamento_id']
             }
         })
         return res.json(dados)

@@ -9,7 +9,7 @@ const Cargos = db.define('Cargos',{
         allowNull: false,
         primaryKey: true
     },
-    Departamento_ID:{
+    departamento_id:{
         type:Sequelize.INTEGER,
         primaryKey:true
     },

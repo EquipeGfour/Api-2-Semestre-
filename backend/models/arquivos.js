@@ -14,7 +14,7 @@ const Arquivos = db.define('Arquivos',{
     extensao:{
         type:Sequelize.STRING
     },
-    Colaborador_ID:{
+    colaborador_id:{
         type:Sequelize.STRING,
         allowNull: false
     }
