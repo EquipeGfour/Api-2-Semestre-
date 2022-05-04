@@ -163,12 +163,12 @@ const PreRegistro1: React.FC=()=>{
             </div>           
 
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="input-field col s12">
                         <input value={head} placeholder="Head do Departamento" id="first_name2" type="text" className="validate" onChange={ (e) => setHead(e.target.value)}/>
                         <label className="active" htmlFor="first_name2">Head do Departamento</label>
                     </div>
-                </div>        
+                </div>         */}
                 <a className="waves-effect waves-light btn-large btnAzul" onClick={RegistraDados}>Registrar</a>        
         </div> 
     </div>

@@ -44,7 +44,14 @@ const NovoDepartamento: React.FC=()=>{
                 <input value={departamento} placeholder="Nome" id="first_name2" type="text" className="validate" onChange={e=>setDepartamento(e.target.value)} />
                 <label className="active" htmlFor="first_name2">Departamento</label>
                 </div>
-            </div>       
+            </div> 
+
+            <div className="row">
+                <div className="input-field col s12">
+                    <input  placeholder="Head do Departamento" id="first_name2" type="text" className="validate"/>
+                    <label className="active" htmlFor="first_name2">Head do Departamento</label>
+                </div>
+            </div>      
             
 
 
