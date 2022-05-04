@@ -14,8 +14,8 @@ interface Colaborador{
 }
 
 interface Cargo{
-  Colaboradors: Colaborador[]
-  Departamento_ID: number
+  colaboradors: Colaborador[]
+  departamento_id: number
   cargo: string
   createdAt: string
   id: number
@@ -33,7 +33,7 @@ const DetalheDep:React.FC=(props)=>{
     
     axios.get(`/api/cargo/getCargo/${id}`,{headers:CriaHeader()}).then(res=>{
       console.log(res)
-      setCargo(res.data.Cargos)
+      setCargo(res.data.cargos)
       setDepartamento(res.data.area)
       
       //Função do Collapsible
@@ -71,7 +71,7 @@ const DetalheDep:React.FC=(props)=>{
                   </tr>
                   </thead>
                   <tbody>
-                    {c.Colaboradors.map((colab:Colaborador)=>(
+                    {c.colaboradors.map((colab:Colaborador)=>(
                       <tr key={colab.id}>
                         <td>{colab.nome}</td>
                         <td>{colab.email}</td>

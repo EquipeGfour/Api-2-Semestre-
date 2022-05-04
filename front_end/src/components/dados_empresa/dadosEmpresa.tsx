@@ -32,7 +32,7 @@ const DadosEmpresa:React.FC=(props)=>{
     const sendData = ()=>{        
         const logado = cookie['ionic-user']       
         const dados={
-            id:logado.ID,
+            id:logado.id,
             nome:nomecompleto,
             empresa_contratada,
             cnpj,        

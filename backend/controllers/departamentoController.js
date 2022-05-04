@@ -16,16 +16,15 @@ export const inserirDepartamanto =  async (req, res) => {
 export const getAllDepartamento = async (req,res) => {
     try{
         const dados = await departDados()
-
         const filtrado = dados.map(d => {
             let totalColab = 0
-            const Cargos = d.Cargos.map(c => {
-                totalColab += c.Colaboradors.length
-                return {...c.dataValues, qtdColab:c.Colaboradors.length}
+            const Cargos = d.cargos.map(c => {
+                totalColab += c.colaboradors.length
+                return {...c.dataValues, qtdColab:c.colaboradors.length}
             })
-            return {...d.dataValues, qtdCargos:d.Cargos.length, Cargos, totalColab}
+            return {...d.dataValues, qtdCargos:d.cargos.length, Cargos, totalColab}
         })
-
+        
         res.json(filtrado)
     }catch(error){
         res.status(500).json({ message: error.message })
@@ -37,7 +36,7 @@ export const getCargosDepartamentos = async (req,res) => {
         const dados = await Departamento.findOne({
             include:[{
                 model:Cargos,
-                    attributes:['id','cargo','Departamento_ID'],
+                    attributes:['id','cargo','departamento_id'],
                 include:{
                     model:Colaborador,
                     attributes:['id','nome','email','telefone']

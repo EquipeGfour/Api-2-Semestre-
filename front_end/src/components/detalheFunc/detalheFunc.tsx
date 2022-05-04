@@ -36,9 +36,9 @@ const DetalheFunc: React.FC = (props) => {
     axios.get(`/api/colab/funcionario/${id}`, { headers: CriaHeader() }).then(res => {
       console.log(res);
       setNome(res.data.nome);
-      setCargo(res.data.Cargo?.cargo);
-      setDepartamento(res.data.Cargo?.Departamento.area);
-      setCpf(res.data.Pessoa_Fisica?.cpf);
+      setCargo(res.data.cargo?.cargo);
+      setDepartamento(res.data.cargo?.departamento.area);
+      setCpf(res.data.pessoa_fisica?.cpf);
       setNaturalidade(res.data.naturalidade);
       setNacionalidade(res.data.nacionalidade);
       setEmail(res.data.email);
@@ -46,13 +46,13 @@ const DetalheFunc: React.FC = (props) => {
       setTelefone(res.data.telefone);
       setRaca(res.data.raca);
       setDataNascimento(res.data.data_nascimento);
-      setRua(res.data.Enderecos?.[0]?.rua);
-      setEstado(res.data.Enderecos?.[0]?.estado);
-      setCidade(res.data.Enderecos?.[0]?.cidade);
-      setBairro(res.data.Enderecos?.[0]?.bairro);
-      setCep(res.data.Enderecos?.[0]?.cep);
-      setComplemento(res.data.Enderecos?.[0]?.complemento);
-      setRegiao(res.data.Enderecos?.[0]?.regiao);
+      setRua(res.data.enderecos?.[0]?.rua);
+      setEstado(res.data.enderecos?.[0]?.estado);
+      setCidade(res.data.enderecos?.[0]?.cidade);
+      setBairro(res.data.enderecos?.[0]?.bairro);
+      setCep(res.data.enderecos?.[0]?.cep);
+      setComplemento(res.data.enderecos?.[0]?.complemento);
+      setRegiao(res.data.enderecos?.[0]?.regiao);
       setFormacao(res.data.DadosAcademicos?.[0]?.formacao);
       setIdiomas(res.data.DadosAcademicos?.[0]?.Idiomas);
       setCurso(res.data.DadosAcademicos?.[0]?.cursos);
