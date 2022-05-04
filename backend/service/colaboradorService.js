@@ -18,13 +18,13 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
 
     const dadosAcademicos = await DadosAcademicos.findOne({
         where:{
-            Colaborador_ID:colabId
+            colaborador_id:colabId
         }
     }).then(id=>{
         if(id){
             return DadosAcademicos.update( objDadosAcademicos ,{
                 where:{
-                    Colaborador_ID:colabId
+                    colaborador_id:colabId
                 },
                 transaction:t
             })
@@ -36,14 +36,14 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
 
     const dadosEndereco = await Endereco.findOne({
         where:{
-            Colaborador_ID:colabId
+            colaborador_id:colabId
         }
     }).then(id=>{
         if(id){
             return Endereco.update(objEndereco,
             {
                 where:{
-                    Colaborador_ID:colabId
+                    colaborador_id:colabId
             },
             transaction:t
         })
@@ -62,13 +62,13 @@ export const atualizarColaboradorCnpj = async(colabId,objCnpj,t)=>{
     
     const dadosCnpj = await PessoaJuridica.findOne({
         where:{
-            Colaborador_ID:colabId
+            colaborador_id:colabId
         }
     }).then(id=>{
         if(id){
             return PessoaJuridica.update(objCnpj,{
                 where:{
-                    Colaborador_ID:colabId
+                    colaborador_id:colabId
                 },
                 transaction:t
             })

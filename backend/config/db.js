@@ -11,18 +11,15 @@ const PORT = 3306
 const url = process.env.DATABASE_URL || `mysql://${USER}:${senha}@${HOST}:${PORT}/${DB}`
 
 const db = new Sequelize(url, {
-    dialectOptions: {
-        charset: 'utf8mb4',
-        multipleStatements: true
+    dialectOptions:process.env.DATABASE_URL? {
+        
+        ssl: {
+            rejectUnauthorized: false,
+            require:true,
+
         },
-        pool: {
-            max: 5,
-            min: 0,
-            acquire: 30000,
-            idle: 10000
-            }
-            }
-            )
+    }:null
+})
 
 export default db;
 

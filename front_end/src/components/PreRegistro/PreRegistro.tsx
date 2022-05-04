@@ -17,7 +17,7 @@ interface iCargo{
 interface iDepartamento{
     id:number,
     area:string,
-    Cargos:iCargo[]
+    cargos:iCargo[]
 }
 const PreRegistro1: React.FC=()=>{   
 
@@ -51,7 +51,7 @@ const PreRegistro1: React.FC=()=>{
         const id = e.target.value
         const departamento = departamentos.find(dpt=>dpt.id == id)
         const promise = new Promise((resolve,reject)=>{
-            resolve(setCargos(departamento.Cargos))
+            resolve(setCargos(departamento.cargos))
         })
         promise.then(()=>{
             ExeMaterializeSelect()
@@ -67,7 +67,7 @@ const PreRegistro1: React.FC=()=>{
             cnpj:null,
             head,
             id,
-            Cargos_ID:cargo  
+            cargos_id:cargo  
         }
 
         if(mask === "CNPJ"){
@@ -81,7 +81,8 @@ const PreRegistro1: React.FC=()=>{
             setCpfCnpj('')
             setNome('')
             setCargo('')
-            setHead('')           
+            setHead('') 
+            navigate('/home-admin')          
 
         }).catch(erro=>{
             M.toast({html:'Não tem ERRO (lascou tudo)!',classes:"modalerro rounded"})
@@ -163,12 +164,12 @@ const PreRegistro1: React.FC=()=>{
             </div>           
 
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="input-field col s12">
                         <input value={head} placeholder="Head do Departamento" id="first_name2" type="text" className="validate" onChange={ (e) => setHead(e.target.value)}/>
                         <label className="active" htmlFor="first_name2">Head do Departamento</label>
                     </div>
-                </div>        
+                </div>         */}
                 <a className="waves-effect waves-light btn-large btnAzul" onClick={RegistraDados}>Registrar</a>        
         </div> 
     </div>

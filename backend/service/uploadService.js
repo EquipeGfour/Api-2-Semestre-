@@ -5,7 +5,7 @@ export const inserirArquivo = async (name,ext,id) => {
     const dados = await Arquivos.create({ 
         nome_arquivos: name,
         extensao: ext,
-        Colaborador_ID:id
+        colaborador_id:id
     })
     return dados
 }
@@ -15,7 +15,7 @@ export const pegarDadosArquivo = async (id) => {
         where:{ id },
         include:{
             model:Arquivos,
-            attributes:['id','nome_arquivos','extensao','Colaborador_ID']
+            attributes:['id','nome_arquivos','extensao','colaborador_id']
         },
         attributes:['id']
     })

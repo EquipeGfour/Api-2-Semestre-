@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from '../config/db.js';
 import Cargos from "./cargo.js";
 
-const Departamento = db.define('Departamentos',{
+const Departamento = db.define('departamentos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -19,7 +19,7 @@ const Departamento = db.define('Departamentos',{
     }
 })
 
-Departamento.Cargos = Departamento.hasMany(Cargos,{foreignKey:'Departamento_ID'})
-Cargos.belongsTo(Departamento,{foreignKey:'Departamento_ID'})
+Departamento.Cargos = Departamento.hasMany(Cargos,{foreignKey:'departamento_id'})
+Cargos.belongsTo(Departamento,{foreignKey:'departamento_id'})
 
 export default Departamento

@@ -11,7 +11,6 @@ const DadosPessoais:React.FC=(props)=>{
     const navigate = useNavigate()
     const [cookie,setCookie]=useCookies(['ionic-user'])
     
-
     const [nomecompleto,setNomecompleto] = React.useState('')
     const [cpf,setCpf] = React.useState('')
     const [nacionalidade,setNacionalidade] = React.useState('')
@@ -49,7 +48,7 @@ const DadosPessoais:React.FC=(props)=>{
         const logado = cookie['ionic-user']
         console.log(logado)
         const dados={
-            id:logado.ID,
+            id:logado.id,
             nome:nomecompleto,
             cpf,        
             nacionalidade,
@@ -171,10 +170,10 @@ const DadosPessoais:React.FC=(props)=>{
             M.toast({html:'Preencha o campo Curso !', classes:"modalerro rounded"})
         }
 
-        if(status === ''){
-            faltaDados = true
-            M.toast({html:'Preencha o campo Status !', classes:"modalerro rounded"})
-        }
+        // if(status === ''){
+        //     faltaDados = true
+        //     M.toast({html:'Preencha o campo Status !', classes:"modalerro rounded"})
+        // }
 
         return faltaDados
 

@@ -1,7 +1,7 @@
 import {Sequelize} from 'sequelize';
 import db from "../config/db.js"
 
-const Arquivos = db.define('Arquivos',{
+const Arquivos = db.define('arquivos',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
@@ -14,7 +14,7 @@ const Arquivos = db.define('Arquivos',{
     extensao:{
         type:Sequelize.STRING
     },
-    Colaborador_ID:{
+    colaborador_id:{
         type:Sequelize.STRING,
         allowNull: false
     }

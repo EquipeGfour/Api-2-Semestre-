@@ -3,10 +3,10 @@ import db from "../config/db.js";
 import Colaborador from "./colaborador.js";
 
 
-const pessoafisica = db.define('Pessoa_Fisicas',{
-    Colaborador_ID:{
+const pessoafisica = db.define('pessoa_fisicas',{
+    colaborador_id:{
         type:Sequelize.INTEGER,
-        primaryKey:true
+        primaryKey:true,
     },
     
     cpf:{
@@ -15,8 +15,8 @@ const pessoafisica = db.define('Pessoa_Fisicas',{
     },
 })
 
-Colaborador.pessoafisica = Colaborador.hasOne(pessoafisica,{foreignKey:'Colaborador_ID'})
-pessoafisica.Colaborador = pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'Colaborador_ID'}})
+Colaborador.pessoafisica = Colaborador.hasOne(pessoafisica,{foreignKey:'colaborador_id'})
+pessoafisica.Colaborador = pessoafisica.belongsTo(Colaborador,{foreignKey:{name:'colaborador_id'}})
 
 
 export default pessoafisica
