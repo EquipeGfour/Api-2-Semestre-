@@ -19,8 +19,7 @@ interface iDepartamento{
     area:string,
     Cargos:iCargo[]
 }
-const PreRegistro1: React.FC=()=>{
-    
+const PreRegistro1: React.FC=()=>{   
 
     const navigate = useNavigate()
     const [cookie,setCookie] = useCookies(['ionic-user'])
@@ -33,7 +32,6 @@ const PreRegistro1: React.FC=()=>{
     const [departamentos,setDepartamentos] = React.useState<iDepartamento[]>([])
     const [head,setHead] = React.useState('')
     const [id,setId] = React.useState('')
-
     const [cpfCnpj, setCpfCnpj] = React.useState("");
     const [mask, setMask] = React.useState("");
 
@@ -78,14 +76,12 @@ const PreRegistro1: React.FC=()=>{
         }
 
         axios.post(url, obj,{headers:CriaHeader()}).then(res=>{
-
             M.toast({html:'Pré Registro realizado com sucesso!',classes:"modal1 rounded"})
             setEmail('')
             setCpfCnpj('')
             setNome('')
             setCargo('')
-            setHead('')
-            
+            setHead('')           
 
         }).catch(erro=>{
             M.toast({html:'Não tem ERRO (lascou tudo)!',classes:"modalerro rounded"})
@@ -104,7 +100,6 @@ const PreRegistro1: React.FC=()=>{
     React.useEffect(()=>{
         document.title='Pré-Registro'
         GetDepartamento()
-
     },[])
 
     return(
