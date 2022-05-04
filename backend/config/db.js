@@ -15,6 +15,10 @@ const db = new Sequelize(url, {
         charset: 'utf8mb4',
         multipleStatements: true
         },
+        ssl: {
+            rejectUnauthorized: false,
+            require: true
+        },
         pool: {
             max: 5,
             min: 0,
