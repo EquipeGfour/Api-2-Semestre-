@@ -81,7 +81,8 @@ const PreRegistro1: React.FC=()=>{
             setCpfCnpj('')
             setNome('')
             setCargo('')
-            setHead('')           
+            setHead('') 
+            navigate('/home-admin')          
 
         }).catch(erro=>{
             M.toast({html:'Não tem ERRO (lascou tudo)!',classes:"modalerro rounded"})
