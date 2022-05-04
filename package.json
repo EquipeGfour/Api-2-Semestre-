@@ -8,7 +8,7 @@
     "start": "cd backend && node index.js",
     "dev": "cd backend && nodemon index.js",
     "client": "cd front_end && npm run start",
-    "heroku-postbuild": "node ./node_modules/@heroku-cli/node/bin/node-build.js"
+    "heroku-postbuild": "cd backend && npm install && cd ../front_end && npm install && npm run"
   },
   "author": "",
   "license": "ISC",
