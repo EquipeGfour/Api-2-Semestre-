@@ -16,7 +16,6 @@ export const inserirDepartamanto =  async (req, res) => {
 export const getAllDepartamento = async (req,res) => {
     try{
         const dados = await departDados()
-        console.log(dados)
         const filtrado = dados.map(d => {
             let totalColab = 0
             const Cargos = d.cargos.map(c => {
