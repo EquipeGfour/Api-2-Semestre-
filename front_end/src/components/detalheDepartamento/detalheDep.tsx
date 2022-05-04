@@ -35,6 +35,7 @@ const DetalheDep:React.FC=(props)=>{
       console.log(res)
       setCargo(res.data.Cargos)
       setDepartamento(res.data.area)
+      
       //Função do Collapsible
         var elems = document.querySelectorAll('.collapsible');
         var instances = M.Collapsible.init(elems, Option);          

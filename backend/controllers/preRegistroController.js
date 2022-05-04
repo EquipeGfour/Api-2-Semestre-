@@ -56,7 +56,7 @@ export const getDepartCargo =  async (req, res) => {
             attributes:['id','area'],
             include:{
                 model:Cargos,
-                attributes:['ID', 'cargo', 'Departamento_ID']
+                attributes:['id', 'cargo', 'Departamento_ID']
             }
         })
         return res.json(dados)

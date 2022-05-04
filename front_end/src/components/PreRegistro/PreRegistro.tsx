@@ -6,15 +6,21 @@ import {useCookies} from 'react-cookie'
 import M from 'materialize-css/dist/js/materialize'
 import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
 import { CriaHeader } from "../../functions";
+import { resolve } from "path";
+import { rejects } from "assert";
 
 
+interface iCargo{
+    id:number,
+    cargo:string
+}
+interface iDepartamento{
+    id:number,
+    area:string,
+    Cargos:iCargo[]
+}
 const PreRegistro1: React.FC=()=>{
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var el = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(el, Option);
-    });
+    
 
     const navigate = useNavigate()
     const [cookie,setCookie] = useCookies(['ionic-user'])
@@ -23,11 +29,36 @@ const PreRegistro1: React.FC=()=>{
     const [cnpj,setCnpj] = React.useState('')
     const [nome,setNome] = React.useState('')
     const [cargo,setCargo] = React.useState('')
+    const [cargos,setCargos] = React.useState<iCargo[]>([])
+    const [departamentos,setDepartamentos] = React.useState<iDepartamento[]>([])
     const [head,setHead] = React.useState('')
     const [id,setId] = React.useState('')
 
     const [cpfCnpj, setCpfCnpj] = React.useState("");
     const [mask, setMask] = React.useState("");
+
+    const ExeMaterializeSelect = () =>{
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, Option);
+    }
+
+    const GetDepartamento = () =>{
+        axios.get('/api/preRegistro/allDepartCargos',{headers:CriaHeader()}).then(res=>{
+            setDepartamentos(res.data)
+            ExeMaterializeSelect()
+        })
+    }
+
+    const FiltraCargo = (e) =>{        
+        const id = e.target.value
+        const departamento = departamentos.find(dpt=>dpt.id == id)
+        const promise = new Promise((resolve,reject)=>{
+            resolve(setCargos(departamento.Cargos))
+        })
+        promise.then(()=>{
+            ExeMaterializeSelect()
+        })
+    }
 
     const EnviaDados = () =>{
         let url='/api/preRegistro/cpf'         
@@ -36,9 +67,9 @@ const PreRegistro1: React.FC=()=>{
             cpf:cpfCnpj,
             nome,
             cnpj:null,
-            cargo,
             head,
-            id  
+            id,
+            Cargos_ID:cargo  
         }
 
         if(mask === "CNPJ"){
@@ -54,7 +85,7 @@ const PreRegistro1: React.FC=()=>{
             setNome('')
             setCargo('')
             setHead('')
-            console.log(res)
+            
 
         }).catch(erro=>{
             M.toast({html:'Não tem ERRO (lascou tudo)!',classes:"modalerro rounded"})
@@ -72,6 +103,8 @@ const PreRegistro1: React.FC=()=>{
 
     React.useEffect(()=>{
         document.title='Pré-Registro'
+        GetDepartamento()
+
     },[])
 
     return(
@@ -109,14 +142,14 @@ const PreRegistro1: React.FC=()=>{
                 </div>
             </div>
 
-
+        
             <div className="row">    
-                <div className="input-field col s12 seletor ">
-                    <select>
-                        <option value="" disabled selected>Departamento</option>                        
-                        <option value="1">Dep1</option>
-                        <option value="2">Dep2</option>
-                        <option value="3">Dep3</option>                          
+                <div className="input-field col s12 seletor">
+                    <select defaultValue={0} onChange={FiltraCargo}>
+                        <option value="0" disabled >Departamento</option>                        
+                        {departamentos.map(dpt=>                           
+                            <option value={dpt.id} key={dpt.id}>{dpt.area}</option>
+                        )}                         
                     </select>
                     <label>Departamento</label>
                 </div>
@@ -124,11 +157,11 @@ const PreRegistro1: React.FC=()=>{
 
             <div className="row">    
                 <div className="input-field col s12 seletor ">
-                    <select>
-                        <option value="" disabled selected>Cargo</option>                          
-                        <option value="1">Cargo1</option>
-                        <option value="2">Cargo2</option>
-                        <option value="3">Cargo3</option>                           
+                    <select defaultValue={0} onChange={(e)=>setCargo(e.target.value)}>
+                        <option value="0" disabled >Cargo</option>
+                        {cargos.map(c=>                       
+                            <option value={c.id} key={c.id}> {c.cargo}</option>
+                        )}              
                     </select>
                     <label>Cargo</label>
                 </div>
@@ -140,22 +173,11 @@ const PreRegistro1: React.FC=()=>{
                         <input value={head} placeholder="Head do Departamento" id="first_name2" type="text" className="validate" onChange={ (e) => setHead(e.target.value)}/>
                         <label className="active" htmlFor="first_name2">Head do Departamento</label>
                     </div>
-                </div>
-            
-            
-
-        
-
-
-            <a className="waves-effect waves-light btn-large btnAzul" onClick={RegistraDados}>Registrar</a>
-
-        
+                </div>        
+                <a className="waves-effect waves-light btn-large btnAzul" onClick={RegistraDados}>Registrar</a>        
         </div> 
     </div>
-    )
-        
-    
-
+    )   
 }
 
 export default PreRegistro1
