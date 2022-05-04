@@ -8,11 +8,10 @@ import departamentoRouter from './routes/departamentoRouter.js'
 import cargoRouter from './routes/cargoRouter.js'
 import pdf_router from './routes/pdf_router.js'
 import uploadRouter from './routes/uploadRouter.js'
-import path,{dirname} from 'path'
-import { fileURLToPath } from "url";
+import path from 'path'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(path.basename(__filename))
+
+const __dirname = path.resolve() 
 
 
 const app = express();
@@ -46,7 +45,7 @@ app.use('/api/upload', uploadRouter)
 // para rodar o servidor heroku
 app.use(express.static(path.join(__dirname, '../front_end/build')));
 
-console.log(__dirname, path.join(__dirname, '../front_end/build', 'index.html'))
+console.log(path.resolve())
 app.get ('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../front_end/build', 'index.html'),{root:__dirname})
 });
