@@ -4,13 +4,13 @@ import Departamento from "../models/departamentos.js"
 
 export const departDados = async () => {
     return await Departamento.findAll( {
-    attributes:['ID','area','head'],
+    attributes:['id','area','head'],
     include:{
         model:Cargos,
-        attributes:['ID','cargo','departamento_id'],
+        attributes:['id','cargo','departamento_id'],
         include:{
             model:Colaborador,
-            attributes:['ID']
+            attributes:['id']
         }
     },
 })

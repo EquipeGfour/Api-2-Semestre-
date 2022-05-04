@@ -66,7 +66,7 @@ const GeralFunc:React.FC=(props)=>{
             <td>{colab.Cargo?.Departamento?.area}</td>
             <td>{colab.email}</td>
             <td>{colab.telefone}</td>
-            <td><Link to={`/detalhe-funcionario/${colab.ID}`}>
+            <td><Link to={`/detalhe-funcionario/${colab.id}`}>
                   <ReactTooltip />                
                   <i className="material-icons" data-tip='Ver Funcionário'>search</i>
                   </Link></td>   

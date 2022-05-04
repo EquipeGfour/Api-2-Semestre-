@@ -9,7 +9,7 @@ import ReactTooltip from 'react-tooltip';
 
 interface Departamento{
   Cargos: any[]
-  ID: number
+  id: number
   area: string
   head: string
   qtdCargos: number
@@ -72,12 +72,12 @@ const GeralDep:React.FC=(props)=>{
 
         <tbody>
           {departamento.map((d:Departamento)=>(
-              <tr key={d.ID}>
+              <tr key={d.id}>
                 <td>{d.area}</td>
                 <td>{d.totalColab}</td>
                 <td>{d.head}</td>
                 <td>{d.qtdCargos}</td>
-                <td><Link to={`/detalhe-departamento/${d.ID}`}>
+                <td><Link to={`/detalhe-departamento/${d.id}`}>
                   <ReactTooltip />
                 
                   <i className="material-icons" data-tip='Ver Cargos'>search</i>

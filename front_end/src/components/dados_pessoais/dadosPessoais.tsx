@@ -49,7 +49,7 @@ const DadosPessoais:React.FC=(props)=>{
         const logado = cookie['ionic-user']
         console.log(logado)
         const dados={
-            id:logado.ID,
+            id:logado.id,
             nome:nomecompleto,
             cpf,        
             nacionalidade,

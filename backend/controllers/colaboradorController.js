@@ -30,13 +30,13 @@ export const testePessoaFisica = async (req, res) => {
 export const testeCargo = async (req, res) => {
     try {
         const dados = await Colaborador.findAll({
-            attributes: ['nome', 'telefone', 'ID', 'email'],
+            attributes: ['nome', 'telefone', 'id', 'email'],
             include: {
                 model: Cargo,
-                attributes: ['cargo', 'ID'],
+                attributes: ['cargo', 'id'],
                 include: {
                     model: Departamento,
-                    attributes: ['area', 'ID']
+                    attributes: ['area', 'id']
                 },
             }
         });
@@ -111,13 +111,13 @@ export const inserirDadosColabCnpj = async (req, res) => {
 export const geralFunc = async (req, res) => {
     try {
         const dados = await Colaborador.findAll({
-            attributes: ['nome', 'telefone', 'ID', 'email'],
+            attributes: ['nome', 'telefone', 'id', 'email'],
             include: {
                 model: Cargo,
-                attributes: ['cargo', 'ID'],
+                attributes: ['cargo', 'id'],
                 include: {
                     model: Departamento,
-                    attributes: ['area', 'ID']
+                    attributes: ['area', 'id']
                 },
             }
         });
@@ -136,7 +136,7 @@ export const getCargoColaborador = async (req, res) => {
                 include: {
                     model: Departamento,
                     where: {
-                        ID: req.params.id
+                        id: req.params.id
                     },
                     required: true
                 },
@@ -154,7 +154,7 @@ export const getColaboradorById = async (req, res) => {
     try {
         const colab = await Colaborador.findOne({
             where: {
-                ID: req.params.id
+                id: req.params.id
             },
             include: [
                 {
@@ -166,26 +166,26 @@ export const getColaboradorById = async (req, res) => {
                 },
                 {
                     model: Endereco,
-                    attributes: ['ID', 'rua', 'estado', 'cidade', 'bairro', 'cep', 'complemento', 'regiao']
+                    attributes: ['id', 'rua', 'estado', 'cidade', 'bairro', 'cep', 'complemento', 'regiao']
                 },
                 {
                     model: DadosAcademicos,
                     as: "DadosAcademicos",
-                    attributes: ['ID', 'formacao', 'cursos',
+                    attributes: ['id', 'formacao', 'cursos',
                         ['linguas', 'Idiomas'], 'termo_pi']
                 },
                 {
                     model: Contrato,
-                    attributes: ['ID', 'faixa_salarial', 'auxilio_creche', 'vale_refeicao',
+                    attributes: ['id', 'faixa_salarial', 'auxilio_creche', 'vale_refeicao',
                         'distrato', 'contrato_trabalho', 'codigo_conduta_etica', 'vale_transporte',
                         'data_Admissao', 'plano_saude']
                 },
                 {
                     model: Cargo,
-                    attributes: ['cargo', 'ID'],
+                    attributes: ['cargo', 'id'],
                     include: {
                         model: Departamento,
-                        attributes: ['area', 'ID']
+                        attributes: ['area', 'id']
                     }
                 }
             ]
