@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, '../front_end/build')));
 
 console.log(__dirname, path.join(__dirname, '../front_end/build', 'index.html'))
 app.get ('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../front_end/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../front_end/build', 'index.html'),{root:__dirname})
 });
 const port = process.env.PORT || 5000;
 app.listen(port , ()=> console.log(`Servidor rodando na porta ${port}. :D`));
