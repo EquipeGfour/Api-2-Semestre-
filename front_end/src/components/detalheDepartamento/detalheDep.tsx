@@ -33,7 +33,7 @@ const DetalheDep:React.FC=(props)=>{
     
     axios.get(`/api/cargo/getCargo/${id}`,{headers:CriaHeader()}).then(res=>{
       console.log(res)
-      setCargo(res.data.Cargos)
+      setCargo(res.data.cargos)
       setDepartamento(res.data.area)
       
       //Função do Collapsible
