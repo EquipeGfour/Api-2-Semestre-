@@ -14,7 +14,7 @@ interface Colaborador{
 }
 
 interface Cargo{
-  Colaboradors: Colaborador[]
+  colaboradors: Colaborador[]
   departamento_id: number
   cargo: string
   createdAt: string
@@ -71,7 +71,7 @@ const DetalheDep:React.FC=(props)=>{
                   </tr>
                   </thead>
                   <tbody>
-                    {c.Colaboradors.map((colab:Colaborador)=>(
+                    {c.colaboradors.map((colab:Colaborador)=>(
                       <tr key={colab.id}>
                         <td>{colab.nome}</td>
                         <td>{colab.email}</td>

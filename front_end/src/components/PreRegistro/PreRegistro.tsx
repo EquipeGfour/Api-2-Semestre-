@@ -17,7 +17,7 @@ interface iCargo{
 interface iDepartamento{
     id:number,
     area:string,
-    Cargos:iCargo[]
+    cargos:iCargo[]
 }
 const PreRegistro1: React.FC=()=>{   
 
@@ -51,7 +51,7 @@ const PreRegistro1: React.FC=()=>{
         const id = e.target.value
         const departamento = departamentos.find(dpt=>dpt.id == id)
         const promise = new Promise((resolve,reject)=>{
-            resolve(setCargos(departamento.Cargos))
+            resolve(setCargos(departamento.cargos))
         })
         promise.then(()=>{
             ExeMaterializeSelect()

@@ -6,40 +6,40 @@ CREATE DATABASE ionic;
 use ionic;
 
 -- tables
--- Table: Arquivos
-CREATE TABLE Arquivos (
-    ID int NOT NULL AUTO_INCREMENT,
+-- Table: arquivos
+CREATE TABLE arquivos (
+    id int NOT NULL AUTO_INCREMENT,
     nome_arquivos varchar(300) ,
     extensao varchar(300),
     colaborador_id int not null,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Arquivos_pk PRIMARY KEY (ID)
+    CONSTRAINT arquivos_pk PRIMARY KEY (id)
 );
 
--- Table: Acessos
-CREATE TABLE Acessos (
-    ID int NOT NULL AUTO_INCREMENT,
+-- Table: acessos
+CREATE TABLE acessos (
+    id int NOT NULL AUTO_INCREMENT,
     cargos_id int ,
     nivel_acesso int ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Acessos_pk PRIMARY KEY (ID)
+    CONSTRAINT acessos_pk PRIMARY KEY (id)
 );
 
--- Table: Cargos
-CREATE TABLE Cargos (
-    ID int NOT NULL AUTO_INCREMENT,
+-- Table: cargos
+CREATE TABLE cargos (
+    id int NOT NULL AUTO_INCREMENT,
     departamento_id int ,
     cargo varchar(300) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Cargos_pk PRIMARY KEY (ID)
+    CONSTRAINT cargos_pk PRIMARY KEY (id)
 );
 
--- Table: Colaboradors
-CREATE TABLE Colaboradors (
-    ID int NOT NULL AUTO_INCREMENT,
+-- Table: colaboradors
+CREATE TABLE colaboradors (
+    id int NOT NULL AUTO_INCREMENT,
     cargos_id int ,
     gestor_id int ,
     nome varchar(300) ,
@@ -58,12 +58,12 @@ CREATE TABLE Colaboradors (
     tipo_desligamento varchar(300),
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Colaboradors_pk PRIMARY KEY (ID)
+    CONSTRAINT colaboradors_pk PRIMARY KEY (id)
 );
 
--- Table: Contratos
-CREATE TABLE Contratos (
-    ID int NOT NULL AUTO_INCREMENT,
+-- Table: contratos
+CREATE TABLE contratos (
+    id int NOT NULL AUTO_INCREMENT,
     colaborador_id int ,
     faixa_salarial int ,
     auxilio_creche int ,
@@ -78,12 +78,12 @@ CREATE TABLE Contratos (
     createdAt date NOT NULL default (current_date()),
     updatedAt int ,
     data_desligamento date ,
-    CONSTRAINT Contrato_pk PRIMARY KEY (ID)
+    CONSTRAINT Contrato_pk PRIMARY KEY (id)
 );
 
--- Table: Dados_Academicos
-CREATE TABLE Dados_Academicos (
-    ID int NOT NULL AUTO_INCREMENT,
+-- Table: dados_academicos
+CREATE TABLE dados_academicos (
+    id int NOT NULL AUTO_INCREMENT,
     colaborador_id int ,
     formacao varchar(200) ,
     cursos varchar(200) ,
@@ -91,22 +91,22 @@ CREATE TABLE Dados_Academicos (
     linguas varchar(200) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Dados_Academicos_pk PRIMARY KEY (ID)
+    CONSTRAINT dados_academicos_pk PRIMARY KEY (id)
 );
 
--- Table: Departamentos
-CREATE TABLE Departamentos (
-    ID int NOT NULL AUTO_INCREMENT,
+-- Table: departamentos
+CREATE TABLE departamentos (
+    id int NOT NULL AUTO_INCREMENT,
     area varchar(300) ,
     head varchar(300) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Departamentos_pk PRIMARY KEY (ID)
+    CONSTRAINT departamentos_pk PRIMARY KEY (id)
 );
 
--- Table: Enderecos
-CREATE TABLE Enderecos (
-    ID int NOT NULL AUTO_INCREMENT,
+-- Table: enderecos
+CREATE TABLE enderecos (
+    id int NOT NULL AUTO_INCREMENT,
     rua varchar(300),
     estado varchar(200) ,
     regiao varchar(300) ,
@@ -117,30 +117,30 @@ CREATE TABLE Enderecos (
     colaborador_id int ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Enderecos_pk PRIMARY KEY (ID)
+    CONSTRAINT enderecos_pk PRIMARY KEY (id)
 );
 
--- Table: Grade_Cursos
-CREATE TABLE Grade_Cursos (
-    ID int NOT NULL AUTO_INCREMENT,
-    Trilha_Aprendizados_ID int ,
+-- Table: grade_cursos
+CREATE TABLE grade_cursos (
+    id int NOT NULL AUTO_INCREMENT,
+    trilha_aprendizados_id int ,
     nome_curso varchar(200) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Grade_Cursos_pk PRIMARY KEY (ID)
+    CONSTRAINT grade_cursos_pk PRIMARY KEY (id)
 );
 
--- Table: Pessoa_Fisicas
-CREATE TABLE Pessoa_Fisicas (
+-- Table: pessoa_fisicas
+CREATE TABLE pessoa_fisicas (
     colaborador_id int NOT NULL,
     cpf varchar(15),
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Pessoa_Fisicas_pk PRIMARY KEY (colaborador_id)
+    CONSTRAINT pessoa_fisicas_pk PRIMARY KEY (colaborador_id)
 );
 
--- Table: Pessoa_Juridicas
-CREATE TABLE Pessoa_Juridicas (
+-- Table: pessoa_juridicas
+CREATE TABLE pessoa_juridicas (
     colaborador_id int NOT NULL,
     cnpj varchar(20) ,
     empresa_contratada varchar(300) ,
@@ -149,71 +149,71 @@ CREATE TABLE Pessoa_Juridicas (
     data_fundacao varchar(300) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Pessoa_Juridicas_pk PRIMARY KEY (colaborador_id)
+    CONSTRAINT pessoa_juridicas_pk PRIMARY KEY (colaborador_id)
 );
 
--- Table: Trilha_Aprendizados
-CREATE TABLE Trilha_Aprendizados (
-    ID int NOT NULL AUTO_INCREMENT,
-    Pessoa_Fisicas_colaborador_id int ,
+-- Table: trilha_aprendizados
+CREATE TABLE trilha_aprendizados (
+    id int NOT NULL AUTO_INCREMENT,
+    pessoa_fisicas_colaborador_id int ,
     status_curso varchar(200) ,
     data_inicio date ,
     data_fim date ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
-    CONSTRAINT Trilha_Aprendizados_pk PRIMARY KEY (ID)
+    CONSTRAINT trilha_aprendizados_pk PRIMARY KEY (id)
 );
 
 -- foreign keys
 
--- Reference: Arquivos_Colaborador (table: Colaboradors)
-ALTER TABLE Arquivos ADD CONSTRAINT Arquivo_Colaborador FOREIGN KEY Arquivo_Colaborador (colaborador_id)
-    REFERENCES Colaboradors (ID);
+-- Reference: arquivos_Colaborador (table: colaboradors)
+ALTER TABLE arquivos ADD CONSTRAINT arquivo_colaborador FOREIGN KEY arquivo_colaborador (colaborador_id)
+    REFERENCES colaboradors (id);
 
--- Reference: Acesso_Cargo (table: Acessos)
-ALTER TABLE Acessos ADD CONSTRAINT Acesso_Cargo FOREIGN KEY Acesso_Cargo (cargos_id)
-    REFERENCES Cargos (ID);
+-- Reference: acesso_cargo (table: acessos)
+ALTER TABLE acessos ADD CONSTRAINT acesso_cargo FOREIGN KEY acesso_cargo (cargos_id)
+    REFERENCES cargos (id);
 
--- Reference: Cargo_Colaborador (table: Cargos)
-ALTER TABLE Colaboradors ADD CONSTRAINT Colaboradors_Cargo FOREIGN KEY Colaboradors_Cargo (cargos_id)
-    REFERENCES Cargos (ID);
+-- Reference: Cargo_Colaborador (table: cargos)
+ALTER TABLE colaboradors ADD CONSTRAINT colaboradors_Cargo FOREIGN KEY colaboradors_Cargo (cargos_id)
+    REFERENCES cargos (id);
     
--- Reference: Colaborador_Colaborador (table: Colaboradors)
-ALTER TABLE Colaboradors ADD CONSTRAINT Colaboradors_Colaborador FOREIGN KEY Colaboradors_Colaborador (gestor_id)
-    REFERENCES Colaboradors (ID);
+-- Reference: Colaborador_Colaborador (table: colaboradors)
+ALTER TABLE colaboradors ADD CONSTRAINT colaboradors_colaborador FOREIGN KEY colaboradors_colaborador (gestor_id)
+    REFERENCES colaboradors (id);
     
-ALTER TABLE Cargos ADD CONSTRAINT Departamento_Cargo FOREIGN KEY Departamento_Cargo (departamento_id)
-    REFERENCES Departamentos (ID);
+ALTER TABLE cargos ADD CONSTRAINT departamento_cargo FOREIGN KEY departamento_cargo (departamento_id)
+    REFERENCES departamentos (id);
 
--- Reference: Contrato_Colaborador (table: Contratos)
-ALTER TABLE Contratos ADD CONSTRAINT Contrato_Colaborador FOREIGN KEY Contrato_Colaborador (colaborador_id)
-    REFERENCES Colaboradors (ID);
+-- Reference: Contrato_Colaborador (table: contratos)
+ALTER TABLE contratos ADD CONSTRAINT contrato_colaborador FOREIGN KEY contrato_colaborador (colaborador_id)
+    REFERENCES colaboradors (id);
 
--- Reference: Dados_Academicos_Colaborador (table: Dados_Academicos)
-ALTER TABLE Dados_Academicos ADD CONSTRAINT Dados_Academicos_Colaborador FOREIGN KEY Dados_Academicos_Colaborador (colaborador_id)
-    REFERENCES Colaboradors (ID);
+-- Reference: dados_academicos_Colaborador (table: dados_academicos)
+ALTER TABLE dados_academicos ADD CONSTRAINT dados_academicos_colaborador FOREIGN KEY dados_academicos_colaborador (colaborador_id)
+    REFERENCES colaboradors (id);
 
--- Reference: Endereco_Colaborador (table: Colaboradors)
-ALTER TABLE Enderecos ADD CONSTRAINT Endereco_Colaborador FOREIGN KEY Endereco_Colaborador (colaborador_id)
-    REFERENCES Colaboradors (ID);
+-- Reference: Endereco_Colaborador (table: colaboradors)
+ALTER TABLE enderecos ADD CONSTRAINT endereco_colaborador FOREIGN KEY endereco_colaborador (colaborador_id)
+    REFERENCES colaboradors (id);
 
--- Reference: Grade_Curso_Trilha_Aprendizado (table: Grade_Cursos)
-ALTER TABLE Grade_Cursos ADD CONSTRAINT Grade_Curso_Trilha_Aprendizado FOREIGN KEY Grade_Curso_Trilha_Aprendizado (Trilha_Aprendizados_ID)
-    REFERENCES Trilha_Aprendizados (ID);
+-- Reference: Grade_Curso_Trilha_Aprendizado (table: grade_cursos)
+ALTER TABLE grade_cursos ADD CONSTRAINT grade_curso_trilha_aprendizado FOREIGN KEY grade_curso_trilha_aprendizado (trilha_aprendizados_id)
+    REFERENCES trilha_aprendizados (id);
 
--- Reference: Pessoa_Fisica_Colaborador (table: Pessoa_Fisicas)
-ALTER TABLE Pessoa_Fisicas ADD CONSTRAINT Pessoa_Fisica_Colaborador FOREIGN KEY Pessoa_Fisica_Colaborador (colaborador_id)
-    REFERENCES Colaboradors (ID);
+-- Reference: Pessoa_Fisica_Colaborador (table: pessoa_fisicas)
+ALTER TABLE pessoa_fisicas ADD CONSTRAINT pessoa_fisica_colaborador FOREIGN KEY pessoa_fisica_colaborador (colaborador_id)
+    REFERENCES colaboradors (id);
 
 -- Reference: Pessoa_Juridica_Colaborador (table: Pessoa_Juridicas)
-ALTER TABLE Pessoa_Juridicas ADD CONSTRAINT Pessoa_Juridica_Colaborador FOREIGN KEY Pessoa_Juridica_Colaborador (colaborador_id)
-    REFERENCES Colaboradors (ID);
+ALTER TABLE pessoa_juridicas ADD CONSTRAINT pessoa_juridica_colaborador FOREIGN KEY pessoa_juridica_colaborador (colaborador_id)
+    REFERENCES colaboradors (id);
 
--- Reference: Trilha_Aprendizado_Pessoa_Fisica (table: Trilha_Aprendizados)
-ALTER TABLE Trilha_Aprendizados ADD CONSTRAINT Trilha_Aprendizado_Pessoa_Fisica FOREIGN KEY Trilha_Aprendizado_Pessoa_Fisica (ID)
-    REFERENCES Pessoa_Fisicas (colaborador_id);
+-- Reference: Trilha_Aprendizado_Pessoa_Fisica (table: trilha_aprendizados)
+ALTER TABLE trilha_aprendizados ADD CONSTRAINT trilha_aprendizado_pessoa_fisica FOREIGN KEY trilha_aprendizado_pessoa_isica (id)
+    REFERENCES pessoa_fisicas (colaborador_id);
 
 use ionic;
-insert into Departamentos(ID, area, createdAt) values (1, "Administracao", "2022-04-13");
-insert into Cargos(ID, departamento_id, cargo, createdAt) values (1, 1, "Administrador", "2022-04-13");
-insert into Colaboradors(ID, cargos_id, nome, email, senha, createdAt) values (1, 1, "Admin", "admin@ionic.com", "adminionic", "2022-04-13");
+insert into departamentos(id, area, createdAt) values (1, "Administracao", "2022-04-13");
+insert into cargos(id, departamento_id, cargo, createdAt) values (1, 1, "Administrador", "2022-04-13");
+insert into colaboradors(id, cargos_id, nome, email, senha, createdAt) values (1, 1, "Admin", "admin@ionic.com", "adminionic", "2022-04-13");

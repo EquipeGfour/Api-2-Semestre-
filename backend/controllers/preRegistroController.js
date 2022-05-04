@@ -4,6 +4,7 @@ import { createPessoaFisica } from "../service/pessoaFisicaService.js";
 import { createPessoaJuridica } from "../service/pessoJuridicaService.js";
 import Departamento from "../models/departamentos.js";
 import Cargos from "../models/cargo.js"
+import pessoafisica from "../models/pessoafisica.js";
 
 export const insertPreRegistroCpf = async(req, res) => {
     try{
@@ -11,14 +12,16 @@ export const insertPreRegistroCpf = async(req, res) => {
         const email = req.body.email
         const pessoaFisica = {
             cpf:req.body.cpf,
-            Colaborador:{
+            colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
                 cargos_id:req.body.cargos_id,
                 senha:senha,
             }
         }
+        console.log(pessoaFisica)
         const dados = await createPessoaFisica(pessoaFisica)
+        console.log(dados)
         await sendMail(email,senha)
         return res.json(dados) 
         
@@ -34,7 +37,7 @@ export const insertPreRegistroCnpj = async(req, res) => {
         const email = req.body.email
         const pessoaJuridica = {
             cnpj:req.body.cnpj,
-            Colaborador:{
+            colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
                 cargos_id:req.body.cargos_id,
@@ -65,9 +68,13 @@ export const getDepartCargo =  async (req, res) => {
     }
 }
 
-
-
-
-
-
-
+export const getCargo = async (req, res) => {
+    try{
+        const dados = await pessoafisica.create({
+            cpf:req.body.cpf,
+            colaborador_id :req.body.colaborador_id
+        })
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+}} 

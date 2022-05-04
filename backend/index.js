@@ -43,11 +43,11 @@ app.use('/api/pdf',pdf_router)
 app.use('/api/upload', uploadRouter)
 
 // para rodar o servidor heroku
-app.use(express.static(path.join(__dirname, '../front_end/build')));
+app.use(express.static(path.join(__dirname, '..','front_end','build')));
 
 console.log(path.resolve())
-app.get ('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../front_end/build', 'index.html'),{root:__dirname})
+app.get ('/*', (req, res) => {
+    res.sendFile(path.join('build','index.html'),{root:path.join(__dirname, '..','front_end')});
 });
 const port = process.env.PORT || 5000;
 app.listen(port , ()=> console.log(`Servidor rodando na porta ${port}. :D`));
