@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 import db from "../config/db.js"
-import cargos from './cargo.js'
+import Cargos from './cargo.js'
 
 const Acessos = db.define('acessos',{
     id:{
@@ -14,6 +14,6 @@ const Acessos = db.define('acessos',{
         allowNull:false
     },
 })
-Acessos.belongsTo(cargos,{foreignKey:'cargo_id'})
+Acessos.belongsTo(Cargos,{foreignKey:'cargo_id'})
 
 export default Acessos
