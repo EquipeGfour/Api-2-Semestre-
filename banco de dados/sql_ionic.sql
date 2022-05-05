@@ -11,6 +11,7 @@ CREATE TABLE arquivos (
     id int NOT NULL AUTO_INCREMENT,
     nome_arquivos varchar(300) ,
     extensao varchar(300),
+    url_arquivo varchar(500) not null,
     colaborador_id int not null,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
