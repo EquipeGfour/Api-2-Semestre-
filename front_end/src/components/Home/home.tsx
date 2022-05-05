@@ -31,8 +31,9 @@ const Home: React.FC=()=>{
             </div>
 
             <div className="col s12 m4 l4">
-            <button className="waves-effect botaoFunc"><img className="imgColab" src={organogramabranco}></img></button>
-                <div className="btnNomeHome">Organograma</div>            
+            <Link to="/organograma"><button className="waves-effect botaoFunc"><img className="imgColab" src={organogramabranco}></img></button>
+                <div className="btnNomeHome">Organograma</div>
+            </Link>             
             </div>
 
             <div className="col s12 m4 l4">

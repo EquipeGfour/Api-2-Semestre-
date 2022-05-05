@@ -18,6 +18,7 @@ export const dadosUpload = async (req,res) => {
     }
 }
 
+//funcional porem não adicionado amigo.
 export const baixar = async (req,res) => {
     try{
         const idArquivo = req.params.id

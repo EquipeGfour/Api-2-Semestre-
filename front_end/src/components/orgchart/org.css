@@ -1,0 +1,58 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin:0;
+    overflow: hidden;
+    font-family: Helvetica;
+    
+}
+
+.loginContainer{
+    margin-top: 8rem;
+    color: #53C4CD;
+    text-align: center;
+    font-family: 'IonicCoolvetica';
+    
+}
+#tree{
+    width:100%;
+    height:100%;
+}
+
+#tree>svg {
+    background-color: #292A2D;
+}
+
+#tree:fullscreen {
+    background-color: #292A2D;
+}
+
+
+
+[data-n-id] rect {
+    fill: #595b58;
+}
+
+[data-l-id] path {
+    stroke: #54c5ce;
+}
+
+.field_0 {
+    font-family: Impact;
+    text-transform: uppercase;
+    fill: #cfcfcf;
+}
+
+line {
+    stroke: #54c5ce;
+}
+
+text{
+    fill: #ffffff;
+}
+
+.containerOrg{
+    width: 100%;
+    height: 100% !important;
+}
