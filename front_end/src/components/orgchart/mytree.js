@@ -50,7 +50,7 @@ export default class extends Component {
 
     render() {
         return (
-            <div className="loginContainer" >
+            <div className="loginContainerOrg" >
                 <h1>Organograma</h1>
                 <div id='tree' ref={this.divRef}></div>
             </div>
