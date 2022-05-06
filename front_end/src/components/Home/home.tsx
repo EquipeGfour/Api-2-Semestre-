@@ -24,21 +24,24 @@ const Home: React.FC=()=>{
         
         <div className="row blocoCima">        
             <div className="col s12 m4 l4 divColab">
-                <Link to="/geral-funcionarios"   >                   
+            <Link to="/geral-funcionarios"   >                   
                 <button className=" waves-effect  botaoFunc"> <img className="imgColab" src={colabbranco}></img></button>
-                </Link>  
+            </Link>  
                 <div className="btnNomeHome">Colaboradores e Departamentos</div>
             </div>
 
             <div className="col s12 m4 l4">
-            <Link to="/organograma"><button className="waves-effect botaoFunc"><img className="imgColab" src={organogramabranco}></img></button>
+            <Link to="/organograma">
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={organogramabranco}></img></button>
                 <div className="btnNomeHome">Organograma</div>
             </Link>             
             </div>
 
             <div className="col s12 m4 l4">
-            <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
+            <Link to="/trilha">
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
                 <div className="btnNomeHome">Desenvolvimento</div>
+            </Link>
             </div>
         </div>
 

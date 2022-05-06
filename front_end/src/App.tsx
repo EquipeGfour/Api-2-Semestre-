@@ -19,6 +19,8 @@ import NovoCargo from "./components/Novo_Cargo/NovoCargo"
 import DetalheDep from "./components/detalheDepartamento/detalheDep"
 import DetalheFunc from './components/detalheFunc/detalheFunc';
 import Orgchart from './components/orgchart/app.js'
+import Trilha from './components/trilha/trilha'
+
 type state = {
   tela: string
 }
@@ -68,6 +70,7 @@ render(){
           <Route path='detalhe-departamento/:id' element={<DetalheDep/>}/>
           <Route path='detalhe-funcionario/:id' element={<DetalheFunc/>}/>
           <Route path='organograma' element={<Orgchart/>}/>
+          <Route path='trilha' element={<Trilha/>}/>
         </Routes>      
       </BrowserRouter>
       

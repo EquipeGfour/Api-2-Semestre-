@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import {Link, Navigate, useNavigate} from 'react-router-dom';
-import './trilha.css';
+import './trilha01.css';
 import { CriaHeader } from "../../functions";
 import axios from "axios";
 
@@ -15,7 +15,7 @@ const Trilha:React.FC=()=>{
 
     return(
         <div>
-            
+
         </div>
     )
 
