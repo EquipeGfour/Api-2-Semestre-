@@ -48,7 +48,80 @@ text{
     fill: #ffffff;
 }
 
+.boc-search{
+    width:100%;
+       
+}
+.boc-search .boc-input label{
+    padding-left: 2rem !important;
+}
+
+.boc-search .boc-input input{
+    padding-left: 2rem !important;
+    -webkit-box-sizing: content-box !important;
+    box-sizing: border-box !important;
+    
+}
+
+
+.boc-search .boc-input input[type=text]:not(.browser-default){
+    padding-top: 1rem !important;
+    height: 4rem !important;
+}
+
+.boc-light .boc-search [data-search-item-id]:hover, .boc-light .boc-search [data-selected=yes]{
+    background-color: #53C4CD !important;
+}
+
+.boc-input input{
+    border-radius: 30px !important;
+    /* padding-left: 2rem !important; */
+}
+
+
+.boc-search .boc-form-field{
+    width:40%;
+    margin:0 auto;   
+    
+}
+.boc-search label {
+    padding-top: 1rem !important;
+}
+
+.boc-light{
+    margin-top: 2rem !important;
+}
+
+.boc-search table{
+    width: 40% !important;
+    margin: 0 auto !important;
+}
+
+.boc-light .boc-input>input, .boc-light .boc-input>select {
+    margin-top: 1rem;
+    /* margin-left: 0.6rem; */
+}
+
+.boc-edit-form-header{
+    background-color: #53C4CD !important;
+}
+
+.boc-img-button{
+    background-color: #53C4CD !important;
+}
+
+.boc-input>label {
+    color: #53C4CD !important;
+    font-size: 18px !important;   
+    
+}
+
+.boc-edit-form-fields-inner .boc-input input{
+    padding-left: 1rem;
+
+}
 .containerOrg{
     width: 100%;
     height: 100% !important;
 }
+

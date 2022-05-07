@@ -1,32 +1,33 @@
-import React, { Component } from 'react';
 import OrgChart from '@balkangraph/orgchart.js';
+import React, { Component } from 'react';
+
 import './org.css'
 
-export default class extends Component {
+interface OrgProps{
+    nodes:any
+}
 
-    constructor(props) {
-        super(props);
-        this.divRef = React.createRef();
+const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
+    const divRef = React.createRef<string | HTMLElement | any>()
+    let chart 
+
+    const handleclick = (id)=>{
+        console.log(id)
     }
 
-    shouldComponentUpdate() {
-        return false;
-    }
-
-    componentDidMount() {
-        this.chart = new OrgChart (this.divRef.current , {
-            nodes: this.props.nodes,
+    React.useEffect(()=> {
+        
+        chart = new OrgChart (divRef.current , {
+            nodes: props.nodes,
             template: "ula",
-            scaleInitial: 1,
-            enableSearch: false,
-            
-            
+            scaleInitial: 0.8,
+            searchFields: ["nome", "cargo"],
+            enableSearch: true,                  
             mouseScrool: OrgChart.action.ctrlZoom,
 
             nodeMenu: {
-                details: { text: "Details" },
-                edit: { text: "Edit" },
-                add: { text: "Add" },
+                details: { text: "Details" },                
+                add: { text: "Add", onClick:handleclick },
                 remove: { text: "Remove" }
             },
             nodeContextMenu: {
@@ -42,18 +43,18 @@ export default class extends Component {
                 field_0: "nome",
                 field_1: "cargo",
                 field_2: "departamento",
-                img_0: "img"
-            },          
-            
-        });
-    }
+                img: "img"
 
-    render() {
+            }
+              
+        });
+    })   
+   
         return (
             <div className="loginContainerOrg" >
                 <h1>Organograma</h1>
-                <div id='tree' ref={this.divRef}></div>
+                <div id='tree' ref={divRef}></div>
             </div>
         );
     }
-}
+export default MyTree

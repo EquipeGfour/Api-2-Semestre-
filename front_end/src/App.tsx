@@ -18,7 +18,7 @@ import NovoDepartamento from "./components/Novo_Departamento/NovoDepartamento"
 import NovoCargo from "./components/Novo_Cargo/NovoCargo"
 import DetalheDep from "./components/detalheDepartamento/detalheDep"
 import DetalheFunc from './components/detalheFunc/detalheFunc';
-import Orgchart from './components/orgchart/app.js'
+import Orgchart from './components/orgchart/organograma'
 import Trilha from './components/trilha/trilha'
 
 type state = {

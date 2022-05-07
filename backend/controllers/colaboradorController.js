@@ -207,10 +207,19 @@ export const pegarGestorById = async (req, res) => {
             include: {
                 model: Colaborador, as: 'funcionarios',
                 attributes: ['id', 'nome', ['gestor_id', 'pid']],
+                include: {
+                    model:Cargo,
+                    include:{
+                        model:Departamento
+                    }
+                
             }
+        }
         })
+        console.log(dados)
         const result = dados.dataValues.funcionarios.map(f=>f.dataValues)
         delete dados.dataValues.funcionarios
+        
         res.json([dados.dataValues, ...result])
     } catch (error) {
         res.status(500).json({ message: error })

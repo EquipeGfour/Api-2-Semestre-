@@ -11,6 +11,7 @@ import GeralDep from "../geralDepartamento/geralDep"
 import M from 'materialize-css/dist/js/materialize'
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 
+
 const NavBar:React.FC=(props)=>{
     const navigate=useNavigate()
     const [cookie,setCookie,removeCookie] = useCookies(['ionic-user'])
