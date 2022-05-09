@@ -4,24 +4,10 @@
       
 <p align="center">
 <h1 align="center"> FATEC Profº Jessen Vidal, SJC - 2º Semestre DSM </h1>
-
 <hr>
-
-<p align="center">
-  <a href ="#briefcase-o-projeto"> Projeto </a>  • 
-  <a href ="#pushpin-objetivos"> Objetivos </a>  • 
-  <a href ="#calendar-cronograma"> Cronograma </a>  • 
-  <a href ="#bulb-metodologia-utilizada"> Metodologia </a>  • 
-  <a href ="#wrench-tecnologias-utilizadas"> Tecnologias </a>  • 
-  <a href ="#bar_chart-backlog-total"> Backlog </a>  • 
-  <a href ="#mortar_board-equipe"> Equipe </a> 
-</p>
-
-<hr>
-
 <br>
 
-<h2> :briefcase: O Projeto</h2>
+<h2> :briefcase:Projeto</h2>
 O desafio é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvolver uma plataforma para controle de todos os talentos da empresa (pessoas). Após a aprovação no processo seletivo se faz necessário o cadastro do colaborador (CLT ou PJ) em um sistema que traga informações sobre sua contratação, controle de documentação, dados, entre outros dados. Temos que levar em consideração da LGPD para que o acesso seja restrito.
 <br><br>
 
@@ -49,6 +35,13 @@ Nosso objetivo é desenvolver uma página website para uma:
 :heavy_check_mark:Manual do usuário para navegação.<br>
 :heavy_check_mark:Documentação de utilização.
 <br><br>
+
+### Backlog Do Produto
+
+![Homepage image](https://github.com/EquipeGfour/Api-2-Semestre-/blob/main/imagens_gerais/backlogProduto.png)  
+
+<br>
+
 
 <h2>:calendar: Cronograma</h2>
 
@@ -173,7 +166,7 @@ Natália Bessa de Moura | PO | [Linkedin](https://www.linkedin.com/in/natalia-be
 Rodrigo Ribeiro dos Santos | SM | [Linkedin](https://www.linkedin.com/in/rodrigo-ribeiro-5008211b8/) | [Github](https://github.com/rodrigoribeiro027)|<img src = "imagens_gerais/rodrigo1.jpg" width="60" height="60">|
 Rafael Peressoni Waltrick | DT | [Linkedin](https://www.linkedin.com/in/rafael-p-waltrick-7211b4221) |  [Github](https://github.com/rafawaltrick)|<img src = "imagens_gerais/rafa(1).jpg" width="60" height="60">|
 Nicolas Lima de Holanda Galindo | DT | [Linkedin](https://www.linkedin.com/in/nicolas-lima-2a75a3220/) | [Github](https://github.com/Nicolas734)|<img src = "imagens_gerais/nicolas.jpg" width="60" height="60">| 
-Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens_gerais/raniel1.jpg" width="60" height="60">|
+Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens_gerais/raniel.png" width="60" height="60">|
 Gustavo Borges Lima | DT |[Linkedin](https://www.linkedin.com)| [Github](https://github.com/Miojoguu)|<img src = "imagens_gerais/gustavo.jpg" width="60" height="60">|
 <br>
 
