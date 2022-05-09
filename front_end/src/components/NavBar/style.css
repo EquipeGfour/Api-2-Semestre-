@@ -60,3 +60,18 @@
     color: #000;
     
 }
+
+.sideNavBar {
+    color: #000 !important;}
+
+.navBarMenu{
+    height: 380px;
+    padding-top: 90px;
+    padding-bottom: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.sidenav li>a:hover {
+    background-color: #7de1e0;
+}

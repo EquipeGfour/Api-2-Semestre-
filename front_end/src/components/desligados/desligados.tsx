@@ -27,7 +27,7 @@ const Desligados:React.FC=()=>{
               <th>Ex-Cargo</th>
               <th>Email</th>
               <th>Telefone</th>
-              <th>Data Contratação</th>
+              <th>Data Admissão</th>
               <th>Data Demissão</th>               
           </tr>
         </thead>

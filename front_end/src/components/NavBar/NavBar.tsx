@@ -27,7 +27,8 @@ const NavBar:React.FC=(props)=>{
             console.log('não logado')
             
         }        
-    
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, Option);
     })
 
     const Desloga=()=>{
@@ -60,39 +61,34 @@ return(
 
     <nav>
         <div className="nav-wrapper navbarBackground" >
-                <a href="!" className="brand-logo">
-                    <img src={Img}></img>
-                </a>
+                  
+                
                 {logout?(
                 <>
-                
+                <a href="!" className="brand-logo"><img src={Img}></img></a>           
+                <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons sideNavBar">menu</i></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
+                
                 <ReactTooltip/>                
-                    <li><a className='tooltipped botaoLog 'data-position="bottom" data-tip='Logout'><i className='material-icons logout'  onClick={Desloga}>exit_to_app</i></a></li>
-                </ul>
-
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li>
-                </ul>
-
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>
-                </ul>
-
-                <ul id="nav-mobile" className="right hide-on-med-and-down">                  
-                    <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
-                </ul>
-
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
-                </ul>
-
-                
-                <ul id="nav-mobile" className="right hide-on-med-and-down">                  
                     <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
+                    <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
+                    <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
+                    <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>
+                    <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li>                
+                    <li><a className='tooltipped botaoLog 'data-position="bottom" data-tip='Logout'><i className='material-icons logout'  onClick={Desloga}>exit_to_app</i></a></li>               
                 </ul></>):null}
+    
         </div>
+
     </nav>
+                <ul className="sidenav navBarMenu" id="mobile-demo">
+                    <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
+                    <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
+                    <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
+                    <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>
+                    <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li>
+                    <li><a className='botaoLog' onClick={Desloga}>Logout</a></li>          
+                </ul> 
 </div>
 )
 }

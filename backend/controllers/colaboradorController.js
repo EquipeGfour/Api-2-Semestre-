@@ -250,7 +250,7 @@ export const getDesligados = async (req,res) =>{
                 },
                 {
                     model:Contrato,
-                    attributes:['data_Admissao']
+                    attributes:['id','data_Admissao']
                 }
             ]
         })
