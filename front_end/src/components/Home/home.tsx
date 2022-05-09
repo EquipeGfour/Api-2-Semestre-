@@ -12,6 +12,7 @@ import GeralFunc from "../geralFunc/geralFunc";
 import PreRegistro1 from "../PreRegistro/PreRegistro";
 import axios from "../../functions/axios";
 
+
 const Home: React.FC=()=>{
 
     const [cookie,setCookie]=useCookies(['ionic-user'])

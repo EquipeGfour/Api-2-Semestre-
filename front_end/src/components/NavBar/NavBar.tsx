@@ -49,10 +49,10 @@ return(
         <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank" className="link-9">            
         <img className='youtube' src={Youtube}></img> </a>
 
-        <a href="hhttps://www.linkedin.com/company/ness-health/?originalSubdomain=br" target="_blank" className="link-9">            
+        <a href="https://www.linkedin.com/company/ionichealth/" target="_blank" className="link-9">            
         <img className='youtube' src={Linkedin}></img> </a>
 
-        <a href="https://web.facebook.com/ness.health/?_rdc=1&_rdr" target="_blank" className="link-9">            
+        <a href="https://www.facebook.com/ionic.health" target="_blank" className="link-9">            
         <img className='youtube' src={Facebook}></img> </a>           
 
         <a href="https://www.instagram.com/ionic.health/" target="_blank" className="link-9">            
@@ -70,15 +70,14 @@ return(
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons sideNavBar">menu</i></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                 
-                <ReactTooltip/>                
+                                
                     <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
                     <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
                     <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>
                     <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li>                
-                    <li><a className='tooltipped botaoLog 'data-position="bottom" data-tip='Logout'><i className='material-icons logout'  onClick={Desloga}>exit_to_app</i></a></li>               
-                </ul></>):null}
-    
+                    <li><a className='botaoLog '><i className='material-icons logout' title='Deslogar' onClick={Desloga}>exit_to_app</i></a></li>               
+                </ul></>):null}    
         </div>
 
     </nav>

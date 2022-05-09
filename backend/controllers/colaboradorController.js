@@ -61,6 +61,7 @@ export const inserirDadosColab = async (req, res) => {
             raca: req.body.raca,
             telefone: req.body.telefone,
             data_nascimento: req.body.data_nascimento,
+            status:"Ativo"
         }
         const objDadosAcademicos = {
             formacao: req.body.formacao,
