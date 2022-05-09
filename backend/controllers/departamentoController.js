@@ -50,3 +50,16 @@ export const getCargosDepartamentos = async (req,res) => {
         res.status(500).json({ message:error })
     }
 }
+
+export const deleteDepart = async (req,res) => {
+    try{
+        const dados = await Departamento.destroy({
+            where: {id:req.params.id}
+        })
+        res.json({ message:'Delatado'})
+
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+}

@@ -44,7 +44,7 @@ CREATE TABLE colaboradors (
     cargos_id int ,
     gestor_id int ,
     nome varchar(300) ,
-    email varchar(300) ,
+    email varchar(300),
     senha varchar(300) ,
     naturalidade varchar(200),
     nacionalidade varchar(200),
@@ -101,7 +101,7 @@ CREATE TABLE departamentos (
     area varchar(300) ,
     head varchar(300) ,
     createdAt date NOT NULL default (current_date()),
-    updatedAt date ,
+    updatedAt date,
     CONSTRAINT departamentos_pk PRIMARY KEY (id)
 );
 
@@ -184,7 +184,7 @@ ALTER TABLE colaboradors ADD CONSTRAINT colaboradors_colaborador FOREIGN KEY col
     REFERENCES colaboradors (id);
     
 ALTER TABLE cargos ADD CONSTRAINT departamento_cargo FOREIGN KEY departamento_cargo (departamento_id)
-    REFERENCES departamentos (id);
+    REFERENCES departamentos (id) ON DELETE SET NULL;
 
 -- Reference: Contrato_Colaborador (table: contratos)
 ALTER TABLE contratos ADD CONSTRAINT contrato_colaborador FOREIGN KEY contrato_colaborador (colaborador_id)
