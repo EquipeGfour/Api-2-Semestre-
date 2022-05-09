@@ -20,6 +20,7 @@ import DetalheDep from "./components/detalheDepartamento/detalheDep"
 import DetalheFunc from './components/detalheFunc/detalheFunc';
 import Orgchart from './components/orgchart/organograma'
 import Trilha from './components/trilha/trilha'
+import Desligados from './components/desligados/desligados';
 import { navigationRef } from './functions/navigation';
 
 type state = {
@@ -69,6 +70,7 @@ render(){
           <Route path='detalhe-funcionario/:id' element={<DetalheFunc/>}/>
           <Route path='organograma' element={<Orgchart/>}/>
           <Route path='trilha' element={<Trilha/>}/>
+          <Route path='desligados' element={<Desligados/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>

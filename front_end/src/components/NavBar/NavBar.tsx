@@ -10,6 +10,7 @@ import {useCookies} from 'react-cookie'
 import GeralDep from "../geralDepartamento/geralDep"
 import M from 'materialize-css/dist/js/materialize'
 import {Link,Navigate,useNavigate} from 'react-router-dom';
+import ReactTooltip from 'react-tooltip'
 
 
 const NavBar:React.FC=(props)=>{
@@ -25,7 +26,8 @@ const NavBar:React.FC=(props)=>{
         }else{
             console.log('não logado')
             
-        }       
+        }        
+    
     })
 
     const Desloga=()=>{
@@ -63,8 +65,18 @@ return(
                 </a>
                 {logout?(
                 <>
+                
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><a className='botaoLog' onClick={Desloga}>Logout</a></li>
+                <ReactTooltip/>                
+                    <li><a className='tooltipped botaoLog 'data-position="bottom" data-tip='Logout'><i className='material-icons logout'  onClick={Desloga}>exit_to_app</i></a></li>
+                </ul>
+
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li>
+                </ul>
+
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>
                 </ul>
 
                 <ul id="nav-mobile" className="right hide-on-med-and-down">                  
@@ -74,6 +86,7 @@ return(
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
                 </ul>
+
                 
                 <ul id="nav-mobile" className="right hide-on-med-and-down">                  
                     <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               

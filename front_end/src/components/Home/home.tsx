@@ -49,8 +49,11 @@ const Home: React.FC=()=>{
         
         <div className="row blocoBaixo">
             <div className=" col s12 m4 l4">
-                <button className="waves-effect botaoFunc"><img className="imgColab" src={desligadobranco}></img></button>
+                <Link to="/desligados">
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={desligadobranco}></img></button>                
                 <div className="btnNomeHome">Desligados</div>
+                </Link>
+                
             </div>
 
             <div className="col s12 m4 l4">

@@ -45,9 +45,18 @@
 
 .botaoLog{
     color: black !important;
+    background-color: #54C5CE;
+    height: 64px;
+    border: none;
+    margin-right: 1rem;
 }
 
 .modalerro{
     background-color: #cd6153;
     margin-top: 4rem;
+}
+
+.logout{
+    color: #000;
+    
 }
