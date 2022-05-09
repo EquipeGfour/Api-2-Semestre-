@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "./style.css"
 import { useCookies } from 'react-cookie'
-import axios from 'axios'
+import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
 import Colab from '../img/colab.png'
 import M from 'materialize-css/dist/js/materialize'

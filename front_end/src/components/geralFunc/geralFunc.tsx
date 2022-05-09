@@ -1,7 +1,7 @@
 import React from "react"
 import "./style.css"
 import {useCookies} from 'react-cookie'
-import axios from 'axios'
+import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
 import ReactTooltip from 'react-tooltip';
 import {Link,Navigate,useNavigate} from 'react-router-dom';

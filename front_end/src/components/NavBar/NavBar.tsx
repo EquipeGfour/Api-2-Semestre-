@@ -11,6 +11,7 @@ import GeralDep from "../geralDepartamento/geralDep"
 import M from 'materialize-css/dist/js/materialize'
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import ReactTooltip from 'react-tooltip'
+import axios from "../../functions/axios";
 
 
 const NavBar:React.FC=(props)=>{

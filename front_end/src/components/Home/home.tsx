@@ -10,6 +10,7 @@ import PreRegistrobranco from '../img/preregistrobranco.png'
 import {useCookies} from 'react-cookie'
 import GeralFunc from "../geralFunc/geralFunc";
 import PreRegistro1 from "../PreRegistro/PreRegistro";
+import axios from "../../functions/axios";
 
 const Home: React.FC=()=>{
 

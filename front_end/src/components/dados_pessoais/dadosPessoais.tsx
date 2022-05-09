@@ -2,7 +2,7 @@ import React from 'react'
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import "./style.css"
 import {useCookies} from 'react-cookie'
-import axios from 'axios'
+import axios from "../../functions/axios";
 import M from 'materialize-css/dist/js/materialize'
 import { CriaHeader } from '../../functions';
 

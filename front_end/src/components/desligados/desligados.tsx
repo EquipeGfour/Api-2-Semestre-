@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../../functions/axios";
 import "./desligados.css";
 import { CriaHeader } from "../../functions";
 import ReactTooltip from 'react-tooltip';
