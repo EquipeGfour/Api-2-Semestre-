@@ -102,6 +102,10 @@ text{
     /* margin-left: 0.6rem; */
 }
 
+.boc-light .boc-chart-menu [data-item]:hover {
+    background-color: #53c4cd!important;
+}
+
 .boc-edit-form-header{
     background-color: #53C4CD !important;
 }

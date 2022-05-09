@@ -20,6 +20,7 @@ import DetalheDep from "./components/detalheDepartamento/detalheDep"
 import DetalheFunc from './components/detalheFunc/detalheFunc';
 import Orgchart from './components/orgchart/organograma'
 import Trilha from './components/trilha/trilha'
+import { navigationRef } from './functions/navigation';
 
 type state = {
   tela: string
@@ -48,14 +49,11 @@ render(){
 
 
   return(
-    <div>
-      
-
-
+    <div>     
       <BrowserRouter>        
         <NavBar>
         </NavBar>
-        <Routes>
+        <Routes >
           <Route path='/' element={<Login/>}/>
           <Route path='dados-pessoais' element={<DadosPessoais/>}/>
           <Route path='dados-empresa' element={<DadosEmpresa/>}/>
@@ -72,8 +70,7 @@ render(){
           <Route path='organograma' element={<Orgchart/>}/>
           <Route path='trilha' element={<Trilha/>}/>
         </Routes>      
-      </BrowserRouter>
-      
+      </BrowserRouter>      
     </div>
   )
 }

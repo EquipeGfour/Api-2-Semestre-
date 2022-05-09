@@ -5,6 +5,7 @@ import './org.css'
 
 interface OrgProps{
     nodes:any
+    buscaColabByGestorID:(id:number)=>void
 }
 
 const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
@@ -12,7 +13,8 @@ const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
     let chart 
 
     const handleclick = (id)=>{
-        console.log(id)
+        props.buscaColabByGestorID(id)
+        
     }
 
     React.useEffect(()=> {
@@ -20,31 +22,30 @@ const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
         chart = new OrgChart (divRef.current , {
             nodes: props.nodes,
             template: "ula",
+            enableDragDrop: false,
             scaleInitial: 0.8,
             searchFields: ["nome", "cargo"],
             enableSearch: true,                  
             mouseScrool: OrgChart.action.ctrlZoom,
 
             nodeMenu: {
-                details: { text: "Details" },                
-                add: { text: "Add", onClick:handleclick },
-                remove: { text: "Remove" }
+                Buscar: {text: "Ver mais" , onClick:handleclick, icon: OrgChart.icon.add(18, 18, 'var(--ioniccolor)')},
+                details: { text: "Detalhe" },                
+                add: { text: "Adicionar"},
+                remove: { text: "Remover " }
             },
             nodeContextMenu: {
-                edit: { text: "Edit", icon: OrgChart.icon.edit(18, 18, '#039BE5') },
-                add: { text: "Add", icon: OrgChart.icon.add(18, 18, '#FF8304') }
+                edit: { text: "Editar", icon: OrgChart.icon.edit(18, 18, '#039BE5') },
+                add: { text: "Adicionar", icon: OrgChart.icon.add(18, 18, '#FF8304') }
             },
 
-            collapse: {
-                level: 2
-            },
+
 
             nodeBinding: {
                 field_0: "nome",
-                field_1: "cargo",
-                field_2: "departamento",
+                field_1: "departamento",
+                field_2: "cargo",
                 img: "img"
-
             }
               
         });
