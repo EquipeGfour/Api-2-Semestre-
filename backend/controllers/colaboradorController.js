@@ -241,7 +241,8 @@ export const updateColabForDelete = async (req,res) => {
 export const getDesligados = async (req,res) =>{
     try{
         const dados = await Colaborador.findAll({
-            where:{ status: 'Desligado' }
+            where:{ status: 'Desligado' },
+            attributes:['id','nome','email','telefone',]
         })
         res.json(dados)
     }catch(error){
