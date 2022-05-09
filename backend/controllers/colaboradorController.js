@@ -226,5 +226,25 @@ export const pegarGestorById = async (req, res) => {
     }
 }
 
+export const updateColabForDelete = async (req,res) => {
+    try{
+        const valores = { gestor_id:null, status:"Desligado" }
+        const condicao = { where:{ id:req.params.id } }
+        const dados = await Colaborador.update( valores, condicao )
+        res.json('Dados Atualizados')
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+}
 
-
+export const getDesligados = async (req,res) =>{
+    try{
+        const dados = await Colaborador.findAll({
+            where:{ status: 'Desligado' }
+        })
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+    }
+}

@@ -7,6 +7,6 @@ const router = Router()
 router.post('/inserirDepart', verifyJWT, inserirDepartamanto)
 router.get('/allDepart/:id', verifyJWT, getCargosDepartamentos)
 router.get('/getAllDepart', verifyJWT, getAllDepartamento)
-router.delete('/delDepart/:id', deleteDepart)
+router.delete('/delDepart/:id', verifyJWT ,deleteDepart)
 
 export default router
