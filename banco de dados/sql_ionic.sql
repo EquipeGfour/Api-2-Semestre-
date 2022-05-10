@@ -100,6 +100,7 @@ CREATE TABLE departamentos (
     id int NOT NULL AUTO_INCREMENT,
     area varchar(300) ,
     head varchar(300) ,
+    head_id int,
     createdAt date NOT NULL default (current_date()),
     updatedAt date,
     CONSTRAINT departamentos_pk PRIMARY KEY (id)
@@ -192,6 +193,10 @@ ALTER TABLE contratos ADD CONSTRAINT contrato_colaborador FOREIGN KEY contrato_c
 
 -- Reference: dados_academicos_Colaborador (table: dados_academicos)
 ALTER TABLE dados_academicos ADD CONSTRAINT dados_academicos_colaborador FOREIGN KEY dados_academicos_colaborador (colaborador_id)
+    REFERENCES colaboradors (id);
+
+-- Reference: Colaborador_Departamento (table: departamentos)
+ALTER TABLE departamentos ADD CONSTRAINT departamentos_colaborador FOREIGN KEY colaboradors_colaborador (head_id)
     REFERENCES colaboradors (id);
 
 -- Reference: Endereco_Colaborador (table: colaboradors)
