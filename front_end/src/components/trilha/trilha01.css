@@ -1,0 +1,45 @@
+.titulo-trilha{
+    color: #53C4CD !important;
+    text-align: center;
+}
+.usuario-trilha{
+    color: white;
+    text-align: center;
+}
+.cargo-trilha{
+    color: white;
+    text-align: center;
+}
+.bg-cinza{
+    background-color: #58595B;
+    border-radius: 5px;
+}
+.card-cinza{
+    margin: 0.5rem;
+    background-color: #393B42;
+}
+.div-cursos{
+    padding: 1rem;
+}
+.imgColabt{
+    width: 162px;
+    height: 154px;
+    background: #58595B;
+    border: 0px solid #58595B;
+    box-sizing:content-box;
+    border-radius: 20px;
+    display: block;
+    margin: 0px auto;
+}
+.imgtrilha{
+    width: 162px;
+    height: 154px;
+}
+.curso{
+    color: #53C4CD !important;
+}
+.descricao-curso{
+    color: white;
+    margin-block-start: 3em;
+    margin-inline-start: -4em;
+}
