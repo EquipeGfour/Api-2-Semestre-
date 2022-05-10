@@ -47,7 +47,7 @@ Nosso objetivo é desenvolver uma página website para uma:
 
  :heavy_check_mark: KICK OFF - 14/03 
 
- :heavy_check_mark: SPRINT 1 - 25/03 à 14/04
+ :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">SPRINT 1</a> - 25/03 à 14/04
 
 - [x] SPRINT 2 - 25/04 à 15/05
 
