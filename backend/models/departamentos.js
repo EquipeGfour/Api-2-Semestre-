@@ -16,6 +16,10 @@ const Departamento = db.define('departamentos',{
     head:{
         type:Sequelize.STRING,
         allowNull:true
+    },
+    head_id:{
+        type:Sequelize.INTEGER,
+        primaryKey:true
     }
 })
 
