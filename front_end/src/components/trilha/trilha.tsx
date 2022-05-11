@@ -10,7 +10,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Trilha: React.FC = () => {
-  const[checked, setChecked] = React.useState(false)
+  const [checked, setChecked] = React.useState(false)
 
   React.useEffect(() => {
     document.title = 'Trilha'
@@ -45,37 +45,59 @@ const Trilha: React.FC = () => {
                 <form action="#">
                   <p className="checkbox">
                     <label className="caixinha">
-                      <input type="checkbox" className="filled-in" checked={checked}onChange={()=>setChecked(!checked)} />
+                      <input type="checkbox" className="filled-in"  onChange={() => setChecked(!checked)} />
+                      <span className="box1">Concluído</span>
+                    </label>
+                  </p>
+                </form>
+              </div>
+              <div>
+                <h5 className="curso"> Java </h5>
+              </div>
+              <div className="descricao-curso">
+                <p>Curso básico de Java.</p>
+              </div>
+            </div>
+
+            <div className="card card-cinza card horizontal">
+              <div className="card-image">
+                <img className="imgtrilha" src={trilhabranco} alt="" />
+                <form action="#">
+                  <p className="checkbox">
+                    <label className="caixinha">
+                      <input type="checkbox" className="filled-in"  onChange={() => setChecked(!checked)} />
                       <span>Concluído</span>
                     </label>
                   </p>
                 </form>
               </div>
               <div>
-                <h6 className="curso"> curso 1 </h6>
+                <h5 className="curso"> Java </h5>
               </div>
               <div className="descricao-curso">
-                <p>Curso preparatório de Pastelaria.</p>
+                <p>Curso básico de Java.</p>
               </div>
             </div>
             <div className="card card-cinza card horizontal">
               <div className="card-image">
                 <img className="imgtrilha" src={trilhabranco} alt="" />
+
+                <p className="checkbox">
+                  <label className="caixinha">
+                    <input type="checkbox" className="filled-in"  onChange={() => setChecked(!checked)} />
+                    <span>Concluído</span>
+                  </label>
+                </p>
+
               </div>
-              <h6 className="curso"> curso 2 </h6>
+              <div>
+                <h5 className="curso"> Java </h5>
+              </div>
               <div className="descricao-curso">
-                <p>Curso avançado de Pastelaria.</p>
+                <p>Curso básico de Java.</p>
               </div>
             </div>
-            <div className="card card-cinza card horizontal">
-              <div className="card-image">
-                <img className="imgtrilha" src={trilhabranco} alt="" />
-              </div>
-              <h6 className="curso"> curso 3 </h6>
-              <div className="descricao-curso">
-                <p>Curso Master de Pastelaria.</p>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

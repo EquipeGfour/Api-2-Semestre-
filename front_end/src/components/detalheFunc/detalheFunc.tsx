@@ -5,7 +5,7 @@ import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
 import Colab from '../img/colab.png'
 import M from 'materialize-css/dist/js/materialize'
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import ReactTooltip from "react-tooltip";
 
 
@@ -232,10 +232,11 @@ const DetalheFunc: React.FC = (props) => {
           <form>
             <div className="col s12 dadosPessoais">
             </div>
+            <Link to="" className="waves-effect waves-light btn-large btnAzulLogin">Gerar PDF</Link>
           </form>
         </div>
 
-        {/* -----------------------------------CONTRATO------------------------------------------- */}
+        {/* -----------------------------------ARQUIVO------------------------------------------- */}
         <div id="test-swipe-5" className="col s12 ">
           <form>
             <div className="col s12 dadosPessoais">
