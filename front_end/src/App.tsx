@@ -22,6 +22,7 @@ import Orgchart from './components/orgchart/organograma'
 import Trilha from './components/trilha/trilha'
 import Desligados from './components/desligados/desligados';
 import { navigationRef } from './functions/navigation';
+import Redefinir from './components/Redefinir-senha/redefinir-senha';
 
 type state = {
   tela: string
@@ -70,6 +71,7 @@ render(){
           <Route path='detalhe-funcionario/:id' element={<DetalheFunc/>}/>
           <Route path='organograma' element={<Orgchart/>}/>
           <Route path='trilha' element={<Trilha/>}/>
+          <Route path='redefinir-senha' element={<Redefinir/>}/>
           <Route path='desligados' element={<Desligados/>}/>
         </Routes>      
       </BrowserRouter>      
