@@ -27,9 +27,7 @@ const NovoCargo: React.FC=()=>{
         }).catch(erro=>{
             M.toast({html:"Insira o nome do Cargo !", classes: "modalerro rounded"})
             console.error('Erro', erro.response)
-        })
-       
-
+        })      
     }
 
 
@@ -48,9 +46,7 @@ const NovoCargo: React.FC=()=>{
                 <label className="active" htmlFor="first_name2">Cargo</label>
                 </div>
             </div>    
-            <a className="waves-effect waves-light btn-large btnAzul" onClick={EnviaDados}>Salvar</a>
-
-        
+            <a className="waves-effect waves-light btn-large btnAzul" onClick={EnviaDados}>Salvar</a>        
         </div> 
     </div>
     )

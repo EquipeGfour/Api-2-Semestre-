@@ -77,7 +77,7 @@ const DadosPessoais:React.FC=(props)=>{
         axios.post('/api/colab/novo',dados, {headers:CriaHeader()}).then(res=>{
 
         M.toast({html:'Cadastro Realizado com Sucesso !', classes:"modal1 rounded"})
-            navigate('/')
+            navigate('/upload')
 
         }).catch(erro=>{
             console.error('Erro', erro.response)
@@ -169,11 +169,6 @@ const DadosPessoais:React.FC=(props)=>{
             faltaDados = true
             M.toast({html:'Preencha o campo Curso !', classes:"modalerro rounded"})
         }
-
-        // if(status === ''){
-        //     faltaDados = true
-        //     M.toast({html:'Preencha o campo Status !', classes:"modalerro rounded"})
-        // }
 
         return faltaDados
 
@@ -307,19 +302,9 @@ const DadosPessoais:React.FC=(props)=>{
                         <label className="active" htmlFor="first_name2">Curso</label>
                     </div>
                 </div>
-
-
-
-                <div className="row">
-                    <div className="input-field col s6">
-                        <input value={status} placeholder="Status" id="first_name2" type="text" className="validate" onChange={ (e) => setStatus(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Status</label>
-                    </div>
-
-                </div>
-
+                
                 <a className="waves-effect waves-light btn-large btnAzul" onClick={sendData}>Enviar</a>
-
+               
             </div>
             </form>
 

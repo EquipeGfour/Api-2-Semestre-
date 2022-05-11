@@ -15,7 +15,7 @@ const storage = {
             const { name, ext } = path.parse(file.originalname);
             req.name = name
             req.ext = ext
-            cb(null, `${name}.${ext}`)
+            cb(null, `${name}${ext}`)
         }
     }),
     s3: multerS3({

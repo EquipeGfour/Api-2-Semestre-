@@ -72,7 +72,8 @@
 .checkBox{
     margin-top: 5rem;
     width: 30%;
-    padding-left: 4rem;
+    padding-left: 11rem;
+    
     
 }
 
@@ -85,3 +86,19 @@
     width: 100%;
 
 }
+
+.excluir{
+    background-color: transparent;
+    border: none;
+}
+
+.btnAzulUpload{
+    margin-top: 6rem !important;
+    border: 2px solid #53C4CD ;
+    background-color: #53C4CD;
+    width: 15%;    
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-right: 1rem;
+}
+

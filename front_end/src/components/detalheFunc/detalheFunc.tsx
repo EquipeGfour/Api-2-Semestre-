@@ -6,6 +6,7 @@ import { CriaHeader } from "../../functions"
 import Colab from '../img/colab.png'
 import M from 'materialize-css/dist/js/materialize'
 import { useParams } from "react-router-dom"
+import ReactTooltip from "react-tooltip";
 
 
 const DetalheFunc: React.FC = (props) => {
@@ -71,7 +72,7 @@ const DetalheFunc: React.FC = (props) => {
   return (
     <div>
       <div className="container">
-        <img className="responsive-img fotoColab" src={Colab} />
+        <img className="responsive-img fotoColab" src="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/0adbdc1e6966ba42aa55c215f1ad95d3-colossal_break.gif"/>
         <div className="row">
           <form className="col s12 dadosBasicos">
             <div className="">
@@ -101,6 +102,7 @@ const DetalheFunc: React.FC = (props) => {
           <li className="tab col s3"><a href="#test-swipe-1">Endereço</a></li>
           <li className="tab col s3"><a href="#test-swipe-3">Dados Acadêmicos</a></li>
           <li className="tab col s3"><a href="#test-swipe-4">Contrato</a></li>
+          <li className="tab col s3"><a href="#test-swipe-5">Arquivos</a></li>
         </ul>
 
 
@@ -232,8 +234,43 @@ const DetalheFunc: React.FC = (props) => {
             </div>
           </form>
         </div>
-      </div>
+
+        {/* -----------------------------------CONTRATO------------------------------------------- */}
+        <div id="test-swipe-5" className="col s12 ">
+          <form>
+            <div className="col s12 dadosPessoais">
+              <table className="highlight responsive-table centered tabelaUpload">
+                <thead>
+                  <tr>
+                    <th>Nome do Arquivo</th>
+                    <th>Tipo</th>
+                    <th>Link Externo (Servidor AWS)</th>
+                    <th>Baixar Arquivo</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>minhafoto_jpeg</td>
+                    <td>Foto Perfil</td>
+                    <td>
+                      <a href="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/85243170686da9b53d16f7a67e93b37d-foto_perfil_colossa.jpg" className="corionic">Ver Link</a>
+                    </td>
+                    <td>
+                    <ReactTooltip />               
+                      <i className="material-icons" data-tip='Baixar'>file_download</i> 
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+              <br></br>
+              <br></br>
+            </div>
+          </form>
+        </div>
     </div>
+   </div> 
   )
 }
 

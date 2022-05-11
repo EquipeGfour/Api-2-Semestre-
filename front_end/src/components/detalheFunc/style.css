@@ -60,3 +60,14 @@
 .tabs .indicator {
     background-color: #fff !important;
 }
+
+.tabelaUpload{
+    background-color: #58595b;
+    margin-bottom: 15px;
+    width: 75%;
+    margin: 0 auto;
+    color: #fff;
+}
+.corionic{
+    color: #54C5CE;
+}
