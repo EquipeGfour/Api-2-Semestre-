@@ -38,7 +38,8 @@ Nosso objetivo é desenvolver uma página website para uma:
 
 ### Backlog Do Produto
 
-![Homepage image](https://github.com/EquipeGfour/Api-2-Semestre-/blob/main/imagens_gerais/backlogProduto.png)  
+![back log produto](https://user-images.githubusercontent.com/8519765/167936040-d669802b-116a-439d-a175-34e31dc46321.jpeg)
+ 
 
 <br>
 
@@ -49,7 +50,7 @@ Nosso objetivo é desenvolver uma página website para uma:
 
  :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">SPRINT 1</a> - 25/03 à 14/04
 
-- [x] SPRINT 2 - 25/04 à 15/05
+- [x] <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/v2">SPRINT 2</a> - 25/04 à 15/05
 
 - [x] SPRINT 3 - 16/05 à 05/06
 <br><br>
