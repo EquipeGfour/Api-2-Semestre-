@@ -153,6 +153,17 @@ Login do colaborador
 
 * **Metodologia Ágil:** Framework [Scrum](https://blog.contaazul.com/metodologia-scrum#:~:text=a%20planilha%20agora-,O%20que%20%C3%A9%20a%20metodologia%20Scrum,desenvolvedores%20de%20softwares%20e%20sistemas.)<br><br>
 
+
+<span id="entregas">
+
+### :clipboard:	 Entregas
+
+Sprint ID | Data | Tag | Vídeo | Status
+----------|------|-----|-------|--------
+#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
+#2 | 25.04.22 - 15.05.22 | :hourglass_flowing_sand:	 | :hourglass_flowing_sand:	 | :hourglass_flowing_sand:	
+#3 | 16.05.22 - 05.06.22 | :hourglass_flowing_sand:	 | :hourglass_flowing_sand:	 | :hourglass_flowing_sand:	
+
 <h2>:mortar_board:Equipe </h2>
 
 
