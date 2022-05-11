@@ -8,6 +8,7 @@ import pessoafisica from "../models/pessoafisica.js";
 import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
 import Contrato from "../models/contrato.js";
+import { Op } from "sequelize";
 
 export const getAllColaborador = async (req, res) => {
     try {
@@ -260,3 +261,17 @@ export const getDesligados = async (req,res) =>{
         res.status(500).json({ message:error })
     }
 }
+
+export const getHead = async (req,res) =>{
+    try{
+        const dados = await Colaborador.findAll({
+            where:{
+                nome:{ [Op.like]: `%${req.body.gestor}%` },
+            }
+        })
+        res.json(dados)  
+        }catch(error){
+            console.log(error)
+            res.status(500).json({ message:error })
+        }
+}   

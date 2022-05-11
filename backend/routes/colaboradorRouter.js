@@ -1,5 +1,5 @@
 import { Router }  from "express";
-import { getAllColaborador, testeCargo, testePessoaFisica,inserirDadosColab, geralFunc,inserirDadosColabCnpj, getColaboradorById, pegarGestorById, updateColabForDelete, getDesligados } from "../controllers/colaboradorController.js";
+import { getAllColaborador, testeCargo, testePessoaFisica,inserirDadosColab, geralFunc,inserirDadosColabCnpj, getColaboradorById, pegarGestorById, updateColabForDelete, getDesligados, getHead } from "../controllers/colaboradorController.js";
 
 import {verifyJWT} from "../controllers/loginController.js";
 
@@ -15,7 +15,7 @@ router.get('/funcionario/:id', verifyJWT, getColaboradorById)
 router.get('/gestor/:id', verifyJWT ,pegarGestorById)
 router.patch('/updateColab/:id', verifyJWT ,updateColabForDelete)
 router.get('/desligados', verifyJWT, getDesligados)
-
+router.get('/head', getHead,verifyJWT)
 
 
 export default router
