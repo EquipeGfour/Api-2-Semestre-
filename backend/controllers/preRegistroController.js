@@ -5,6 +5,7 @@ import { createPessoaJuridica } from "../service/pessoJuridicaService.js";
 import Departamento from "../models/departamentos.js";
 import Cargos from "../models/cargo.js"
 import pessoafisica from "../models/pessoafisica.js";
+import Colaborador from "../models/colaborador.js";
 
 export const insertPreRegistroCpf = async(req, res) => {
     try{
@@ -57,10 +58,15 @@ export const getDepartCargo =  async (req, res) => {
     try{
         const dados = await Departamento.findAll({
             attributes:['id','area'],
-            include:{
+            include:[{
                 model:Cargos,
                 attributes:['id', 'cargo', 'departamento_id']
+            },
+            {
+                model:Colaborador,
+                attributes:['id','nome']
             }
+        ]
         })
         return res.json(dados)
     }catch(error){
