@@ -233,8 +233,10 @@ const DetalheFunc: React.FC = (props) => {
             <div className="col s12 dadosPessoais">
             </div>
             <Link to="" className="waves-effect waves-light btn-large btnAzulLogin">Gerar PDF</Link>
+            
           </form>
         </div>
+        <br></br>
 
         {/* -----------------------------------ARQUIVO------------------------------------------- */}
         <div id="test-swipe-5" className="col s12 ">
@@ -257,6 +259,7 @@ const DetalheFunc: React.FC = (props) => {
                     <td>
                       <a href="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/85243170686da9b53d16f7a67e93b37d-foto_perfil_colossa.jpg" className="corionic">Ver Link</a>
                     </td>
+                    
                     <td>
                     <ReactTooltip />               
                       <i className="material-icons" data-tip='Baixar'>file_download</i> 

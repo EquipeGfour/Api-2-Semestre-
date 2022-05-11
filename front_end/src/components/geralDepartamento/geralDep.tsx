@@ -16,29 +16,20 @@ interface Departamento{
   totalColab: number
 }
 
-
 const GeralDep:React.FC=(props)=>{
   const [departamento,setDepartamento]=useState<Departamento[]>([])
   const BuscaDados = () =>{
-
-    axios.get('/api/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{
-      
+    axios.get('/api/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{      
       setDepartamento(res.data)
-
     }).catch(erro=>{
       console.error(erro)
-
     })
 
   }
 
   React.useEffect(()=>{    
     document.title='Departamentos-Geral'
-  
-
-    BuscaDados()  
-    
-
+    BuscaDados()
   },[])
 
 

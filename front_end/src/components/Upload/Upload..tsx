@@ -49,21 +49,58 @@ const OnFileChange = e=>{
       <h1>Uploads</h1>
 
       <div className="row">
-        <div className="file-field input-field">
-          <div className=" waves-effect waves-light  btnCarregar">
-            <span>
-              <MdCloudUpload className="Nuvem" />
-              Clique para carregar
-            </span>
-            
-            <input type="file" onChange={OnFileChange} />
-          </div>
+        <div className="">
+          
+          <table className="responsive-table centered tabUp">
+            <thead>
+              <tr className="">
+                <th>Tipo</th>
+                <th>Arquivo</th>
+                <th></th>               
+              </tr>
+            </thead>
+            <tbody>
+              <tr>       
+                <td>Documentos</td>
+                <td><span>{nomearquivo}{arquivo &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>             
+                <td>
+                <div className="file-field input-field btn">
+                <span>Carregar<input type="file" onChange={OnFileChange}/></span>
+                
+                </div>
+                </td>
+              </tr>
+
+              <tr>       
+                <td>Certificados</td>
+                <td><span>{nomearquivo}</span></td>             
+                <td>
+                <div className="file-field input-field btn">
+                <span>Carregar<input type="file" onChange={OnFileChange}/></span>
+                </div>
+                </td>
+              </tr>
+
+              <tr>       
+                <td>Comprovante de Endereços e Outros</td>
+                <td><span>{nomearquivo}</span></td>             
+                <td>
+                <div className="file-field input-field btn">
+                <span>Carregar<input type="file" onChange={OnFileChange}/></span>
+                </div>
+                </td>
+              </tr>         
+              {/* {arquivo &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons">clear</i></button>} */}
+                
+                
+                
+            </tbody> 
+          </table>           
+         
+          
             
         </div>
-          <div className="row">
-            <span>{nomearquivo}</span>
-            {arquivo &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons">clear</i></button>}
-          </div>
+
         
         <div className="row checkBox">
           <p>
@@ -72,7 +109,6 @@ const OnFileChange = e=>{
               <span>Eu aceito os Termos de Uso</span>
             </label>
           </p>
-
           <p>
             <label>
               <input type="checkbox"  className="filled-in" />

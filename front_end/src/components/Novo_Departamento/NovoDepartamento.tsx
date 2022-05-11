@@ -11,30 +11,30 @@ import { CriaHeader } from "../../functions";
 const NovoDepartamento: React.FC=()=>{
     const navigate=useNavigate()
     const [departamento,setDepartamento] = useState('')
-    
+    const [head,setHead] = useState('')
+
+    // ----------- FUNÇÃO DEPARTAMENTO --------------
     const sendData=()=>{
         if(departamento === ""){
             M.toast({html:'Preencha o nome do Departamento!', classes:"modalerro rounded"})
             return
         }
 
-
-        axios.post('/api/departamento/inserirDepart', {area:departamento}, {headers:CriaHeader()}).then(res=>{
+        axios.post('/api/departamento/inserirDepart', {area:departamento,head_id:head}, {headers:CriaHeader()}).then(res=>{
             M.toast({html:'Departamento criado com sucesso!', classes:"modal1 rounded"})
             navigate('/geral-departamentos')  
         }).catch(erro=>{
             M.toast({html:'Preencha o nome do Departamento!', classes:"modalerro rounded"})
             console.error('Erro', erro.response)
         })
+    } 
 
-
-    }
 
     React.useEffect(()=>{
         document.title='Novo-Departamento'
     },[])
 
-    return(
+return(
 
     <div className="acessoContainer">
             <h1>Novo Departamento</h1>
@@ -48,22 +48,14 @@ const NovoDepartamento: React.FC=()=>{
 
             <div className="row">
                 <div className="input-field col s12">
-                    <input  placeholder="Head do Departamento" id="first_name2" type="text" className="validate"/>
+                    <input value={head} placeholder="Head do Departamento" id="first_name2" type="text" className="validate" onChange={e=>setHead(e.target.value)}/>
                     <label className="active" htmlFor="first_name2">Head do Departamento</label>
                 </div>
             </div>      
-            
-
-
-        <a className="waves-effect waves-light btn-large btnAzul" onClick={sendData}>Salvar</a>
-
-        
+        <a className="waves-effect waves-light btn-large btnAzul" onClick={sendData}>Salvar</a>        
         </div> 
     </div>
-    )
-        
-    
-
+)      
 }
 
 export default NovoDepartamento
