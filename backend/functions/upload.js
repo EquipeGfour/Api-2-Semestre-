@@ -4,7 +4,7 @@ import aws from 'aws-sdk';
 import crypto from 'crypto'
 import path from "path";
 
-const tamanho = 2 * 1024 * 1024;
+const tamanho = 4 * 1024 * 1024;
 
 const storage = {
     local: multer.diskStorage({

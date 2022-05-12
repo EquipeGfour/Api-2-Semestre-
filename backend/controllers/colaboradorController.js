@@ -54,6 +54,7 @@ export const inserirDadosColab = async (req, res) => {
         const objColab = {
             id: req.body.id,
             nome: req.body.nome,
+            rg:req.body.rg,
             email: req.body.email,
             nacionalidade: req.body.nacionalidade,
             naturalidade: req.body.naturalidade,

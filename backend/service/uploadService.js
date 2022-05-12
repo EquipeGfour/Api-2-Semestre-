@@ -33,3 +33,14 @@ export const pegarArquivoById = async (id) => {
     })
     return dados
 }
+
+export const dadosArquivoBaixar = async (id,colaborador_id) => {
+    const dados = await Arquivos.findOne({
+        where:{
+            id,
+            colaborador_id
+        },
+        attributes:['id','nome_arquivos','extensao']
+    })
+    return dados
+}

@@ -1,6 +1,7 @@
-import { inserirArquivo, pegarArquivoById, pegarDadosArquivo } from "../service/uploadService.js";
+import { dadosArquivoBaixar, inserirArquivo, pegarArquivoById, pegarDadosArquivo } from "../service/uploadService.js";
 import path,{dirname} from 'path'
 import { fileURLToPath } from "url";
+import aws from 'aws-sdk';
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(path.basename(__filename))
@@ -36,5 +37,29 @@ export const listarArquivos = async (req,res) => {
         res.json(dados)
     }catch(error){
         res.status(500).json({ message:error})
+    }
+}
+
+export const downloadAws = async (req,res) => {
+    try{
+        const dados = await dadosArquivoBaixar(req.params.id,req.params.colaborador_id)
+
+        const arquivo = `${dados.nome_arquivos}${dados.extensao}`
+
+        const s3 = new aws.S3();
+        const options = {
+            Bucket: process.env.BUCKET_NAME,
+            Key: arquivo,
+        };
+
+        res.attachment(arquivo);
+
+        var fileStream = s3.getObject(options).createReadStream();
+
+        fileStream.pipe(res);
+
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
     }
 }
