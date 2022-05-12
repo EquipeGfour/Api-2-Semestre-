@@ -2,6 +2,9 @@
     font-family:'IonicCoolvetica' ;
     src: url('../../../static/coolvetica\ rg.otf');
 }
+.texto{
+    color: white;
+}
 
 .loginContainer{
     margin-top: 8rem;
