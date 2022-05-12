@@ -9,7 +9,7 @@ const router = Router();
 
 router.get('/baixar/:id', verifyJWT, baixar);
 
-router.post('/enviar/:id', verifyJWT, upload.array("arquivo",8), dadosUpload);
+router.post('/enviar/:id', verifyJWT, upload, dadosUpload);
 
 router.get('/listarAquivos/:id', verifyJWT, listarArquivos);
 

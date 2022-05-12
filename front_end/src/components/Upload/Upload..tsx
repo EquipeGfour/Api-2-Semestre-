@@ -10,18 +10,28 @@ import M from 'materialize-css/dist/js/materialize'
 
 const Upload: React.FC=()=> {
 
-const [arquivo,setArquivo]= useState<File>()
-const [nomearquivo,setNomeArquivo] = useState('')
+// const [arquivo,setArquivo]= useState()
+const [nomearquivodoc,setNomeArquivoDoc] = useState('')
+const [nomearquivocert,setNomeArquivoCert] = useState('')
+const [nomearquivocomprov,setNomeArquivoComprov] = useState('')
+const [documentos,setDocumentos] = useState<File>()
+const [certificados,setCertificados] = useState<File>()
+const [comprovantes,setComprovantes] = useState<File>() 
+
 const [cookie,setCookie]=useCookies(['ionic-user'])
 
 
 const EnviaDados = () =>{
   const logado = cookie['ionic-user']
-  const form = new FormData();
-  form.append('arquivo',arquivo);
+  const form = new FormData();  
+  form.append('documento', documentos);
+  form.append('certificado', certificados)
+  form.append('comprovante', comprovantes)
+  
 
   axios.post(`/api/upload/enviar/${logado.id}`, form, {headers:CriaHeader()}).then(res=>{
-    M.toast({html:`Arquivo ${nomearquivo} carregado com sucesso!`, classes:"modal1 rounded"})
+    M.toast({html:`Arquivo ${nomearquivodoc},${nomearquivocert},${nomearquivocomprov} carregado com sucesso!`, classes:"modal1 rounded"})
+    console.log(form)
     DelArquivoUpload()
 
   }).catch(erro=>{
@@ -30,14 +40,27 @@ const EnviaDados = () =>{
 }
 
 const DelArquivoUpload = () =>{
-  setNomeArquivo('')
-  setArquivo(null)
+  setNomeArquivoDoc(null)
+  setNomeArquivoComprov(null)
+  setNomeArquivoCert(null)
+  setDocumentos(null)
+  setComprovantes(null)
+  setCertificados(null)  
 }
 
-const OnFileChange = e=>{
-  setArquivo(e.target.files[0])
-  setNomeArquivo(e.target.files[0].name)
-  
+const OnFileChangeDoc = e=>{  
+  setDocumentos(e.target.files[0]) 
+  setNomeArquivoDoc(e.target.files[0].name)  
+}
+
+const OnFileChangeCert = e=>{ 
+  setCertificados(e.target.files[0])
+  setNomeArquivoCert(e.target.files[0].name)
+}
+
+const OnFileChangeComprov = e=>{ 
+  setComprovantes(e.target.files[0])
+  setNomeArquivoComprov(e.target.files[0].name)
 }
 
   React.useEffect(()=>{
@@ -62,10 +85,10 @@ const OnFileChange = e=>{
             <tbody>
               <tr>       
                 <td>Documentos</td>
-                <td><span>{nomearquivo}{arquivo &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>             
+                <td><span>{nomearquivodoc}{documentos &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>             
                 <td>
                 <div className="file-field input-field btn">
-                <span>Carregar<input type="file" onChange={OnFileChange}/></span>
+                <span>Carregar<input type="file" onChange={OnFileChangeDoc}/></span>
                 
                 </div>
                 </td>
@@ -73,20 +96,20 @@ const OnFileChange = e=>{
 
               <tr>       
                 <td>Certificados</td>
-                <td><span>{nomearquivo}</span></td>             
+                <td><span>{nomearquivocert}{certificados &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>       
                 <td>
                 <div className="file-field input-field btn">
-                <span>Carregar<input type="file" onChange={OnFileChange}/></span>
+                <span>Carregar<input type="file" onChange={OnFileChangeCert}/></span>
                 </div>
                 </td>
               </tr>
 
               <tr>       
                 <td>Comprovante de Endereços e Outros</td>
-                <td><span>{nomearquivo}</span></td>             
+                <td><span>{nomearquivocomprov}{comprovantes &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>           
                 <td>
                 <div className="file-field input-field btn">
-                <span>Carregar<input type="file" onChange={OnFileChange}/></span>
+                <span>Carregar<input type="file" onChange={OnFileChangeComprov}/></span>
                 </div>
                 </td>
               </tr>         

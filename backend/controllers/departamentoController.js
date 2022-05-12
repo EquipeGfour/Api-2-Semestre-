@@ -6,9 +6,9 @@ import { departDados, createDepart } from "../service/departamentoService.js"
 
 export const inserirDepartamanto =  async (req, res) => {
     try{
-        const headId = req.body.head_id
-        const headNome = req.body.head
-        const areaDepartamento = await createDepart(req.body.area, headId, headNome)
+        // const headId = req.body.head_id
+        // const headNome = req.body.head
+        const areaDepartamento = await createDepart(req.body.area)
         return res.json(areaDepartamento)
     }catch(error){
         res.status(400).json({ message: error.message})

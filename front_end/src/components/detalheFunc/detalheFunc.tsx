@@ -15,6 +15,7 @@ const DetalheFunc: React.FC = (props) => {
   const [cargo, setCargo]=useState('');
   const [departamento, setDepartamento]=useState('');
   const [cpf, setCpf]=useState('');
+  const [rg,setRg]=useState('')
   const [nacionalidade, setNacionalidade]=useState('');
   const [naturalidade, setNaturalidade]=useState('');
   const [email, setEmail]=useState('');
@@ -40,6 +41,7 @@ const DetalheFunc: React.FC = (props) => {
       setCargo(res.data.cargo?.cargo);
       setDepartamento(res.data.cargo?.departamento.area);
       setCpf(res.data.pessoa_fisica?.cpf);
+      setRg(res.data.rg)
       setNaturalidade(res.data.naturalidade);
       setNacionalidade(res.data.nacionalidade);
       setEmail(res.data.email);
@@ -72,7 +74,7 @@ const DetalheFunc: React.FC = (props) => {
   return (
     <div>
       <div className="container">
-        <img className="responsive-img fotoColab" src="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/0adbdc1e6966ba42aa55c215f1ad95d3-colossal_break.gif"/>
+        <img className="responsive-img fotoColab" src="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/ca91014dbe6ed12dc6fe7925e56edfe0-colossal-bicuda.gif"/>
         <div className="row">
           <form className="col s12 dadosBasicos">
             <div className="">
@@ -115,13 +117,12 @@ const DetalheFunc: React.FC = (props) => {
                   <label className="active fonte" htmlFor="first_name2">CPF</label>
                 </div>
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Nacionalidade" id="first_name2" type="text" className="validate" value={nacionalidade}onChange={()=>setNacionalidade} />
-                  <label className="active fonte" htmlFor="first_name2">Nacionalidade</label>
+                  <input placeholder="RG" id="first_name2" type="text" className="validate" value={rg}onChange={()=>setRg} />
+                  <label className="active fonte" htmlFor="first_name2">RG</label>
                 </div>
-
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Naturalidade" id="first_name2" type="text" className="validate" value={naturalidade}onChange={()=>setNaturalidade}/>
-                  <label className="active fonte" htmlFor="first_name2">Naturalidade</label>
+                  <input placeholder="Data Nascimento" id="first_name2" type="text" className="validate" value={dataNascimento}onChange={()=>setDataNascimento} />
+                  <label className="active fonte" htmlFor="first_name2">Data Nascimento</label>
                 </div>
               </div>
 
@@ -146,9 +147,15 @@ const DetalheFunc: React.FC = (props) => {
                   <input placeholder="Raça" id="first_name2" type="text" className="validate dadoRecebido1" value={raca}onChange={()=>setRaca}/>
                   <label className="active fonte" htmlFor="first_name2">Raça</label>
                 </div>
+
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Data Nascimento" id="first_name2" type="text" className="validate" value={dataNascimento}onChange={()=>setDataNascimento} />
-                  <label className="active fonte" htmlFor="first_name2">Data Nascimento</label>
+                  <input placeholder="Nacionalidade" id="first_name2" type="text" className="validate" value={nacionalidade}onChange={()=>setNacionalidade} />
+                  <label className="active fonte" htmlFor="first_name2">Nacionalidade</label>
+                </div>
+
+                <div className=" input-field col s4 espaço">
+                  <input placeholder="Naturalidade" id="first_name2" type="text" className="validate" value={naturalidade}onChange={()=>setNaturalidade}/>
+                  <label className="active fonte" htmlFor="first_name2">Naturalidade</label>
                 </div>
               </div>
             </div>
@@ -217,13 +224,6 @@ const DetalheFunc: React.FC = (props) => {
                   <label className="active fonte" htmlFor="first_name2">Idiomas</label>
                 </div>
               </div>
-
-              <div className="row">
-                <div className=" input-field col s4 espaço">
-                  <input placeholder="Status" id="first_name2" type="text" className="validate" />
-                  <label className="active fonte" htmlFor="first_name2">Status</label>
-                </div>
-              </div>
             </div>
           </form>
         </div>
@@ -247,7 +247,7 @@ const DetalheFunc: React.FC = (props) => {
                   <tr>
                     <th>Nome do Arquivo</th>
                     <th>Tipo</th>
-                    <th>Link Externo (Servidor AWS)</th>
+                    <th>Ver</th>
                     <th>Baixar Arquivo</th>
                   </tr>
                 </thead>
@@ -255,7 +255,7 @@ const DetalheFunc: React.FC = (props) => {
                 <tbody>
                   <tr>
                     <td>minhafoto_jpeg</td>
-                    <td>Foto Perfil</td>
+                    <td>Documento</td>
                     <td>
                       <a href="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/85243170686da9b53d16f7a67e93b37d-foto_perfil_colossa.jpg" className="corionic">Ver Link</a>
                     </td>
@@ -274,7 +274,7 @@ const DetalheFunc: React.FC = (props) => {
           </form>
         </div>
     </div>
-   </div> 
+  </div> 
   )
 }
 

@@ -16,6 +16,6 @@ export const departDados = async () => {
 })
 }
 
-export const createDepart = async (area, head_id, head) => {
-    return await Departamento.create( { area, head_id, head } )
+export const createDepart = async (area) => {
+    return await Departamento.create( { area } )
 }

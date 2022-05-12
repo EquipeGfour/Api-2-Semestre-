@@ -3,17 +3,25 @@ import path,{dirname} from 'path'
 import { fileURLToPath } from "url";
 import aws from 'aws-sdk';
 
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(path.basename(__filename))
 const caminhoArquivo = path.join(__dirname + '/uploads');
 
 export const dadosUpload = async (req,res) => {
+    
     try{
-        const dados = req.body
-        const { name, ext } = req;
-        const id = req.params.id
-        const infoUpload = await inserirArquivo(name,ext,id)
-        res.json(infoUpload)
+        const documentos = req.files.documento
+        const certificados = req.files.certificado
+        const comprovantes = req.files.comprovante
+        const dados = [...documentos, ...certificados, ...comprovantes]
+        const salvos =  await Promise.all(dados.map(async file=>{
+            const { name, ext } = path.parse(file.originalname);
+            const id = req.params.id
+            const infoUpload = await inserirArquivo(name,ext,id,file.fieldname)
+            return {...infoUpload.dataValues,tipo:file.fieldname}
+        }))
+        res.json(salvos)
     }catch(error){
         res.status(500).json({ message:error })
     }

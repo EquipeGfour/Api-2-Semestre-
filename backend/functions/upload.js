@@ -26,7 +26,7 @@ const storage = {
         key: (req, file, cb) => {
             crypto.randomBytes(16, (err, hash) => {
                 if (err) cb(err);
-
+                console.log('vai dar errado')
                 const fileName = `${hash.toString("hex")}-${file.originalname}`;
                 const { name, ext } = path.parse(fileName);
 
@@ -44,4 +44,4 @@ const diretorio = multer({ dest: 'uploads/' })
 export const upload = multer({
     storage:storage[process.env.STORAGE_TYPE],
     limits:{fileSize:tamanho}
-})
+}).fields([{name:'documento',maxCount:1},{name:'certificado',maxCount:1},{name:'comprovante',maxCount:1}])

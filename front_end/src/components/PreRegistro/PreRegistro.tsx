@@ -160,8 +160,18 @@ const PreRegistro1: React.FC=()=>{
                         )}              
                     </select>
                     <label>Cargo</label>
+                </div>            
+            </div>  
+
+            <div className='row'>
+                <div className="input-field col s12 seletor">
+                    <select>
+                        <option value="0" disabled >Gestor</option>
+                    </select>
+                    <label>Gestor</label>
                 </div>
-            </div>           
+            
+            </div>         
 
 
                 {/* <div className="row">

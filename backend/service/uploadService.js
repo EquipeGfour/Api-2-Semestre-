@@ -1,7 +1,7 @@
 import Arquivos from "../models/arquivos.js"
 import Colaborador from "../models/colaborador.js"
 
-export const inserirArquivo = async (name,ext,id) => {
+export const inserirArquivo = async (name,ext,id,tipo) => {
     let url_arquivo = ''
     if (process.env.STORAGE_TYPE === 's3'){
         url_arquivo =  `https://${process.env.BUCKET_NAME}.s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${name}${ext}`
@@ -10,7 +10,8 @@ export const inserirArquivo = async (name,ext,id) => {
         url_arquivo,
         nome_arquivos: name,
         extensao: ext,
-        colaborador_id:id
+        colaborador_id:id,
+        tipo
     })
     return dados
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, Component } from "react"
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import "./style.css"
 import axios from "../../functions/axios";
@@ -6,12 +6,14 @@ import {useCookies} from 'react-cookie'
 import M from 'materialize-css/dist/js/materialize'
 import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
 import { CriaHeader } from "../../functions";
+import Select from 'react-select'
 
 
 const NovoDepartamento: React.FC=()=>{
     const navigate=useNavigate()
     const [departamento,setDepartamento] = useState('')
     const [head,setHead] = useState('')
+    
 
     // ----------- FUNÇÃO DEPARTAMENTO --------------
     const sendData=()=>{
@@ -44,14 +46,7 @@ return(
                 <input value={departamento} placeholder="Nome" id="first_name2" type="text" className="validate" onChange={e=>setDepartamento(e.target.value)} />
                 <label className="active" htmlFor="first_name2">Departamento</label>
                 </div>
-            </div> 
-
-            <div className="row">
-                <div className="input-field col s12">
-                    <input value={head} placeholder="Head do Departamento" id="first_name2" type="text" className="validate" onChange={e=>setHead(e.target.value)}/>
-                    <label className="active" htmlFor="first_name2">Head do Departamento</label>
-                </div>
-            </div>      
+            </div>                
         <a className="waves-effect waves-light btn-large btnAzul" onClick={sendData}>Salvar</a>        
         </div> 
     </div>

@@ -8,9 +8,9 @@
 
 .fotoColab{
     margin-top: 2rem;
-    width:150px;
-    height:150px;
-    border-radius: 100px;
+    width:200px;
+    height:200px;
+    border-radius: 30px;
 }
 
 .dadosBasicos{
@@ -26,9 +26,7 @@
 
 #dadoRecebido{
     font-size: 22px !important;
-    text-align: center !important;
-    
-
+    text-align: center !important; 
 }
 
 .tabs .tab a {
@@ -53,8 +51,7 @@
 .espaço{
     padding: 2rem !important;
     background-color: #292A2D;
-    border: 1px solid #58595B;
-    
+    border: 1px solid #58595B;    
 }
 
 .tabs .indicator {
