@@ -21,7 +21,7 @@ export const pegarDadosArquivo = async (id) => {
         where:{ id },
         include:{
             model:Arquivos,
-            attributes:['id','nome_arquivos','extensao','url_arquivo','colaborador_id']
+            attributes:['id','nome_arquivos','extensao','url_arquivo','tipo','colaborador_id']
         },
         attributes:['id']
     })

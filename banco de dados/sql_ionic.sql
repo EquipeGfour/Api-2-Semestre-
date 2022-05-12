@@ -12,6 +12,7 @@ CREATE TABLE arquivos (
     nome_arquivos varchar(300) ,
     extensao varchar(300),
     url_arquivo varchar(500) not null,
+    tipo varchar(300),
     colaborador_id int not null,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,

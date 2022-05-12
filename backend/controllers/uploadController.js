@@ -19,7 +19,7 @@ export const dadosUpload = async (req,res) => {
             const { name, ext } = path.parse(file.originalname);
             const id = req.params.id
             const infoUpload = await inserirArquivo(name,ext,id,file.fieldname)
-            return {...infoUpload.dataValues,tipo:file.fieldname}
+            return {infoUpload,tipo:file.fieldname}
         }))
         res.json(salvos)
     }catch(error){
