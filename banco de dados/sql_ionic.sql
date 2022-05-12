@@ -57,6 +57,7 @@ CREATE TABLE colaboradors (
     status varchar(200) ,
     dominio varchar(300) ,
     tipo_desligamento varchar(300),
+    rg varchar(200) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT colaboradors_pk PRIMARY KEY (id)

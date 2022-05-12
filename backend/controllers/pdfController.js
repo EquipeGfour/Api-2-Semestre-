@@ -77,4 +77,3 @@ export const PdfContrato = async (req, res) => {
     } 
     );
 }
-

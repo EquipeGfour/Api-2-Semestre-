@@ -73,6 +73,10 @@ const Colaborador = db.define('colaboradors',{
         type:Sequelize.STRING,
         allowNull: true
     },
+    rg:{
+        type:Sequelize.STRING,
+        allowNull:true
+    }
 })
 
 Cargos.Colaborador = Cargos.hasMany(Colaborador, {foreignKey:'cargos_id'})
