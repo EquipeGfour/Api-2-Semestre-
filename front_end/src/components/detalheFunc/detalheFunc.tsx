@@ -62,9 +62,19 @@ const DetalheFunc: React.FC = (props) => {
     })
   }
 
+  const getPdf=(id)=>{
+    axios.get(`/api/pdf/gerarpdf?id=${id}`,{headers:CriaHeader()})
+    .then(res=>{
+      console.log(res) 
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+
   React.useEffect(() => {
 
-    getColabById(id)
+   // getColabById(id)
+    getPdf(id)
     document.title = 'Detalhe-Funcionário'
     var el = document.querySelector('#tabs-swipe-demo')
     var instance = M.Tabs.init(el, Option);
