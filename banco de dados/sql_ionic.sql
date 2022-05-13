@@ -45,7 +45,7 @@ CREATE TABLE colaboradors (
     cargos_id int ,
     gestor_id int ,
     nome varchar(300) ,
-    rg varchar(200) ,
+    rg varchar(200) unique,
     email varchar(300),
     senha varchar(300) ,
     naturalidade varchar(200),
@@ -137,7 +137,7 @@ CREATE TABLE grade_cursos (
 -- Table: pessoa_fisicas
 CREATE TABLE pessoa_fisicas (
     colaborador_id int NOT NULL,
-    cpf varchar(15),
+    cpf varchar(15) unique,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT pessoa_fisicas_pk PRIMARY KEY (colaborador_id)
@@ -146,7 +146,7 @@ CREATE TABLE pessoa_fisicas (
 -- Table: pessoa_juridicas
 CREATE TABLE pessoa_juridicas (
     colaborador_id int NOT NULL,
-    cnpj varchar(20) ,
+    cnpj varchar(20) unique,
     empresa_contratada varchar(300) ,
     tempo_formalizacao varchar(300) ,
     natureza_juridica varchar(300) ,
