@@ -267,8 +267,9 @@ export const getHead = async (req,res) =>{
     try{
         const dados = await Colaborador.findAll({
             where:{
-                nome:{ [Op.like]: `%${req.body.gestor}%` },
-            }
+                nome:{ [Op.like]: `%${req.query.gestor}%` },
+            },
+            attributes:['id','nome']
         })
         res.json(dados)  
         }catch(error){

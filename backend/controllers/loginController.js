@@ -25,7 +25,7 @@ export const verify = async (req, res) => {
         else{
 
             const token = jwt.sign({dados}, process.env.SECRET, {
-                expiresIn: 3000
+                expiresIn: 60*60 // 1 Hora Para Expirar
             })
             console.log(token)
             res.json({"message":"Login Realizado com Sucesso", dados, auth:true, token:token}) 

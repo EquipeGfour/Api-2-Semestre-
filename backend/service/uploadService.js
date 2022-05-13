@@ -35,13 +35,12 @@ export const pegarArquivoById = async (id) => {
     return dados
 }
 
-export const dadosArquivoBaixar = async (id,colaborador_id) => {
+export const dadosArquivoBaixar = async (id) => {
     const dados = await Arquivos.findOne({
         where:{
-            id,
-            colaborador_id
+            id
         },
-        attributes:['id','nome_arquivos','extensao']
+        attributes:['id','nome_arquivos','extensao','url_arquivo']
     })
     return dados
 }

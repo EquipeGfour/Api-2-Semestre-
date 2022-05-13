@@ -18,7 +18,7 @@ const storage = {
                 const { name, ext } = path.parse(fileName);
                 req.name = name
                 req.ext = ext
-                cb(null, `${name}${ext}`)
+                cb(null, fileName)
             })
         }
     }),

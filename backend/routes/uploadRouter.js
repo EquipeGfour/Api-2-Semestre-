@@ -13,7 +13,7 @@ router.post('/enviar/:id', verifyJWT, upload, dadosUpload);
 
 router.get('/listarAquivos/:id', verifyJWT, listarArquivos);
 
-router.get('/download/:id/:colaborador_id', downloadAws)
+router.get('/download/:id', verifyJWT, downloadAws)
 
 
 export default router
