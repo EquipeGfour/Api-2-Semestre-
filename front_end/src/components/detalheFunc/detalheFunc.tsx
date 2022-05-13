@@ -62,8 +62,8 @@ const DetalheFunc: React.FC = (props) => {
     })
   }
 
-  const getPdf=(id)=>{
-    axios.get(`/api/pdf/gerarpdf?id=${id}`,{headers:CriaHeader()})
+  const getPdf=(id:string)=>{
+    axios.get(`/api/pdf/gerarpdf`,{headers:CriaHeader(),params:{id}})
     .then(res=>{
       console.log(res) 
     }).catch(err=>{
@@ -73,7 +73,7 @@ const DetalheFunc: React.FC = (props) => {
 
   React.useEffect(() => {
 
-   // getColabById(id)
+    getColabById(id)
     getPdf(id)
     document.title = 'Detalhe-Funcionário'
     var el = document.querySelector('#tabs-swipe-demo')
