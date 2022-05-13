@@ -60,7 +60,7 @@ Nosso objetivo é desenvolver uma página website para uma:
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:<br>
-```Git, Node.js e um editor de código-fonte (recomendado VSCode).```
+```Git, Node.js e um editor de código-fonte (recomendado VSCode), Sistema de gerenciar banco de dados(MySql).```
 
 ### 🎲 Rodando o Front End
 
@@ -85,7 +85,7 @@ $ cd .\front_end\
 $ npm install
 
 # Execute a aplicação 
-$ npm install
+$ npm start
 ```
 
 
@@ -102,7 +102,7 @@ $ cd .\backend\
 $ npm install
 
 # Execute a aplicação 
-$ npm install
+$ npm start
 
 ```
 
