@@ -58,15 +58,13 @@ export const getDepartCargo =  async (req, res) => {
     try{
         const dados = await Departamento.findAll({
             attributes:['id','area'],
-            include:[{
+            include:{
                 model:Cargos,
-                attributes:['id', 'cargo', 'departamento_id']
-            },
-            {
-                model:Colaborador,
-                attributes:['id','nome']
+                attributes:['id', 'cargo', 'departamento_id'],
+                include:{
+                    model:Colaborador,
+                attributes:['id','nome']}
             }
-        ]
         })
         return res.json(dados)
     }catch(error){
