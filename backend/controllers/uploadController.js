@@ -12,11 +12,14 @@ export const dadosUpload = async (req,res) => {
     
     try{
         const documentos = req.files.documento
+        
         const certificados = req.files.certificado
         const comprovantes = req.files.comprovante
         const dados = [...documentos, ...certificados, ...comprovantes]
+        
         const salvos =  await Promise.all(dados.map(async file=>{
-            const { name, ext } = path.parse(file.originalname);
+
+            const { name, ext } = path.parse(file.key);
             const id = req.params.id
             const infoUpload = await inserirArquivo(name,ext,id,file.fieldname)
             return {infoUpload,tipo:file.fieldname}
@@ -51,6 +54,7 @@ export const listarArquivos = async (req,res) => {
 export const downloadAws = async (req,res) => {
     try{
         const dados = await dadosArquivoBaixar(req.params.id,req.params.colaborador_id)
+        console.log(dados)
 
         const arquivo = `${dados.nome_arquivos}${dados.extensao}`
 

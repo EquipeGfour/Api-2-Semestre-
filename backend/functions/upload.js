@@ -12,10 +12,14 @@ const storage = {
             cb(null, './uploads');
         },
         filename: (req, file, cb) => {
-            const { name, ext } = path.parse(file.originalname);
-            req.name = name
-            req.ext = ext
-            cb(null, `${name}${ext}`)
+            crypto.randomBytes(16, (err, hash) => {
+                if (err) cb(err);
+                const fileName = `${hash.toString("hex")}-${file.originalname}`;
+                const { name, ext } = path.parse(fileName);
+                req.name = name
+                req.ext = ext
+                cb(null, `${name}${ext}`)
+            })
         }
     }),
     s3: multerS3({
@@ -26,14 +30,15 @@ const storage = {
         key: (req, file, cb) => {
             crypto.randomBytes(16, (err, hash) => {
                 if (err) cb(err);
-                console.log('vai dar errado')
-                const fileName = `${hash.toString("hex")}-${file.originalname}`;
-                const { name, ext } = path.parse(fileName);
 
+                const fileNameAws = `${hash.toString("hex")}-${file.originalname}`;
+                
+                const { name, ext } = path.parse(fileNameAws);
+                
                 req.name = name
                 req.ext = ext
 
-                cb(null, fileName);
+                cb(null, fileNameAws);
             })
         }
     })
