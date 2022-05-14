@@ -1,7 +1,8 @@
+import aws from 'aws-sdk';
 import { dadosArquivoBaixar, inserirArquivo, pegarArquivoById, pegarDadosArquivo } from "../service/uploadService.js";
 import path,{dirname} from 'path'
 import { fileURLToPath } from "url";
-import { baixaDados } from "../functions/s3.js";
+
 
 
 const __filename = fileURLToPath(import.meta.url)
@@ -68,9 +69,17 @@ export const downloadAws = async (req,res) => {
         console.log(dados)
         if(dados.url_arquivo){
 
+            const arquivo = `${dados.nome_arquivos}${dados.extensao}`
+            const s3 = new aws.S3();
+            const options = {
+                Bucket: process.env.BUCKET_NAME,
+                Key: arquivo,
+            };  
+            
             res.attachment(arquivo);
-
-            baixaDados(dados)
+            var fileStream = s3.getObject(options).createReadStream();
+            fileStream.pipe(res);
+            
         }
         else{
             const idArquivo = req.params.id

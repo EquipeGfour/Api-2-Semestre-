@@ -298,7 +298,7 @@ const DetalheFunc: React.FC = (props) => {
                     <td>{file.nome_arquivos}minhafoto_jpeg</td>
                     <td>{file.tipo}</td>
                     <td>
-                      <a href={file.url_arquivo} className="corionic">Ver Link</a>
+                      <a href={file.url_arquivo} target='_blank' className="corionic">Ver Link</a>
                     </td>
                     
                     <td>
