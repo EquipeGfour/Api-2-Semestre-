@@ -25,7 +25,7 @@ export const dadosUpload = async (req,res) => {
                 nomeDados = file.key
             }else{
                 nomeDados = file.filename
-                console.log('adasdasd',file)
+                
             }
 
             const { name, ext } = path.parse(nomeDados);

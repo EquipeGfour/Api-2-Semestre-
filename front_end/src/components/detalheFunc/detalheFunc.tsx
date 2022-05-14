@@ -35,6 +35,8 @@ const DetalheFunc: React.FC = (props) => {
   const [curso, setCurso]=useState('');
   const [status,setStatus]=useState('');
 
+  const [arquivos,setArquivos] = useState([])
+
   const gerarpdf = () => {
     setStatus('Gerando PDF...')
     const getUrl = window.location;     
@@ -48,6 +50,25 @@ const DetalheFunc: React.FC = (props) => {
       window.open(_url, '_blank').focus();
     })
     .catch(err => console.log(err));
+  }
+
+  const ListDownload = (id:string) => {
+    axios.get(`/api/upload/listarArquivos/${id}`,{headers: CriaHeader()}).then(res=>{
+      console.log(res)
+      setArquivos(res.data.arquivos) 
+    }).catch(err=>{
+      console.log(err)
+    })
+    
+  }
+
+  const FazerDownload = (id) =>{
+    axios.get(`/api/upload/download/${id}`, {headers: CriaHeader()}).then(res=>{
+      console.log('Baixar', res)
+
+    }).catch(err=>{
+      console.log(err)
+    })
   }
 
   const getColabById = (id: string) => {
@@ -78,19 +99,11 @@ const DetalheFunc: React.FC = (props) => {
     })
   }
 
-  const getPdf=(id:string)=>{
-    axios.get(`/api/pdf/gerarpdf`,{headers:CriaHeader(),params:{id}})
-    .then(res=>{
-      console.log(res) 
-    }).catch(err=>{
-      console.log(err)
-    })
-  }
+
 
   React.useEffect(() => {
-
     getColabById(id)
-    getPdf(id)
+    ListDownload(id)     
     document.title = 'Detalhe-Funcionário'
     var el = document.querySelector('#tabs-swipe-demo')
     var instance = M.Tabs.init(el, Option);
@@ -280,18 +293,22 @@ const DetalheFunc: React.FC = (props) => {
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>minhafoto_jpeg</td>
-                    <td>Documento</td>
+                  {arquivos.map((file,index)=>(
+                  <tr key={index}>
+                    <td>{file.nome_arquivos}minhafoto_jpeg</td>
+                    <td>{file.tipo}</td>
                     <td>
-                      <a href="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/85243170686da9b53d16f7a67e93b37d-foto_perfil_colossa.jpg" className="corionic">Ver Link</a>
+                      <a href={file.url_arquivo} className="corionic">Ver Link</a>
                     </td>
                     
                     <td>
-                    <ReactTooltip />               
-                      <i className="material-icons" data-tip='Baixar'>file_download</i> 
+                    <ReactTooltip />
+                    <Link to="">               
+                      <i className="material-icons" data-tip='Baixar'>file_download</i>
+                    </Link>   
                     </td>
                   </tr>
+                  ))}
                 </tbody>
 
               </table>
