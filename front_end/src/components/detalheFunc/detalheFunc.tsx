@@ -7,6 +7,7 @@ import Colab from '../img/colab.png'
 import M from 'materialize-css/dist/js/materialize'
 import { Link, useParams } from "react-router-dom"
 import ReactTooltip from "react-tooltip";
+import fileDownload from "js-file-download";
 
 
 const DetalheFunc: React.FC = (props) => {
@@ -36,6 +37,7 @@ const DetalheFunc: React.FC = (props) => {
   const [status,setStatus]=useState('');
 
   const [arquivos,setArquivos] = useState([])
+  const [download, setDownload] = useState('')
 
   const gerarpdf = () => {
     setStatus('Gerando PDF...')
@@ -62,9 +64,11 @@ const DetalheFunc: React.FC = (props) => {
     
   }
 
-  const FazerDownload = (id) =>{
-    axios.get(`/api/upload/download/${id}`, {headers: CriaHeader()}).then(res=>{
-      console.log('Baixar', res)
+  const downloadFile = (id,nome,extensao) =>{
+    axios.get(`/api/upload/download/${id}`, {headers: CriaHeader(), responseType: 'blob'}).then(res=>{      
+      console.log('Baixar',id)
+      const unirarq = nome + extensao
+      fileDownload(res.data, unirarq)
 
     }).catch(err=>{
       console.log(err)
@@ -113,7 +117,7 @@ const DetalheFunc: React.FC = (props) => {
   return (
     <div>
       <div className="container">
-        <img className="responsive-img fotoColab" src="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/ca91014dbe6ed12dc6fe7925e56edfe0-colossal-bicuda.gif"/>
+        <img className="responsive-img fotoColab" src={Colab}/>
         <div className="row">
           <form className="col s12 dadosBasicos">
             <div className="">
@@ -295,7 +299,7 @@ const DetalheFunc: React.FC = (props) => {
                 <tbody>
                   {arquivos.map((file,index)=>(
                   <tr key={index}>
-                    <td>{file.nome_arquivos}minhafoto_jpeg</td>
+                    <td>{file.nome_arquivos}</td>
                     <td>{file.tipo}</td>
                     <td>
                       <a href={file.url_arquivo} target='_blank' className="corionic">Ver Link</a>
@@ -304,7 +308,7 @@ const DetalheFunc: React.FC = (props) => {
                     <td>
                     <ReactTooltip />
                     <Link to="">               
-                      <i className="material-icons" data-tip='Baixar'>file_download</i>
+                      <i className="material-icons" data-tip='Baixar' onClick={()=>downloadFile(file.id,file.nome_arquivos,file.extensao)}>file_download</i>
                     </Link>   
                     </td>
                   </tr>
