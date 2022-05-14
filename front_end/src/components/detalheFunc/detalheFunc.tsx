@@ -33,6 +33,22 @@ const DetalheFunc: React.FC = (props) => {
   const [formacao, setFormacao]=useState('');
   const [idiomas, setIdiomas]=useState('');
   const [curso, setCurso]=useState('');
+  const [status,setStatus]=useState('');
+
+  const gerarpdf = () => {
+    setStatus('Gerando PDF...')
+    const getUrl = window.location;     
+    const baseUrl = getUrl.host.includes("3000")? "localhost:5000" : getUrl.host;
+    const url = getUrl.protocol + "//" + baseUrl + "/api/pdf/gerarpdf?id=" + id;
+    fetch (url, { method: 'GET',headers: CriaHeader()})
+    .then(res => res.blob())
+    .then(blob => {
+      const _url = window.URL.createObjectURL(blob);
+      setStatus('');
+      window.open(_url, '_blank').focus();
+    })
+    .catch(err => console.log(err));
+  }
 
   const getColabById = (id: string) => {
     axios.get(`/api/colab/funcionario/${id}`, { headers: CriaHeader() }).then(res => {
@@ -242,8 +258,9 @@ const DetalheFunc: React.FC = (props) => {
           <form>
             <div className="col s12 dadosPessoais">
             </div>
-            <Link to="" className="waves-effect waves-light btn-large btnAzulLogin">Gerar PDF</Link>
-            
+            <a className="waves-effect waves-light btn-large btnAzulLogin" onClick={gerarpdf}>
+            {status ==="" ?"Gerar PDF" : "carregando..." } 
+            </a>
           </form>
         </div>
         <br></br>
