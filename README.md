@@ -50,7 +50,76 @@ Nosso objetivo é desenvolver uma página website para uma:
 
 <br>
 
+### :card_file_box: Estruturação Das Pastas.
 
+
+<br>
+
+```bash
+├───docs
+│   ├───sprint1
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   ├───sprint2
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   ├───sprint3
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   └───total
+│       ├───backlog
+│       └───user stories
+├──backend
+│	├───config
+│	├───controllers
+│	├───functions
+│	├───models
+│	├───routes
+│	├───service
+│	└───uploads
+├──front_end
+│	├───public
+│	├───src
+│	│      ├───components
+│	│      │	    ├───Administrador
+│	│      │	    ├───dados_empresa
+│	│      │	    ├───dados_pessoais
+│	│      │	    ├───desligados
+│	│      │	    ├───detalheDepartamento
+│	│      │	    ├───detalheFunc
+│	│      │	    ├───esqueceu-senha
+│	│      │	    ├───geralDepartamento
+│	│      │	    ├───geralFunc
+│	│      │	    ├───Home
+│	│      │	    ├───img
+│	│      │	    ├───login
+│	│      │	    ├───NavBar
+│	│      │	    ├───Novo_Cargo
+│	│      │	    ├───Novo_Departamento
+│	│      │	    ├───orgchart
+│	│      │	    ├───PreRegistro
+│	│      │	    ├───Redefinir-Senha
+│	│      │	    ├───trilha
+│	│      │	    └───Upload
+│	│      └───functions
+│	└───static
+├──banco de dados
+└──imagens_gerais
+	└───gifs
+```
+<br>
 
 <h2>:calendar: Cronograma</h2>
 
