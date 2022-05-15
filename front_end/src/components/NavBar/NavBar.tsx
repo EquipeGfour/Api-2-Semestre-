@@ -66,10 +66,10 @@ return(
     <nav>
         <div className="nav-wrapper navbarBackground" >
                   
-                
+                <a href="!" className="brand-logo"><img src={Img}></img></a>  
                 {logout?(
                 <>
-                <a href="!" className="brand-logo"><img src={Img}></img></a>           
+                         
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons sideNavBar">menu</i></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                 
