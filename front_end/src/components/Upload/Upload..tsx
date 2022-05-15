@@ -30,7 +30,12 @@ const EnviaDados = () =>{
   
 
   axios.post(`/api/upload/enviar/${logado.id}`, form, {headers:CriaHeader()}).then(res=>{
-    M.toast({html:`Arquivo ${nomearquivodoc},${nomearquivocert},${nomearquivocomprov} carregado com sucesso!`, classes:"modal1 rounded"})
+    if (nomearquivodoc)M.toast({html:`Arquivo ${nomearquivodoc} carregado com sucesso!`, classes:"modal1 rounded"})
+    if (nomearquivocert)M.toast({html:`Arquivo ${nomearquivocert} carregado com sucesso!`, classes:"modal1 rounded"})  
+    if (nomearquivocomprov)M.toast({html:`Arquivo ${nomearquivocomprov} carregado com sucesso!`, classes:"modal1 rounded"})
+    
+    if(nomearquivodoc === null && nomearquivocert === null &&  nomearquivocomprov === null)
+    M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
     console.log(form)
     DelArquivoUpload()
 

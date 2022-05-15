@@ -34,8 +34,8 @@ const Desligados:React.FC=()=>{
 
         <tbody>
             <tr className="linhaTab">
-                <td>Marea Carlos</td>
-                <td>Bombeiro</td>
+                <td>Carlos</td>
+                <td>Técnico de Segurança</td>
                 <td>carlosbotafogo@fatec.com</td>
                 <td>(012)9 9191-7898</td>
                 <td>21/07/2021</td>

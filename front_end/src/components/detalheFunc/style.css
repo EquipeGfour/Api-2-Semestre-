@@ -11,6 +11,7 @@
     width:200px;
     height:200px;
     border-radius: 30px;
+    
 }
 
 .dadosBasicos{
@@ -67,4 +68,14 @@
 }
 .corionic{
     color: #54C5CE;
+}
+
+.btnAzulPDF{
+    margin-top: 1rem ;
+    width: 20%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:#ffffff;
+    font-size: 20px;
 }

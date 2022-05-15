@@ -265,7 +265,7 @@ const OnGestorSelecionado = (gestor) =>{
 
             <label>Gestor</label>
           </div> <a
-            className="waves-effect waves-light btn modal-trigger"
+            className="btn modal-trigger validate"
             data-target="modal1"
             onClick={ConfigModal}
           >

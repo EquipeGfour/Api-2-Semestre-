@@ -3,7 +3,7 @@ import "./style.css"
 import { useCookies } from 'react-cookie'
 import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
-import Colab from '../img/colab.png'
+import Colab from '../img/colabbranco.png'
 import M from 'materialize-css/dist/js/materialize'
 import { Link, useParams } from "react-router-dom"
 import ReactTooltip from "react-tooltip";
@@ -274,9 +274,11 @@ const DetalheFunc: React.FC = (props) => {
         {/* -----------------------------------CONTRATO------------------------------------------- */}
         <div id="test-swipe-4" className="col s12 ">
           <form>
-            <div className="col s12 dadosPessoais">
+            <div className="col s12 dadosPessoais text-white">
+              <span>Clique em "Gerar PDF" para visualizar o contrato</span>
             </div>
-            <a className="waves-effect waves-light btn-large btnAzulLogin" onClick={gerarpdf}>
+            
+            <a className="waves-effect waves-light btn-large btnAzulPDF" onClick={gerarpdf}>
             {status ==="" ?"Gerar PDF" : "carregando..." } 
             </a>
           </form>
@@ -303,7 +305,7 @@ const DetalheFunc: React.FC = (props) => {
                     <td>{file.nome_arquivos}</td>
                     <td>{file.tipo}</td>
                     <td>
-                      {file.url_arquivo&&(<a href={file.url_arquivo} target='_blank'className="corionic">Ver Link</a>)}
+                      {file.url_arquivo&&(<a href={file.url_arquivo} target='_blank'className="corionic">Link</a>)}
                     </td>                    
                     <td>
                     <ReactTooltip />

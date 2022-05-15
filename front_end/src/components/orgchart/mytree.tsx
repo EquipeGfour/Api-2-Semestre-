@@ -23,7 +23,7 @@ const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
             nodes: props.nodes,
             template: "ula",
             enableDragDrop: false,
-            scaleInitial: 0.6,
+            scaleInitial: 0.8,
             searchFields: ["nome", "cargo"],
             enableSearch: true,                  
             mouseScrool: OrgChart.action.ctrlZoom,
