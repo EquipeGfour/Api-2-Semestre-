@@ -43,6 +43,14 @@ Nosso objetivo é desenvolver uma página website para uma:
 
 <br>
 
+### Timeline Do Produto
+
+![back log produto](https://github.com/EquipeGfour/Api-2-Semestre-/blob/main/imagens_gerais/timeline.png)
+ 
+
+<br>
+
+
 
 <h2>:calendar: Cronograma</h2>
 
@@ -149,15 +157,35 @@ Login do colaborador
 
 <br><br>
 
+<h2>📊 Backlog Sprint 2</h2>
+
+- Upload de documentos<br>
+      - Enviar documentos. 	<br>  
+      - e download dos documentos. 	
+
+- Organograma<br>
+      -  Adicionar por ordem hierárquica. 	
+
+- PDF do tipo de contrato<br>
+      - Baixar o contrato em formato PDF. 
+<br>
+
+
+
 
 <h2>:bulb: Metodologia Utilizada</h2>
 
 * **Metodologia Ágil:** Framework [Scrum](https://blog.contaazul.com/metodologia-scrum#:~:text=a%20planilha%20agora-,O%20que%20%C3%A9%20a%20metodologia%20Scrum,desenvolvedores%20de%20softwares%20e%20sistemas.)<br><br>
 
 
-<span id="entregas">
 
+### 🎯 Entregas
 
+Sprint ID | Data | Tag | Vídeo | Status
+----------|------|-----|-------|--------
+#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
+#2 | 25.04.22 - 15.05.22 | <a href="">Aqui</a> | <a href="">Link</a> | ✔️
+#3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑
 
 
 <div id='equipe'>
@@ -180,6 +208,7 @@ Gustavo Borges Lima | DT |[Linkedin](https://www.linkedin.com)| [Github](https:/
 `DT - Developers Team`  
 
 </div>
+	
 
 
 
