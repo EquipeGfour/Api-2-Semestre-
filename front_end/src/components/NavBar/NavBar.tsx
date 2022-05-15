@@ -18,13 +18,16 @@ const NavBar:React.FC=(props)=>{
     const navigate=useNavigate()
     const [cookie,setCookie,removeCookie] = useCookies(['ionic-user'])
     const [logout,setLogout] = React.useState(false)
+    const [user,setUser] = React.useState<any>()
 
     React.useEffect(()=>{
         const logado = cookie['ionic-user']
         if(logado){
+            setUser(logado)
             setLogout(true)
             console.log(logado)
         }else{
+            setUser({})
             console.log('não logado')
             
         }        
@@ -71,11 +74,12 @@ return(
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                 
                                 
-                    <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
+                    {user.cargo === 'Administrador' || user.cargo === 'Gestor'?(
+                    <><li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
                     <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
                     <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>
-                    <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li>                
+                    <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li></>):null}                
                     <li><a className='botaoLog '><i className='material-icons logout' title='Deslogar' onClick={Desloga}>exit_to_app</i></a></li>               
                 </ul></>):null}    
         </div>

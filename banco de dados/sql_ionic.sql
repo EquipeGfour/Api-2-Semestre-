@@ -46,7 +46,7 @@ CREATE TABLE colaboradors (
     gestor_id int ,
     nome varchar(300) ,
     rg varchar(200) unique,
-    email varchar(300),
+    email varchar(300) unique,
     senha varchar(300) ,
     naturalidade varchar(200),
     nacionalidade varchar(200),

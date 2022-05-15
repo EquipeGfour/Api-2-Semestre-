@@ -64,6 +64,7 @@ const DetalheFunc: React.FC = (props) => {
     
   }
 
+
   const downloadFile = (id,nome,extensao) =>{
     axios.get(`/api/upload/download/${id}`, {headers: CriaHeader(), responseType: 'blob'}).then(res=>{      
       console.log('Baixar',id)
@@ -302,9 +303,8 @@ const DetalheFunc: React.FC = (props) => {
                     <td>{file.nome_arquivos}</td>
                     <td>{file.tipo}</td>
                     <td>
-                      <a href={file.url_arquivo} target='_blank' className="corionic">Ver Link</a>
-                    </td>
-                    
+                      {file.url_arquivo&&(<a href={file.url_arquivo} target='_blank'className="corionic">Ver Link</a>)}
+                    </td>                    
                     <td>
                     <ReactTooltip />
                     <Link to="">               

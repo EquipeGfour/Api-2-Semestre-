@@ -37,3 +37,9 @@
     transform: rotate(360deg);
   }
 }
+.pointer{
+  cursor:pointer
+}
+.text-white{
+  color: white !important;
+}

@@ -17,6 +17,7 @@ export const insertPreRegistroCpf = async(req, res) => {
                 nome:req.body.nome,
                 email:req.body.email,
                 cargos_id:req.body.cargos_id,
+                gestor_id:req.body.gestor_id,
                 senha:senha,
             }
         }
@@ -42,6 +43,7 @@ export const insertPreRegistroCnpj = async(req, res) => {
                 nome:req.body.nome,
                 email:req.body.email,
                 cargos_id:req.body.cargos_id,
+                gestor_id:req.body.gestor_id,
                 senha:senha,
             }
         }
@@ -61,9 +63,7 @@ export const getDepartCargo =  async (req, res) => {
             include:{
                 model:Cargos,
                 attributes:['id', 'cargo', 'departamento_id'],
-                include:{
-                    model:Colaborador,
-                attributes:['id','nome']}
+                
             }
         })
         return res.json(dados)
@@ -77,6 +77,27 @@ export const getCargo = async (req, res) => {
         const dados = await pessoafisica.create({
             cpf:req.body.cpf,
             colaborador_id :req.body.colaborador_id
+        })
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+}} 
+
+export const getGestores = async (req, res) => {
+    try{
+        const dados = await Colaborador.findAll({
+            include:{
+                model:Cargos,
+                attributes:['id', 'cargo'],
+                where:{departamento_id:req.params.id},
+                include:{
+                    model:Departamento,
+                    attributes:['id'],
+                    where:{id:req.params.id}
+                    
+                }
+            },
+            attributes:['id', 'nome']
         })
         res.json(dados)
     }catch(error){

@@ -2,6 +2,7 @@ import aws from 'aws-sdk';
 import { dadosArquivoBaixar, inserirArquivo, pegarArquivoById, pegarDadosArquivo } from "../service/uploadService.js";
 import path,{dirname} from 'path'
 import { fileURLToPath } from "url";
+import fs from "fs"
 
 
 
@@ -12,10 +13,9 @@ const caminhoArquivo = path.join(__dirname + '/uploads');
 export const dadosUpload = async (req,res) => {
     
     try{
-        const documentos = req.files.documento
-        
-        const certificados = req.files.certificado
-        const comprovantes = req.files.comprovante
+        const documentos = req.files.documento??[]        
+        const certificados = req.files.certificado??[]
+        const comprovantes = req.files.comprovante??[]
         const dados = [...documentos, ...certificados, ...comprovantes]
         
         const salvos =  await Promise.all(dados.map(async file=>{
@@ -42,16 +42,7 @@ export const dadosUpload = async (req,res) => {
     }
 }
 
-//funcional porem não adicionado amigo.
-export const baixar = async (req,res) => {
-    try{
-        const idArquivo = req.params.id
-        const dados = await pegarArquivoById(idArquivo)
-        res.download(caminhoArquivo + `/${dados.nome_arquivos}${dados.extensao}`)
-    }catch(error){
-        res.status(500).json({ message:error.message })
-    }
-}
+
 
 export const listarArquivos = async (req,res) => {
     try{

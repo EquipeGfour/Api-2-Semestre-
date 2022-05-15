@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getCargo, getDepartCargo, insertPreRegistroCpf } from "../controllers/preRegistroController.js";
+import { getCargo, getDepartCargo, getGestores, insertPreRegistroCpf } from "../controllers/preRegistroController.js";
 import { insertPreRegistroCnpj } from "../controllers/preRegistroController.js";
 import {verifyJWT} from "../controllers/loginController.js"
 
@@ -9,5 +9,6 @@ router.post('/cpf', verifyJWT, insertPreRegistroCpf)
 router.post('/cnpj', verifyJWT, insertPreRegistroCnpj)
 router.get('/allDepartCargos', verifyJWT, getDepartCargo)
 router.post('/criar',getCargo)
+router.get('/gestores/:id', verifyJWT, getGestores)
 
 export default router;
