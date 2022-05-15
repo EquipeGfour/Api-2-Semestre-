@@ -69,7 +69,7 @@ CREATE TABLE contratos (
     codigo_conduta_etica varchar(40) ,
     vale_transporte int ,
     base varchar(300) ,
-    data_Admissao date ,
+    "data_Admissao date ",
     plano_saude varchar(40) ,
     "createdAt" date NOT NULL DEFAULT now(),
     "updatedAt" int ,
