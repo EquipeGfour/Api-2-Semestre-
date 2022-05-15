@@ -7,7 +7,6 @@ const senha = process.env.BD_SENHA
 const HOST = 'localhost'
 const PORT = 3306
 
-
 const url = process.env.DATABASE_URL || `mysql://${USER}:${senha}@${HOST}:${PORT}/${DB}`
 
 const db = new Sequelize(url, {
@@ -16,7 +15,6 @@ const db = new Sequelize(url, {
         ssl: {
             rejectUnauthorized: false,
             require:true,
-
         },
     }:null
 })
