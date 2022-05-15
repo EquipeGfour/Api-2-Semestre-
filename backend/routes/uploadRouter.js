@@ -2,14 +2,16 @@ import { Router } from "express";
 
 import { upload } from "../functions/upload.js";
 import { verifyJWT } from "../controllers/loginController.js";
-import { dadosUpload, baixar, listarArquivos } from "../controllers/uploadController.js";
+import { dadosUpload, listarArquivos, downloadAws } from "../controllers/uploadController.js";
 
-const router = Router()
 
-router.get('/baixar/:id', verifyJWT, baixar)
+const router = Router();
 
-router.post('/enviar/:id', verifyJWT, upload.array("arquivo",8), dadosUpload);
+router.post('/enviar/:id', verifyJWT, upload, dadosUpload);
 
-router.get('/listarAquivos/:id', verifyJWT, listarArquivos)
+router.get('/listarArquivos/:id', verifyJWT, listarArquivos);
+
+router.get('/download/:id', verifyJWT, downloadAws)
+
 
 export default router

@@ -47,7 +47,7 @@
 
 .btnCarregar{
     margin-top: 5rem;
-    border: 2px solid #53C4CD ;
+    /* border: 2px solid #53C4CD ; */
     background-color: transparent;
     width: 30%;
     padding: 0.5rem;
@@ -58,21 +58,17 @@
 .Nuvem{
     font-size: 35px;
     color: #53C4CD;
-    margin-right: 150px;
-    vertical-align: middle;
-    
-    
-
+    margin-left: 30rem;
+    vertical-align: middle; 
     margin-bottom: 0.5rem;
 }
 
-
-
-
 .checkBox{
-    margin-top: 5rem;
-    width: 30%;
-    padding-left: 4rem;
+    margin-top: 2rem !important;
+    margin: 0 auto;
+    width: 12%;
+    
+    
     
 }
 
@@ -85,3 +81,35 @@
     width: 100%;
 
 }
+
+.excluir{
+    background-color: transparent;
+    border: none;
+    
+    
+}
+
+.btnAzulUpload{
+    margin-top: 3rem !important;
+    border: 2px solid #53C4CD ;
+    background-color: #53C4CD;
+    width: 15%;    
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-right: 1rem;
+}
+
+.tabUp{
+    margin-top: 2rem !important;
+    width: 40%;
+    margin: 0 auto;
+    background-color: transparent;
+    border-color: black;
+    color: #fff;
+}
+
+.delUp{
+    color: #fff !important;
+
+}
+

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import {Link,Navigate,useNavigate,useParams} from 'react-router-dom';
 import "./style.css"
-import axios from "axios"
+import axios from "../../functions/axios";
 import {useCookies} from 'react-cookie'
 import M from 'materialize-css/dist/js/materialize'
 import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
@@ -27,9 +27,7 @@ const NovoCargo: React.FC=()=>{
         }).catch(erro=>{
             M.toast({html:"Insira o nome do Cargo !", classes: "modalerro rounded"})
             console.error('Erro', erro.response)
-        })
-       
-
+        })      
     }
 
 
@@ -48,9 +46,7 @@ const NovoCargo: React.FC=()=>{
                 <label className="active" htmlFor="first_name2">Cargo</label>
                 </div>
             </div>    
-            <a className="waves-effect waves-light btn-large btnAzul" onClick={EnviaDados}>Salvar</a>
-
-        
+            <a className="waves-effect waves-light btn-large btnAzul" onClick={EnviaDados}>Salvar</a>        
         </div> 
     </div>
     )

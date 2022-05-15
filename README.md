@@ -4,34 +4,18 @@
       
 <p align="center">
 <h1 align="center"> FATEC Profº Jessen Vidal, SJC - 2º Semestre DSM </h1>
-
 <hr>
-
-<p align="center">
-  <a href ="#briefcase-o-projeto"> Projeto </a>  • 
-  <a href ="#pushpin-objetivos"> Objetivos </a>  • 
-  <a href ="#calendar-cronograma"> Cronograma </a>  • 
-  <a href ="#bulb-metodologia-utilizada"> Metodologia </a>  • 
-  <a href ="#wrench-tecnologias-utilizadas"> Tecnologias </a>  • 
-  <a href ="#bar_chart-backlog-total"> Backlog </a>  • 
-  <a href ="#mortar_board-equipe"> Equipe </a> 
-</p>
-
-<hr>
-
 <br>
 
-## :briefcase: O Projeto
+<h2> :briefcase:Projeto</h2>
 O desafio é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvolver uma plataforma para controle de todos os talentos da empresa (pessoas). Após a aprovação no processo seletivo se faz necessário o cadastro do colaborador (CLT ou PJ) em um sistema que traga informações sobre sua contratação, controle de documentação, dados, entre outros dados. Temos que levar em consideração da LGPD para que o acesso seja restrito.
+<br><br>
 
+<h2>:pushpin: Objetivos</h2>
 
+Nosso objetivo é desenvolver uma página website para uma:
 
-<br>
-
-## :pushpin: Objetivos
-Nosso objetivo é desenvolver uma página website para uma :
-
- 🛠️ **Requisitos Funcionais**
+🛠️ **Requisitos Funcionais**
 
 :heavy_check_mark: Cadastros de Colaboradores.<br>
 :heavy_check_mark:Repositório para documentos dos colaboradores.<br>
@@ -50,31 +34,110 @@ Nosso objetivo é desenvolver uma página website para uma :
 :heavy_check_mark:Desenho da arquitetura da solução.<br>
 :heavy_check_mark:Manual do usuário para navegação.<br>
 :heavy_check_mark:Documentação de utilização.
+<br><br>
+
+### Backlog Do Produto
+
+![back log produto](https://user-images.githubusercontent.com/8519765/167936040-d669802b-116a-439d-a175-34e31dc46321.jpeg)
+ 
+
+<br>
+
+### Timeline Do Produto
+
+![back log produto](https://github.com/EquipeGfour/Api-2-Semestre-/blob/main/imagens_gerais/timeline.png)
+ 
+
+<br>
+
+### :card_file_box: Estruturação Das Pastas.
 
 
 <br>
 
-## :calendar: Cronograma
+```bash
+├───docs
+│   ├───sprint1
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   ├───sprint2
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   ├───sprint3
+│   │   ├───backlog
+│   │   ├───burndown
+│   │   ├───database
+│   │   ├───manual
+│   │   ├───user stories
+│   │   └───wireframe
+│   └───total
+│       ├───backlog
+│       └───user stories
+├──backend
+│	├───config
+│	├───controllers
+│	├───functions
+│	├───models
+│	├───routes
+│	├───service
+│	└───uploads
+├──front_end
+│	├───public
+│	├───src
+│	│      ├───components
+│	│      │	    ├───Administrador
+│	│      │	    ├───dados_empresa
+│	│      │	    ├───dados_pessoais
+│	│      │	    ├───desligados
+│	│      │	    ├───detalheDepartamento
+│	│      │	    ├───detalheFunc
+│	│      │	    ├───esqueceu-senha
+│	│      │	    ├───geralDepartamento
+│	│      │	    ├───geralFunc
+│	│      │	    ├───Home
+│	│      │	    ├───img
+│	│      │	    ├───login
+│	│      │	    ├───NavBar
+│	│      │	    ├───Novo_Cargo
+│	│      │	    ├───Novo_Departamento
+│	│      │	    ├───orgchart
+│	│      │	    ├───PreRegistro
+│	│      │	    ├───Redefinir-Senha
+│	│      │	    ├───trilha
+│	│      │	    └───Upload
+│	│      └───functions
+│	└───static
+├──banco de dados
+└──imagens_gerais
+	└───gifs
+```
+<br>
+
+<h2>:calendar: Cronograma</h2>
 
  :heavy_check_mark: KICK OFF - 14/03 
 
- :heavy_check_mark: SPRINT 1 - 25/03 à 14/04
+ :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">SPRINT 1</a> - 25/03 à 14/04
 
-- [x] SPRINT 2 - 25/04 à 15/05
+- [x] <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/v2">SPRINT 2</a> - 25/04 à 15/05
 
 - [x] SPRINT 3 - 16/05 à 05/06
+<br><br>
 
-
-
-
-<br>
-
-## ⛏️ Como rodar a aplicação
+<h2>⛏️ Como rodar a aplicação</h2>
 
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:<br>
-```Git, Node.js e um editor de código-fonte (recomendado VSCode).```
+```Git, Node.js e um editor de código-fonte (recomendado VSCode), Sistema de gerenciar banco de dados(MySql).```
 
 ### 🎲 Rodando o Front End
 
@@ -99,7 +162,7 @@ $ cd .\front_end\
 $ npm install
 
 # Execute a aplicação 
-$ npm install
+$ npm start
 ```
 
 
@@ -116,7 +179,7 @@ $ cd .\backend\
 $ npm install
 
 # Execute a aplicação 
-$ npm install
+$ npm start
 
 ```
 
@@ -127,22 +190,26 @@ $ Email =  admin@ionic.com
 $ Senha =  adminionic
 ```
 
+<br><br>
+
+<h2>:wrench: Tecnologias Utilizadas</h2>
+
+
+* **Reuniões e Apresentações:**
+<img src="https://img.shields.io/badge/discord-151515?style=for-the-badge&logo=discord&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/microsoftteams-151515?style=for-the-badge&logo=microsoftteams&logoColor=f2f2f2">
+* **Banco de Dados Relacional:** 
+<img src="https://img.shields.io/badge/mysql-151515?style=for-the-badge&logo=mysql&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/vertabelo-151515?style=for-the-badge&logo=vertabelo&logoColor=f2f2f2">
+* **Back-end:**
+<img src="https://img.shields.io/badge/javascript-151515?style=for-the-badge&logo=javascript&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/sequelize-151515?style=for-the-badge&logo=sequelize&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/express-151515?style=for-the-badge&logo=express&logoColorf2f2f2">   <img src="https://img.shields.io/badge/nodedotjs-151515?style=for-the-badge&logo=nodedotjs&logoColor=f2f2f2">
+* **Front-end:**
+<img src="https://img.shields.io/badge/html5-151515?style=for-the-badge&logo=html5&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/css3-151515?style=for-the-badge&logo=css3&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/react-151515?style=for-the-badge&logo=react&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/axios-151515?style=for-the-badge&logo=axios&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/nodedotjs-151515?style=for-the-badge&logo=nodedotjs&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/javascript-151515?style=for-the-badge&logo=javascript&logoColor=f2f2f2">
+* **Ferramentas:** 
+<img src="https://img.shields.io/badge/github-151515?style=for-the-badge&logo=github&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/visualstudiocode-151515?style=for-the-badge&logo=visualstudiocode&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/figma-151515?style=for-the-badge&logo=figma&logoColor=f2f2f2" >   <img src="https://img.shields.io/badge/slack-151515?style=for-the-badge&logo=slack&logoColor=f2f2f2">
+* **Deploy:** 
+   <img src="https://img.shields.io/badge/heroku-151515?style=for-the-badge&logo=heroku&logoColor=f2f2f2">
 <br>
 
-## :wrench: Tecnologias Utilizadas
-
-<img src = "https://user-images.githubusercontent.com/8519765/162982481-348548b5-f6f9-4302-99d7-bbd71112d6e2.png" width="500" height="500">
-
-
-* **Reuniões e Apresentações:** Discord e Microsoft Teams;
-* **Banco de Dados Relacional:** MySQL e Vertabelo;
-* **Back-end:**  JavaScript, Sequelize e Express;
-* **Front-end:** HTML, CSS, JavaScript, React e Axios;
-* **Ferramentas:** Github, Visual Studio Code, Figma, Slack.
-
-<br>
-
-## :bar_chart:Backlog Sprint 1
+<h2>:bar_chart:Backlog Sprint 1</h2>
 Login do colaborador
       Com verificação de cargo e tipo de contrato (PJ ou CLT).
 	
@@ -157,13 +224,37 @@ Login do colaborador
       - Tela de administrador dos dados específicos do colaborador selecionados
 
 
+<br><br>
+
+<h2>📊 Backlog Sprint 2</h2>
+
+- Upload de documentos<br>
+      - Enviar documentos. 	<br>  
+      - e download dos documentos. 	
+
+- Organograma<br>
+      -  Adicionar por ordem hierárquica. 	
+
+- PDF do tipo de contrato<br>
+      - Baixar o contrato em formato PDF. 
 <br>
 
 
-## :bulb: Metodologia Utilizada
 
-* **Metodologia Ágil:** Framework [Scrum](https://blog.contaazul.com/metodologia-scrum#:~:text=a%20planilha%20agora-,O%20que%20%C3%A9%20a%20metodologia%20Scrum,desenvolvedores%20de%20softwares%20e%20sistemas.)<br>
-## :mortar_board:Equipe 
+
+<h2>:bulb: Metodologia Utilizada</h2>
+
+* **Metodologia Ágil:** Framework [Scrum](https://blog.contaazul.com/metodologia-scrum#:~:text=a%20planilha%20agora-,O%20que%20%C3%A9%20a%20metodologia%20Scrum,desenvolvedores%20de%20softwares%20e%20sistemas.)<br><br>
+
+
+
+### 🎯 Entregas
+
+Sprint ID | Data | Tag | Vídeo | Status
+----------|------|-----|-------|--------
+#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
+#2 | 25.04.22 - 15.05.22 | <a href="">Aqui</a> | <a href="">Link</a> | ✔️
+#3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑
 
 
 <div id='equipe'>
@@ -176,7 +267,8 @@ Natália Bessa de Moura | PO | [Linkedin](https://www.linkedin.com/in/natalia-be
 Rodrigo Ribeiro dos Santos | SM | [Linkedin](https://www.linkedin.com/in/rodrigo-ribeiro-5008211b8/) | [Github](https://github.com/rodrigoribeiro027)|<img src = "imagens_gerais/rodrigo1.jpg" width="60" height="60">|
 Rafael Peressoni Waltrick | DT | [Linkedin](https://www.linkedin.com/in/rafael-p-waltrick-7211b4221) |  [Github](https://github.com/rafawaltrick)|<img src = "imagens_gerais/rafa(1).jpg" width="60" height="60">|
 Nicolas Lima de Holanda Galindo | DT | [Linkedin](https://www.linkedin.com/in/nicolas-lima-2a75a3220/) | [Github](https://github.com/Nicolas734)|<img src = "imagens_gerais/nicolas.jpg" width="60" height="60">| 
-Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens_gerais/raniel1.jpg" width="60" height="60">|
+Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens_gerais/raniel.png" width="60" height="60">|
+Gustavo Borges Lima | DT |[Linkedin](https://www.linkedin.com)| [Github](https://github.com/Miojoguu)|<img src = "imagens_gerais/gustavo.jpg" width="60" height="60">|
 <br>
 
    
@@ -185,6 +277,7 @@ Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/ra
 `DT - Developers Team`  
 
 </div>
+	
 
 
 

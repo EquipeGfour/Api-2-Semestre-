@@ -1,0 +1,62 @@
+@font-face {
+    font-family:'IonicCoolvetica' ;
+    src: url('../../../static/coolvetica\ rg.otf');
+}
+
+.loginContainer{
+    margin-top: 8rem;
+    color: #53C4CD;
+    text-align: center;
+    font-family: 'IonicCoolvetica';
+    
+}
+
+.input-field input[type=text]{
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.input-field input[type=text] + label {
+    color: #53C4CD;
+    font-size: 30px;
+    
+}
+
+.validate{
+    color: #fff;
+    
+}
+
+.centralizar{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 6rem;
+}
+
+.btnAzulLogin{
+    margin-top: 4rem ;
+    width: 20%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:white;
+    font-size: 20px;
+
+
+}
+
+.senha{
+    font-size: 60px;
+}
+
+.input-field input[type=password] + label {
+    color: #53C4CD;
+    font-size: 30px;
+    
+}
+
+.input-field input[type=password] + label {
+    color: #53C4CD;
+    font-size: 30px;
+    
+}

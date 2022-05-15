@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import "./style.css"
 import { useCookies } from 'react-cookie'
-import axios from 'axios'
+import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
-import Colab from '../img/colab.png'
+import Colab from '../img/colabbranco.png'
 import M from 'materialize-css/dist/js/materialize'
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
+import ReactTooltip from "react-tooltip";
+import fileDownload from "js-file-download";
 
 
 const DetalheFunc: React.FC = (props) => {
@@ -14,6 +16,7 @@ const DetalheFunc: React.FC = (props) => {
   const [cargo, setCargo]=useState('');
   const [departamento, setDepartamento]=useState('');
   const [cpf, setCpf]=useState('');
+  const [rg,setRg]=useState('')
   const [nacionalidade, setNacionalidade]=useState('');
   const [naturalidade, setNaturalidade]=useState('');
   const [email, setEmail]=useState('');
@@ -31,6 +34,47 @@ const DetalheFunc: React.FC = (props) => {
   const [formacao, setFormacao]=useState('');
   const [idiomas, setIdiomas]=useState('');
   const [curso, setCurso]=useState('');
+  const [status,setStatus]=useState('');
+
+  const [arquivos,setArquivos] = useState([])
+  const [download, setDownload] = useState('')
+
+  const gerarpdf = () => {
+    setStatus('Gerando PDF...')
+    const getUrl = window.location;     
+    const baseUrl = getUrl.host.includes("3000")? "localhost:5000" : getUrl.host;
+    const url = getUrl.protocol + "//" + baseUrl + "/api/pdf/gerarpdf?id=" + id;
+    fetch (url, { method: 'GET',headers: CriaHeader()})
+    .then(res => res.blob())
+    .then(blob => {
+      const _url = window.URL.createObjectURL(blob);
+      setStatus('');
+      window.open(_url, '_blank').focus();
+    })
+    .catch(err => console.log(err));
+  }
+
+  const ListDownload = (id:string) => {
+    axios.get(`/api/upload/listarArquivos/${id}`,{headers: CriaHeader()}).then(res=>{
+      console.log(res)
+      setArquivos(res.data.arquivos) 
+    }).catch(err=>{
+      console.log(err)
+    })
+    
+  }
+
+
+  const downloadFile = (id,nome,extensao) =>{
+    axios.get(`/api/upload/download/${id}`, {headers: CriaHeader(), responseType: 'blob'}).then(res=>{      
+      console.log('Baixar',id)
+      const unirarq = nome + extensao
+      fileDownload(res.data, unirarq)
+
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
 
   const getColabById = (id: string) => {
     axios.get(`/api/colab/funcionario/${id}`, { headers: CriaHeader() }).then(res => {
@@ -39,6 +83,7 @@ const DetalheFunc: React.FC = (props) => {
       setCargo(res.data.cargo?.cargo);
       setDepartamento(res.data.cargo?.departamento.area);
       setCpf(res.data.pessoa_fisica?.cpf);
+      setRg(res.data.rg)
       setNaturalidade(res.data.naturalidade);
       setNacionalidade(res.data.nacionalidade);
       setEmail(res.data.email);
@@ -59,9 +104,11 @@ const DetalheFunc: React.FC = (props) => {
     })
   }
 
-  React.useEffect(() => {
 
+
+  React.useEffect(() => {
     getColabById(id)
+    ListDownload(id)     
     document.title = 'Detalhe-Funcionário'
     var el = document.querySelector('#tabs-swipe-demo')
     var instance = M.Tabs.init(el, Option);
@@ -71,7 +118,7 @@ const DetalheFunc: React.FC = (props) => {
   return (
     <div>
       <div className="container">
-        <img className="responsive-img fotoColab" src={Colab} />
+        <img className="responsive-img fotoColab" src={Colab}/>
         <div className="row">
           <form className="col s12 dadosBasicos">
             <div className="">
@@ -101,6 +148,7 @@ const DetalheFunc: React.FC = (props) => {
           <li className="tab col s3"><a href="#test-swipe-1">Endereço</a></li>
           <li className="tab col s3"><a href="#test-swipe-3">Dados Acadêmicos</a></li>
           <li className="tab col s3"><a href="#test-swipe-4">Contrato</a></li>
+          <li className="tab col s3"><a href="#test-swipe-5">Arquivos</a></li>
         </ul>
 
 
@@ -113,13 +161,12 @@ const DetalheFunc: React.FC = (props) => {
                   <label className="active fonte" htmlFor="first_name2">CPF</label>
                 </div>
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Nacionalidade" id="first_name2" type="text" className="validate" value={nacionalidade}onChange={()=>setNacionalidade} />
-                  <label className="active fonte" htmlFor="first_name2">Nacionalidade</label>
+                  <input placeholder="RG" id="first_name2" type="text" className="validate" value={rg}onChange={()=>setRg} />
+                  <label className="active fonte" htmlFor="first_name2">RG</label>
                 </div>
-
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Naturalidade" id="first_name2" type="text" className="validate" value={naturalidade}onChange={()=>setNaturalidade}/>
-                  <label className="active fonte" htmlFor="first_name2">Naturalidade</label>
+                  <input placeholder="Data Nascimento" id="first_name2" type="text" className="validate" value={dataNascimento}onChange={()=>setDataNascimento} />
+                  <label className="active fonte" htmlFor="first_name2">Data Nascimento</label>
                 </div>
               </div>
 
@@ -144,9 +191,15 @@ const DetalheFunc: React.FC = (props) => {
                   <input placeholder="Raça" id="first_name2" type="text" className="validate dadoRecebido1" value={raca}onChange={()=>setRaca}/>
                   <label className="active fonte" htmlFor="first_name2">Raça</label>
                 </div>
+
                 <div className=" input-field col s4 espaço">
-                  <input placeholder="Data Nascimento" id="first_name2" type="text" className="validate" value={dataNascimento}onChange={()=>setDataNascimento} />
-                  <label className="active fonte" htmlFor="first_name2">Data Nascimento</label>
+                  <input placeholder="Nacionalidade" id="first_name2" type="text" className="validate" value={nacionalidade}onChange={()=>setNacionalidade} />
+                  <label className="active fonte" htmlFor="first_name2">Nacionalidade</label>
+                </div>
+
+                <div className=" input-field col s4 espaço">
+                  <input placeholder="Naturalidade" id="first_name2" type="text" className="validate" value={naturalidade}onChange={()=>setNaturalidade}/>
+                  <label className="active fonte" htmlFor="first_name2">Naturalidade</label>
                 </div>
               </div>
             </div>
@@ -215,25 +268,63 @@ const DetalheFunc: React.FC = (props) => {
                   <label className="active fonte" htmlFor="first_name2">Idiomas</label>
                 </div>
               </div>
-
-              <div className="row">
-                <div className=" input-field col s4 espaço">
-                  <input placeholder="Status" id="first_name2" type="text" className="validate" />
-                  <label className="active fonte" htmlFor="first_name2">Status</label>
-                </div>
-              </div>
             </div>
           </form>
         </div>
         {/* -----------------------------------CONTRATO------------------------------------------- */}
         <div id="test-swipe-4" className="col s12 ">
           <form>
+            <div className="col s12 dadosPessoais text-white">
+              <span>Clique em "Gerar PDF" para visualizar o contrato</span>
+            </div>
+            
+            <a className="waves-effect waves-light btn-large btnAzulPDF" onClick={gerarpdf}>
+            {status ==="" ?"Gerar PDF" : "carregando..." } 
+            </a>
+          </form>
+        </div>
+        <br></br>
+
+        {/* -----------------------------------ARQUIVO------------------------------------------- */}
+        <div id="test-swipe-5" className="col s12 ">
+          <form>
             <div className="col s12 dadosPessoais">
+              <table className="highlight responsive-table centered tabelaUpload">
+                <thead>
+                  <tr>
+                    <th>Nome do Arquivo</th>
+                    <th>Tipo</th>
+                    <th>Ver</th>
+                    <th>Baixar Arquivo</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {arquivos.map((file,index)=>(
+                  <tr key={index}>
+                    <td>{file.nome_arquivos}</td>
+                    <td>{file.tipo}</td>
+                    <td>
+                      {file.url_arquivo&&(<a href={file.url_arquivo} target='_blank'className="corionic">Link</a>)}
+                    </td>                    
+                    <td>
+                    <ReactTooltip />
+                    <Link to="">               
+                      <i className="material-icons" data-tip='Baixar' onClick={()=>downloadFile(file.id,file.nome_arquivos,file.extensao)}>file_download</i>
+                    </Link>   
+                    </td>
+                  </tr>
+                  ))}
+                </tbody>
+
+              </table>
+              <br></br>
+              <br></br>
             </div>
           </form>
         </div>
-      </div>
     </div>
+  </div> 
   )
 }
 

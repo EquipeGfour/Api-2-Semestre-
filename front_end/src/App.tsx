@@ -18,6 +18,12 @@ import NovoDepartamento from "./components/Novo_Departamento/NovoDepartamento"
 import NovoCargo from "./components/Novo_Cargo/NovoCargo"
 import DetalheDep from "./components/detalheDepartamento/detalheDep"
 import DetalheFunc from './components/detalheFunc/detalheFunc';
+import Orgchart from './components/orgchart/organograma'
+import Trilha from './components/trilha/trilha'
+import Desligados from './components/desligados/desligados';
+import { navigationRef } from './functions/navigation';
+import Redefinir from './components/Redefinir-senha/redefinir-senha';
+import Esqueceu from './components/esqueceu-senha/esqueceu-senha';
 
 type state = {
   tela: string
@@ -46,14 +52,11 @@ render(){
 
 
   return(
-    <div>
-      
-
-
+    <div>     
       <BrowserRouter>        
         <NavBar>
         </NavBar>
-        <Routes>
+        <Routes >
           <Route path='/' element={<Login/>}/>
           <Route path='dados-pessoais' element={<DadosPessoais/>}/>
           <Route path='dados-empresa' element={<DadosEmpresa/>}/>
@@ -67,9 +70,13 @@ render(){
           <Route path='novo-cargo/:id' element={<NovoCargo/>}/>
           <Route path='detalhe-departamento/:id' element={<DetalheDep/>}/>
           <Route path='detalhe-funcionario/:id' element={<DetalheFunc/>}/>
+          <Route path='organograma' element={<Orgchart/>}/>
+          <Route path='trilha' element={<Trilha/>}/>
+          <Route path='redefinir-senha' element={<Redefinir/>}/>
+          <Route path='desligados' element={<Desligados/>}/>
+          <Route path='esqueceu' element={<Esqueceu/>}/>
         </Routes>      
-      </BrowserRouter>
-      
+      </BrowserRouter>      
     </div>
   )
 }

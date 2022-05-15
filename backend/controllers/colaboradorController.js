@@ -8,6 +8,7 @@ import pessoafisica from "../models/pessoafisica.js";
 import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
 import Contrato from "../models/contrato.js";
+import { Op } from "sequelize";
 
 export const getAllColaborador = async (req, res) => {
     try {
@@ -53,6 +54,7 @@ export const inserirDadosColab = async (req, res) => {
         const objColab = {
             id: req.body.id,
             nome: req.body.nome,
+            rg:req.body.rg,
             email: req.body.email,
             nacionalidade: req.body.nacionalidade,
             naturalidade: req.body.naturalidade,
@@ -61,6 +63,7 @@ export const inserirDadosColab = async (req, res) => {
             raca: req.body.raca,
             telefone: req.body.telefone,
             data_nascimento: req.body.data_nascimento,
+            status:"Ativo"
         }
         const objDadosAcademicos = {
             formacao: req.body.formacao,
@@ -207,15 +210,70 @@ export const pegarGestorById = async (req, res) => {
             include: {
                 model: Colaborador, as: 'funcionarios',
                 attributes: ['id', 'nome', ['gestor_id', 'pid']],
+                include: {
+                    model:Cargo,
+                    include:{
+                        model:Departamento
+                    }
+                
             }
+        }
         })
+        console.log(dados)
         const result = dados.dataValues.funcionarios.map(f=>f.dataValues)
         delete dados.dataValues.funcionarios
+        
         res.json([dados.dataValues, ...result])
     } catch (error) {
         res.status(500).json({ message: error })
     }
 }
 
+export const updateColabForDelete = async (req,res) => {
+    try{
+        const valores = { gestor_id:null, status:"Desligado" }
+        const condicao = { where:{ id:req.params.id } }
+        const dados = await Colaborador.update( valores, condicao )
+        res.json('Dados Atualizados')
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+}
 
+export const getDesligados = async (req,res) =>{
+    try{
+        const dados = await Colaborador.findAll({
+            where:{ status: 'Desligado' },
+            attributes:['id','nome','email','telefone',],
+            include:[
+                {
+                    model:Cargo,
+                    attributes:['id','cargo']
+                },
+                {
+                    model:Contrato,
+                    attributes:['id','data_Admissao']
+                }
+            ]
+        })
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+    }
+}
 
+export const getHead = async (req,res) =>{
+    try{
+        const dados = await Colaborador.findAll({
+            where:{
+                nome:{ [Op.like]: `%${req.query.gestor}%` },
+            },
+            attributes:['id','nome']
+        })
+        res.json(dados)  
+        }catch(error){
+            console.log(error)
+            res.status(500).json({ message:error })
+        }
+}

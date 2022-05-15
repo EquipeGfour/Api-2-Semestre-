@@ -1,7 +1,7 @@
 import React from "react"
 import "./style.css"
 import {useCookies} from 'react-cookie'
-import axios from 'axios'
+import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
 import ReactTooltip from 'react-tooltip';
 import {Link,Navigate,useNavigate} from 'react-router-dom';
@@ -67,9 +67,16 @@ const GeralFunc:React.FC=(props)=>{
             <td>{colab.email}</td>
             <td>{colab.telefone}</td>
             <td><Link to={`/detalhe-funcionario/${colab.id}`}>
-                  <ReactTooltip />                
-                  <i className="material-icons" data-tip='Ver Funcionário'>search</i>
-                  </Link></td>   
+                  <ReactTooltip />               
+                  <i className="material-icons" data-tip='Ver Funcionário'>search</i>                  
+                  </Link>
+            </td>
+            <td><Link to={`/desligados`}>
+                                
+                  <i className="material-icons desligar" data-tip='Desligar Colaborador'>power_settings_new</i>                  
+                  </Link>
+            </td>
+
            </tr>
           ))}
         </tbody>

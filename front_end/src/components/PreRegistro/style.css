@@ -1,3 +1,4 @@
+
 @font-face {
     font-family:'IonicCoolvetica' ;
     src: url('../../../static/coolvetica\ rg.otf');
@@ -44,8 +45,6 @@
     background-color: #53C4CD;
     color:#414042;
     font-size: 20px;
-
-
 }
 
 .modal1{
@@ -69,4 +68,18 @@
 
 .select-wrapper .caret {
     fill:#fff;
+}
+
+.campoGestor{
+    display: flex;
+    align-items: flex-end;
+}
+.campoGestor a {
+    margin-bottom: 2rem;
+    background-color:#53C4CD;
+    border-radius: 30px;
+    min-width: 8rem;
+}
+.modal-content, .modal-footer{
+    background-color: #414042 !important;
 }

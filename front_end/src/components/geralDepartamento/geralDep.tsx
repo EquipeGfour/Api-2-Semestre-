@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "./style.css"
 import {useCookies} from 'react-cookie'
-import axios from 'axios'
+import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize'
@@ -16,29 +16,20 @@ interface Departamento{
   totalColab: number
 }
 
-
 const GeralDep:React.FC=(props)=>{
   const [departamento,setDepartamento]=useState<Departamento[]>([])
   const BuscaDados = () =>{
-
-    axios.get('/api/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{
-      
+    axios.get('/api/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{      
       setDepartamento(res.data)
-
     }).catch(erro=>{
       console.error(erro)
-
     })
 
   }
 
   React.useEffect(()=>{    
     document.title='Departamentos-Geral'
-  
-
-    BuscaDados()  
-    
-
+    BuscaDados()
   },[])
 
 
@@ -82,7 +73,7 @@ const GeralDep:React.FC=(props)=>{
                 
                   <i className="material-icons" data-tip='Ver Cargos'>search</i>
                   </Link></td>   
-                <td><i className="material-icons delete">delete_forever</i></td>             
+                <td><i className="material-icons delete" data-tip='Deletar Departamento'>delete_forever</i></td>             
               </tr>
           ))}          
              

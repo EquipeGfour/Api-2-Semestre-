@@ -8,9 +8,10 @@
 
 .fotoColab{
     margin-top: 2rem;
-    width:150px;
-    height:150px;
-    border-radius: 100px;
+    width:200px;
+    height:200px;
+    border-radius: 30px;
+    
 }
 
 .dadosBasicos{
@@ -26,9 +27,7 @@
 
 #dadoRecebido{
     font-size: 22px !important;
-    text-align: center !important;
-    
-
+    text-align: center !important; 
 }
 
 .tabs .tab a {
@@ -53,10 +52,30 @@
 .espaço{
     padding: 2rem !important;
     background-color: #292A2D;
-    border: 1px solid #58595B;
-    
+    border: 1px solid #58595B;    
 }
 
 .tabs .indicator {
     background-color: #fff !important;
+}
+
+.tabelaUpload{
+    background-color: #58595b;
+    margin-bottom: 15px;
+    width: 75%;
+    margin: 0 auto;
+    color: #fff;
+}
+.corionic{
+    color: #54C5CE;
+}
+
+.btnAzulPDF{
+    margin-top: 1rem ;
+    width: 20%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:#ffffff;
+    font-size: 20px;
 }

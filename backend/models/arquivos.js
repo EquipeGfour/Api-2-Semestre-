@@ -14,6 +14,12 @@ const Arquivos = db.define('arquivos',{
     extensao:{
         type:Sequelize.STRING
     },
+    url_arquivo:{
+        type:Sequelize.STRING
+    },
+    tipo:{
+        type:Sequelize.STRING
+    },
     colaborador_id:{
         type:Sequelize.STRING,
         allowNull: false

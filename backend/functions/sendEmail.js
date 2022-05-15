@@ -1,10 +1,10 @@
 import { transporter } from "../config/email.js";
-
+import "dotenv/config"
 
 
 export const sendMail = async (email,senha) =>{
     const mailOptions = {
-        from: 'gfourtestes@gmail.com', 
+        from: 'gfourtestes@mail.ee', 
         to: `${email} `, 
         subject: 'G-four token de acesso', 
         html:`<h2>Sua senha foi gerada </h2>
@@ -21,5 +21,5 @@ export const sendMail = async (email,senha) =>{
           console.log(err)
         else
           console.log(info);
-     });
+    });
 }

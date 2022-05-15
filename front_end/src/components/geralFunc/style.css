@@ -56,7 +56,7 @@ tr{
 .Pesquisa .nav-wrapper i,.Pesquisa{
     height: 64px;
     line-height: 64px;
-    color: white;
+    color: #292A2D;
 }
 
 .nav-wrapper .input-field input[type=search] {
@@ -68,5 +68,9 @@ tr{
 }
 
 .pesquisa{
-    color: rgb(2, 2, 2) !important;
+    color: #292A2D;
+}
+
+.desligar{
+    color:#cd6153;
 }

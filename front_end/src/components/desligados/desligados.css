@@ -1,0 +1,35 @@
+.geralContainerdes{
+    padding: 1rem;
+    width: 100%;
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    color: white;   
+}
+
+.titulodes{
+    color: #53C4CD;
+    font-size: 60px;
+    font-family: 'IonicCoolvetica';
+    margin: 0 auto;
+    border-bottom: #cd6153;
+}
+
+.linhaTab{
+    border-bottom: 1px solid #53C4CD;
+}
+
+.camposdes{   
+    color: #cd6153;
+}
+
+.tablefuncdes{
+    margin-top: 5rem !important;
+    width: 75%;
+    margin: 0 auto; 
+}
+
+.logout{
+    color: #000;
+    
+}

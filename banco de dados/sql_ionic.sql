@@ -11,6 +11,8 @@ CREATE TABLE arquivos (
     id int NOT NULL AUTO_INCREMENT,
     nome_arquivos varchar(300) ,
     extensao varchar(300),
+    url_arquivo varchar(500) not null,
+    tipo varchar(300),
     colaborador_id int not null,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
@@ -43,7 +45,8 @@ CREATE TABLE colaboradors (
     cargos_id int ,
     gestor_id int ,
     nome varchar(300) ,
-    email varchar(300) ,
+    rg varchar(200) unique,
+    email varchar(300) unique,
     senha varchar(300) ,
     naturalidade varchar(200),
     nacionalidade varchar(200),
@@ -99,8 +102,9 @@ CREATE TABLE departamentos (
     id int NOT NULL AUTO_INCREMENT,
     area varchar(300) ,
     head varchar(300) ,
+    head_id int,
     createdAt date NOT NULL default (current_date()),
-    updatedAt date ,
+    updatedAt date,
     CONSTRAINT departamentos_pk PRIMARY KEY (id)
 );
 
@@ -133,7 +137,7 @@ CREATE TABLE grade_cursos (
 -- Table: pessoa_fisicas
 CREATE TABLE pessoa_fisicas (
     colaborador_id int NOT NULL,
-    cpf varchar(15),
+    cpf varchar(15) unique,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT pessoa_fisicas_pk PRIMARY KEY (colaborador_id)
@@ -142,7 +146,7 @@ CREATE TABLE pessoa_fisicas (
 -- Table: pessoa_juridicas
 CREATE TABLE pessoa_juridicas (
     colaborador_id int NOT NULL,
-    cnpj varchar(20) ,
+    cnpj varchar(20) unique,
     empresa_contratada varchar(300) ,
     tempo_formalizacao varchar(300) ,
     natureza_juridica varchar(300) ,
@@ -183,7 +187,7 @@ ALTER TABLE colaboradors ADD CONSTRAINT colaboradors_colaborador FOREIGN KEY col
     REFERENCES colaboradors (id);
     
 ALTER TABLE cargos ADD CONSTRAINT departamento_cargo FOREIGN KEY departamento_cargo (departamento_id)
-    REFERENCES departamentos (id);
+    REFERENCES departamentos (id) ON DELETE SET NULL;
 
 -- Reference: Contrato_Colaborador (table: contratos)
 ALTER TABLE contratos ADD CONSTRAINT contrato_colaborador FOREIGN KEY contrato_colaborador (colaborador_id)
@@ -191,6 +195,10 @@ ALTER TABLE contratos ADD CONSTRAINT contrato_colaborador FOREIGN KEY contrato_c
 
 -- Reference: dados_academicos_Colaborador (table: dados_academicos)
 ALTER TABLE dados_academicos ADD CONSTRAINT dados_academicos_colaborador FOREIGN KEY dados_academicos_colaborador (colaborador_id)
+    REFERENCES colaboradors (id);
+
+-- Reference: Colaborador_Departamento (table: departamentos)
+ALTER TABLE departamentos ADD CONSTRAINT departamentos_colaborador FOREIGN KEY colaboradors_colaborador (head_id)
     REFERENCES colaboradors (id);
 
 -- Reference: Endereco_Colaborador (table: colaboradors)
@@ -214,6 +222,7 @@ ALTER TABLE trilha_aprendizados ADD CONSTRAINT trilha_aprendizado_pessoa_fisica 
     REFERENCES pessoa_fisicas (colaborador_id);
 
 use ionic;
-insert into departamentos(id, area, createdAt) values (1, "Administracao", "2022-04-13");
+insert into departamentos(id, area, createdAt) values (1, "Administracão", "2022-04-13");
 insert into cargos(id, departamento_id, cargo, createdAt) values (1, 1, "Administrador", "2022-04-13");
-insert into colaboradors(id, cargos_id, nome, email, senha, createdAt) values (1, 1, "Admin", "admin@ionic.com", "adminionic", "2022-04-13");
+insert into colaboradors(id, cargos_id, nome, email, senha, createdAt) values (1, 1, "CEO", "ceo@ionic.com", "ceoionic", "2022-04-13");
+insert into colaboradors(id, cargos_id, nome, email, senha, createdAt) values (2, 1, "Admin", "admin@ionic.com", "adminionic", "2022-04-13");

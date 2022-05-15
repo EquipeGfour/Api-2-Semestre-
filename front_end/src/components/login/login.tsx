@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import "./style10.css"
-import axios from "axios"
+import axios from "../../functions/axios";
 import {useCookies} from 'react-cookie'
 import M from 'materialize-css/dist/js/materialize'
 
@@ -46,16 +46,20 @@ const Login : React.FC=(props)=> {
     
     React.useEffect(()=>{
         document.title='Login'
+        
     },[])
 
     return(
+        
         <div className="loginContainer">
             <h1>Login</h1>
         <div className="centralizar">
            <div className="row">
                 <div className="input-field col s12">
-                <input value={email} id="first_name2" type="text" className="validate" onChange={ (e) => setEmail(e.target.value) }/>
+                <input value={email} id="email" type="text" className="validate" onChange={ (e) => setEmail(e.target.value) }/>
                 <label className="active" htmlFor="first_name2">Email</label>
+                
+                
                 </div>
             </div>
 

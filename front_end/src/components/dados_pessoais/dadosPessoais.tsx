@@ -2,7 +2,7 @@ import React from 'react'
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import "./style.css"
 import {useCookies} from 'react-cookie'
-import axios from 'axios'
+import axios from "../../functions/axios";
 import M from 'materialize-css/dist/js/materialize'
 import { CriaHeader } from '../../functions';
 
@@ -11,9 +11,9 @@ const DadosPessoais:React.FC=(props)=>{
     const navigate = useNavigate()
     const [cookie,setCookie]=useCookies(['ionic-user'])
     
-
     const [nomecompleto,setNomecompleto] = React.useState('')
     const [cpf,setCpf] = React.useState('')
+    const [rg,setRg] = React.useState('')
     const [nacionalidade,setNacionalidade] = React.useState('')
     const [naturalidade,setNaturalidade] = React.useState('')
     const [genero,setGenero] = React.useState('')
@@ -51,7 +51,8 @@ const DadosPessoais:React.FC=(props)=>{
         const dados={
             id:logado.id,
             nome:nomecompleto,
-            cpf,        
+            cpf,
+            rg,        
             nacionalidade,
             naturalidade,
             genero,
@@ -78,7 +79,7 @@ const DadosPessoais:React.FC=(props)=>{
         axios.post('/api/colab/novo',dados, {headers:CriaHeader()}).then(res=>{
 
         M.toast({html:'Cadastro Realizado com Sucesso !', classes:"modal1 rounded"})
-            navigate('/')
+            navigate('/upload')
 
         }).catch(erro=>{
             console.error('Erro', erro.response)
@@ -91,6 +92,12 @@ const DadosPessoais:React.FC=(props)=>{
 
     const ValidaCampo = ()=>{
         let faltaDados = false
+
+        if(rg === ''){
+            faltaDados = true
+            M.toast({html:'Preencha o campo RG!', classes:"modalerro rounded"})
+        }
+
         if(nacionalidade === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Nacionalidade !', classes:"modalerro rounded"})
@@ -171,11 +178,6 @@ const DadosPessoais:React.FC=(props)=>{
             M.toast({html:'Preencha o campo Curso !', classes:"modalerro rounded"})
         }
 
-        if(status === ''){
-            faltaDados = true
-            M.toast({html:'Preencha o campo Status !', classes:"modalerro rounded"})
-        }
-
         return faltaDados
 
     }
@@ -198,47 +200,47 @@ const DadosPessoais:React.FC=(props)=>{
 
                 <div className="row">
                     <div className="input-field col s6">
+                        <input value={rg} placeholder="RG" id="first_name2" type="text" className="validate" onChange={ (e) => setRg(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">RG</label>
+                    </div>
+                    <div className="input-field col s6">
                         <input value={nacionalidade} placeholder="Nacionalidade" id="first_name2" type="text" className="validate" onChange={ (e) => setNacionalidade(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Nacionalidade</label>
                     </div>
+                </div>
+
+
+                <div className="row">
                     <div className="input-field col s6">
                         <input value={naturalidade} placeholder="Naturalidade" id="first_name2" type="text" className="validate" onChange={ (e) => setNaturalidade(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Naturalidade</label>
                     </div>
-                </div>
-
-
-                <div className="row">
                     <div className="input-field col s6">
                         <input value={genero} placeholder="Gênero" id="first_name2" type="text" className="validate" onChange={ (e) => setGenero(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Gênero</label>
                     </div>
+                </div>
+
+                <div className="row">
                     <div className="input-field col s6">
                         <input value={raca} placeholder="Raça" id="first_name2" type="text" className="validate" onChange={ (e) => setRaca(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Raça</label>
                     </div>
-                </div>
-
-                <div className="row">
                     <div className="input-field col s6">
                         <input value={datanascimento} placeholder="Data de Nascimento" id="first_name2" type="text" className="validate" onChange={ (e) => setDatanascimento(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Data de Nascimento</label>
                     </div>
-                    <div className="input-field col s6">
-                        <input value={complemento} placeholder="Complemento" id="first_name2" type="text" className="validate" onChange={ (e) => setComplemento(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Complemento</label>
-                    </div>
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value={rua} placeholder="Endereço (Rua ou Avenida e Número)" id="first_name2" type="text" className="validate" onChange={ (e) => setRua(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Rua/Número</label>
+                        <input value={complemento} placeholder="Complemento" id="first_name2" type="text" className="validate" onChange={ (e) => setComplemento(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Complemento</label>
                     </div>
 
                      <div className="input-field col s6">
-                        <input value={bairro} placeholder="Bairro" id="first_name2" type="text" className="validate" onChange={ (e) => setBairro(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Bairro</label>
+                        <input value={rua} placeholder="Rua/Número" id="first_name2" type="text" className="validate" onChange={ (e) => setRua(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Rua/Número</label>
                     </div>
 
                 </div>
@@ -246,62 +248,60 @@ const DadosPessoais:React.FC=(props)=>{
                 <div className="row">
                    
                     <div className="input-field col s6">
-                        <input value={cidade} placeholder="Cidade" id="first_name2" type="text" className="validate"onChange={ (e) => setCidade(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Cidade</label>
+                        <input value={bairro} placeholder="Bairro" id="first_name2" type="text" className="validate"onChange={ (e) => setBairro(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Bairro</label>
                     </div>
 
                     <div className="input-field col s6">
-                        <input value={estado} placeholder="Estado" id="first_name2" type="text" className="validate"onChange={ (e) => setEstado(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Estado</label>
+                        <input value={cidade} placeholder="Cidade" id="first_name2" type="text" className="validate"onChange={ (e) => setCidade(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Cidade</label>
                     </div>
 
                 </div>
 
 
                 <div className="row">
+                    <div className="input-field col s6">
+                        <input value={estado} placeholder="Estado" id="first_name2" type="text" className="validate" onChange={ (e) => setEstado(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Estado</label>
+                    </div>
+
                     <div className="input-field col s6">
                         <input value={cep} placeholder="CEP" id="first_name2" type="text" className="validate" onChange={ (e) => setCep(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">CEP</label>
                     </div>
 
+                </div>
+
+                <div className="row">
                     <div className="input-field col s6">
                         <input value={telefone} placeholder="(DDD) Telefone" id="first_name2" type="text" className="validate" onChange={ (e) => setTelefone(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Telefone</label>
                     </div>
 
-                </div>
-
-                <div className="row">
                     <div className="input-field col s6">
                         <input value={regiao} placeholder="Região" id="first_name2" type="text" className="validate" onChange={ (e) => setRegiao(e.target.value) }/>
                         <label className="active" htmlFor="first_name2">Região</label>
                     </div>
 
+                </div>
+
+                <div className="row">
                     <div className="input-field col s6">
                         <input value={estadocivil} placeholder="Estado Civil" id="first_name2" type="text" className="validate" onChange={ (e) => setEstadocivil(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Estado Civil</label>
+                        <label className="active" htmlFor="first_name2">Estado Civil</label>                 
+                    </div>
+                    <div className="input-field col s6">
+                        <input value={email} placeholder="email" id="first_name2" type="text" className="validate"onChange={ (e) => setEmail(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Email</label>
                     </div>
 
                 </div>
 
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value={email} placeholder="Email" id="first_name2" type="text" className="validate" onChange={ (e) => setEmail(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Email</label>                   
-
-                    </div>
-
-                    <div className="input-field col s6">
-                        <input value={linguas} placeholder="Idiomas" id="first_name2" type="text" className="validate"onChange={ (e) => setLinguas(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Línguas</label>
-                    </div>
-
-                </div>
-
-                <div className="row">
-                    <div className="input-field col s6">
-                        <input value={formacao} placeholder="Formação" id="first_name2" type="text" className="validate" onChange={ (e) => setFormacao(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Formação</label>
+                        <input value={linguas} placeholder="Idioma" id="first_name2" type="text" className="validate" onChange={ (e) => setLinguas(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Idioma</label>
                     </div>
                     <div className="input-field col s6">
                         <input value={cursos} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={ (e) => setCursos(e.target.value) }/>
@@ -309,18 +309,15 @@ const DadosPessoais:React.FC=(props)=>{
                     </div>
                 </div>
 
-
-
                 <div className="row">
                     <div className="input-field col s6">
-                        <input value={status} placeholder="Status" id="first_name2" type="text" className="validate" onChange={ (e) => setStatus(e.target.value) }/>
-                        <label className="active" htmlFor="first_name2">Status</label>
+                        <input value={formacao} placeholder="Formação" id="first_name2" type="text" className="validate" onChange={ (e) => setFormacao(e.target.value) }/>
+                        <label className="active" htmlFor="first_name2">Formação</label>
                     </div>
-
-                </div>
-
+                </div>    
+                
                 <a className="waves-effect waves-light btn-large btnAzul" onClick={sendData}>Enviar</a>
-
+               
             </div>
             </form>
 

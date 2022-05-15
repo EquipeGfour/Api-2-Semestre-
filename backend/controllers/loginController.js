@@ -10,11 +10,11 @@ export const verify = async (req, res) => {
         
         const dados = await sequelize.query(`
             select c.email,c.senha,c.id, c.nome,ca.cargo, pf.cpf, pj.cnpj
-                from Colaboradors c left join Pessoa_Fisicas as pf 
+                from colaboradors c left join pessoa_fisicas as pf 
                     on c.id = pf.colaborador_id 
-                left join Pessoa_Juridicas as pj 
+                left join pessoa_juridicas as pj 
                     on c.id = pj.colaborador_id
-                left join Cargos as ca 
+                left join cargos as ca 
                     on c.cargos_id = ca.id
                 where c.email = '${email}' and c.senha = '${senha}'`,
             {type:sequelize.QueryTypes.SELECT})
@@ -25,7 +25,7 @@ export const verify = async (req, res) => {
         else{
 
             const token = jwt.sign({dados}, process.env.SECRET, {
-                expiresIn: 3000
+                expiresIn: 60*60 // 1 Hora Para Expirar
             })
             console.log(token)
             res.json({"message":"Login Realizado com Sucesso", dados, auth:true, token:token}) 

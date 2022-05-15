@@ -10,6 +10,8 @@ import PreRegistrobranco from '../img/preregistrobranco.png'
 import {useCookies} from 'react-cookie'
 import GeralFunc from "../geralFunc/geralFunc";
 import PreRegistro1 from "../PreRegistro/PreRegistro";
+import axios from "../../functions/axios";
+
 
 const Home: React.FC=()=>{
 
@@ -24,20 +26,24 @@ const Home: React.FC=()=>{
         
         <div className="row blocoCima">        
             <div className="col s12 m4 l4 divColab">
-                <Link to="/geral-funcionarios"   >                   
+            <Link to="/geral-funcionarios"   >                   
                 <button className=" waves-effect  botaoFunc"> <img className="imgColab" src={colabbranco}></img></button>
-                </Link>  
+            </Link>  
                 <div className="btnNomeHome">Colaboradores e Departamentos</div>
             </div>
 
             <div className="col s12 m4 l4">
-            <button className="waves-effect botaoFunc"><img className="imgColab" src={organogramabranco}></img></button>
-                <div className="btnNomeHome">Organograma</div>            
+            <Link to="/organograma">
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={organogramabranco}></img></button>
+                <div className="btnNomeHome">Organograma</div>
+            </Link>             
             </div>
 
             <div className="col s12 m4 l4">
-            <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
+            <Link to="/trilha">
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
                 <div className="btnNomeHome">Desenvolvimento</div>
+            </Link>
             </div>
         </div>
 
@@ -45,8 +51,11 @@ const Home: React.FC=()=>{
         
         <div className="row blocoBaixo">
             <div className=" col s12 m4 l4">
-                <button className="waves-effect botaoFunc"><img className="imgColab" src={desligadobranco}></img></button>
+                <Link to="/desligados">
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={desligadobranco}></img></button>                
                 <div className="btnNomeHome">Desligados</div>
+                </Link>
+                
             </div>
 
             <div className="col s12 m4 l4">
