@@ -127,7 +127,7 @@ Nosso objetivo é desenvolver uma página website para uma:
 
  :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">SPRINT 1</a> - 25/03 à 14/04
 
-- [x] <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/v2">SPRINT 2</a> - 25/04 à 15/05
+ :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">SPRINT 2</a> - 25/04 à 15/05
 
 - [x] SPRINT 3 - 16/05 à 05/06
 <br><br>
@@ -253,7 +253,7 @@ Login do colaborador
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
-#2 | 25.04.22 - 15.05.22 | <a href="">Aqui</a> | <a href="">Link</a> | ✔️
+#2 | 25.04.22 - 15.05.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">Aqui</a> | <a href="">Link</a> | ✔️
 #3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑
 
 
