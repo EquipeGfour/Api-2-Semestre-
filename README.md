@@ -9,7 +9,8 @@
 
 <h2> :briefcase:Projeto</h2>
 O desafio é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvolver uma plataforma para controle de todos os talentos da empresa (pessoas). Após a aprovação no processo seletivo se faz necessário o cadastro do colaborador (CLT ou PJ) em um sistema que traga informações sobre sua contratação, controle de documentação, dados, entre outros dados. Temos que levar em consideração da LGPD para que o acesso seja restrito.
-<br><br>
+<br>
+
 
 <h2>:pushpin: Objetivos</h2>
 
