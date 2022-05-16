@@ -24,6 +24,7 @@ import Desligados from './components/desligados/desligados';
 import { navigationRef } from './functions/navigation';
 import Redefinir from './components/Redefinir-senha/redefinir-senha';
 import Esqueceu from './components/esqueceu-senha/esqueceu-senha';
+import TrilhaColaborador from './components/trilha_Colaborador/trilha_Colaborador';
 
 type state = {
   tela: string
@@ -75,6 +76,7 @@ render(){
           <Route path='redefinir-senha' element={<Redefinir/>}/>
           <Route path='desligados' element={<Desligados/>}/>
           <Route path='esqueceu' element={<Esqueceu/>}/>
+          <Route path='trilha-Colaborador' element={<TrilhaColaborador/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>
