@@ -131,16 +131,16 @@ const OnFileChangeComprov = e=>{
 
         
         <div className="row checkBox">
-          <p>
+          {/* <p>
             <label>
               <input type="checkbox"  className="filled-in" />
               <span>Eu aceito os Termos de Uso</span>
             </label>
-          </p>
+          </p> */}
           <p>
             <label>
               <input type="checkbox"  className="filled-in" />
-              <span className="box2">Eu aceito a Política de Privacidade</span>
+              <span className="box2">Eu aceito a <a href="https://pt-br.ionic.health/politica-de-privacidade" className="checkboxTermos">Política de Privacidade</a></span>
             </label>
           </p>
         </div>
@@ -149,7 +149,7 @@ const OnFileChangeComprov = e=>{
       <a className="waves-effect waves-light btn-large btnAzulUpload" onClick={EnviaDados}>
         Carregar
       </a>
-      <Link to= '/'>
+      <Link to='/home-colaborador'>
         <a className="waves-effect waves-light btn-large btnAzulUpload">
           Finalizar Cadastro
         </a>

@@ -66,11 +66,36 @@
 }
 
 .linha{
-    width: 80%;
+    width: 82%;
     border-color: #54c5ce;
 }
 
 hr{
     color: #54c5ce !important;
     background-color: #54c5ce; 
+}
+
+/* a:link {
+    color: #9e9e9e;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #9e9e9e;
+    background-color: transparent;
+    text-decoration: none;
+} */
+
+.checkboxTermos:link{
+    color:#9e9e9e
+}
+.checkboxTermos:visited{
+    color: #9e9e9e;
+}
+
+.checkboxTermos:hover{
+    color: #9e9e9e;
+    background-color: transparent;
+    text-decoration: underline;
 }
