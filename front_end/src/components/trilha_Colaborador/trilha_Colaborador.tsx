@@ -75,7 +75,7 @@ const Trilha_Colaborador: React.FC = () => {
                 <p>Curso básico de Java.</p>
               </div>
             </div>
-            <Link to={"../../components/Upload"} className="waves-effect waves-light btn-large btnAzulLogin">Upload</Link>
+            <Link to={"../../components/Upload"} className="waves-effect waves-light btn-large btnAzultrilhacolab">Upload</Link>
           </div>
           
         </div>

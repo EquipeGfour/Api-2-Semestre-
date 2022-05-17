@@ -72,7 +72,7 @@ const Login : React.FC=(props)=> {
 
 
             
-            <a className="waves-effect waves-light btn-large btnAzulLogin" onClick={GetLogin}>Entrar</a>
+            <a className="waves-effect waves-light btn-large btnAzulLogin1" onClick={GetLogin}>Entrar</a>
             
 
         </div> 

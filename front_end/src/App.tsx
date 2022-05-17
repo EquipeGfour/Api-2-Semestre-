@@ -78,7 +78,7 @@ render(){
           <Route path='desligados' element={<Desligados/>}/>
           <Route path='esqueceu' element={<Esqueceu/>}/>
           <Route path='home-colaborador' element={<HomeColab/>}/>
-          <Route path='trilha-Colaborador' element={<TrilhaColaborador/>}/>
+          <Route path='trilha-colaborador' element={<TrilhaColaborador/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>
