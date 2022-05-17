@@ -25,6 +25,7 @@ import { navigationRef } from './functions/navigation';
 import Redefinir from './components/Redefinir-senha/redefinir-senha';
 import Esqueceu from './components/esqueceu-senha/esqueceu-senha';
 import HomeColab from './components/homeColaborador/homeColab'
+import TrilhaColaborador from './components/trilha_Colaborador/trilha_Colaborador';
 
 type state = {
   tela: string
@@ -77,6 +78,7 @@ render(){
           <Route path='desligados' element={<Desligados/>}/>
           <Route path='esqueceu' element={<Esqueceu/>}/>
           <Route path='home-colaborador' element={<HomeColab/>}/>
+          <Route path='trilha-Colaborador' element={<TrilhaColaborador/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>

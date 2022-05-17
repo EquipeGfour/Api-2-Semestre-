@@ -1,0 +1,73 @@
+.titulo-trilha{
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'IonicCoolvetica';
+}
+.conteiner-cinza1{
+    margin-top: 5rem;
+}
+.conteiner-cinza2{
+    margin-top: 4.5rem;
+}
+.caixinha{
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+}
+.usuario-trilha{
+    color: white;
+    text-align: center;
+}
+.cargo-trilha{
+    color: white;
+    text-align: center;
+}
+.bg-cinza{
+    background-color: #58595B;
+    border-radius: 5px;
+    
+}
+.bg-cinza-bar{
+    background-color: #58595B;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.card-cinza{
+    margin: 0.5rem;
+    background-color: #393B42;
+   
+}
+.div-cursos{
+    padding: 1rem;
+    height: 100;
+}
+.imgColabt{
+    width: 162px;
+    height: 154px;
+    background: #58595B;
+    border: 0px solid #58595B;
+    box-sizing:content-box;
+    border-radius: 20px;
+    display: block;
+    margin: 0px auto;
+    padding-top: 1rem;
+}
+
+.imgtrilha{
+    width: 162px;
+    height: 154px;
+}
+.curso{
+    color: #53C4CD !important;
+}
+.descricao-curso{
+    color: white;
+    margin-block-start: 3em;
+    margin-inline-start: -4em;
+}
+.btnAzulLogin{
+    margin-left: 65rem;
+    color:  white;
+}

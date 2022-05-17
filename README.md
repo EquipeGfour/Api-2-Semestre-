@@ -9,7 +9,8 @@
 
 <h2> :briefcase:Projeto</h2>
 O desafio é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvolver uma plataforma para controle de todos os talentos da empresa (pessoas). Após a aprovação no processo seletivo se faz necessário o cadastro do colaborador (CLT ou PJ) em um sistema que traga informações sobre sua contratação, controle de documentação, dados, entre outros dados. Temos que levar em consideração da LGPD para que o acesso seja restrito.
-<br><br>
+<br>
+
 
 <h2>:pushpin: Objetivos</h2>
 
@@ -127,7 +128,7 @@ Nosso objetivo é desenvolver uma página website para uma:
 
  :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">SPRINT 1</a> - 25/03 à 14/04
 
-- [x] <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/v2">SPRINT 2</a> - 25/04 à 15/05
+ :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">SPRINT 2</a> - 25/04 à 15/05
 
 - [x] SPRINT 3 - 16/05 à 05/06
 <br><br>
@@ -239,6 +240,19 @@ Login do colaborador
       - Baixar o contrato em formato PDF. 
 <br>
 
+<h2>Deploy Heroku</h2>
+
+ - O Sistema Esta Hospedado na Plataforma Heroku.<br>
+ - Quer saber mais sobre a plataforma de hospedagem clique em saber mais abaixo.<br>
+ - <a href="https://imaginedone.com.br/blog/o-que-e-o-heroku/">:link: Saber mais</a> 
+
+	
+ <h4>📌Clique no link para Acessar o Sistema<h4>	
+<a href="https://api2semestreionic.herokuapp.com/">:link: Link</a> 
+
+	
+
+
 
 
 
@@ -253,7 +267,7 @@ Login do colaborador
 Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
-#2 | 25.04.22 - 15.05.22 | <a href="">Aqui</a> | <a href="">Link</a> | ✔️
+#2 | 25.04.22 - 15.05.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">Aqui</a> | <a href="https://drive.google.com/file/d/1Byk6AviwSG9bucdXp7VVYlbTs07RJECw/view?usp=sharing">Link</a> | ✔️
 #3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑
 
 
