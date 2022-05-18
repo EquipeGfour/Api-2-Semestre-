@@ -76,6 +76,14 @@ const Colaborador = db.define('colaboradors',{
     rg:{
         type:Sequelize.STRING,
         allowNull:true
+    },
+    tipo_desligamento:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
+    data_desligamento:{
+        type:Sequelize.DATE,
+        allowNull:true
     }
 })
 
