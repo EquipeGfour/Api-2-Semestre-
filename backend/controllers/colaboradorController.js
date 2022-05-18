@@ -232,7 +232,7 @@ export const pegarGestorById = async (req, res) => {
 
 export const updateColabForDelete = async (req,res) => {
     try{
-        const valores = { gestor_id:null, status:"Desligado" }
+        const valores = { gestor_id:null, status:"Desligado", data_desligamento:new Date().toISOString().slice(0,10) }
         const condicao = { where:{ id:req.params.id } }
         const dados = await Colaborador.update( valores, condicao )
         res.json('Dados Atualizados')
@@ -267,8 +267,11 @@ export const getDesligados = async (req,res) =>{
 export const getHead = async (req,res) =>{
     try{
         const dados = await Colaborador.findAll({
+            // where:{
+            //     nome:{ [Op.like]: `%${req.query.gestor}%` },
+            // },
             where:{
-                nome:{ [Op.like]: `%${req.query.gestor}%` },
+                nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.gestor.toLowerCase()}%`)
             },
             attributes:['id','nome']
         })
