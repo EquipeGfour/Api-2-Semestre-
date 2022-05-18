@@ -38,9 +38,7 @@ const GeralDep:React.FC=(props)=>{
 <div className="geralContainer">
         <span className="titulo">Departamentos</span>
     <div className="Pesquisa">
-
-
-        <div className="nav-wrapper barPesquisa">
+      <div className="nav-wrapper barPesquisa">
         <form>
             <div className="input-field">
             <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>

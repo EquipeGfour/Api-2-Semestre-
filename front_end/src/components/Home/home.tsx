@@ -7,6 +7,7 @@ import trilhabranco from '../img/trilhabranco.png'
 import holeritebranco from '../img/holeritebranco.png'
 import desligadobranco from '../img/desligadobranco.png'
 import PreRegistrobranco from '../img/preregistrobranco.png'
+import departamento from '../img/departamento.png'
 import {useCookies} from 'react-cookie'
 import GeralFunc from "../geralFunc/geralFunc";
 import PreRegistro1 from "../PreRegistro/PreRegistro";
@@ -29,8 +30,37 @@ const Home: React.FC=()=>{
             <Link to="/geral-funcionarios"   >                   
                 <button className=" waves-effect  botaoFunc"> <img className="imgColab" src={colabbranco}></img></button>
             </Link>  
-                <div className="btnNomeHome">Colaboradores e Departamentos</div>
+                <div className="btnNomeHome">Colaboradores</div>
             </div>
+
+            <div className="col s12 m4 l4">
+                <Link to='/geral-departamentos'>
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={departamento}></img></button>
+                </Link>
+                <div className="btnNomeHome">Departamentos</div>
+            </div>
+
+            <div className="col s12 m4 l4">
+                <Link to="/pre-registro">
+                <button className="waves-effect botaoFunc" ><img className="imgColab" src={PreRegistrobranco}></img></button>
+                </Link>
+                <div className="btnNomeHome">Pré-Registro</div>
+            </div>
+
+
+
+
+        </div>
+
+        <hr className="linha"></hr>
+        
+        <div className="row blocoBaixo">            
+        <div className="col s12 m4 l4">
+            <Link to="/trilha">
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
+                <div className="btnNomeHome">Trilha</div>
+            </Link>
+            </div>            
 
             <div className="col s12 m4 l4">
             <Link to="/organograma">
@@ -39,35 +69,11 @@ const Home: React.FC=()=>{
             </Link>             
             </div>
 
-            <div className="col s12 m4 l4">
-            <Link to="/trilha">
-                <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
-                <div className="btnNomeHome">Desenvolvimento</div>
-            </Link>
-            </div>
-        </div>
-
-        <hr className="linha"></hr>
-        
-        <div className="row blocoBaixo">
             <div className=" col s12 m4 l4">
                 <Link to="/desligados">
                 <button className="waves-effect botaoFunc"><img className="imgColab" src={desligadobranco}></img></button>                
                 <div className="btnNomeHome">Desligados</div>
-                </Link>
-                
-            </div>
-
-            <div className="col s12 m4 l4">
-                <button className="waves-effect botaoFunc"><img className="imgColab" src={holeritebranco}></img></button>
-                <div className="btnNomeHome">Financeiro</div>
-            </div>
-
-            <div className="col s12 m4 l4">
-                <Link to="/pre-registro">
-                <button className="waves-effect botaoFunc" ><img className="imgColab" src={PreRegistrobranco}></img></button>
-                </Link>
-                <div className="btnNomeHome">Pré-Registro</div>
+                </Link>                
             </div>
         </div>     
         

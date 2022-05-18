@@ -18,17 +18,28 @@ const Desligados:React.FC=()=>{
     return(
     <div className="geralContainerdes">
         <span className="titulodes">Desligados</span>
+    <div className="Pesquisa">
+        <div className="nav-wrapper barPesquisa">
+            <form>
+                <div className="input-field">
+                    <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
+                    <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
+                    <i className="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </div>
    
 
         <table className="highlight responsive-table tablefuncdes centered">
         <thead className="camposdes">
           <tr className="linhaTab">
-              <th>Nome</th>
-              <th>Ex-Cargo</th>
-              <th>Email</th>
-              <th>Telefone</th>
-              <th>Data Admissão</th>
-              <th>Data Demissão</th>               
+            <th>Nome</th>
+            <th>Ex-Cargo</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Data Admissão</th>
+            <th>Data Demissão</th>               
           </tr>
         </thead>
 

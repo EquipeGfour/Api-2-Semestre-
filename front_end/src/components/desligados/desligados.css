@@ -33,3 +33,23 @@
     color: #000;
     
 }
+
+
+.barPesquisa{
+    margin-top: 4rem;
+    background-color: #53C4CD;
+    margin-bottom: 2rem; 
+    border-radius: 30px;    
+}
+
+.Pesquisa{
+    width: 35%;
+    margin: 0 auto;
+    background-color: transparent !important;
+}
+
+.Pesquisa .nav-wrapper i,.Pesquisa{
+    height: 64px;
+    line-height: 64px;
+    color: #292A2D;
+}
