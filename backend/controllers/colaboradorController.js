@@ -293,3 +293,22 @@ export const searchDesligado = async (req,res) => {
         res.status(500).json({ message:error })
     }
 }
+
+export const dadosHistorico = async (req,res) => {
+    try{
+        const dados = await Colaborador.findAll({
+            where:{
+                id:req.params.id
+            },
+            attributes:['id'],
+            include:{
+                model:DadosAcademicos,
+                attributes:['id','formacao','cursos','termo_pi','linguas'],
+                as:"DadosAcademicos"
+            }
+        })
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+    }
+}

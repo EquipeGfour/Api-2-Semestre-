@@ -1,7 +1,8 @@
 import { Router }  from "express";
-import { getAllColaborador, testeCargo, testePessoaFisica,inserirDadosColab, geralFunc,inserirDadosColabCnpj, getColaboradorById, pegarGestorById, updateColabForDelete, getDesligados, getHead, searchDesligado } from "../controllers/colaboradorController.js";
+import { getAllColaborador, testeCargo, testePessoaFisica,inserirDadosColab, geralFunc,inserirDadosColabCnpj, getColaboradorById, pegarGestorById, updateColabForDelete, getDesligados, getHead, searchDesligado, dadosHistorico } from "../controllers/colaboradorController.js";
 
 import {verifyJWT} from "../controllers/loginController.js";
+import DadosAcademicos from "../models/Dados_Academicos.js";
 
 const router = Router()
 
@@ -17,6 +18,7 @@ router.patch('/updateColab/:id', verifyJWT ,updateColabForDelete)
 router.get('/desligados', verifyJWT, getDesligados)
 router.get('/head', verifyJWT, getHead)
 router.get('/searchDesligados', verifyJWT, searchDesligado)
-
+router.get('/historico/:id',verifyJWT ,dadosHistorico)
 
 export default router
+
