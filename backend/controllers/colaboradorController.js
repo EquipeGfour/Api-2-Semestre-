@@ -115,6 +115,7 @@ export const geralFunc = async (req, res) => {
     try {
         const dados = await Colaborador.findAll({
             attributes: ['nome', 'telefone', 'id', 'email'],
+            where:{status:'Ativo'},
             include: {
                 model: Cargo,
                 attributes: ['cargo', 'id'],
@@ -245,7 +246,7 @@ export const getDesligados = async (req,res) =>{
     try{
         const dados = await Colaborador.findAll({
             where:{ status: 'Desligado' },
-            attributes:['id','nome','email','telefone',],
+            attributes:['id','nome','email','telefone'],
             include:[
                 {
                     model:Cargo,
@@ -276,4 +277,19 @@ export const getHead = async (req,res) =>{
             console.log(error)
             res.status(500).json({ message:error })
         }
+}
+
+export const searchDesligado = async (req,res) => {
+    try{
+        const dados = await Colaborador.findAll({
+            where:{
+                status:'Desligado',
+                nome:{ [Op.like]: `%${req.query.nome}%` }
+            },
+            attributes:['id','nome','status']
+        })
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+    }
 }
