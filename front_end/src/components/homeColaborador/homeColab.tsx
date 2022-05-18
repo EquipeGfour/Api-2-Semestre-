@@ -49,7 +49,7 @@ React.useEffect(()=>{
                 </div>
 
                 <div className="col s12 m4 l3">
-                <Link to="">
+                <Link to="/documentos-colab">
                     <button className="waves-effect botaoFunc"><img className="imgColab" src={docfoto}></img></button>
                     <div className="btnNomeHome">Documentos</div>
                 </Link>             
