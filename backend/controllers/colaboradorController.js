@@ -246,7 +246,7 @@ export const getDesligados = async (req,res) =>{
     try{
         const dados = await Colaborador.findAll({
             where:{ status: 'Desligado' },
-            attributes:['id','nome','email','telefone'],
+            attributes:['id','nome','email','telefone', 'data_desligamento'],
             include:[
                 {
                     model:Cargo,
