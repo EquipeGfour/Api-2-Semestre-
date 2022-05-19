@@ -41,9 +41,24 @@ const DadosPessoais:React.FC=(props)=>{
         setCpf(logado.cpf)
         setEmail(logado.email)        
         document.title='Dados Pessoais'
+        var dateOptions = { 
+            firstDay: true, 
+            format: 'yyyy-mm-dd',
+            i18n: {
+                months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+                monthsShort: ["Jan", "Feb", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+                weekdays: ["Domingo","Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+                weekdaysShort: ["Dom","Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+                weekdaysAbbrev: ["D","S", "T", "Q", "Q", "S", "S"]
+            },
+            yearRange:80,
+            onSelect:(value) => setDatanascimento(value.toISOString().split("T")[0])
+        }
+        var elemsdate = document.querySelectorAll('.datepicker');
+        var instancesdate = M.Datepicker.init(elemsdate,dateOptions);
 
         var elems = document.querySelectorAll('.collapsible');
-         var instances = M.Collapsible.init(elems, Option);
+        var instances = M.Collapsible.init(elems, Option);
         
     },[])
 
@@ -249,7 +264,7 @@ const DadosPessoais:React.FC=(props)=>{
             </div>
 
             <div className="input-field col s6">
-                <input value={datanascimento} placeholder="Data de Nascimento" id="first_name2" type="text" className="validate" onChange={ (e) => setDatanascimento(e.target.value) }/>
+                <input value={datanascimento} placeholder="Data de Nascimento" id="first_name2" type="text" className="datepicker validate" onChange={ (e) => setDatanascimento(e.target.value) }/>
                 <label className="active" htmlFor="first_name2">Data de Nascimento</label>
             </div>
 

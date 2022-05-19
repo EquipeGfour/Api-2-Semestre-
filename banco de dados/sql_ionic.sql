@@ -10,9 +10,9 @@ use ionic;
 CREATE TABLE arquivos (
     id int NOT NULL AUTO_INCREMENT,
     nome_arquivos varchar(300) ,
-    extensao varchar(300),
+    extensao varchar(10),
     url_arquivo varchar(500) not null,
-    tipo varchar(300),
+    tipo varchar(50),
     colaborador_id int not null,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
@@ -33,7 +33,7 @@ CREATE TABLE acessos (
 CREATE TABLE cargos (
     id int NOT NULL AUTO_INCREMENT,
     departamento_id int ,
-    cargo varchar(300) ,
+    cargo varchar(50) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT cargos_pk PRIMARY KEY (id)
@@ -44,21 +44,21 @@ CREATE TABLE colaboradors (
     id int NOT NULL AUTO_INCREMENT,
     cargos_id int ,
     gestor_id int ,
-    nome varchar(300) ,
-    rg varchar(200) unique,
-    email varchar(300) unique,
-    senha varchar(300) ,
-    naturalidade varchar(200),
-    nacionalidade varchar(200),
-    estado_civil varchar(200),
-    genero varchar(200),
-    raca varchar(100),
-    telefone varchar(300) ,
-    data_nascimento varchar(300) ,
-    pesquisa_desligamento varchar(300),
-    status varchar(200) ,
-    dominio varchar(300) ,
-    tipo_desligamento varchar(300),
+    nome varchar(100) ,
+    rg varchar(25) unique,
+    email varchar(250) unique,
+    senha varchar(25) ,
+    naturalidade varchar(70),
+    nacionalidade varchar(70),
+    estado_civil varchar(30),
+    genero varchar(40),
+    raca varchar(40),
+    telefone varchar(20) ,
+    data_nascimento varchar(25) ,
+    pesquisa_desligamento varchar(100),
+    status varchar(20) ,
+    dominio varchar(100) ,
+    tipo_desligamento varchar(100),
     data_desligamento date ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
@@ -73,10 +73,10 @@ CREATE TABLE contratos (
     auxilio_creche int ,
     vale_refeicao int ,
     distrato varchar(45) ,
-    contrato_trabalho varchar(200) ,
+    contrato_trabalho varchar(100) ,
     codigo_conduta_etica varchar(40) ,
     vale_transporte int ,
-    base varchar(300) ,
+    base varchar(100) ,
     data_Admissao date,
     plano_saude varchar(40) ,
     createdAt date NOT NULL default (current_date()),
@@ -90,9 +90,9 @@ CREATE TABLE dados_academicos (
     id int NOT NULL AUTO_INCREMENT,
     colaborador_id int ,
     formacao varchar(200) ,
-    cursos varchar(200) ,
+    cursos varchar(70) ,
     termo_pi varchar(200) ,
-    linguas varchar(200) ,
+    linguas varchar(30) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT dados_academicos_pk PRIMARY KEY (id)
@@ -101,8 +101,8 @@ CREATE TABLE dados_academicos (
 -- Table: departamentos
 CREATE TABLE departamentos (
     id int NOT NULL AUTO_INCREMENT,
-    area varchar(300) ,
-    head varchar(300) ,
+    area varchar(100) ,
+    head varchar(100) ,
     head_id int,
     createdAt date NOT NULL default (current_date()),
     updatedAt date,
@@ -112,13 +112,13 @@ CREATE TABLE departamentos (
 -- Table: enderecos
 CREATE TABLE enderecos (
     id int NOT NULL AUTO_INCREMENT,
-    rua varchar(300),
-    estado varchar(200) ,
-    regiao varchar(300) ,
-    cep varchar(300) ,
-    cidade varchar(300) ,
-    bairro varchar(300) ,
-    complemento varchar(300) ,
+    rua varchar(250),
+    estado varchar(50) ,
+    regiao varchar(100) ,
+    cep varchar(15) ,
+    cidade varchar(100) ,
+    bairro varchar(150) ,
+    complemento varchar(100) ,
     colaborador_id int ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
@@ -129,7 +129,7 @@ CREATE TABLE enderecos (
 CREATE TABLE grade_cursos (
     id int NOT NULL AUTO_INCREMENT,
     trilha_aprendizados_id int ,
-    nome_curso varchar(200) ,
+    nome_curso varchar(100) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT grade_cursos_pk PRIMARY KEY (id)
@@ -138,7 +138,7 @@ CREATE TABLE grade_cursos (
 -- Table: pessoa_fisicas
 CREATE TABLE pessoa_fisicas (
     colaborador_id int NOT NULL,
-    cpf varchar(15) unique,
+    cpf varchar(20) unique,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT pessoa_fisicas_pk PRIMARY KEY (colaborador_id)
@@ -148,10 +148,10 @@ CREATE TABLE pessoa_fisicas (
 CREATE TABLE pessoa_juridicas (
     colaborador_id int NOT NULL,
     cnpj varchar(20) unique,
-    empresa_contratada varchar(300) ,
-    tempo_formalizacao varchar(300) ,
-    natureza_juridica varchar(300) ,
-    data_fundacao varchar(300) ,
+    empresa_contratada varchar(100) ,
+    tempo_formalizacao varchar(100) ,
+    natureza_juridica varchar(100) ,
+    data_fundacao date ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT pessoa_juridicas_pk PRIMARY KEY (colaborador_id)
@@ -161,7 +161,7 @@ CREATE TABLE pessoa_juridicas (
 CREATE TABLE trilha_aprendizados (
     id int NOT NULL AUTO_INCREMENT,
     pessoa_fisicas_colaborador_id int ,
-    status_curso varchar(200) ,
+    status_curso varchar(30) ,
     data_inicio date ,
     data_fim date ,
     createdAt date NOT NULL default (current_date()),
@@ -196,10 +196,6 @@ ALTER TABLE contratos ADD CONSTRAINT contrato_colaborador FOREIGN KEY contrato_c
 
 -- Reference: dados_academicos_Colaborador (table: dados_academicos)
 ALTER TABLE dados_academicos ADD CONSTRAINT dados_academicos_colaborador FOREIGN KEY dados_academicos_colaborador (colaborador_id)
-    REFERENCES colaboradors (id);
-
--- Reference: Colaborador_Departamento (table: departamentos)
-ALTER TABLE departamentos ADD CONSTRAINT departamentos_colaborador FOREIGN KEY colaboradors_colaborador (head_id)
     REFERENCES colaboradors (id);
 
 -- Reference: Endereco_Colaborador (table: colaboradors)
