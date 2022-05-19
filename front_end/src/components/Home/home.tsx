@@ -7,7 +7,7 @@ import trilhabranco from '../img/trilhabranco.png'
 import holeritebranco from '../img/holeritebranco.png'
 import desligadobranco from '../img/desligadobranco.png'
 import PreRegistrobranco from '../img/preregistrobranco.png'
-import departamento from '../img/departamento.png'
+import departamentob from '../img/departamentobranco.png'
 import {useCookies} from 'react-cookie'
 import GeralFunc from "../geralFunc/geralFunc";
 import PreRegistro1 from "../PreRegistro/PreRegistro";
@@ -35,7 +35,7 @@ const Home: React.FC=()=>{
 
             <div className="col s12 m4 l4">
                 <Link to='/geral-departamentos'>
-                <button className="waves-effect botaoFunc"><img className="imgColab" src={departamento}></img></button>
+                <button className="waves-effect botaoFunc"><img className="imgColab" src={departamentob}></img></button>
                 </Link>
                 <div className="btnNomeHome">Departamentos</div>
             </div>

@@ -140,7 +140,7 @@ const OnFileChangeComprov = e=>{
           <p>
             <label>
               <input type="checkbox"  className="filled-in" />
-              <span className="box2">Eu aceito a <a href="https://pt-br.ionic.health/politica-de-privacidade" className="checkboxTermos">Política de Privacidade</a></span>
+              <span className="box2">Eu aceito a <a href="https://pt-br.ionic.health/politica-de-privacidade"target="_blank" className="checkboxTermos">Política de Privacidade</a></span>
             </label>
           </p>
         </div>

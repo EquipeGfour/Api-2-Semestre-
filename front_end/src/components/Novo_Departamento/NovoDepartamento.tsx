@@ -47,7 +47,7 @@ return(
                 <label className="active" htmlFor="first_name2">Departamento</label>
                 </div>
             </div>                
-        <a className="waves-effect waves-light btn-large btnAzul" onClick={sendData}>Salvar</a>        
+        <a className="waves-effect waves-light btn-large btnAzulnovo" onClick={sendData}>Salvar</a>        
         </div> 
     </div>
 )      

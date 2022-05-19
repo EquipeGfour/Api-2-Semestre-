@@ -46,7 +46,7 @@ const NovoCargo: React.FC=()=>{
                 <label className="active" htmlFor="first_name2">Cargo</label>
                 </div>
             </div>    
-            <a className="waves-effect waves-light btn-large btnAzul" onClick={EnviaDados}>Salvar</a>        
+            <a className="waves-effect waves-light btn-large btnAzulnovocargo" onClick={EnviaDados}>Salvar</a>        
         </div> 
     </div>
     )

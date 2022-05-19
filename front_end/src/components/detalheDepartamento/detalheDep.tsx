@@ -60,8 +60,8 @@ const DetalheDep:React.FC=(props)=>{
       <ul className="collapsible expandable infodep1">
         {cargo.map((c:Cargo)=>(
            <li className="blocos" key={c.id}>
-              <div className="collapsible-header infodep" ><i className="material-icons"></i>{c.cargo}</div>
-              <div className="collapsible-body">
+              <div className="collapsible-header infodep" title='Ver Colaboradores'><i className="material-icons" ></i>{c.cargo}</div>
+              <div className="collapsible-body tabelaCargo">
               <table className="highlight responsive-table centered">
                 <thead className="campos">
                   <tr>             

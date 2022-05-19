@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "../../functions/axios";
 import "./desligados.css";
 import { CriaHeader } from "../../functions";
@@ -6,13 +6,27 @@ import ReactTooltip from 'react-tooltip';
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 
 const Desligados:React.FC=()=>{
-    
 
+    const [desligados,setDesligados] = useState('')
+    const [nome, setNome] = useState('');
+    const [excargo,SetExcargo] = useState('');
+    const [email, setEmail] = useState('');
+    const [telefone,setTelefone] = useState('');
+    const [dataadmissao,setDataadmissão] = useState('');
+    const [datadesligamento,setDatadesligamento] = useState('');
 
-    React.useEffect(()=>{
-        document.title='Desligados'
+const BuscaDesligados = () =>{
+    axios.get(`api/`,{headers:CriaHeader()}).then(res=>{
+
+}).catch(erro=>{
+    console.error(erro)
+})
+}
+
+React.useEffect(()=>{
+    document.title='Desligados'
         
-      },[])
+},[])
 
 
     return(
@@ -57,8 +71,9 @@ const Desligados:React.FC=()=>{
             
         </table>
 
- </div>
-    )
+</div>
+)
 }
+
 
 export default Desligados

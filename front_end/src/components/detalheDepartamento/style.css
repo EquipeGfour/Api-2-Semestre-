@@ -56,6 +56,10 @@ tr{
     
 }
 
+.tabelaCargo{
+    margin-top: 0 !important;
+}
+
 .infodep1{
     margin-top: 5rem !important;
     /*background-color: #393B42;*/
