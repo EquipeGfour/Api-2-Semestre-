@@ -3,11 +3,38 @@
     src: url('../../../static/coolvetica\ rg.otf');
 }
 
+.cadastroBarra{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    border-radius: 10px !important;
+    -webkit-box-shadow: none; 
+    box-shadow: none;
+    color: rgb(0, 0, 0);  
+    
+}
+
+.collapsible-body{
+    padding: 0 10px;
+    border-bottom: none !important;
+    margin: 0 auto;
+    width: 60%;
+    margin-top: 1.5rem !important;
+
+}
+
+.collapsible-header{
+    border-bottom: none !important;
+
+}
+
 .dadosContainer{
-    margin-top: 8rem;
+    margin-top: 3rem !important;
     color: #53C4CD;
     text-align: center;
     font-family: 'IonicCoolvetica';
+    font-size: 40px;
+    
     
 }
 
@@ -18,12 +45,12 @@
 
 .input-field input[type=text]{
     margin-top: 50px;
-    font-size: 20px;
+    font-size: 15px !important;
 }
 
 .input-field input[type=text] + label {
     color: #53C4CD;
-    font-size: 30px;
+    font-size: 25px !important;
     
 }
 
@@ -39,16 +66,21 @@
     padding: 0 2rem !important;
 }
 
-.btnAzul{
-    margin-top: 4rem ;
+.btnAzulcadastro{
+    
     width: 20%;
     padding:  0;
     border-radius: 30px;
     background-color: #53C4CD;
     color:#ffffff !important;
     font-size: 20px;
+    margin: 0 auto !important;
 
 
+}
+.centro{
+    text-align: center;
+    margin-top: 4rem ;
 }
 
 .modal1{

@@ -41,6 +41,9 @@ const DadosPessoais:React.FC=(props)=>{
         setCpf(logado.cpf)
         setEmail(logado.email)        
         document.title='Dados Pessoais'
+
+        var elems = document.querySelectorAll('.collapsible');
+         var instances = M.Collapsible.init(elems, Option);
         
     },[])
 
@@ -183,7 +186,158 @@ const DadosPessoais:React.FC=(props)=>{
     }
 
     return(
-        <div className="dadosContainer row dados_pessoais">
+
+    <div>
+    <div className="dadosContainer titulo">
+    <span>Cadastro Pessoa Física </span>
+    </div>
+    <form>
+
+    <ul className="collapsible expandable infodep1">
+    <li>
+      <div className="collapsible-header infodep infodep"><i className="material-icons">account_box</i>Dados Pessoais</div>
+      <div className="collapsible-body">
+        <div className="row">
+            <div className="input-field col s6">
+                <input value={nomecompleto} placeholder="Nome Completo" id="first_name2" type="text" className="validate" onChange={ (e) => setNomecompleto(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Nome Completo</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value = {cpf} placeholder="CPF" id="first_name2" type="text" className="validate"onChange={ (e) => setCpf(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">CPF</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={rg} placeholder="RG" id="first_name2" type="text" className="validate" onChange={ (e) => setRg(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">RG</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={email} placeholder="email" id="first_name2" type="text" className="validate"onChange={ (e) => setEmail(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Email</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={telefone} placeholder="(DDD) Telefone" id="first_name2" type="text" className="validate" onChange={ (e) => setTelefone(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Telefone</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={estadocivil} placeholder="Estado Civil" id="first_name2" type="text" className="validate" onChange={ (e) => setEstadocivil(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Estado Civil</label>                 
+            </div>
+
+            <div className="input-field col s6">
+                <input value={nacionalidade} placeholder="Nacionalidade" id="first_name2" type="text" className="validate" onChange={ (e) => setNacionalidade(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Nacionalidade</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={naturalidade} placeholder="Naturalidade" id="first_name2" type="text" className="validate" onChange={ (e) => setNaturalidade(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Naturalidade</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={genero} placeholder="Gênero" id="first_name2" type="text" className="validate" onChange={ (e) => setGenero(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Gênero</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={raca} placeholder="Raça" id="first_name2" type="text" className="validate" onChange={ (e) => setRaca(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Raça</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={datanascimento} placeholder="Data de Nascimento" id="first_name2" type="text" className="validate" onChange={ (e) => setDatanascimento(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Data de Nascimento</label>
+            </div>
+
+        </div>              
+     </div>
+
+    </li>
+    <li>
+      <div className="collapsible-header infodep"><i className="material-icons">place</i>Endereço</div>
+      <div className="collapsible-body">
+          <span>
+            <div className="row"> 
+            
+
+            <div className="input-field col s6">
+                <input value={rua} placeholder="Rua/Número" id="first_name2" type="text" className="validate" onChange={ (e) => setRua(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Rua/Número</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={complemento} placeholder="Complemento" id="first_name2" type="text" className="validate" onChange={ (e) => setComplemento(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Complemento</label>
+            </div>
+
+
+            <div className="input-field col s6">
+                <input value={bairro} placeholder="Bairro" id="first_name2" type="text" className="validate"onChange={ (e) => setBairro(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Bairro</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={cidade} placeholder="Cidade" id="first_name2" type="text" className="validate"onChange={ (e) => setCidade(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Cidade</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={estado} placeholder="Estado" id="first_name2" type="text" className="validate" onChange={ (e) => setEstado(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Estado</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={regiao} placeholder="Região" id="first_name2" type="text" className="validate" onChange={ (e) => setRegiao(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Região</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={cep} placeholder="CEP" id="first_name2" type="text" className="validate" onChange={ (e) => setCep(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">CEP</label>
+            </div>
+            </div> 
+          </span></div>
+    </li>
+
+    <li>
+      <div className="collapsible-header infodep"><i className="material-icons">school</i>Dados Acadêmicos</div>
+      <div className="collapsible-body">
+        <span>
+              
+            <div className="row">
+
+            <div className="input-field col s6">
+                <input value={linguas} placeholder="Idioma" id="first_name2" type="text" className="validate" onChange={ (e) => setLinguas(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Idioma</label>
+            </div>
+
+            <div className="input-field col s6">
+                <input value={cursos} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={ (e) => setCursos(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Curso</label>
+            </div> 
+
+            <div className="input-field col s6">
+                <input value={formacao} placeholder="Formação" id="first_name2" type="text" className="validate" onChange={ (e) => setFormacao(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Formação</label>
+            </div>
+
+            </div>
+              
+        </span></div>
+    </li>
+    
+    </ul>
+    <div className='centro'><a className="waves-effect waves-light btn-large btnAzulcadastro" onClick={sendData}>Enviar</a></div>
+    </form>
+    </div>
+    
+
+
+        /*<div className="dadosContainer row dados_pessoais">
             <h1>Dados Pessoais</h1>
             <form>
             <div className="col s12 esquerda">
@@ -321,7 +475,7 @@ const DadosPessoais:React.FC=(props)=>{
             </div>
             </form>
 
-        </div>
+        </div>*/
           
     )
 }
