@@ -92,8 +92,9 @@ export const inserirDadosColab = async (req, res) => {
 export const inserirDadosColabCnpj = async (req, res) => {
     const t = await sequelize.transaction();
     try {
-        console.log(res.body)
+        
         const colabId = req.body.id
+
         const objCnpj = {
             cnpj: req.body.cnpj,
             empresa_contratada: req.body.empresa_contratada,
@@ -101,7 +102,35 @@ export const inserirDadosColabCnpj = async (req, res) => {
             natureza_juridica: req.body.natureza_juridica,
             data_fundacao: req.body.data_fundacao
         }
-        const dadosCnpj = await atualizarColaboradorCnpj(colabId, objCnpj, t)
+
+        const objColab = {
+            id: req.body.id,
+            nome: req.body.nome,
+            rg:req.body.rg,
+            email: req.body.email,
+            nacionalidade: req.body.nacionalidade,
+            naturalidade: req.body.naturalidade,
+            estado_civil: req.body.estado_civil,
+            genero: req.body.genero,
+            raca: req.body.raca,
+            telefone: req.body.telefone,
+            data_nascimento: req.body.data_nascimento,
+            status:"Ativo"
+        }
+
+        const objEndereco = {
+            rua: req.body.rua,
+            estado: req.body.estado,
+            cep: req.body.cep,
+            regiao: req.body.regiao,
+            cidade: req.body.cidade,
+            bairro: req.body.bairro,
+            complemento: req.body.complemento,
+            colaborador_id: req.body.id
+        }
+
+
+        const dadosCnpj = await atualizarColaboradorCnpj(colabId, objCnpj, objColab, objEndereco,t)
         res.json(dadosCnpj)
     } catch (error) {
         await t.rollback()

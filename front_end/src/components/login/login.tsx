@@ -28,12 +28,10 @@ const Login : React.FC=(props)=> {
             const cpf=res.data.dados[0].cpf
             const cnpj=res.data.dados[0].cnpj
             const status=res.data.dados[0].status
-            console.log(status);
 
             if (cargo === 'Administrador' && status === null|| cargo === 'Gestor' && status === "Ativo"){
                 navigate('home-admin')
             }else if(cpf && status === null){
-                console.log(res.data.dados[0])
                 navigate('dados-pessoais')
             }else if(cnpj && status === null){
                 navigate('dados-empresa')

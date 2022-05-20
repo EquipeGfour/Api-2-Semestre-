@@ -25,10 +25,10 @@ const NavBar:React.FC=(props)=>{
         if(logado){
             setUser(logado)
             setLogout(true)
-            console.log(logado)
+            
         }else{
             setUser({})
-            console.log('não logado')
+            
             
         }        
         var elems = document.querySelectorAll('.sidenav');
