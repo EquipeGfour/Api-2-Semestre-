@@ -27,15 +27,23 @@ const Login : React.FC=(props)=> {
             const cargo=res.data.dados[0].cargo
             const cpf=res.data.dados[0].cpf
             const cnpj=res.data.dados[0].cnpj
+            const status=res.data.dados[0].status
+            console.log(status);
 
-            if (cargo === 'Administrador'|| cargo === 'Gestor'){
+            if (cargo === 'Administrador' && status === null|| cargo === 'Gestor' && status === "Ativo"){
                 navigate('home-admin')
-            }else if(cpf){
+            }else if(cpf && status === null){
                 console.log(res.data.dados[0])
                 navigate('dados-pessoais')
-            }else if(cnpj){
+            }else if(cnpj && status === null){
                 navigate('dados-empresa')
-            }else{
+            }else if (status === "Ativo"){
+                navigate('home-colaborador')
+            }else if (status === 'Desligado'){
+                navigate(`/`)
+                M.toast({html:'Usuario Desligado',classes:"modalerro rounded"})
+            }
+            else{
                 M.toast({html:'Nenhum CPF/CNPJ está cadasrado, Entre em contato com o Administrador',classes:"modalerro rounded"})
             }
         }).catch(erro=>{
