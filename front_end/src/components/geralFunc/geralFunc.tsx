@@ -26,7 +26,7 @@ const GeralFunc:React.FC=(props)=>{
   const desligarColab = (id) =>{
 
     
-    axios.put(`api/colab/updateColab/${id}`, {headers:CriaHeader()} ).then(res=>{      
+    axios.put(`api/colab/updateColab/${id}`, null, {headers:CriaHeader()} ).then(res=>{      
       const Novalista = colaboradores.filter((c)=>c.id !== id)      
       setColaboradores(Novalista)
 
@@ -39,7 +39,7 @@ const GeralFunc:React.FC=(props)=>{
   React.useEffect(()=>{
     document.title='Geral-Funcionários'
     BuscaDados()
-   
+  
   },[])
 
 
@@ -91,7 +91,7 @@ const GeralFunc:React.FC=(props)=>{
                   </Link>
             </td>
 
-           </tr>
+            </tr>
           ))}
         </tbody>
       </table>

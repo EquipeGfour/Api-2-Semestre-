@@ -20,16 +20,17 @@ const NavBar:React.FC=(props)=>{
     const [logout,setLogout] = React.useState(false)
     const [user,setUser] = React.useState<any>()
 
+    const alteraUserLogado = (logado?) => {
+        setUser(logado)
+        setLogout(logado ? true : false)
+    }
+
     React.useEffect(()=>{
         const logado = cookie['ionic-user']
         if(logado){
-            setUser(logado)
-            setLogout(true)
-            
+            alteraUserLogado(logado)
         }else{
-            setUser({})
-            
-            
+            alteraUserLogado()
         }        
         var elems = document.querySelectorAll('.sidenav');
         var instances = M.Sidenav.init(elems, Option);
@@ -65,11 +66,11 @@ return(
 
     <nav>
         <div className="nav-wrapper navbarBackground" >
-                  
+
                 <a href="!" className="brand-logo"><img src={Img}></img></a>  
                 {logout?(
                 <>
-                         
+
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons sideNavBar">menu</i></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                 
