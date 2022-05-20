@@ -1,10 +1,12 @@
 import pessoafisica from "../models/pessoafisica.js"
 import Colaborador from "../models/colaborador.js"
 
-export const createPessoaFisica = async(dados) =>{
+export const createPessoaFisica = async(dados, t) =>{
     const res = await pessoafisica.create(dados,{
-        include:Colaborador
+        include:Colaborador,
+        transaction:t
     })
+    await t.commit()
     return res
 }
 

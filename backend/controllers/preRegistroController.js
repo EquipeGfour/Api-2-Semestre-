@@ -6,8 +6,10 @@ import Departamento from "../models/departamentos.js";
 import Cargos from "../models/cargo.js"
 import pessoafisica from "../models/pessoafisica.js";
 import Colaborador from "../models/colaborador.js";
+import Sequelize from "../config/db.js"
 
 export const insertPreRegistroCpf = async(req, res) => {
+    const t = await Sequelize.transaction();
     try{
         const senha = geradorSenha()
         const email = req.body.email
@@ -22,18 +24,20 @@ export const insertPreRegistroCpf = async(req, res) => {
             }
         }
         console.log(pessoaFisica)
-        const dados = await createPessoaFisica(pessoaFisica)
+        const dados = await createPessoaFisica(pessoaFisica, t)
         console.log(dados)
         await sendMail(email,senha)
         return res.json(dados) 
         
     }catch (error) {
+        await t.rollback()
         res.status(500).json({ message: error.message });
     }
 }
 
 
 export const insertPreRegistroCnpj = async(req, res) => {
+    const t = await Sequelize.transaction();
     try{
         const senha = geradorSenha()
         const email = req.body.email
@@ -47,11 +51,12 @@ export const insertPreRegistroCnpj = async(req, res) => {
                 senha:senha,
             }
         }
-        const dados = await createPessoaJuridica(pessoaJuridica);
+        const dados = await createPessoaJuridica(pessoaJuridica,t);
         await sendMail(email,senha)
         return res.json(dados)
 
     }catch (error) {
+        await t.rollback()
         res.status(500).json({ message: error.message });
     }
 }
