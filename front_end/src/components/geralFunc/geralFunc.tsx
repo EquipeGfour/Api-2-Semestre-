@@ -9,9 +9,7 @@ import { MdSettingsBackupRestore } from "react-icons/md";
 
 const GeralFunc:React.FC=(props)=>{
 
-  const [colaboradores,setColaboradores] = React.useState([])
-  const [status, setStatus]= useState('')
-  const [gestor, setGestor] = useState('')
+  const [colaboradores,setColaboradores] = React.useState([]) 
 
 
   const BuscaDados = () =>{
@@ -22,19 +20,16 @@ const GeralFunc:React.FC=(props)=>{
 
     }).catch(erro=>{
       console.error(erro)
-
     })
-
   }
 
   const desligarColab = (id) =>{
-    axios.put(`api/colab/updateColab/${id}`).then(res=>{
-      console.log(`desligado`);
-      console.log(id);
-      
-      setStatus('Desligado')
-      setGestor('NULL')
-      document.location.reload()
+
+    
+    axios.put(`api/colab/updateColab/${id}`, {headers:CriaHeader()} ).then(res=>{      
+      const Novalista = colaboradores.filter((c)=>c.id !== id)      
+      setColaboradores(Novalista)
+
     }).catch(erro=>{
       console.error(erro);
       
