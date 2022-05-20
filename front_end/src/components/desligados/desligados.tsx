@@ -4,20 +4,26 @@ import "./desligados.css";
 import { CriaHeader } from "../../functions";
 import ReactTooltip from 'react-tooltip';
 import {Link,Navigate,useNavigate} from 'react-router-dom';
+import { useCookies } from "react-cookie";
 
-const Desligados:React.FC=()=>{
+const Desligados:React.FC=(props)=>{
 
-    const [desligados,setDesligados] = useState('')
-    const [nome, setNome] = useState('');
-    const [excargo,SetExcargo] = useState('');
-    const [email, setEmail] = useState('');
-    const [telefone,setTelefone] = useState('');
-    const [dataadmissao,setDataadmissão] = useState('');
-    const [datadesligamento,setDatadesligamento] = useState('');
+    // const [desligados,setDesligados] = useState('')
+    const [nome,setNome] = useState('');
+    // const [cargo, SetCargo] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [telefone,setTelefone] = useState('');
+    // const [dataadmissao,setDataadmissão] = useState('');
+    // const [datadesligamento,setDatadesligamento] = useState('');
+    const [colaboradores,setColaboradores] = React.useState([])
 
-const BuscaDesligados = () =>{
-    axios.get(`api/`,{headers:CriaHeader()}).then(res=>{
-
+const TrazerDesligados = () =>{
+    axios.get(`/api/colab/desligados`,{headers:CriaHeader()}).then(res=>{
+        console.log(res);
+        
+        setColaboradores(res.data)
+        console.log(colaboradores);
+        
 }).catch(erro=>{
     console.error(erro)
 })
@@ -25,6 +31,7 @@ const BuscaDesligados = () =>{
 
 React.useEffect(()=>{
     document.title='Desligados'
+    TrazerDesligados()
         
 },[])
 
@@ -58,15 +65,18 @@ React.useEffect(()=>{
         </thead>
 
         <tbody>
-            <tr className="linhaTab">
-                <td>Carlos</td>
-                <td>Técnico de Segurança</td>
-                <td>carlosbotafogo@fatec.com</td>
-                <td>(012)9 9191-7898</td>
-                <td>21/07/2021</td>
-                <td>22/07/2021</td>
+            {colaboradores.map((colab, index)=>(
+    
+            <tr className="linhaTab" key={index}>
+                <td>{colab.nome}</td>
+                <td>{colab.cargo.cargo}</td>
+                <td>{colab.email}</td>
+                <td>{colab.telefone}</td>
+                <td>{colab.contrato?.data_Admissao}</td>
+                <td>{colab.data_desligamento}</td>
+                
             </tr>
-
+        ))}
         </tbody>
             
         </table>

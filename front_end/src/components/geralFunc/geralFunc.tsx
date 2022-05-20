@@ -1,14 +1,18 @@
-import React from "react"
+import React, { useState } from "react"
 import "./style.css"
 import {useCookies} from 'react-cookie'
 import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
 import ReactTooltip from 'react-tooltip';
 import {Link,Navigate,useNavigate} from 'react-router-dom';
+import { MdSettingsBackupRestore } from "react-icons/md";
 
 const GeralFunc:React.FC=(props)=>{
 
   const [colaboradores,setColaboradores] = React.useState([])
+  const [status, setStatus]= useState('')
+  const [gestor, setGestor] = useState('')
+
 
   const BuscaDados = () =>{
 
@@ -23,9 +27,24 @@ const GeralFunc:React.FC=(props)=>{
 
   }
 
+  const desligarColab = (id) =>{
+    axios.put(`api/colab/updateColab/${id}`).then(res=>{
+      console.log(`desligado`);
+      console.log(id);
+      
+      setStatus('Desligado')
+      setGestor('NULL')
+      document.location.reload()
+    }).catch(erro=>{
+      console.error(erro);
+      
+    })
+  }
+
   React.useEffect(()=>{
     document.title='Geral-Funcionários'
     BuscaDados()
+   
   },[])
 
 
@@ -71,9 +90,9 @@ const GeralFunc:React.FC=(props)=>{
                   <i className="material-icons" data-tip='Ver Funcionário'>search</i>                  
                   </Link>
             </td>
-            <td><Link to={`/desligados`}>
+            <td><Link to={``}>
                                 
-                  <i className="material-icons desligar" data-tip='Desligar Colaborador'>power_settings_new</i>                  
+                  <i className="material-icons desligar" onClick={()=>desligarColab(colab.id)} data-tip='Desligar Colaborador'>power_settings_new</i>                  
                   </Link>
             </td>
 
