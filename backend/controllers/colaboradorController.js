@@ -9,6 +9,8 @@ import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
 import Contrato from "../models/contrato.js";
 import { Op } from "sequelize";
+import { sendMail } from "../functions/recoverEmail.js";
+
 
 export const getAllColaborador = async (req, res) => {
     try {
@@ -315,3 +317,24 @@ export const dadosHistorico = async (req,res) => {
         res.status(500).json({ message:error })
     }
 }
+
+
+//Recuperar Senha Email
+export const GetEmail= async (req,res) => {
+    try{
+        const email = req.body.email
+        const dados = await Colaborador.findOne({
+            where:{
+                email
+            },
+            attributes:['nome','senha']
+        })
+        await sendMail(email,dados.senha)
+        res.json(dados)
+        
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+}
+
