@@ -415,7 +415,7 @@ const DadosPessoais: React.FC = (props) => {
                                     </div>
 
                                     <div className="col s1">
-                                        <i className="small material-icons mais pointer" title='Nova Formação'>add</i>
+                                        <i className="small material-icons mais pointer" title='Novo Curso'>add</i>
                                     </div>
                                 </div>
 
@@ -444,7 +444,7 @@ const DadosPessoais: React.FC = (props) => {
                                     </div>
 
                                     <div className="col s6">
-                                        <i className="small material-icons mais pointer" title='Nova Formação'>add</i>
+                                        <i className="small material-icons mais pointer" title='Novo Idioma'>add</i>
                                     </div>
 
 
