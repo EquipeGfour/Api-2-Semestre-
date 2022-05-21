@@ -18,7 +18,7 @@
     padding: 0 10px;
     border-bottom: none !important;
     margin: 0 auto;
-    width: 60%;
+    width: 70% !important;
     margin-top: 1.5rem !important;
 
 }
@@ -48,10 +48,22 @@
     font-size: 15px !important;
 }
 
-.input-field input[type=text] + label {
+.input-field input[type=text] + label, .input-select {
     color: #53C4CD;
     font-size: 25px !important;
     
+}
+
+.input-select label{
+    -webkit-transform: scale(0.8);
+    transform:  scale(0.8);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    top: -14px;
+    
+}
+.input-select input{
+    font-weight: 300;
 }
 
 .validate{
@@ -86,4 +98,34 @@
 .modal1{
     background-color: #53C4CD;
     margin-top: 4rem;
+}
+
+.infodep{
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    margin-top: 1rem !important;
+    width: 70% !important;
+    margin: 0 auto; 
+}
+.mais{
+    margin-top: 2.8rem;
+    margin-left: 1rem;
+}
+
+.nome-titulo{
+    margin-left: 0.8rem;
+    font-family: 'IonicCoolvetica';
+    font-size: 40px;
+    color: #53C4CD;
+    margin-bottom: 3rem;
+    margin-top: 0.5rem;
+}
+
+.nomeIdioma{
+    margin-left: 0.8rem;
+    font-family: 'IonicCoolvetica';
+    font-size: 25px;
+    color: #53C4CD;
+    
 }
