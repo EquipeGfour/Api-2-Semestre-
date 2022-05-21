@@ -4,6 +4,7 @@ import "./style10.css"
 import axios from "../../functions/axios";
 import {useCookies} from 'react-cookie'
 import M from 'materialize-css/dist/js/materialize'
+import { log } from 'console';
 
 
 const Login : React.FC=(props)=> {
@@ -16,26 +17,33 @@ const Login : React.FC=(props)=> {
         if(event.key==='Enter') GetLogin()
     }
     const GetLogin = async () =>{       
-              
+
         axios.post('/api/login/',{
             email: email,
             senha: senha
         }).then(res=>{            
-            setCookie('ionic-user',res.data.dados[0])
-            setCookie('ionic-JWT', res.data.token)
+            
 
             const cargo=res.data.dados[0].cargo
             const cpf=res.data.dados[0].cpf
             const cnpj=res.data.dados[0].cnpj
+            const status=res.data.dados[0].status
 
-            if (cargo === 'Administrador'|| cargo === 'Gestor'){
+            if (status !== 'Desligado'){
+                setCookie('ionic-user',res.data.dados[0])
+                setCookie('ionic-JWT', res.data.token)
+            }
+
+            if (cargo === 'Administrador' && status === null|| cargo === 'Gestor' && status === "Ativo"){
                 navigate('home-admin')
-            }else if(cpf){
-                console.log(res.data.dados[0])
+            }else if(cpf && status === null){
                 navigate('dados-pessoais')
-            }else if(cnpj){
+            }else if(cnpj && status === null){
                 navigate('dados-empresa')
-            }else{
+            }else if (status === "Ativo"){
+                navigate('home-colaborador')
+            }
+            else{
                 M.toast({html:'Nenhum CPF/CNPJ está cadasrado, Entre em contato com o Administrador',classes:"modalerro rounded"})
             }
         }).catch(erro=>{
@@ -54,7 +62,7 @@ const Login : React.FC=(props)=> {
         <div className="loginContainer">
             <h1>Login</h1>
         <div className="centralizar">
-           <div className="row">
+            <div className="row">
                 <div className="input-field col s12">
                 <input value={email} id="email" type="text" className="validate" onChange={ (e) => setEmail(e.target.value) }/>
                 <label className="active" htmlFor="first_name2">Email</label>

@@ -19,11 +19,8 @@ const Desligados:React.FC=(props)=>{
 
 const TrazerDesligados = () =>{
     axios.get(`/api/colab/desligados`,{headers:CriaHeader()}).then(res=>{
-        console.log(res);
-        
         setColaboradores(res.data)
-        console.log(colaboradores);
-        
+
 }).catch(erro=>{
     console.error(erro)
 })
@@ -69,10 +66,10 @@ React.useEffect(()=>{
     
             <tr className="linhaTab" key={index}>
                 <td>{colab.nome}</td>
-                <td>{colab.cargo.cargo}</td>
+                <td>{colab.cargo?.cargo}</td>
                 <td>{colab.email}</td>
                 <td>{colab.telefone}</td>
-                <td>{colab.contrato?.data_Admissao}</td>
+                <td>{colab.contratos?.[0]?.data_Admissao}</td>
                 <td>{colab.data_desligamento}</td>
                 
             </tr>

@@ -80,7 +80,7 @@ CREATE TABLE contratos (
     data_Admissao date,
     plano_saude varchar(40) ,
     createdAt date NOT NULL default (current_date()),
-    updatedAt int ,
+    updatedAt date ,
     
     CONSTRAINT Contrato_pk PRIMARY KEY (id)
 );

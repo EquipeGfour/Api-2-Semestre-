@@ -9,6 +9,7 @@ import PessoaJuridica from "../models/pessoa_juridica.js";
 
 export const atualizarColaborador = async(colabId, colabDados, objDadosAcademicos, objEndereco, t)=>{
 
+    //atualizar dados do colaborador
     const dadosColab = await Colaborador.update(colabDados,{
         where:{
             id:colabId
@@ -16,6 +17,7 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
         transaction:t
     })
 
+    //atualizar ou criar dados Academicos
     const dadosAcademicos = await DadosAcademicos.findOne({
         where:{
             colaborador_id:colabId
@@ -34,6 +36,7 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
     }
     })
 
+    //atualizar ou criar dados Endereço
     const dadosEndereco = await Endereco.findOne({
         where:{
             colaborador_id:colabId
@@ -57,9 +60,17 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
     return {dadosColab,dadosAcademicos,dadosEndereco}
 }
 
-export const atualizarColaboradorCnpj = async(colabId,objCnpj,t)=>{
+export const atualizarColaboradorCnpj = async(colabId,objCnpj,colabDados,objEndereco,t)=>{
 
-    
+    //atualizar dados do colaborador
+    const dadosColab = await Colaborador.update(colabDados,{
+        where:{
+            id:colabId
+        },
+        transaction:t
+    })
+
+    //atualizar ou criar dados CNPJ
     const dadosCnpj = await PessoaJuridica.findOne({
         where:{
             colaborador_id:colabId
@@ -77,8 +88,27 @@ export const atualizarColaboradorCnpj = async(colabId,objCnpj,t)=>{
         return PessoaJuridica.create(objCnpj,{transaction:t})
     }
     })
+
+    //atualizar ou criar dados Endereço
+    const dadosEndereco = await Endereco.findOne({
+        where:{
+            colaborador_id:colabId
+        }
+    }).then(id=>{
+        if(id){
+            return Endereco.update(objEndereco,
+            {
+                where:{
+                    colaborador_id:colabId
+            },
+            transaction:t
+        })
+    }else{
+        return Endereco.create(objEndereco,{transaction:t})
+        } 
+    })
+
     await t.commit()
 
-    return {dadosCnpj}
+    return {dadosCnpj, dadosColab, dadosEndereco}
 }
- 
