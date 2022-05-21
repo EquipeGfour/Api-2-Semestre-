@@ -334,6 +334,10 @@ const DadosPessoais: React.FC = (props) => {
                         <div className="collapsible-body">
                             <span>
 
+                            <div className='nomeIdioma'>
+                                        <h5>Formação Acadêmica</h5>
+                            </div>
+
                                 <div className="row">
                                     <div className="col s3">
                                         <div className="input-field">
@@ -413,12 +417,12 @@ const DadosPessoais: React.FC = (props) => {
                                     <div className="col s1">
                                         <i className="small material-icons mais pointer" title='Nova Formação'>add</i>
                                     </div>
-                                
+                                </div>
 
                                     <div className='nomeIdioma'>
                                         <h5>Idiomas</h5>
                                     </div>
-
+                                <div className='row'>
                                     <div className="col s3">
                                         <div className="input-field">
                                             <input value={extraidioma} placeholder="Ano" id="first_name2" type="text" className="validate" onChange={(e) => setCursos(e.target.value)} />

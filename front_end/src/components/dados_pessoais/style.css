@@ -34,8 +34,7 @@
     text-align: center;
     font-family: 'IonicCoolvetica';
     font-size: 40px;
-    
-    
+         
 }
 
 .dados_pessoais .row .input-field:first-child{
@@ -87,12 +86,12 @@
     color:#ffffff !important;
     font-size: 20px;
     margin: 0 auto !important;
-
-
+    
 }
 .centro{
     text-align: center;
     margin-top: 4rem ;
+    height: 100px;
 }
 
 .modal1{
@@ -125,7 +124,9 @@
 .nomeIdioma{
     margin-left: 0.8rem;
     font-family: 'IonicCoolvetica';
-    font-size: 25px;
+    font-size: 40px;
     color: #53C4CD;
+    margin-bottom: 3rem;
+    margin-top: 0.5rem;
     
 }
