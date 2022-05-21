@@ -301,8 +301,20 @@ export const getHead = async (req,res) =>{
             // where:{
             //     nome:{ [Op.like]: `%${req.query.gestor}%` },
             // },
-            where:{
-                nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.gestor.toLowerCase()}%`)
+            // where:{
+            //     nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.gestor.toLowerCase()}%`)
+            // },
+            include:{
+                include:{
+                    model:Departamento,
+                    where:{ id:req.query.depart_id},
+                    attributes:[]
+                },
+                model:Cargo,
+                attributes:['id','cargo','nivel'],
+                where:{
+                    nivel: req.query.nivel,
+                }
             },
             attributes:['id','nome']
         })

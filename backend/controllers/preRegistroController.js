@@ -21,6 +21,7 @@ export const insertPreRegistroCpf = async(req, res) => {
                 cargos_id:req.body.cargos_id,
                 gestor_id:req.body.gestor_id,
                 senha:senha,
+                
             }
         }
         console.log(pessoaFisica)
@@ -67,7 +68,7 @@ export const getDepartCargo =  async (req, res) => {
             attributes:['id','area'],
             include:{
                 model:Cargos,
-                attributes:['id', 'cargo', 'departamento_id'],
+                attributes:['id', 'cargo', 'departamento_id','nivel'],
                 
             }
         })

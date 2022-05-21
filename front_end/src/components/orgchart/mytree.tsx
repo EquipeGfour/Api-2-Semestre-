@@ -17,6 +17,9 @@ const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
         
     }
 
+    React.useEffect(()=>{
+    },[props])
+
     React.useEffect(()=> {
         
         chart = new OrgChart (divRef.current , {
@@ -45,10 +48,10 @@ const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
                 field_2: "cargo",
                 img: "img"
             }
-              
+            
         });
-    })   
-   
+    },[props])   
+    
         return (
             <div className="loginContainerOrg" >
                 <h1>Organograma</h1>

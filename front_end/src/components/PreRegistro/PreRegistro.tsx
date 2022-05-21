@@ -9,6 +9,8 @@ import { CriaHeader } from "../../functions";
 import ModalGestor from './Modal'
 
 interface iCargo {
+  departamento_id: any;
+  nivel: string;
   id: number;
   cargo: string;
 }
@@ -38,7 +40,7 @@ const PreRegistro1: React.FC = () => {
   const [cpfCnpj, setCpfCnpj] = React.useState("");
   const [mask, setMask] = React.useState("");
   const [gestores, setGestores] = React.useState<iGestor[]>([]);
-  const [gestor, setGestor] = React.useState<iGestor>({});
+  const [gestor, setGestor] = React.useState<string>();
   const Modal = React.useRef()
   const ExeMaterializeSelect = () => {
     var elems = document.querySelectorAll("select");
@@ -56,7 +58,6 @@ const PreRegistro1: React.FC = () => {
 
   const FiltraCargo = (e) => {
     const id = e.target.value;
-    GetGestores(id);
     const departamento = departamentos.find((dpt) => dpt.id == id);
     const promise = new Promise((resolve, reject) => {
       resolve(setCargos(departamento.cargos));
@@ -66,9 +67,11 @@ const PreRegistro1: React.FC = () => {
     });
   };
 
-  const GetGestores = (id) => {
+  const filtraGestores = (id) => {
+    const filtrado = cargos.find(c => c.id == id)
+    setCargo(id)
     axios
-      .get(`/api/preRegistro/gestores/${id}`, { headers: CriaHeader() })
+      .get(`/api/colab/head?nivel=${filtrado.nivel}&depart_id=${filtrado.departamento_id}`, { headers: CriaHeader() })
       .then((res) => {
         console.log(res);
         setGestores(res.data);
@@ -86,7 +89,7 @@ const PreRegistro1: React.FC = () => {
       head,
       id,
       cargos_id: cargo,
-      gestor_id: gestor.id,
+      gestor_id: gestor,
     };
 
     if (mask === "CNPJ") {
@@ -106,7 +109,7 @@ const PreRegistro1: React.FC = () => {
         setNome("");
         setCargo("");
         setHead("");
-        setGestor({});
+        setGestor("");
         setGestores([]);
         navigate("/home-admin");
       })
@@ -152,12 +155,12 @@ const ConfigModal = () =>{
     M.Modal.init(Modal.current, options);
   }
 
-const OnGestorSelecionado = (gestor) =>{
-    const elem = document.getElementById('modal1')
-    const e = M.Modal.getInstance(elem)
-    setGestor(gestor)
-    e.close()
-}
+// const OnGestorSelecionado = (gestor) =>{
+//     const elem = document.getElementById('modal1')
+//     const e = M.Modal.getInstance(elem)
+//     setGestor(gestor)
+//     e.close()
+// }
 
   React.useEffect(() => {
     document.title = "Pré-Registro";
@@ -237,7 +240,7 @@ const OnGestorSelecionado = (gestor) =>{
 
         <div className="row">
           <div className="input-field col s12 seletor ">
-            <select defaultValue={0} onChange={(e) => setCargo(e.target.value)}>
+            <select defaultValue={0} onChange={(e) => filtraGestores(e.target.value)}>
               <option value="0" disabled>
                 Cargo
               </option>
@@ -252,7 +255,7 @@ const OnGestorSelecionado = (gestor) =>{
           </div>
         </div>
 
-        <div className="row campoGestor">
+        {/*<div className="row campoGestor">
           <div className="input-field col s12 seletor">
           <input
               value={gestor?.nome || ''}
@@ -271,17 +274,34 @@ const OnGestorSelecionado = (gestor) =>{
           >
             Selecione
           </a>
-        </div>
+              </div>*/}
+
+          <div className="row">
+            <div className="input-field col s12 seletor ">
+              <select defaultValue={0} onChange={e => setGestor(e.target.value)}>
+                <option value="0" disabled>
+                  Gestor
+                </option>
+                {gestores.map((c) => (
+                <option value={c.id} key={c.id}>
+                  {" "}
+                  {c.nome}
+                </option>
+              ))}
+              </select>
+              <label>Gestor</label>
+            </div>
+          </div>
 
         <div className="row">
-         
-        <div
-          ref={Modal}
-          id="modal1"
-          className="modal"
+        
+          <div
+            ref={Modal}
+            id="modal1"
+            className="modal"
 
-        ><ModalGestor onSelect={OnGestorSelecionado}/>
-          </div>
+          >{/*<ModalGestor onSelect={OnGestorSelecionado}/>*/}
+            </div>
         </div>
 
         <a

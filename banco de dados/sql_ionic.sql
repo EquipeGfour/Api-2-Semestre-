@@ -34,6 +34,7 @@ CREATE TABLE cargos (
     id int NOT NULL AUTO_INCREMENT,
     departamento_id int ,
     cargo varchar(50) ,
+    nivel varchar(30) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT cargos_pk PRIMARY KEY (id)
@@ -221,5 +222,6 @@ ALTER TABLE trilha_aprendizados ADD CONSTRAINT trilha_aprendizado_pessoa_fisica 
 use ionic;
 insert into departamentos(id, area, createdAt) values (1, "Administracão", "2022-04-13");
 insert into cargos(id, departamento_id, cargo, createdAt) values (1, 1, "Administrador", "2022-04-13");
+insert into cargos(id, departamento_id, cargo, createdAt) values (2, 1, "Head", "2022-04-13");
 insert into colaboradors(id, cargos_id, nome, email, senha, status, createdAt) values (1, 1, "CEO", "ceo@ionic.com", "ceoionic","Ativo", "2022-04-13");
 insert into colaboradors(id, cargos_id, nome, email, senha, createdAt) values (2, 1, "Admin", "admin@ionic.com", "adminionic", "2022-04-13");

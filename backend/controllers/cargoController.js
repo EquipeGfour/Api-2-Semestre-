@@ -4,11 +4,12 @@ export const inserirCargo = async (req,res) =>{
     try{
         const areaCargo = await Cargo.create({
             cargo:req.body.cargo,
+            nivel:req.body.nivel,
             departamento_id:req.params.id
         });
         return res.json(areaCargo);    
     }catch(error){
-       res.status(400).json({message: error.message});
+        res.status(400).json({message: error.message});
 
     }
 }

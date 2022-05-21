@@ -35,8 +35,9 @@ const Organograma: React.FC = () => {
 
   React.useEffect(()=>{    
     document.title='Organogroma'   
-    DadosOrg()    
+    DadosOrg() 
   },[])
+
 
   return (
     <div style={{ height: "100%" }}>
