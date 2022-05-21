@@ -367,3 +367,22 @@ export const GetEmail= async (req,res) => {
     }
 }
 
+//redefinir senha
+export const redefinirSenha = async (req,res) => {
+    try{
+        const senha = req.body.senha
+        const dados = await Colaborador.update({
+            senha:req.body.senha
+        },{
+            where:{ 
+                id:req.params.id }
+        })
+        console.log(senha)
+        res.json(dados)
+    }catch(error){ 
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+} 
+
+

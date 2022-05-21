@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllColaborador, testeCargo, testePessoaFisica, inserirDadosColab, geralFunc, inserirDadosColabCnpj, getColaboradorById, pegarGestorById, updateColabForDelete, getDesligados, getHead, searchDesligado, dadosHistorico, GetEmail } from "../controllers/colaboradorController.js";
+import { getAllColaborador, testeCargo, testePessoaFisica, inserirDadosColab, geralFunc, inserirDadosColabCnpj, getColaboradorById, pegarGestorById, updateColabForDelete, getDesligados, getHead, searchDesligado, dadosHistorico, GetEmail, redefinirSenha } from "../controllers/colaboradorController.js";
 
 import { verifyJWT } from "../controllers/loginController.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
@@ -20,6 +20,6 @@ router.get('/head', verifyJWT, getHead)
 router.get('/searchDesligados', verifyJWT, searchDesligado)
 router.get('/historico/:id', verifyJWT, dadosHistorico)
 router.get('/recuperar/:id',verifyJWT,GetEmail)
-
+router.post('/redefinirSenha/:id',redefinirSenha)
 export default router
 
