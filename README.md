@@ -187,8 +187,13 @@ $ npm start
 
 ### 🎲 Acesso do administrador
 ```
+Conta Admin
 $ Email =  admin@ionic.com
 $ Senha =  adminionic
+
+Conta Ceo
+$ Email = ceo@ionic.com
+$ Senha = ceoionic
 ```
 
 <br><br>
@@ -280,7 +285,7 @@ Integrantes da Equipe | Função | Linkedin | Github| Avatar|
 Natália Bessa de Moura | PO | [Linkedin](https://www.linkedin.com/in/natalia-bessa-59b671220/) | [Github](https://github.com/lirabessa)|<img src = "imagens_gerais/natalia.jpg" width="60" height="60">|     
 Rodrigo Ribeiro dos Santos | SM | [Linkedin](https://www.linkedin.com/in/rodrigo-ribeiro-5008211b8/) | [Github](https://github.com/rodrigoribeiro027)|<img src = "imagens_gerais/rodrigo1.jpg" width="60" height="60">|
 Rafael Peressoni Waltrick | DT | [Linkedin](https://www.linkedin.com/in/rafael-p-waltrick-7211b4221) |  [Github](https://github.com/rafawaltrick)|<img src = "imagens_gerais/rafa(1).jpg" width="60" height="60">|
-Nicolas Lima de Holanda Galindo | DT | [Linkedin](https://www.linkedin.com/in/nicolas-lima-2a75a3220/) | [Github](https://github.com/Nicolas734)|<img src = "imagens_gerais/nicolas.jpg" width="60" height="60">| 
+Nicolas Lima de Holanda Galindo | DT | [Linkedin](https://www.linkedin.com/in/nicolas-lima-2a75a3220/) | [Github](https://github.com/Nicolas734)|<img src = "imagens_gerais/nicolas11.jpg" width="60" height="60">| 
 Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens_gerais/raniel.png" width="60" height="60">|
 Gustavo Borges Lima | DT |[Linkedin](https://www.linkedin.com)| [Github](https://github.com/Miojoguu)|<img src = "imagens_gerais/gustavo.jpg" width="60" height="60">|
 <br>
