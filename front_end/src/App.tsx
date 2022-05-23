@@ -27,6 +27,7 @@ import Esqueceu from './components/esqueceu-senha/esqueceu-senha';
 import HomeColab from './components/homeColaborador/homeColab'
 import TrilhaColaborador from './components/trilha_Colaborador/trilha_Colaborador';
 import DocColab from './components/DocumentosColab/documentosColab'
+import DetalheCnpj from './components/detalheCnpj/detalheCnpj';
 
 type state = {
   tela: string
@@ -81,6 +82,7 @@ render(){
           <Route path='home-colaborador' element={<HomeColab/>}/>
           <Route path='trilha-colaborador' element={<TrilhaColaborador/>}/>
           <Route path='documentos-colab' element={<DocColab/>}/>
+          <Route path='detalhe-cnpj' element={<DetalheCnpj/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>

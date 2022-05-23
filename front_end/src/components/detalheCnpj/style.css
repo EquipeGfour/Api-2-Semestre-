@@ -1,0 +1,85 @@
+.container{
+    margin-top: 4rem;
+    text-align: center;
+    background: #58595B;
+    border-radius: 5px;
+    
+}
+
+.pjCor{
+    background: #3d434b !important;
+}
+
+.fotoColab{
+    margin-top: 2rem;
+    width:200px;
+    height:200px;
+    border-radius: 30px;
+    
+}
+
+.dadosBasicos{
+    margin-top: 2rem;
+    
+}
+
+.fonte{
+    font-size: 26px !important;
+    text-align: center !important;
+    top: auto !important;
+}
+
+#dadoRecebido{
+    font-size: 22px !important;
+    text-align: center !important; 
+}
+
+.tabs .tab a {
+    font-size: 20px;
+    color: #fff !important;
+}
+
+.cabecalho{
+    background-color: #54C5CE;
+}
+
+.dadosPessoais{
+    margin: 2rem;
+    
+}
+
+.dadoRecebido1{
+    font-size: 22px !important;
+    
+}
+
+.espaço{
+    padding: 2rem !important;
+    background-color: #292A2D;
+    border: 1px solid #58595B;    
+}
+
+.tabs .indicator {
+    background-color: #fff !important;
+}
+
+.tabelaUpload{
+    background-color: #58595b;
+    margin-bottom: 15px;
+    width: 75%;
+    margin: 0 auto;
+    color: #fff;
+}
+.corionic{
+    color: #54C5CE;
+}
+
+.btnAzulPDF{
+    margin-top: 1rem ;
+    width: 20%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:#ffffff;
+    font-size: 20px;
+}
