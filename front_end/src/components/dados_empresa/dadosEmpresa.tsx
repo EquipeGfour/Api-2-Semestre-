@@ -12,14 +12,15 @@ const DadosEmpresa:React.FC=(props)=>{
     const navigate = useNavigate()
     const [cookie,setCookie]=useCookies(['ionic-user'])
     
-    const [nomecompleto,setNomecompleto] = React.useState('')
+    const [empresacontratada,setEmpresacontratada] = React.useState('')
     const [cnpj,setCnpj] = React.useState('')
     const [rg,setRg] = React.useState('')
     const [nacionalidade,setNacionalidade] = React.useState('')
     const [naturalidade,setNaturalidade] = React.useState('')
     const [genero,setGenero] = React.useState('')
     const [raca,setRaca] = React.useState('')
-    const [datanascimento,setDatanascimento] = React.useState('')
+    const [nomerepresentante,setNomerepresentante] = React.useState('')
+    const [datafundacao,setDatafundacao] = React.useState('')
     const [complemento,setComplemento] = React.useState('')
     const [rua,setRua] = React.useState('')
     const [bairro,setBairro] = React.useState('')
@@ -35,7 +36,7 @@ const DadosEmpresa:React.FC=(props)=>{
     React.useEffect(()=>{
         console.log(cookie['ionic-user'])
         const logado = cookie['ionic-user']
-        setNomecompleto(logado.nome)
+        setEmpresacontratada(logado.nome)
         setCnpj(logado.cnpj)
         setEmail(logado.email)        
         document.title='Dados Empresa'
@@ -50,7 +51,7 @@ const DadosEmpresa:React.FC=(props)=>{
                 weekdaysAbbrev: ["D","S", "T", "Q", "Q", "S", "S"]
             },
             yearRange:80,
-            onSelect:(value) => setDatanascimento(value.toISOString().split("T")[0])
+            onSelect:(value) => setDatafundacao(value.toISOString().split("T")[0])
         }
         var elemsdate = document.querySelectorAll('.datepicker');
         var instancesdate = M.Datepicker.init(elemsdate,dateOptions);
@@ -66,14 +67,10 @@ const DadosEmpresa:React.FC=(props)=>{
         console.log(logado)
         const dados={
             id:logado.id,
-            nome:nomecompleto,
+            empresa_contratada:empresacontratada,
             cnpj,
-            rg,        
-            nacionalidade,
-            naturalidade,
-            genero,
-            raca,
-            data_nascimento:datanascimento,
+            data_fundacao:datafundacao,
+            nome_representante:nomerepresentante,
             complemento,
             rua,
             bairro,
@@ -84,7 +81,6 @@ const DadosEmpresa:React.FC=(props)=>{
             regiao,
             estado_civil:estadocivil,
             email,
-            status
         }
 
     if(!ValidaCampo()){
@@ -104,34 +100,14 @@ const DadosEmpresa:React.FC=(props)=>{
     const ValidaCampo = ()=>{
         let faltaDados = false
 
-        if(rg === ''){
+        if(empresacontratada === ''){
             faltaDados = true
-            M.toast({html:'Preencha o campo RG!', classes:"modalerro rounded"})
+            M.toast({html:'Preencha o campo Empresa Contratada', classes:"modalerro rounded"})
         }
 
-        if(nacionalidade === ''){
+        if(datafundacao === ''){
             faltaDados = true
-            M.toast({html:'Preencha o campo Nacionalidade !', classes:"modalerro rounded"})
-        }
-
-        if(naturalidade === ''){
-            faltaDados = true
-            M.toast({html:'Preencha o campo Naturalidade !', classes:"modalerro rounded"})
-        }
-
-        if(genero === ''){
-            faltaDados = true
-            M.toast({html:'Preencha o campo Gênero !', classes:"modalerro rounded"})
-        }
-
-        if(raca === ''){
-            faltaDados = true
-            M.toast({html:'Preencha o campo Raça!', classes:"modalerro rounded"})
-        }
-
-        if(datanascimento === ''){
-            faltaDados = true
-            M.toast({html:'Preencha o campo Data de Nascimento!', classes:"modalerro rounded"})
+            M.toast({html:'Preencha o campo Data de Fundação!', classes:"modalerro rounded"})
         }
 
         if(rua === ''){
@@ -169,10 +145,7 @@ const DadosEmpresa:React.FC=(props)=>{
             M.toast({html:'Preencha o campo Região !', classes:"modalerro rounded"})
         }
 
-        if(estadocivil=== ''){
-            faltaDados = true
-            M.toast({html:'Preencha o campo Estado Civil !', classes:"modalerro rounded"})
-        }
+
         return faltaDados
 
     }
@@ -191,8 +164,8 @@ const DadosEmpresa:React.FC=(props)=>{
       <div className="collapsible-body">
         <div className="row">
             <div className="input-field col s6">
-                <input value={nomecompleto} placeholder="Nome Completo" id="first_name2" type="text" className="validate" onChange={ (e) => setNomecompleto(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Nome Completo</label>
+                <input value={empresacontratada} placeholder="Nome Empresa" id="first_name2" type="text" className="validate" onChange={ (e) => setEmpresacontratada(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Nome Empresa</label>
             </div>
 
             <div className="input-field col s6">
@@ -201,9 +174,10 @@ const DadosEmpresa:React.FC=(props)=>{
             </div>
 
             <div className="input-field col s6">
-                <input value={rg} placeholder="RG" id="first_name2" type="text" className="validate" onChange={ (e) => setRg(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">RG</label>
+                <input value={datafundacao} placeholder="Data de Fundação" id="first_name2" type="text" className="validate" onChange={ (e) => setDatafundacao(e.target.value) }/>
+                <label className="active" htmlFor="first_name2">Data de Fundação</label>
             </div>
+
 
             <div className="input-field col s6">
                 <input value={email} placeholder="email" id="first_name2" type="text" className="validate"onChange={ (e) => setEmail(e.target.value) }/>
@@ -215,35 +189,15 @@ const DadosEmpresa:React.FC=(props)=>{
                 <label className="active" htmlFor="first_name2">Telefone</label>
             </div>
 
-            <div className="input-field col s6">
-                <input value={estadocivil} placeholder="Estado Civil" id="first_name2" type="text" className="validate" onChange={ (e) => setEstadocivil(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Estado Civil</label>                 
-            </div>
 
             <div className="input-field col s6">
-                <input value={nacionalidade} placeholder="Nacionalidade" id="first_name2" type="text" className="validate" onChange={ (e) => setNacionalidade(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Nacionalidade</label>
+                <input value={nomerepresentante} placeholder="Nome Representante" id="first_name2" type="text" className="validate" onChange={(e) => setNomerepresentante(e.target.value)}/>
+                <label className="active" htmlFor="first_name2">Nome Representante</label>
             </div>
 
-            <div className="input-field col s6">
-                <input value={naturalidade} placeholder="Naturalidade" id="first_name2" type="text" className="validate" onChange={ (e) => setNaturalidade(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Naturalidade</label>
-            </div>
 
-            <div className="input-field col s6">
-                <input value={genero} placeholder="Gênero" id="first_name2" type="text" className="validate" onChange={ (e) => setGenero(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Gênero</label>
-            </div>
 
-            <div className="input-field col s6">
-                <input value={raca} placeholder="Raça" id="first_name2" type="text" className="validate" onChange={ (e) => setRaca(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Raça</label>
-            </div>
 
-            <div className="input-field col s6">
-                <input value={datanascimento} placeholder="Data de Nascimento" id="first_name2" type="text" className="datepicker validate" onChange={ (e) => setDatanascimento(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Data de Nascimento</label>
-            </div>
 
         </div>              
      </div>
