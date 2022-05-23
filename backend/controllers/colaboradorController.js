@@ -100,23 +100,14 @@ export const inserirDadosColabCnpj = async (req, res) => {
         const objCnpj = {
             cnpj: req.body.cnpj,
             empresa_contratada: req.body.empresa_contratada,
-            tempo_formalizacao: req.body.tempo_formalizacao,
-            natureza_juridica: req.body.natureza_juridica,
             data_fundacao: req.body.data_fundacao
         }
 
         const objColab = {
             id: req.body.id,
-            nome: req.body.nome,
-            rg:req.body.rg,
+            nome: req.body.id,
             email: req.body.email,
-            nacionalidade: req.body.nacionalidade,
-            naturalidade: req.body.naturalidade,
-            estado_civil: req.body.estado_civil,
-            genero: req.body.genero,
-            raca: req.body.raca,
             telefone: req.body.telefone,
-            data_nascimento: req.body.data_nascimento,
             status:"Ativo"
         }
 
