@@ -126,8 +126,10 @@ const PreRegistro1: React.FC = () => {
         html: "Preencha TODOS os campos !",
         classes: "modalerro rounded",
       });
+    
     } else {
       EnviaDados();
+           
     }
   };
 
@@ -175,14 +177,14 @@ const ConfigModal = () =>{
           <div className="input-field col s12">
             <input
               value={nome}
-              placeholder="Nome Completo"
+              placeholder="Nome Completo/Nome Empresa"
               id="first_name2"
               type="text"
               className="validate"
               onChange={(e) => setNome(e.target.value)}
             />
             <label className="active" htmlFor="first_name2">
-              Nome
+              Nome / Nome Empresa
             </label>
           </div>
         </div>
