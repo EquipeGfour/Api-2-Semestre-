@@ -34,7 +34,7 @@ const Login : React.FC=(props)=> {
                 setCookie('ionic-JWT', res.data.token)
             }
 
-            if (cargo === 'Administrador' && status === null|| cargo === 'Gestor' && status === "Ativo"){
+            if (cargo === 'Administrador' && status === null|| cargo === 'Administrador' && status === "Ativo" ||  cargo === 'Gestor' && status === "Ativo"){
                 navigate('home-admin')
             }else if(cpf && status === null){
                 navigate('dados-pessoais')
