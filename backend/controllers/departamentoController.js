@@ -41,8 +41,7 @@ export const getCargosDepartamentos = async (req,res) => {
                     attributes:['id','cargo','departamento_id'],
                 include:{
                     model:Colaborador,
-                    attributes:['id','nome','email','telefone'],
-                    where:{status:'Ativo'},
+                    attributes:['id','nome','email','telefone']
                 }
             }],
             attributes:['id','area'],
