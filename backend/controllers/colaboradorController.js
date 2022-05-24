@@ -408,4 +408,21 @@ export const redefinirSenha = async (req,res) => {
     }
 } 
 
-
+export const searchColaborador = async (req, res) => {
+    try{
+        const dados = await Colaborador.findAll({
+            where:{
+                status:'Ativo',
+                nome: {[Op.like]: `%${req.query.nome}%` }
+            },
+            attributes:['id','nome','status']
+            // where:{
+            //     nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.nome.toLowerCase()}%`)
+            // },
+        })
+        res.json(dados)
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+}

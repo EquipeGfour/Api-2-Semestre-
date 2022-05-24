@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import Cargos from "../models/cargo.js"
 import Colaborador from "../models/colaborador.js"
 import Departamento from "../models/departamentos.js"
@@ -65,3 +66,22 @@ export const deleteDepart = async (req,res) => {
         res.status(500).json({ message:error })
     }
 }
+
+export const searchDepartamento = async (req, res) => {
+    try{
+        const dados = await Departamento.findAll({
+            where:{
+                area: {[Op.like]: `%${req.query.area}%` }
+            },
+            attributes:['id','area']
+            // where:{
+            //     nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.nome.toLowerCase()}%`)
+            // },
+        })
+        res.json(dados)
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+}
+
