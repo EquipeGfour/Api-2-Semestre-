@@ -73,7 +73,7 @@ const PreRegistro1: React.FC = () => {
     axios
       .get(`/api/colab/head?nivel=${filtrado.nivel}&depart_id=${filtrado.departamento_id}`, { headers: CriaHeader() })
       .then((res) => {
-        console.log(res);
+        
         setGestores(res.data);
         ExeMaterializeSelect();
       });
@@ -112,10 +112,13 @@ const PreRegistro1: React.FC = () => {
         setGestor("");
         setGestores([]);
         navigate("/home-admin");
+
+            
       })
       .catch((erro) => {
+        
         M.toast({
-          html: "Não tem ERRO (lascou tudo)!",
+          html: "Email ou CPF/CNPJ Invalidos ou já cadastrados.",
           classes: "modalerro rounded",
         });
       });
