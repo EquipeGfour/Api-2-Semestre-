@@ -18,7 +18,7 @@ router.get('/desligados', verifyJWT, getDesligados)
 router.get('/head', verifyJWT, getHead)
 router.get('/searchDesligados', verifyJWT, searchDesligado)
 router.get('/historico/:id', verifyJWT, dadosHistorico)
-router.get('/recuperar/:id',GetEmail)
+router.post('/recuperar',GetEmail)
 router.post('/redefinirSenha/:id',redefinirSenha)
 router.get('/searchColaborador', verifyJWT, searchColaborador)
 export default router

@@ -18,9 +18,11 @@
 
 .input-field input[type=text] + label {
     color: #53C4CD;
-    font-size: 30px;
+    font-size: 30px !important;
     
 }
+
+
 
 .validate{
     color: #fff;
