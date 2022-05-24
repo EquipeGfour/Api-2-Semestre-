@@ -288,26 +288,25 @@ export const getDesligados = async (req,res) =>{
 
 export const getHead = async (req,res) =>{
     try{
-        var buscar = ''
-        const hieraquia = { nivel:req.query.nivel}
+        let buscar = ''
+        const hieraquia = req.query.nivel
+        let dpto_id =  req.query.depart_id 
         
-        if(hieraquia.nivel === 'diretoria'){
-            console.log('head diretoria')
+        if(hieraquia === 'diretoria'){
+            buscar = 'diretoria'
+            dpto_id = 1
+            console.log('diretoria')
+        }
+        if(hieraquia === 'gerencia'){
             buscar = 'diretoria'
         }
-        if(hieraquia.nivel === 'gerencia'){
-            console.log('head diretoria')
-            buscar = 'diretoria'
-        }
-        if(hieraquia.nivel === 'lideranca'){
-            console.log('head gerencia')
+        if(hieraquia === 'lideranca'){
             buscar = 'gerencia'
         }
-        if(hieraquia.nivel === 'colaboradores'){
-            console.log('head lideranca')
+        if(hieraquia === 'colaboradores'){
             buscar = 'lideranca'
         }
-        console.log(buscar)
+
         const dados = await Colaborador.findAll({
             // where:{
             //     nome:{ [Op.like]: `%${req.query.gestor}%` },
@@ -318,7 +317,7 @@ export const getHead = async (req,res) =>{
             include:{
                 include:{
                     model:Departamento,
-                    where:{ id:req.query.depart_id},
+                    where:{ id: dpto_id},
                     attributes:[]
                 },
                 model:Cargo,
