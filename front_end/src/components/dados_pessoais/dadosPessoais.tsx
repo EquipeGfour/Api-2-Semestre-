@@ -192,20 +192,20 @@ const DadosPessoais: React.FC = (props) => {
             M.toast({ html: 'Preencha o campo Estado Civil !', classes: "modalerro rounded" })
         }
 
-        if (linguas === '') {
-            faltaDados = true
-            M.toast({ html: 'Preencha o campo Línguas !', classes: "modalerro rounded" })
-        }
+        // if (linguas === '') {
+        //     faltaDados = true
+        //     M.toast({ html: 'Preencha o campo Línguas !', classes: "modalerro rounded" })
+        // }
 
-        if (formacao === '') {
-            faltaDados = true
-            M.toast({ html: 'Preencha o campo Formação !', classes: "modalerro rounded" })
-        }
+        // if (formacao === '') {
+        //     faltaDados = true
+        //     M.toast({ html: 'Preencha o campo Formação !', classes: "modalerro rounded" })
+        // }
 
-        if (cursos === '') {
-            faltaDados = true
-            M.toast({ html: 'Preencha o campo Curso !', classes: "modalerro rounded" })
-        }
+        // if (cursos === '') {
+        //     faltaDados = true
+        //     M.toast({ html: 'Preencha o campo Curso !', classes: "modalerro rounded" })
+        // }
 
         return faltaDados
 
@@ -382,7 +382,7 @@ const DadosPessoais: React.FC = (props) => {
                                 </div>
 
                                 <div className='nome-titulo'>
-                                    <h5>Cursos Extras Curriculares</h5>
+                                    <h5>Cursos Extra-Curriculares</h5>
                                 </div>
 
                                 <div className="row">

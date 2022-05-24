@@ -76,9 +76,12 @@ const Login : React.FC=(props)=> {
                 <input value={senha} id="password" type="password" className="validate" onChange={ (e) => setSenha(e.target.value)} onKeyDown={teclaEnter}/>
                 <label htmlFor="password">Senha</label>
                 </div>
+                <span className="esqueceu">Esqueceu sua Senha? Clique <a href="/esqueceu" target="_blank" className="checkboxTermos">AQUI</a></span>
             </div>
 
-
+            
+            
+            
             
             <a className="waves-effect waves-light btn-large btnAzulLogin1" onClick={GetLogin}>Entrar</a>
             
