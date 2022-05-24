@@ -7,12 +7,18 @@ import M from 'materialize-css/dist/js/materialize'
 
 
 const Esqueceu: React.FC = () => {
-const [email,setEmail] = useState('')
+const [email,setEmail] = React.useState('')
+console.log(email);
 
-const RecuperarSenha = ()=>{
-  axios.get(`/api/colab/recuperar/:?`).then(res => {
-    console.log(res);    
-    setEmail(res.data.email)
+const RecuperarSenha = (email)=>{
+  let url = "/api/colab/recuperar";
+  let obj = {
+    email:email, 
+  }
+  console.log(obj);
+  axios.post(url,obj).then(res => {
+  
+    setEmail('')
     
 
   }).catch(erro => {
@@ -23,7 +29,7 @@ const RecuperarSenha = ()=>{
   
     React.useEffect(() => {
         document.title = 'Esqueceu'
-        RecuperarSenha()
+       
       })
 
       return (
@@ -34,7 +40,7 @@ const RecuperarSenha = ()=>{
       <div className="row senha">
           <div className="input-field col s12">
             <input value = {email} id="email" type="text" className="validate" onChange={ (e) => setEmail(e.target.value) } />
-            <label htmlFor="password">E-mail ou Telefone</label>
+            <label htmlFor="password">E-mail</label>
           </div>
         </div>
 
@@ -42,7 +48,7 @@ const RecuperarSenha = ()=>{
 
 
         <Link to={'/'}>
-        <a className="waves-effect waves-light btn-large btnAzulLogin" onClick={()=>RecuperarSenha}>Enviar</a>
+        <a className="waves-effect waves-light btn-large btnAzulLogin" onClick={(e)=>RecuperarSenha(email)}>Enviar</a>
         </Link>
 
       </div>
