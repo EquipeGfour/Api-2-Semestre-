@@ -11,6 +11,7 @@ import { CriaHeader } from "../../functions";
 const NovoCargo: React.FC=()=>{
     const navigate=useNavigate()
     const [cargo,setCargo]= useState('')
+    const [nivel,setNivel]= useState('')
 
 
     const{id}=useParams()
@@ -18,15 +19,35 @@ const NovoCargo: React.FC=()=>{
         if(cargo === ""){
             M.toast({html:"Insira o nome do Cargo !", classes: "modalerro rounded"})
             return
-        }        
-        
-        axios.post(`/api/cargo/insertCargo/${id}`,{cargo}, {headers:CriaHeader()}).then(res=>{
+        }     
+        axios.post(`/api/cargo/insertCargo/${id}`,{cargo,nivel}, {headers:CriaHeader()}).then(res=>{
             M.toast({html:'Departamento criado com sucesso!', classes:"modal1 rounded"})
             navigate(`/detalhe-departamento/${id}`)
         }).catch(erro=>{
             M.toast({html:"Insira o nome do Cargo !", classes: "modalerro rounded"})
             console.error('Erro', erro.response)
         })      
+    }
+
+
+    const FiltraNivel = (id)=>{
+        console.log(id);
+        if(id === '1'){
+            console.log('Ta selecionando diretoria', id)
+            setNivel('diretoria');
+
+        }if(id === '2'){
+            console.log('Ta selecionando g', id)
+            setNivel('gerencia');
+
+        }if(id === '3'){
+            console.log('Ta selecionando l', id)
+            setNivel('lideranca');
+
+        }if(id === '4'){
+            console.log('Ta selecionando c', id)
+            setNivel('colaboradores'); 
+        } 
     }
 
 
@@ -50,7 +71,7 @@ const NovoCargo: React.FC=()=>{
 
             <div className="row">
                 <div className="input-field col s12 seletor ">
-                    <select>
+                    <select onChange={e=>FiltraNivel(e.target.value)}>
                         <option value="0" disabled selected>Nível do Cargo</option>
                         <option value="1">Diretoria</option>
                         <option value="2">Gerencia</option>
