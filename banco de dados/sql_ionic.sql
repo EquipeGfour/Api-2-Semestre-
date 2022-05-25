@@ -94,6 +94,10 @@ CREATE TABLE dados_academicos (
     cursos varchar(70) ,
     termo_pi varchar(200) ,
     linguas varchar(30) ,
+    instituicao varchar(100) ,
+    carga_horaria int,
+    ano_conclusao int,
+    status_curso varchar(20) ,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT dados_academicos_pk PRIMARY KEY (id)
