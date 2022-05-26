@@ -67,12 +67,12 @@ export const inserirDadosColab = async (req, res) => {
             data_nascimento: req.body.data_nascimento,
             status:"Ativo"
         }
-        const objDadosAcademicos = {
-            formacao: req.body.formacao,
-            cursos: req.body.cursos,
-            linguas: req.body.linguas,
-            colaborador_id: req.body.id
-        }
+        const objDadosAcademicos = req.body.dados_academicos
+
+        const objDadosAcadWithColabId = objDadosAcademicos.map((c)=>({
+            ...c,colaborador_id:req.body.id
+        }))
+
         const objEndereco = {
             rua: req.body.rua,
             estado: req.body.estado,
@@ -83,7 +83,7 @@ export const inserirDadosColab = async (req, res) => {
             complemento: req.body.complemento,
             colaborador_id: req.body.id
         }
-        const dados = await atualizarColaborador(colabId, objColab, objDadosAcademicos, objEndereco, t)
+        const dados = await atualizarColaborador(colabId, objColab, objDadosAcadWithColabId, objEndereco, t)
         res.json(dados)
     } catch (error) {
         await t.rollback()

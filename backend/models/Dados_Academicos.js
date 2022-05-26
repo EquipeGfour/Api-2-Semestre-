@@ -13,7 +13,7 @@ const DadosAcademicos = db.define('dados_academicos',{
         type:Sequelize.INTEGER,
         allowNull:true
     },
-    cursos:{
+    extra_curricular:{
         type:Sequelize.STRING,
         allowNull:true
     },
@@ -21,7 +21,23 @@ const DadosAcademicos = db.define('dados_academicos',{
         type:Sequelize.STRING,
         allowNull:true
     },
-    linguas:{
+    idioma:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
+    instituicao:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
+    carga_horaria:{
+        type:Sequelize.NUMBER,
+        allowNull:true
+    },
+    ano_conclusao:{
+        type:Sequelize.NUMBER,
+        allowNull:true
+    },
+    status_curso:{
         type:Sequelize.STRING,
         allowNull:true
     },

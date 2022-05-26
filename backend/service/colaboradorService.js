@@ -8,7 +8,6 @@ import PessoaJuridica from "../models/pessoa_juridica.js";
 
 
 export const atualizarColaborador = async(colabId, colabDados, objDadosAcademicos, objEndereco, t)=>{
-
     //atualizar dados do colaborador
     const dadosColab = await Colaborador.update(colabDados,{
         where:{
@@ -18,23 +17,26 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
     })
 
     //atualizar ou criar dados Academicos
-    const dadosAcademicos = await DadosAcademicos.findOne({
-        where:{
-            colaborador_id:colabId
-        }
-    }).then(id=>{
-        if(id){
-            return DadosAcademicos.update( objDadosAcademicos ,{
-                where:{
-                    colaborador_id:colabId
-                },
-                transaction:t
-            })
-        }
-    else{
-        return DadosAcademicos.create( objDadosAcademicos,{transaction:t} )
-    }
-    })
+    // const dadosAcademicos = await DadosAcademicos.findOne({
+    //     where:{
+    //         colaborador_id:colabId
+    //     }
+    // }).then(id=>{
+    //     if(id){
+    //         return DadosAcademicos.update( objDadosAcademicos ,{
+    //             where:{
+    //                 colaborador_id:colabId
+    //             },
+    //             transaction:t
+    //         })
+    //     }
+        
+    // else{
+    //     return DadosAcademicos.bulkCreate( objDadosAcademicos,{transaction:t} )
+    // }
+    // })
+
+    const dadosAcademicos = await DadosAcademicos.bulkCreate( objDadosAcademicos, {transaction:t})
 
     //atualizar ou criar dados Endereço
     const dadosEndereco = await Endereco.findOne({
