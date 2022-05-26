@@ -414,8 +414,8 @@ const DadosPessoais: React.FC = (props) => {
                                 <div className="row">
                                     <div className="col s3">
                                         <div className="input-field">
-                                            <input value={formacao} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={(e) => setFormacao(e.target.value)} />
-                                            <label className="active" htmlFor="first_name2">Curso</label>
+                                            <input value={formacao} placeholder="Formação" id="first_name2" type="text" className="validate" onChange={(e) => setFormacao(e.target.value)} />
+                                            <label className="active" htmlFor="first_name2">Formação</label>
                                         </div>
                                     </div>
 
