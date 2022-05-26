@@ -11,6 +11,7 @@ import fileDownload from "js-file-download";
 
 const DocColab:React.FC=()=>{
     const { id } = useParams();
+    const [cookie,setCookie] = useCookies(['ionic-user', 'ionic-JWT'])
     const [nome, setNome]=useState('');
     const [cargo, setCargo]=useState('');
     const [departamento, setDepartamento]=useState('');
@@ -40,10 +41,11 @@ const DocColab:React.FC=()=>{
 
 /*Gerar PDF do Contrato*/
 const gerarpdf = () => {
+  const logado = cookie['ionic-user']
     setStatus('Gerando PDF...')
     const getUrl = window.location;     
     const baseUrl = getUrl.host.includes("3000")? "localhost:5000" : getUrl.host;
-    const url = getUrl.protocol + "//" + baseUrl + "/api/pdf/gerarpdf?id=" + id;
+    const url = getUrl.protocol + "//" + baseUrl + "/api/pdf/gerarpdf?id=" + logado.id;
     fetch (url, { method: 'GET',headers: CriaHeader()})
     .then(res => res.blob())
     .then(blob => {
@@ -56,7 +58,8 @@ const gerarpdf = () => {
 
   /*Listar Downloads*/
   const ListDownload = (id:string) => {
-    axios.get(`/api/upload/listarArquivos/${id}`,{headers: CriaHeader()}).then(res=>{
+    const logado = cookie['ionic-user']
+    axios.get(`/api/upload/listarArquivos/${logado.id}`,{headers: CriaHeader()}).then(res=>{
       console.log(res)
       setArquivos(res.data.arquivos) 
     }).catch(err=>{
@@ -77,7 +80,8 @@ const gerarpdf = () => {
 }
 
 const getColabById = (id: string) => {
-    axios.get(`/api/colab/funcionario/${id}`, { headers: CriaHeader() }).then(res => {
+  const logado = cookie['ionic-user']
+    axios.get(`/api/colab/funcionario/${logado.id}`, { headers: CriaHeader() }).then(res => {
       console.log(res);
       setNome(res.data.nome);
       setCargo(res.data.cargo?.cargo);
