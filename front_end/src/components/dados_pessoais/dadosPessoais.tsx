@@ -149,6 +149,11 @@ const DadosPessoais: React.FC = (props) => {
         console.log(cookie)
         const logado = cookie['ionic-user']
         console.log(logado)
+        // formacao:'', extra_curricular: '', idioma: '', instituicao:'', carga_horaria:'', ano_conclusao:'', status_curso:''
+        const dadosFormacao = formacoes.map((f)=>({formacao: f.formacao,  instituicao: f.instituicao, ano_conclusao: f.ano, status_curso: f.status}))
+        const dadosCursos = cursoex.map((c)=>({extra_curricular: c.extracurso,  instituicao: c.extrainstituicao, ano_conclusao: c.extraano, carga_horaria: c.extracarga}))
+        const dadosIdioma = blocoidioma.map((i)=>({idioma: i.extraidioma,  status_curso: i.statusidioma}))
+        
         const dados = {
             id: logado.id,
             nome: nomecompleto,
@@ -169,10 +174,7 @@ const DadosPessoais: React.FC = (props) => {
             regiao,
             estado_civil: estadocivil,
             email,
-            linguas,
-            formacao,            
-            status,
-            instituicao
+            dados_academicos:[].concat(dadosFormacao).concat(dadosCursos).concat(dadosIdioma)
         }
 
         if (!ValidaCampo()) {

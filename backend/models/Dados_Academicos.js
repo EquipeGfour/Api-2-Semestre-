@@ -30,7 +30,7 @@ const DadosAcademicos = db.define('dados_academicos',{
         allowNull:true
     },
     carga_horaria:{
-        type:Sequelize.NUMBER,
+        type:Sequelize.STRING,
         allowNull:true
     },
     ano_conclusao:{
