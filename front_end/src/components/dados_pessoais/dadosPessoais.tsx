@@ -30,16 +30,88 @@ const DadosPessoais: React.FC = (props) => {
     const [estadocivil, setEstadocivil] = React.useState('')
     const [email, setEmail] = React.useState('')
     const [linguas, setLinguas] = React.useState('')
-    const [formacao, setFormacao] = React.useState('')
-    const [cursos, setCursos] = React.useState('')
+    // --- Bloco Formação Acadêmica --- //
+    const [formacoes,setFormacoes] = React.useState([])
+    const [formacao, setFormacao] = React.useState('')    
     const [status, setStatus] = React.useState('')
     const [instituicao, setInstituicao] = React.useState('')
     const [ano, setAno] = React.useState('')
+     // --- Bloco Formação Cursos Extra-Curriculares --- //
+    const [cursoex,setCursoex] = React.useState([])
     const [extracurso, setExtracurso] = React.useState('')
     const [extrainstituicao, setExtrainstituicao] = React.useState('')
-    const [extraano, setextraano] = React.useState('')
+    const [extraano, setExtraano] = React.useState('')
     const [extracarga, setExtracarga] = React.useState('')
+     // --- Bloco Idiomas --- //
+    const [blocoidioma,setBlocoidioma] = React.useState([])
     const [extraidioma, setExtraidioma] = React.useState('')
+    const [statusidioma, setStatusidioma] = React.useState('')
+    
+
+
+// --- Funções de Formação Academica --- //
+    const addFormacao = () =>{        
+        if(formacao == '' || status == '' || instituicao == '' || ano == ''){
+            M.toast({ html: 'Preencha TODOS os campos! ', classes: "modalerro rounded" })
+            return
+        }
+        const obj = {
+            formacao,
+            status,
+            instituicao,
+            ano
+        }
+        setFormacoes(formacoes.concat(obj))
+        setFormacao('')
+        setStatus('1')
+        setInstituicao('')
+        setAno('')
+    }
+    const delFormacao = (indice:number) =>{
+        setFormacoes(f => f.filter((form,i)=>i !== indice))
+    }
+
+// --- Bloco Cursos --- //
+    const addCurso = () =>{
+        if(extracurso == '' || extrainstituicao == '' || extraano == '' || extracarga == ''){
+            M.toast({ html: 'Preencha TODOS os campos! ', classes: "modalerro rounded" })
+            return  
+        }
+        const obj = {
+            extracurso,
+            extrainstituicao,
+            extraano,
+            extracarga
+        }
+        setCursoex(cursoex.concat(obj))
+        setExtracurso('')
+        setExtrainstituicao('')
+        setExtraano('')
+        setExtracarga('')
+    }
+    const delCurso = (indice:number) =>{
+        setCursoex(c => c.filter((form,i)=>i !== indice))
+    }
+
+// --- Bloco Idioma --- //
+    const addIdioma = () =>{
+        if(extraidioma == '' || statusidioma == '' ){
+            M.toast({ html: 'Preencha TODOS os campos! ', classes: "modalerro rounded" })
+            return  
+        }
+        const obj = {
+            extraidioma,
+            statusidioma            
+        }
+        setBlocoidioma(blocoidioma.concat(obj))
+        setStatusidioma('1')
+        setExtraidioma('')        
+    }
+    const delIdioma  = (indice:number) =>{
+        setBlocoidioma(b => b.filter((form,b)=>b !== indice))
+    }
+
+
 
     React.useEffect(() => {
         console.log(cookie['ionic-user'])
@@ -69,6 +141,7 @@ const DadosPessoais: React.FC = (props) => {
 
         var elems1 = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems1, Option);
+       
 
     }, [])
 
@@ -97,26 +170,19 @@ const DadosPessoais: React.FC = (props) => {
             estado_civil: estadocivil,
             email,
             linguas,
-            formacao,
-            cursos,
+            formacao,            
             status,
             instituicao
         }
 
         if (!ValidaCampo()) {
-
             axios.post('/api/colab/novo', dados, { headers: CriaHeader() }).then(res => {
-
                 M.toast({ html: 'Cadastro Realizado com Sucesso !', classes: "modal1 rounded" })
                 navigate('/upload')
-
             }).catch(erro => {
                 console.error('Erro', erro.response)
-
             })
-
         }
-
     }
 
     const ValidaCampo = () => {
@@ -208,7 +274,6 @@ const DadosPessoais: React.FC = (props) => {
         // }
 
         return faltaDados
-
     }
 
     return (
@@ -278,7 +343,6 @@ const DadosPessoais: React.FC = (props) => {
                                     <input value={datanascimento} placeholder="Data de Nascimento" id="first_name2" type="text" className="datepicker validate" onChange={(e) => setDatanascimento(e.target.value)} />
                                     <label className="active" htmlFor="first_name2">Data de Nascimento</label>
                                 </div>
-
                             </div>
                         </div>
 
@@ -288,7 +352,6 @@ const DadosPessoais: React.FC = (props) => {
                         <div className="collapsible-body">
                             <span>
                                 <div className="row">
-
 
                                     <div className="input-field col s6">
                                         <input value={rua} placeholder="Rua/Número" id="first_name2" type="text" className="validate" onChange={(e) => setRua(e.target.value)} />
@@ -337,106 +400,130 @@ const DadosPessoais: React.FC = (props) => {
                             <div className='nomeIdioma'>
                                         <h5>Formação Acadêmica</h5>
                             </div>
-
+                            
+                                {formacoes.map((f,i)=>(
+                                    <div className="row">
+                                        <div className="col s3">{f.formacao}</div>
+                                        <div className="col s3">{f.instituicao}</div>
+                                        <div className="col s2">{f.status === 'cursando'?'Cursando':'Concluido'}</div>
+                                        <div className="col s2">{f.ano}</div>
+                                        <div className="col s2" ><i className="material-icons pointer col" title='Nova Formação' onClick={()=> delFormacao(i)}>clear</i></div>
+                                    </div>    
+                                ))}
+                           
                                 <div className="row">
                                     <div className="col s3">
                                         <div className="input-field">
-                                            <input value={cursos} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={(e) => setLinguas(e.target.value)} />
+                                            <input value={formacao} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={(e) => setFormacao(e.target.value)} />
                                             <label className="active" htmlFor="first_name2">Curso</label>
                                         </div>
                                     </div>
 
                                     <div className="col s3">
                                         <div className="input-field">
-                                            <input value={instituicao} placeholder="Instituição" id="first_name2" type="text" className="validate" onChange={(e) => setCursos(e.target.value)} />
+                                            <input value={instituicao} placeholder="Instituição" id="first_name2" type="text" className="validate" onChange={(e) => setInstituicao(e.target.value)} />
                                             <label className="active" htmlFor="first_name2">Instituição</label>
                                         </div>
                                     </div>
 
-
                                     <div className="col s3">
                                         <div className="input-field col s12 input-select">
-                                            <select className='select'>
+                                            <select value={status} className='select' onChange={(e) => setStatus(e.target.value)}>
                                                 <option value="1">Status</option>
-                                                <option value="2">Cursando</option>
-                                                <option value="3">Concluído</option>
-
+                                                <option value="cursando">Cursando</option>
+                                                <option value="concluido">Concluído</option>
                                             </select>
                                             <label>Status</label>
                                         </div>
                                     </div>
 
-
                                     <div className="col s2">
                                         <div className="input-field">
-                                            <input value={ano} placeholder="Ano" id="first_name2" type="text" className="validate" onChange={(e) => setCursos(e.target.value)} />
+                                            <input value={ano} placeholder="Ano" id="first_name2" type="text" className="validate" onChange={(e) => setAno(e.target.value)} />
                                             <label className="active" htmlFor="first_name2">Ano</label>
                                         </div>
                                     </div>
 
                                     <div className="col s1">
-                                        <i className="small material-icons mais pointer" title='Nova Formação'>add</i>
+                                        <i className="small material-icons mais pointer" title='Nova Formação' onClick={addFormacao}>add</i>
                                     </div>
-
-
                                 </div>
 
                                 <div className='nome-titulo'>
                                     <h5>Cursos Extra-Curriculares</h5>
                                 </div>
 
+                                {cursoex.map((c,i)=>(
+                                    <div className="row">
+                                        <div className="col s3">{c.extracurso}</div>
+                                        <div className="col s3">{c.extrainstituicao}</div>
+                                        <div className="col s2">{c.extraano}</div>
+                                        <div className="col s2">{c.extracarga}</div>
+                                        <div className="col s2" ><i className="material-icons pointer col" title='Nova Formação' onClick={()=> delCurso(i)}>clear</i></div>
+                                    </div>    
+                                ))}
+
                                 <div className="row">
                                     <div className="col s3">
                                         <div className="input-field">
-                                            <input value={extracurso} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={(e) => setLinguas(e.target.value)} />
+                                            <input value={extracurso} placeholder="Curso" id="first_name2" type="text" className="validate" onChange={(e) => setExtracurso(e.target.value)} />
                                             <label className="active" htmlFor="first_name2">Curso</label>
                                         </div>
                                     </div>
 
                                     <div className="col s3">
                                         <div className="input-field">
-                                            <input value={extrainstituicao} placeholder="Instituição" id="first_name2" type="text" className="validate" onChange={(e) => setCursos(e.target.value)} />
+                                            <input value={extrainstituicao} placeholder="Instituição" id="first_name2" type="text" className="validate" onChange={(e) => setExtrainstituicao(e.target.value)} />
                                             <label className="active" htmlFor="first_name2">Instituição</label>
                                         </div>
                                     </div>
 
                                     <div className="col s3">
                                         <div className="input-field">
-                                            <input value={extraano} placeholder="Ano" id="first_name2" type="text" className="validate" onChange={(e) => setCursos(e.target.value)} />
+                                            <input value={extraano} placeholder="Ano" id="first_name2" type="text" className="validate" onChange={(e) => setExtraano(e.target.value)} />
                                             <label className="active" htmlFor="first_name2">Ano</label>
                                         </div>
                                     </div>
 
                                     <div className="col s2">
                                         <div className="input-field">
-                                            <input value={extracarga} placeholder="Carga Horária" id="first_name2" type="text" className="validate" onChange={(e) => setCursos(e.target.value)} />
+                                            <input value={extracarga} placeholder="Carga Horária" id="first_name2" type="text" className="validate" onChange={(e) => setExtracarga(e.target.value)} />
                                             <label className="active" htmlFor="first_name2">Carga Horária</label>
                                         </div>
                                     </div>
 
                                     <div className="col s1">
-                                        <i className="small material-icons mais pointer" title='Novo Curso'>add</i>
+                                        <i className="small material-icons mais pointer" title='Novo Curso' onClick={addCurso}>add</i>
                                     </div>
                                 </div>
 
                                     <div className='nomeIdioma'>
                                         <h5>Idiomas</h5>
                                     </div>
+
+                                    {blocoidioma.map((b,i)=>(
+                                    <div className="row">
+                                        <div className="col s3">{b.extraidioma}</div>                                        
+                                        <div className="col s2">{b.statusidioma}</div>
+                                        <div className="col s2" ><i className="material-icons pointer col" title='Nova Formação' onClick={()=> delIdioma(i)}>clear</i></div>
+                                    </div>    
+                                ))}
                                 <div className='row'>
                                     <div className="col s3">
                                         <div className="input-field">
-                                            <input value={extraidioma} placeholder="Ano" id="first_name2" type="text" className="validate" onChange={(e) => setCursos(e.target.value)} />
+                                            <input value={extraidioma} placeholder="Idioma" id="first_name2" type="text" className="validate" onChange={(e) => setExtraidioma(e.target.value)} />
                                             <label className="active" htmlFor="first_name2">Idiomas</label>
                                         </div>
                                     </div>
 
                                     <div className="col s3">
                                         <div className="input-field col s12 input-select">
-                                            <select className='select'>
+                                            <select value={statusidioma} className='select' onChange={(e) => setStatusidioma(e.target.value)}>
                                                 <option value="1">Status</option>
-                                                <option value="2">Iniciante</option>
-                                                <option value="3">Intermediario</option>
-                                                <option value="4">Avançado</option>
+                                                <option value="basico">Iniciante</option>
+                                                <option value="intermediario">Intermediario</option>
+                                                <option value="avancado">Avançado</option>
+                                                <option value="fluente">Fluente</option>
 
                                             </select>
                                             <label>Status</label>
@@ -444,7 +531,7 @@ const DadosPessoais: React.FC = (props) => {
                                     </div>
 
                                     <div className="col s6">
-                                        <i className="small material-icons mais pointer" title='Novo Idioma'>add</i>
+                                        <i className="small material-icons mais pointer" title='Novo Idioma' onClick={addIdioma}>add</i>
                                     </div>
 
 
