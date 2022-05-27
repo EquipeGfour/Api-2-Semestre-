@@ -6,6 +6,7 @@ CREATE DATABASE ionic;
 use ionic;
 
 -- tables
+
 -- Table: arquivos
 CREATE TABLE arquivos (
     id int NOT NULL AUTO_INCREMENT,
@@ -14,6 +15,7 @@ CREATE TABLE arquivos (
     url_arquivo varchar(500) not null,
     tipo varchar(50),
     colaborador_id int not null,
+    cursos_id int not null,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT arquivos_pk PRIMARY KEY (id)
@@ -86,6 +88,19 @@ CREATE TABLE contratos (
     CONSTRAINT Contrato_pk PRIMARY KEY (id)
 );
 
+-- Table: cursos
+CREATE TABLE cursos (
+    id int NOT NULL AUTO_INCREMENT,
+    trilha_aprendizados_id int ,
+    nome_curso varchar(100) ,
+    descricao varchar(400) ,
+    nivel_curso varchar (35) ,
+    carga_horaria_curso varchar (10) ,
+    createdAt date NOT NULL default (current_date()),
+    updatedAt date ,
+    CONSTRAINT cursos_pk PRIMARY KEY (id)
+);
+
 -- Table: dados_academicos
 CREATE TABLE dados_academicos (
     id int NOT NULL AUTO_INCREMENT,
@@ -130,16 +145,6 @@ CREATE TABLE enderecos (
     CONSTRAINT enderecos_pk PRIMARY KEY (id)
 );
 
--- Table: grade_cursos
-CREATE TABLE grade_cursos (
-    id int NOT NULL AUTO_INCREMENT,
-    trilha_aprendizados_id int ,
-    nome_curso varchar(100) ,
-    createdAt date NOT NULL default (current_date()),
-    updatedAt date ,
-    CONSTRAINT grade_cursos_pk PRIMARY KEY (id)
-);
-
 -- Table: pessoa_fisicas
 CREATE TABLE pessoa_fisicas (
     colaborador_id int NOT NULL,
@@ -180,6 +185,10 @@ CREATE TABLE trilha_aprendizados (
 ALTER TABLE arquivos ADD CONSTRAINT arquivo_colaborador FOREIGN KEY arquivo_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
 
+-- Reference: arquivos_cursos (table: cursos)
+ALTER TABLE arquivos ADD CONSTRAINT arquivo_cursos FOREIGN KEY arquivo_cursos (cursos_id)
+    REFERENCES cursos (id);
+
 -- Reference: acesso_cargo (table: acessos)
 ALTER TABLE acessos ADD CONSTRAINT acesso_cargo FOREIGN KEY acesso_cargo (cargos_id)
     REFERENCES cargos (id);
@@ -191,7 +200,8 @@ ALTER TABLE colaboradors ADD CONSTRAINT colaboradors_Cargo FOREIGN KEY colaborad
 -- Reference: Colaborador_Colaborador (table: colaboradors)
 ALTER TABLE colaboradors ADD CONSTRAINT colaboradors_colaborador FOREIGN KEY colaboradors_colaborador (gestor_id)
     REFERENCES colaboradors (id);
-    
+
+-- Reference: departamento_cargo (table: cargos)
 ALTER TABLE cargos ADD CONSTRAINT departamento_cargo FOREIGN KEY departamento_cargo (departamento_id)
     REFERENCES departamentos (id) ON DELETE SET NULL;
 
@@ -207,8 +217,8 @@ ALTER TABLE dados_academicos ADD CONSTRAINT dados_academicos_colaborador FOREIGN
 ALTER TABLE enderecos ADD CONSTRAINT endereco_colaborador FOREIGN KEY endereco_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
 
--- Reference: Grade_Curso_Trilha_Aprendizado (table: grade_cursos)
-ALTER TABLE grade_cursos ADD CONSTRAINT grade_curso_trilha_aprendizado FOREIGN KEY grade_curso_trilha_aprendizado (trilha_aprendizados_id)
+-- Reference: Cursos_Trilha_Aprendizado (table: cursos)
+ALTER TABLE cursos ADD CONSTRAINT curso_trilha_aprendizado FOREIGN KEY curso_trilha_aprendizado (trilha_aprendizados_id)
     REFERENCES trilha_aprendizados (id);
 
 -- Reference: Pessoa_Fisica_Colaborador (table: pessoa_fisicas)
@@ -220,7 +230,7 @@ ALTER TABLE pessoa_juridicas ADD CONSTRAINT pessoa_juridica_colaborador FOREIGN 
     REFERENCES colaboradors (id);
 
 -- Reference: Trilha_Aprendizado_Pessoa_Fisica (table: trilha_aprendizados)
-ALTER TABLE trilha_aprendizados ADD CONSTRAINT trilha_aprendizado_pessoa_fisica FOREIGN KEY trilha_aprendizado_pessoa_isica (id)
+ALTER TABLE trilha_aprendizados ADD CONSTRAINT trilha_aprendizado_pessoa_fisica FOREIGN KEY trilha_aprendizado_pessoa_isica (pessoa_fisicas_colaborador_id)
     REFERENCES pessoa_fisicas (colaborador_id);
 
 use ionic;
