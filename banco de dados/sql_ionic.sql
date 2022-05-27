@@ -15,10 +15,20 @@ CREATE TABLE arquivos (
     url_arquivo varchar(500) not null,
     tipo varchar(50),
     colaborador_id int not null,
-    cursos_id int not null,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT arquivos_pk PRIMARY KEY (id)
+);
+
+-- Table: aulas
+CREATE TABLE aulas (
+	id int not null auto_increment,
+    arquivo_id int,
+    curso_id int,
+    titulo_video int,
+    descricao_aula varchar(300),
+    tempo_video int,
+	CONSTRAINT aulas_pk PRIMARY KEY (id)
 );
 
 -- Table: acessos
@@ -91,7 +101,6 @@ CREATE TABLE contratos (
 -- Table: cursos
 CREATE TABLE cursos (
     id int NOT NULL AUTO_INCREMENT,
-    trilha_aprendizados_id int ,
     nome_curso varchar(100) ,
     descricao varchar(400) ,
     nivel_curso varchar (35) ,
@@ -179,14 +188,26 @@ CREATE TABLE trilha_aprendizados (
     CONSTRAINT trilha_aprendizados_pk PRIMARY KEY (id)
 );
 
+create table cursos_trilhas(
+	curso_id int,
+    trilha_id int,
+    foreign key (curso_id) references cursos(id),
+    foreign key (trilha_id) references trilha_aprendizados(id),
+    unique(curso_id, trilha_id)
+);
+
 -- foreign keys
 
 -- Reference: arquivos_Colaborador (table: colaboradors)
 ALTER TABLE arquivos ADD CONSTRAINT arquivo_colaborador FOREIGN KEY arquivo_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
 
--- Reference: arquivos_cursos (table: cursos)
-ALTER TABLE arquivos ADD CONSTRAINT arquivo_cursos FOREIGN KEY arquivo_cursos (cursos_id)
+-- Reference: aulas_arquivos (table: aulas)
+ALTER TABLE aulas ADD CONSTRAINT aulas_arquivos FOREIGN KEY aulas_arquivos (arquivo_id)
+    REFERENCES arquivos (id);
+    
+-- Reference: aulas_cursos (table: aulas)
+ALTER TABLE aulas ADD CONSTRAINT aulas_cursos FOREIGN KEY aulas_cursos (curso_id)
     REFERENCES cursos (id);
 
 -- Reference: acesso_cargo (table: acessos)
@@ -217,10 +238,6 @@ ALTER TABLE dados_academicos ADD CONSTRAINT dados_academicos_colaborador FOREIGN
 ALTER TABLE enderecos ADD CONSTRAINT endereco_colaborador FOREIGN KEY endereco_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
 
--- Reference: Cursos_Trilha_Aprendizado (table: cursos)
-ALTER TABLE cursos ADD CONSTRAINT curso_trilha_aprendizado FOREIGN KEY curso_trilha_aprendizado (trilha_aprendizados_id)
-    REFERENCES trilha_aprendizados (id);
-
 -- Reference: Pessoa_Fisica_Colaborador (table: pessoa_fisicas)
 ALTER TABLE pessoa_fisicas ADD CONSTRAINT pessoa_fisica_colaborador FOREIGN KEY pessoa_fisica_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
@@ -228,10 +245,6 @@ ALTER TABLE pessoa_fisicas ADD CONSTRAINT pessoa_fisica_colaborador FOREIGN KEY 
 -- Reference: Pessoa_Juridica_Colaborador (table: Pessoa_Juridicas)
 ALTER TABLE pessoa_juridicas ADD CONSTRAINT pessoa_juridica_colaborador FOREIGN KEY pessoa_juridica_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
-
--- Reference: Trilha_Aprendizado_Pessoa_Fisica (table: trilha_aprendizados)
-ALTER TABLE trilha_aprendizados ADD CONSTRAINT trilha_aprendizado_pessoa_fisica FOREIGN KEY trilha_aprendizado_pessoa_isica (pessoa_fisicas_colaborador_id)
-    REFERENCES pessoa_fisicas (colaborador_id);
 
 use ionic;
 insert into departamentos(id, area, createdAt) values (1, "Administracão", "2022-04-13");

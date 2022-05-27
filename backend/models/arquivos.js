@@ -22,7 +22,7 @@ const Arquivos = db.define('arquivos',{
     },
     colaborador_id:{
         type:Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }
 })
 
