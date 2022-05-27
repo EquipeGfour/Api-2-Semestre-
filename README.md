@@ -1,52 +1,43 @@
-<br>
-
-<p align="center">
-      
 <p align="center">
 <h1 align="center"> FATEC Profº Jessen Vidal, SJC - 2º Semestre DSM </h1>
-<hr>
+
+<h2> :briefcase: Objetivo</h2>
+O nosso objetivo é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvolver uma plataforma para controle de todos os talentos da empresa (pessoas). Após a aprovação no processo seletivo se faz necessário o cadastro do colaborador (CLT ou PJ) em um sistema que traga informações sobre sua contratação, controle de documentação, dados, entre outros dados. Temos que levar em consideração da LGPD para que o acesso seja restrito.
 <br>
 
-<h2> :briefcase:Projeto</h2>
-O desafio é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvolver uma plataforma para controle de todos os talentos da empresa (pessoas). Após a aprovação no processo seletivo se faz necessário o cadastro do colaborador (CLT ou PJ) em um sistema que traga informações sobre sua contratação, controle de documentação, dados, entre outros dados. Temos que levar em consideração da LGPD para que o acesso seja restrito.
+ 
+<h2> 📑 Backlog do produto</h2>
+
+<h4> 🛠️ Requisitos Funcionais</h4>
+
+RF ID# | Sprint | Requisitos | Prioridade| Status|
+:--------- | :------: | :-------: | :-------: | :------: |
+1 |1|Cadastros de colaboradores e administradores|ALTA|COMPLETO
+2 |2|Perfis diferentes para os usuarios|ALTA|COMPLETO
+3 |2|Charts com os organogramas em  diversos níveis e com inclusões, exclusões e adaptações|ALTA|COMPLETO
+4 |2|Dossiê gerado em PDF por colaborador para consulta do administrador e gestor|ALTA|COMPLETO
+5 |3|Cadastros de Trilha de Aprendizado e Status de Realização|ALTA|ANDAMENTO
+6 |3|Ajustes e validações|ALTA|ANDAMENTO
+7 |3|Desligamentos de colaboradores|MÉDIA|ANDAMENTO
+8 |3|Recuperar e redefinir senha|MÉDIA|ANDAMENTO
 <br>
+<h4> 🛠️ Requisitos não Funcionais</h4>
 
-
-<h2>:pushpin: Objetivos</h2>
-
-Nosso objetivo é desenvolver uma página website para uma:
-
-🛠️ **Requisitos Funcionais**
-
-:heavy_check_mark: Cadastros de Colaboradores.<br>
-:heavy_check_mark:Repositório para documentos dos colaboradores.<br>
-:heavy_check_mark:Cadastros de Trilha de Aprendizado e Status de Realização.<br>
-:heavy_check_mark:Usuários devem ter perfis diferentes (administrador, gestor, consultor, colaborador).<br>
-:heavy_check_mark:Charts com os organogramas em diversos níveis e de fácil manutenção (inclusões, exclusões e adaptações).<br>
-:heavy_check_mark:Repositório de documentos da empresa (políticas, normas, regras, etc).<br>
-:heavy_check_mark:Trabalhar com: admissão, cargos e salários, folha de pagamento, folha de ponto, trilha de aprendizado, análise e relatórios.<br>
-:heavy_check_mark:Dossiê gerado em PDF por colaborador para consulta do administrador e gestor.
-
-
- 🛠️ **Requisitos Não Funcionais**
- 
-:heavy_check_mark:Linguagens NodeJS, TypeScript, Javascript (EXIGIDO Fatec).<br>
-:heavy_check_mark:Banco de Dados Relacional (EXIGIDO Fatec).•Documentação de testes funcionais.<br>
-:heavy_check_mark:Desenho da arquitetura da solução.<br>
-:heavy_check_mark:Manual do usuário para navegação.<br>
-:heavy_check_mark:Documentação de utilização.
-<br><br>
-
-### Backlog Do Produto
-
-![back log produto](https://user-images.githubusercontent.com/8519765/167936040-d669802b-116a-439d-a175-34e31dc46321.jpeg)
- 
-
+RF ID# | Sprint | Requisitos | Prioridade| Status|
+:--------- | :------: | :-------: | :-------: | :------: |
+9 |1|Conexão com Banco de dados|ALTA|COMPLETO
+10 |1|NodeJs, Java Script, Type Script e React|ALTA|COMPLETO
+11 |2|Repositório para documentos dos colaboradores|ALTA|COMPLETO
+12 |2|Manual do usuário para navegação.|MÉDIA|COMPLETO
+13 |3|Desenho da arquitetura da solução|MÉDIA|ANDAMENTO
+14 |3|Documentação de testes e funcionais|MÉDIA|ANDAMENTO
+15 |3|Repositório de documentos da empresa|MÉDIA|ANDAMENTO
+16 |3|Implementação da Lei LGPD|MÉDIA|ANDAMENTO
 <br>
 
 ### Timeline Do Produto
 
-![back log produto](https://github.com/EquipeGfour/Api-2-Semestre-/blob/main/imagens_gerais/timeline.png)
+![WhatsApp Image 2022-05-27 at 13 16 37 (1)](https://user-images.githubusercontent.com/8519765/170739328-46312b34-708a-4a37-9076-1c94cdd39788.jpeg)
  
 
 <br>
@@ -196,71 +187,23 @@ $ Email = ceo@ionic.com
 $ Senha = ceoionic
 ```
 
-<br><br>
+<br>
 
 <h2>:wrench: Tecnologias Utilizadas</h2>
 
 
-* **Reuniões e Apresentações:**
-<img src="https://img.shields.io/badge/discord-151515?style=for-the-badge&logo=discord&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/microsoftteams-151515?style=for-the-badge&logo=microsoftteams&logoColor=f2f2f2">
-* **Banco de Dados Relacional:** 
-<img src="https://img.shields.io/badge/mysql-151515?style=for-the-badge&logo=mysql&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/vertabelo-151515?style=for-the-badge&logo=vertabelo&logoColor=f2f2f2">
-* **Back-end:**
-<img src="https://img.shields.io/badge/javascript-151515?style=for-the-badge&logo=javascript&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/sequelize-151515?style=for-the-badge&logo=sequelize&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/express-151515?style=for-the-badge&logo=express&logoColorf2f2f2">   <img src="https://img.shields.io/badge/nodedotjs-151515?style=for-the-badge&logo=nodedotjs&logoColor=f2f2f2">
-* **Front-end:**
-<img src="https://img.shields.io/badge/html5-151515?style=for-the-badge&logo=html5&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/css3-151515?style=for-the-badge&logo=css3&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/react-151515?style=for-the-badge&logo=react&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/axios-151515?style=for-the-badge&logo=axios&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/nodedotjs-151515?style=for-the-badge&logo=nodedotjs&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/javascript-151515?style=for-the-badge&logo=javascript&logoColor=f2f2f2">
-* **Ferramentas:** 
-<img src="https://img.shields.io/badge/github-151515?style=for-the-badge&logo=github&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/visualstudiocode-151515?style=for-the-badge&logo=visualstudiocode&logoColor=f2f2f2">   <img src="https://img.shields.io/badge/figma-151515?style=for-the-badge&logo=figma&logoColor=f2f2f2" >   <img src="https://img.shields.io/badge/slack-151515?style=for-the-badge&logo=slack&logoColor=f2f2f2">
-* **Deploy:** 
-   <img src="https://img.shields.io/badge/heroku-151515?style=for-the-badge&logo=heroku&logoColor=f2f2f2">
-<br>
-
-<h2>:bar_chart:Backlog Sprint 1</h2>
-Login do colaborador
-      Com verificação de cargo e tipo de contrato (PJ ou CLT).
-	
-- Pré registro<br>
-      - Cadastro do nome e o cpf ou cnpj.<br>
-      - Geração de senha(token) com verificação no email.<br><br>
-- Cadastro de novos colaboradores<br>
-      - Registrando todos os dados com seus tipos de contratos (PJ ou CLT).<br><br>
-- Visualização dos colaboradores<br>
-      - Visualização de todos colaboradores cadastrados.<br><br>
-- Tela home administrador<br>
-      - Tela de administrador dos dados específicos do colaborador selecionados
+![Design sem nome](https://user-images.githubusercontent.com/8519765/169674652-41f4ebdf-1083-4b17-aa39-410be76d7bb2.png)
 
 
-<br><br>
-
-<h2>📊 Backlog Sprint 2</h2>
-
-- Upload de documentos<br>
-      - Enviar documentos. 	<br>  
-      - e download dos documentos. 	
-
-- Organograma<br>
-      -  Adicionar por ordem hierárquica. 	
-
-- PDF do tipo de contrato<br>
-      - Baixar o contrato em formato PDF. 
-<br>
-
-<h2>Deploy Heroku</h2>
+<h2> 🖥️ Deploy Heroku</h2>
 
  - O Sistema Esta Hospedado na Plataforma Heroku.<br>
  - Quer saber mais sobre a plataforma de hospedagem clique em saber mais abaixo.<br>
- - <a href="https://imaginedone.com.br/blog/o-que-e-o-heroku/">:link: Saber mais</a> 
+ - <a href="https://imaginedone.com.br/blog/o-que-e-o-heroku/">:link: Saber mais</a> 	
+ <h4>📌Clique no link para Acessar o Sistema</h4>	
+<a href="https://api2semestreionic.herokuapp.com/">:link: Link</a> <br>
 
 	
- <h4>📌Clique no link para Acessar o Sistema<h4>	
-<a href="https://api2semestreionic.herokuapp.com/">:link: Link</a> 
-
-	
-
-
-
-
-
 <h2>:bulb: Metodologia Utilizada</h2>
 
 * **Metodologia Ágil:** Framework [Scrum](https://blog.contaazul.com/metodologia-scrum#:~:text=a%20planilha%20agora-,O%20que%20%C3%A9%20a%20metodologia%20Scrum,desenvolvedores%20de%20softwares%20e%20sistemas.)<br><br>
