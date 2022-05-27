@@ -66,6 +66,13 @@
     margin: 0 auto;
     color: #fff;
 }
+
+.tabelainformacoes{    
+    margin-bottom: 15px;
+    width: 90%;
+    margin: 0 auto;
+    color: #fff;
+}
 .corionic{
     color: #54C5CE;
 }
@@ -78,4 +85,11 @@
     background-color: #53C4CD;
     color:#ffffff;
     font-size: 20px;
+}
+
+.tamanhocampo{
+    width:25%;
+}
+.tamanhocampoidioma{
+    width: 50%;
 }

@@ -30,17 +30,29 @@ const DetalheFunc: React.FC = (props) => {
   const [bairro, setBairro]=useState('');
   const [cep, setCep]=useState('');
   const [complemento, setComplemento]=useState('');
-  const [regiao, setRegiao]=useState('');
-  const [formacao, setFormacao]=useState('');
-  const [idiomas, setIdiomas]=useState('');
-  const [curso, setCurso]=useState('');
-  const [status,setStatus]=useState('');
-
+  const [regiao, setRegiao]=useState(''); 
+  const [statuscontrato,setStatuscontrato]=useState('');
+// --- Bloco Formação Acadêmica --- //
+  const [formacoes,setFormacoes] = React.useState([])
+  const [formacao, setFormacao] = React.useState('')    
+  const [status, setStatus] = React.useState('')
+  const [instituicao, setInstituicao] = React.useState('')
+  const [ano, setAno] = React.useState('')
+ // --- Bloco Formação Cursos Extra-Curriculares --- //
+  const [cursoex,setCursoex] = React.useState([])
+  const [extracurso, setExtracurso] = React.useState('')
+  const [extrainstituicao, setExtrainstituicao] = React.useState('')
+  const [extraano, setExtraano] = React.useState('')
+  const [extracarga, setExtracarga] = React.useState('')
+ // --- Bloco Idiomas --- //
+  const [blocoidioma,setBlocoidioma] = React.useState([])
+  const [extraidioma, setExtraidioma] = React.useState('')
+  const [statusidioma, setStatusidioma] = React.useState('')
   const [arquivos,setArquivos] = useState([])
   const [download, setDownload] = useState('')
 
   const gerarpdf = () => {
-    setStatus('Gerando PDF...')
+    setStatuscontrato('Gerando PDF...')
     const getUrl = window.location;     
     const baseUrl = getUrl.host.includes("3000")? "localhost:5000" : getUrl.host;
     const url = getUrl.protocol + "//" + baseUrl + "/api/pdf/gerarpdf?id=" + id;
@@ -48,7 +60,7 @@ const DetalheFunc: React.FC = (props) => {
     .then(res => res.blob())
     .then(blob => {
       const _url = window.URL.createObjectURL(blob);
-      setStatus('');
+      setStatuscontrato('');
       window.open(_url, '_blank').focus();
     })
     .catch(err => console.log(err));
@@ -78,7 +90,7 @@ const DetalheFunc: React.FC = (props) => {
 
   const getColabById = (id: string) => {
     axios.get(`/api/colab/funcionario/${id}`, { headers: CriaHeader() }).then(res => {
-      console.log(res);
+      console.log(res.data);
       setNome(res.data.nome);
       setCargo(res.data.cargo?.cargo);
       setDepartamento(res.data.cargo?.departamento.area);
@@ -98,9 +110,6 @@ const DetalheFunc: React.FC = (props) => {
       setCep(res.data.enderecos?.[0]?.cep);
       setComplemento(res.data.enderecos?.[0]?.complemento);
       setRegiao(res.data.enderecos?.[0]?.regiao);
-      setFormacao(res.data.DadosAcademicos?.[0]?.formacao);
-      setIdiomas(res.data.DadosAcademicos?.[0]?.Idiomas);
-      setCurso(res.data.DadosAcademicos?.[0]?.cursos);
     })
   }
 
@@ -253,22 +262,86 @@ const DetalheFunc: React.FC = (props) => {
         {/* -----------------------------------DADOS ACADÊMICOS------------------------------------------- */}
         <div id="test-swipe-3" className="col s12 ">
           <form>
-            <div className="col s12 dadosPessoais">
-              <div className="row">
-                <div className=" input-field col s4 espaço">
-                  <input placeholder="Formação" id="first_name2" type="text" className="validate" value={formacao}onChange={()=>setFormacao}/>
-                  <label className="active fonte" htmlFor="first_name2">Formação</label>
+              {/*----------Formação----------*/}
+                                                  
+                            
+              <div className="col s12 dadosPessoais">
+                <div className='nomeIdioma'><h5>Formação Acadêmica</h5></div>  
+                  <table className="highlight responsive-table centered tabelainformacoes">
+                    <thead>
+                      <tr>
+                        <th className="tamanhocampo">Formação</th>
+                        <th className="tamanhocampo">Instituição</th>
+                        <th className="tamanhocampo">Status</th>
+                        <th className="tamanhocampo">Ano Conclusão/Previsto</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {formacoes.map((f,i)=>(
+                      <tr key={i}>
+                        <td>{f.formacao}</td>
+                        <td>{f.instituicao}</td>
+                        <td>{f.status}</td>
+                        <td>{f.ano}</td>
+                      </tr>
+                    ))} 
+                    </tbody>
+                  </table>
                 </div>
-                <div className=" input-field col s4 espaço">
-                  <input placeholder="Curso" id="first_name2" type="text" className="validate dadoRecebido1" value={curso}onChange={()=>setCurso}/>
-                  <label className="active fonte" htmlFor="first_name2">Curso</label>
+
+                <form>
+              {/*----------Cursos----------*/}
+                                                  
+                            
+              <div className="col s12 dadosPessoais">
+                <div className='nomeIdioma'><h5>Cursos Extra-Curriculares</h5></div>  
+                  <table className="highlight responsive-table centered tabelainformacoes">
+                    <thead>
+                      <tr>
+                        <th className="tamanhocampo">Curso</th>
+                        <th className="tamanhocampo">Instituição</th>
+                        <th className="tamanhocampo">Ano Conclusão</th>
+                        <th className="tamanhocampo">Carga Horária</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {cursoex.map((c,i)=>(
+                      <tr key={i}>
+                        <td>{c.extracurso}</td>
+                        <td>{c.extrainstituicao}</td>
+                        <td>{c.extraano}</td>
+                        <td>{c.extracarga}</td>
+                      </tr>
+                    ))} 
+                    </tbody>
+                  </table>
                 </div>
-                <div className=" input-field col s4 espaço">
-                  <input placeholder="Idiomas" id="first_name2" type="text" className="validate" value={idiomas}onChange={()=>setIdiomas}/>
-                  <label className="active fonte" htmlFor="first_name2">Idiomas</label>
+          </form>
+
+          <form>
+              {/*----------Idiomas----------*/}
+                                                  
+                            
+              <div className="col s12 dadosPessoais">
+                <div className='nomeIdioma'><h5>Nível de Idiomas</h5></div>  
+                  <table className="highlight responsive-table centered tabelainformacoes">
+                    <thead>
+                      <tr>
+                        <th className="tamanhocampoidioma">Idioma</th>
+                        <th className="tamanhocampoidioma">Nivel</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {blocoidioma.map((b,i)=>(
+                      <tr key={i}>
+                        <td>{b.extraidioma}</td>
+                        <td>{b.statusidioma}</td>
+                      </tr>
+                    ))} 
+                    </tbody>
+                  </table>
                 </div>
-              </div>
-            </div>
+          </form>
           </form>
         </div>
         {/* -----------------------------------CONTRATO------------------------------------------- */}
@@ -279,7 +352,7 @@ const DetalheFunc: React.FC = (props) => {
             </div>
             
             <a className="waves-effect waves-light btn-large btnAzulPDF" onClick={gerarpdf}>
-            {status ==="" ?"Gerar PDF" : "carregando..." } 
+            {statuscontrato ==="" ?"Gerar PDF" : "carregando..." } 
             </a>
           </form>
         </div>
@@ -316,7 +389,6 @@ const DetalheFunc: React.FC = (props) => {
                   </tr>
                   ))}
                 </tbody>
-
               </table>
               <br></br>
               <br></br>
