@@ -110,6 +110,10 @@ const DetalheFunc: React.FC = (props) => {
       setCep(res.data.endereco?.cep);
       setComplemento(res.data.endereco?.complemento);
       setRegiao(res.data.endereco?.regiao);
+      setFormacoes(res.data.DadosAcademicos)
+      setCursoex(res.data.DadosAcademicos)
+      setBlocoidioma(res.data.DadosAcademicos)
+      console.log(formacoes);
     })
   }
 
@@ -281,8 +285,8 @@ const DetalheFunc: React.FC = (props) => {
                       <tr key={i}>
                         <td>{f.formacao}</td>
                         <td>{f.instituicao}</td>
-                        <td>{f.status}</td>
-                        <td>{f.ano}</td>
+                        <td>{f.status_curso}</td>
+                        <td>{f.ano_conclusao}</td>
                       </tr>
                     ))} 
                     </tbody>
@@ -307,10 +311,10 @@ const DetalheFunc: React.FC = (props) => {
                     <tbody>
                     {cursoex.map((c,i)=>(
                       <tr key={i}>
-                        <td>{c.extracurso}</td>
-                        <td>{c.extrainstituicao}</td>
-                        <td>{c.extraano}</td>
-                        <td>{c.extracarga}</td>
+                        <td>{c.extra_curricular}</td>
+                        <td>{c.instituicao}</td>
+                        <td>{c.ano_conclusao}</td>
+                        <td>{c.carga_horaria}</td>
                       </tr>
                     ))} 
                     </tbody>
@@ -334,8 +338,8 @@ const DetalheFunc: React.FC = (props) => {
                     <tbody>
                     {blocoidioma.map((b,i)=>(
                       <tr key={i}>
-                        <td>{b.extraidioma}</td>
-                        <td>{b.statusidioma}</td>
+                        <td>{b.idioma}</td>
+                        <td>{b.status_curso}</td>
                       </tr>
                     ))} 
                     </tbody>
