@@ -110,9 +110,9 @@ const DetalheFunc: React.FC = (props) => {
       setCep(res.data.endereco?.cep);
       setComplemento(res.data.endereco?.complemento);
       setRegiao(res.data.endereco?.regiao);
-      setFormacoes(res.data.DadosAcademicos)
-      setCursoex(res.data.DadosAcademicos)
-      setBlocoidioma(res.data.DadosAcademicos)
+      setFormacoes(res.data.DadosAcademicos.filter( item => item.formacao))
+      setCursoex(res.data.DadosAcademicos.filter(item => item.extra_curricular))
+      setBlocoidioma(res.data.DadosAcademicos.filter(item => item.idioma))
       console.log(formacoes);
     })
   }
