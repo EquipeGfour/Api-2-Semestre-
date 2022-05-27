@@ -3,9 +3,9 @@
 
 <h2> :briefcase: Objetivo</h2>
 O nosso objetivo é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvolver uma plataforma para controle de todos os talentos da empresa (pessoas). Após a aprovação no processo seletivo se faz necessário o cadastro do colaborador (CLT ou PJ) em um sistema que traga informações sobre sua contratação, controle de documentação, dados, entre outros dados. Temos que levar em consideração da LGPD para que o acesso seja restrito.
+
 <br>
 
- 
 <h2> 📑 Backlog do produto</h2>
 
 <h4> 🛠️ Requisitos Funcionais</h4>
@@ -20,10 +20,10 @@ RF ID# | Sprint | Requisitos | Prioridade| Status|
 6 |3|Ajustes e validações|ALTA|ANDAMENTO
 7 |3|Desligamentos de colaboradores|MÉDIA|ANDAMENTO
 8 |3|Recuperar e redefinir senha|MÉDIA|ANDAMENTO
-<br>
+
 <h4> 🛠️ Requisitos não Funcionais</h4>
 
-RF ID# | Sprint | Requisitos | Prioridade| Status|
+RNF ID# | Sprint | Requisitos | Prioridade| Status|
 :--------- | :------: | :-------: | :-------: | :------: |
 9 |1|Conexão com Banco de dados|ALTA|COMPLETO
 10 |1|NodeJs, Java Script, Type Script e React|ALTA|COMPLETO
@@ -35,7 +35,7 @@ RF ID# | Sprint | Requisitos | Prioridade| Status|
 16 |3|Implementação da Lei LGPD|MÉDIA|ANDAMENTO
 <br>
 
-### Timeline Do Produto
+<h2> ⏲️ Timeline Do Produto</h2>
 
 ![WhatsApp Image 2022-05-27 at 13 16 37 (1)](https://user-images.githubusercontent.com/8519765/170739328-46312b34-708a-4a37-9076-1c94cdd39788.jpeg)
  
@@ -113,16 +113,6 @@ RF ID# | Sprint | Requisitos | Prioridade| Status|
 ```
 <br>
 
-<h2>:calendar: Cronograma</h2>
-
- :heavy_check_mark: KICK OFF - 14/03 
-
- :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">SPRINT 1</a> - 25/03 à 14/04
-
- :heavy_check_mark: <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">SPRINT 2</a> - 25/04 à 15/05
-
-- [x] SPRINT 3 - 16/05 à 05/06
-<br><br>
 
 <h2>⛏️ Como rodar a aplicação</h2>
 
