@@ -182,9 +182,13 @@ export const getColaboradorById = async (req, res) => {
             where: {
                 id: req.params.id
             },
+            attributes:['id', 'cargos_id', 'gestor_id','nome', 'email', 'senha', 'rg', 'naturalidade', 'nacionalidade',
+            'genero', 'raca', 'telefone', 'data_nascimento'],
             include: [
                 {
-                    model: Colaborador, as: 'Gestor'
+                    model: Colaborador, as: 'Gestor',
+                    attributes:['id', 'cargos_id', 'gestor_id','nome', 'email', 'telefone'],
+                    
                 },
                 {
                     model: pessoafisica,
@@ -197,8 +201,8 @@ export const getColaboradorById = async (req, res) => {
                 {
                     model: DadosAcademicos,
                     as: "DadosAcademicos",
-                    attributes: ['id', 'formacao', 'cursos',
-                        ['linguas', 'Idiomas'], 'termo_pi']
+                    attributes: ['id', 'formacao', 'extra_curricular', 'termo_pi',
+                        'idioma', 'instituicao', 'carga_horaria', 'ano_conclusao', 'status_curso']
                 },
                 {
                     model: Contrato,
