@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 import db from '../config/db.js'
-import pessoafisica from "./pessoafisica.js"
+import Cursos from "./cursos.js";
 
 const TrilhaAprendizado = db.define('trilha_aprendizados',{
     id:{
@@ -20,9 +20,16 @@ const TrilhaAprendizado = db.define('trilha_aprendizados',{
     data_fim:{
         type:Sequelize.DATE,
         allowNull: true
+    },
+    pessoa_fisicas_colaborador_id:{
+        type:Sequelize.INTEGER,
+        allowNull: true
     }
 })
 
-TrilhaAprendizado.belongsTo(pessoafisica,{foreignKey:'pessoa_fisica_id'})
+
+
+Cursos.belongsToMany(TrilhaAprendizado,{through:'cursos_trilhas',foreignKey:"curso_id"})
+TrilhaAprendizado.belongsToMany(Cursos,{through:'cursos_trilhas',foreignKey:"trilha_id"})
 
 export default TrilhaAprendizado
