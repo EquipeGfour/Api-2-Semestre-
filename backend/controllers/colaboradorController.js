@@ -8,7 +8,7 @@ import pessoafisica from "../models/pessoafisica.js";
 import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
 import Contrato from "../models/contrato.js";
-import { Op } from "sequelize";
+import { Op, where } from "sequelize";
 import { sendMail } from "../functions/recoverEmail.js";
 
 
@@ -422,6 +422,24 @@ export const searchColaborador = async (req, res) => {
             // where:{
             //     nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.nome.toLowerCase()}%`)
             // },
+        })
+        res.json(dados)
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+}
+//editar informaçoes do colaborador por id
+export const editColaborador = async (req,res) => {
+    try{
+        const dados = await Colaborador.update(req.body,{
+            where:{ id:req.params.id }
+        }).then(async (dados2) => { 
+        return await Endereco.update(req.body.endereco,{
+            where:{ colaborador_id:req.params.id }
+        }).then( (dados3) => {
+            return {message:'Atualizado com sucesso'}
+            })
         })
         res.json(dados)
     }catch(error){

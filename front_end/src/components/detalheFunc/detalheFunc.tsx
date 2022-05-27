@@ -103,13 +103,13 @@ const DetalheFunc: React.FC = (props) => {
       setTelefone(res.data.telefone);
       setRaca(res.data.raca);
       setDataNascimento(res.data.data_nascimento);
-      setRua(res.data.enderecos?.[0]?.rua);
-      setEstado(res.data.enderecos?.[0]?.estado);
-      setCidade(res.data.enderecos?.[0]?.cidade);
-      setBairro(res.data.enderecos?.[0]?.bairro);
-      setCep(res.data.enderecos?.[0]?.cep);
-      setComplemento(res.data.enderecos?.[0]?.complemento);
-      setRegiao(res.data.enderecos?.[0]?.regiao);
+      setRua(res.data.endereco?.rua);
+      setEstado(res.data.endereco?.estado);
+      setCidade(res.data.endereco?.cidade);
+      setBairro(res.data.endereco?.bairro);
+      setCep(res.data.endereco?.cep);
+      setComplemento(res.data.endereco?.complemento);
+      setRegiao(res.data.endereco?.regiao);
     })
   }
 
