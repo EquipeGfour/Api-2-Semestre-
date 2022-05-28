@@ -42,8 +42,6 @@ export const dadosUpload = async (req,res) => {
     }
 }
 
-
-
 export const listarArquivos = async (req,res) => {
     try{
         const ColabID = req.params.id
@@ -96,10 +94,7 @@ export const videosUpload = async (req,res) => {
             }else{
                 nomeDados = file.filename
             }
-
             const { name, ext } = path.parse(nomeDados);
-
-
 
         let url_arquivo = ''
         if (process.env.STORAGE_TYPE === 's3'){
@@ -116,6 +111,53 @@ export const videosUpload = async (req,res) => {
         res.json(dados)
     }catch(error){
         console.log(error)
+        res.status(500).json({ message:error })
+    }
+}
+
+export const listarAulaArquivos = async (req,res) => {
+    try{
+        const dados = await Arquivos.findAll({
+            where:{
+                aula_id:req.params.id
+            }
+        })
+        res.status(202).json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+    }
+}
+
+export const uploadMateriaisAula = async (req,res) => {
+    try{
+        const material = req.files.material
+        const file = material[0]
+
+        let nomeDados = ''
+
+            if(file.key){
+                nomeDados = file.key
+            }else{
+                nomeDados = file.filename
+            }
+            const { name, ext } = path.parse(nomeDados);
+
+        let url_arquivo = ''
+
+        if (process.env.STORAGE_TYPE === 's3'){
+            url_arquivo =  `https://${process.env.BUCKET_NAME}.s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${name}${ext}`
+        }
+
+        const dados = await Arquivos.create({
+            nome_arquivos:name,
+            url_arquivo:url_arquivo,
+            extensao:ext,
+            aula_id:req.params.id,
+            tipo:'material'
+            })
+        res.json(dados)
+
+    }catch(error){
         res.status(500).json({ message:error })
     }
 }

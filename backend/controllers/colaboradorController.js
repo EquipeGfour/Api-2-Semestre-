@@ -84,7 +84,7 @@ export const inserirDadosColab = async (req, res) => {
             colaborador_id: req.body.id
         }
         const dados = await atualizarColaborador(colabId, objColab, objDadosAcadWithColabId, objEndereco, t)
-        resres.status(201).json(dados)
+        res.status(201).json(dados)
     } catch (error) {
         await t.rollback()
         res.status(400).json({ message: error.message });
@@ -124,7 +124,7 @@ export const inserirDadosColabCnpj = async (req, res) => {
 
 
         const dadosCnpj = await atualizarColaboradorCnpj(colabId, objCnpj, objColab, objEndereco,t)
-        resres.status(201).json(dadosCnpj)
+        res.status(201).json(dadosCnpj)
     } catch (error) {
         await t.rollback()
         console.log(error)
@@ -153,6 +153,7 @@ export const geralFunc = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+
 
 export const getCargoColaborador = async (req, res) => {
     try {
