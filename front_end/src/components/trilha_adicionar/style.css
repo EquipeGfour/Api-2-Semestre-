@@ -1,0 +1,80 @@
+.containerPrincipal{
+    padding: 1rem;
+    margin-left: 6rem;
+    margin-right: 6rem;    
+}
+
+.dadosContainer{
+    margin-bottom: 4rem;
+}
+
+.titulo{
+    color: #53C4CD;
+    font-size: 60px;
+    font-family: 'IonicCoolvetica';
+    text-align: center;
+}
+.texto{
+    padding-top: 5rem !important;
+}
+
+.linha{
+    color: #fff !important;
+}
+
+.seletorstatus{
+    padding: 0 !important;
+}
+
+.labelstatus{
+    left: 0 !important;
+    font-size: 30px !important;
+}
+
+.labelstatus1{
+    font-size: 30px !important;
+}
+
+.titulo2{
+    color: #53C4CD;
+    font-size: 30px;
+    font-family: 'IonicCoolvetica';
+    text-align: center;
+}
+
+.trilhaCurso{
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    margin-top: 1rem !important;    
+    width: 60%;
+    margin: 0 auto; 
+}
+
+.infoCurso{
+    margin-top: 5rem !important;
+    /*background-color: #393B42;*/
+    color: rgb(255, 255, 255);
+    border: none !important;
+    -webkit-box-shadow: none; 
+    box-shadow: none;    
+    width: 100%;
+    margin: 0 auto; 
+}
+
+.tabelaCurso{
+    margin-top: 0;
+    background-color: #393B42;
+}
+
+.collapsible-body{
+    padding: 0 10px;
+    border-bottom: none !important;
+    margin: 0 auto;
+    width: 60%;
+     
+}
+
+.collapsible-header{
+    border-bottom: none !important;
+}

@@ -28,6 +28,8 @@ import HomeColab from './components/homeColaborador/homeColab'
 import TrilhaColaborador from './components/trilha_Colaborador/trilha_Colaborador';
 import DocColab from './components/DocumentosColab/documentosColab'
 import DetalheCnpj from './components/detalheCnpj/detalheCnpj';
+import TrilhaAdd from './components/trilha_adicionar/trilha_add';
+import CriarCurso from './components/criarCurso/criarCurso';
 
 type state = {
   tela: string
@@ -83,6 +85,8 @@ render(){
           <Route path='trilha-colaborador' element={<TrilhaColaborador/>}/>
           <Route path='documentos-colab' element={<DocColab/>}/>
           <Route path='detalhe-cnpj' element={<DetalheCnpj/>}/>
+          <Route path='trilha-adicionar' element={<TrilhaAdd/>}/>
+          <Route path='criar-curso' element={<CriarCurso/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>
