@@ -30,5 +30,6 @@ const Aula = db.define('aulas',{
 
 
 Aula.Arquivo = Aula.belongsTo(Arquivo,{foreignKey:"arquivo_id"})
+Arquivo.Aula = Arquivo.hasMany(Aula,{foreignKey:"arquivo_id"})
 
 export default Aula

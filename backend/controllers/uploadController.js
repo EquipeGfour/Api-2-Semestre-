@@ -3,6 +3,7 @@ import { dadosArquivoBaixar, inserirArquivo, pegarArquivoById, pegarDadosArquivo
 import path,{dirname} from 'path'
 import { fileURLToPath } from "url";
 import fs from "fs"
+import Arquivos from '../models/arquivos.js';
 
 
 
@@ -26,7 +27,6 @@ export const dadosUpload = async (req,res) => {
                 nomeDados = file.key
             }else{
                 nomeDados = file.filename
-                
             }
 
             const { name, ext } = path.parse(nomeDados);
@@ -78,6 +78,42 @@ export const downloadAws = async (req,res) => {
             res.download(caminhoArquivo + `/${dados.nome_arquivos}${dados.extensao}`)
         }
 
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ message:error })
+    }
+}
+
+export const videosUpload = async (req,res) => {
+    try{
+        const video = req.files.video
+        const file = video[0]
+
+        let nomeDados = ''
+
+            if(file.key){
+                nomeDados = file.key
+            }else{
+                nomeDados = file.filename
+            }
+
+            const { name, ext } = path.parse(nomeDados);
+
+
+
+        let url_arquivo = ''
+        if (process.env.STORAGE_TYPE === 's3'){
+            url_arquivo =  `https://${process.env.BUCKET_NAME}.s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${name}${ext}`
+        }
+
+        const dados = await Arquivos.create({
+            nome_arquivos:name,
+            url_arquivo:url_arquivo,
+            extensao:ext,
+            aula_id:req.params.id,
+            tipo:'video'
+            })
+        res.json(dados)
     }catch(error){
         console.log(error)
         res.status(500).json({ message:error })

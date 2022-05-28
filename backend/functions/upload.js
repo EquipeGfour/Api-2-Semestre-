@@ -5,6 +5,7 @@ import crypto from 'crypto'
 import path from "path";
 
 const tamanho = 4 * 1024 * 1024;
+const tamanhoVideo = 60 * 1024 * 1024;
 
 const storage = {
     local: multer.diskStorage({
@@ -50,3 +51,8 @@ export const upload = multer({
     storage:storage[process.env.STORAGE_TYPE],
     limits:{fileSize:tamanho}
 }).fields([{name:'documento',maxCount:1},{name:'certificado',maxCount:1},{name:'comprovante',maxCount:1}])
+
+export const uploadVideo = multer({
+    storage:storage[process.env.STORAGE_TYPE],
+    limits:{fileSize:tamanhoVideo}
+}).fields([{name:'video',maxCount:1}])
