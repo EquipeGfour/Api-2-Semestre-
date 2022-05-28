@@ -27,7 +27,7 @@ const Cursos = db.define('cursos',{
     }
 })
 
-Aula.Cursos = Aula.belongsTo(Cursos,{foreignKey:"curso_id"})
 Cursos.Aula = Cursos.hasMany(Aula,{foreignKey:"curso_id"})
+Aula.Cursos = Aula.belongsTo(Cursos,{foreignKey:"curso_id"})
 
 export default Cursos

@@ -1,9 +1,9 @@
 import { criarCursos } from "../controllers/cursosController.js";
 import { Router } from "express";
-import { verifyJWT } from "../controllers/loginController.js";
+import { verifyAdm, verifyJWT } from "../controllers/loginController.js";
 
 const router = Router()
 
-router.post('/criarCurso', verifyJWT, criarCursos)
+router.post('/criarCurso', verifyJWT, verifyAdm, criarCursos)
 
 export default router

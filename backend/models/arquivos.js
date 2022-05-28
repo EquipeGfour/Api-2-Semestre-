@@ -21,7 +21,11 @@ const Arquivos = db.define('arquivos',{
         type:Sequelize.STRING
     },
     colaborador_id:{
-        type:Sequelize.STRING,
+        type:Sequelize.NUMBER,
+        allowNull: true
+    },
+    aula_id:{
+        type:Sequelize.NUMBER,
         allowNull: true
     }
 })

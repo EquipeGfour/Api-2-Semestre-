@@ -25,10 +25,6 @@ const Aula = db.define('aulas',{
     curso_id:{
         type:Sequelize.INTEGER,
         allowNull:true,
-    },
-    arquivo_id:{
-        type:Sequelize.INTEGER,
-        allowNull:true,
     }
 })
 

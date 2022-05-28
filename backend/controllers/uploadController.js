@@ -48,7 +48,7 @@ export const listarArquivos = async (req,res) => {
     try{
         const ColabID = req.params.id
         const dados = await pegarDadosArquivo(ColabID)
-        res.json(dados)
+        res.status(202).json(dados)
     }catch(error){
         res.status(500).json({ message:error})
     }

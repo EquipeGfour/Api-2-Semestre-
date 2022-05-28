@@ -15,7 +15,7 @@ import { sendMail } from "../functions/recoverEmail.js";
 export const getAllColaborador = async (req, res) => {
     try {
         const colaborador = await Colaborador.findAll();
-        res.json(colaborador);
+        res.status(202).json(colaborador);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -84,7 +84,7 @@ export const inserirDadosColab = async (req, res) => {
             colaborador_id: req.body.id
         }
         const dados = await atualizarColaborador(colabId, objColab, objDadosAcadWithColabId, objEndereco, t)
-        res.json(dados)
+        resres.status(201).json(dados)
     } catch (error) {
         await t.rollback()
         res.status(400).json({ message: error.message });
@@ -124,7 +124,7 @@ export const inserirDadosColabCnpj = async (req, res) => {
 
 
         const dadosCnpj = await atualizarColaboradorCnpj(colabId, objCnpj, objColab, objEndereco,t)
-        res.json(dadosCnpj)
+        resres.status(201).json(dadosCnpj)
     } catch (error) {
         await t.rollback()
         console.log(error)
@@ -147,7 +147,7 @@ export const geralFunc = async (req, res) => {
                 },
             }
         });
-        res.json({ dados })
+        res.status(202).json({ dados })
     }
     catch (error) {
         res.status(500).json({ message: error.message })
@@ -169,7 +169,7 @@ export const getCargoColaborador = async (req, res) => {
                 required: true
             }
         });
-        res.json(cargo_colab)
+        res.status(202).json(cargo_colab)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -220,7 +220,7 @@ export const getColaboradorById = async (req, res) => {
                 }
             ]
         })
-        res.json(colab)
+        res.status(202).json(colab)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -250,7 +250,7 @@ export const pegarGestorById = async (req, res) => {
         const result = dados.dataValues.funcionarios.map(f=>f.dataValues)
         delete dados.dataValues.funcionarios
         
-        res.json([dados.dataValues, ...result])
+        res.status(202).json([dados.dataValues, ...result])
     } catch (error) {
         res.status(500).json({ message: error })
     }
@@ -284,7 +284,7 @@ export const getDesligados = async (req,res) =>{
                 }
             ]
         })
-        res.json(dados)
+        res.status(202).json(dados)
     }catch(error){
         res.status(500).json({ message:error })
     }
@@ -332,7 +332,7 @@ export const getHead = async (req,res) =>{
             },
             attributes:['id','nome']
         })
-        res.json(dados)  
+        res.status(202).json(dados)  
         }catch(error){
             console.log(error)
             res.status(500).json({ message:error })
@@ -385,7 +385,7 @@ export const GetEmail= async (req,res) => {
             attributes:['nome','senha']
         })
         await sendMail(email,dados.senha)
-        res.json(dados)
+        res.status(202).json(dados)
         
     }catch(error){
         console.log(error)
@@ -423,12 +423,13 @@ export const searchColaborador = async (req, res) => {
             //     nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.nome.toLowerCase()}%`)
             // },
         })
-        res.json(dados)
+        res.status(202).json(dados)
     }catch(error){
         console.log(error)
         res.status(500).json({ message:error })
     }
 }
+
 //editar informaçoes do colaborador por id
 export const editColaborador = async (req,res) => {
     try{

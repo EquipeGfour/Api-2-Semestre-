@@ -28,7 +28,7 @@ export const insertPreRegistroCpf = async(req, res) => {
         const dados = await createPessoaFisica(pessoaFisica, t)
         console.log(dados)
         await sendMail(email,senha)
-        return res.json(dados) 
+        return res.status(201).json(dados) 
         
     }catch (error) {
         await t.rollback()
@@ -54,7 +54,7 @@ export const insertPreRegistroCnpj = async(req, res) => {
         }
         const dados = await createPessoaJuridica(pessoaJuridica,t);
         await sendMail(email,senha)
-        return res.json(dados)
+        return res.status(201).json(dados)
 
     }catch (error) {
         await t.rollback()
@@ -71,7 +71,7 @@ export const getDepartCargo =  async (req, res) => {
                 attributes:['id', 'cargo', 'departamento_id', 'nivel']
             }
         })
-        return res.json(dados)
+        return res.status(202).json(dados)
     }catch(error){
         res.status(500).json({ message:error })
     }
@@ -83,7 +83,7 @@ export const getCargo = async (req, res) => {
             cpf:req.body.cpf,
             colaborador_id :req.body.colaborador_id
         })
-        res.json(dados)
+        res.status(202).json(dados)
     }catch(error){
         res.status(500).json({ message:error })
 }} 
@@ -104,7 +104,7 @@ export const getGestores = async (req, res) => {
             },
             attributes:['id', 'nome']
         })
-        res.json(dados)
+        res.status(202).json(dados)
     }catch(error){
         res.status(500).json({ message:error })
 }} 

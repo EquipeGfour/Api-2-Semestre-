@@ -15,6 +15,7 @@ CREATE TABLE arquivos (
     url_arquivo varchar(500) not null,
     tipo varchar(50),
     colaborador_id int not null,
+    aula_id int,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT arquivos_pk PRIMARY KEY (id)
@@ -23,11 +24,12 @@ CREATE TABLE arquivos (
 -- Table: aulas
 CREATE TABLE aulas (
 	id int not null auto_increment,
-    arquivo_id int,
     curso_id int,
-    titulo_video int,
+    titulo_video varchar(300),
     descricao_aula varchar(300),
     tempo_video int,
+    createdAt date NOT NULL default (current_date()),
+    updatedAt date ,
 	CONSTRAINT aulas_pk PRIMARY KEY (id)
 );
 
@@ -45,8 +47,8 @@ CREATE TABLE acessos (
 CREATE TABLE cargos (
     id int NOT NULL AUTO_INCREMENT,
     departamento_id int ,
-    cargo varchar(50) ,
-    nivel varchar(30) ,
+    cargo varchar(50) NOT NULL,
+    nivel varchar(30) NOT NULL,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT cargos_pk PRIMARY KEY (id)
@@ -203,8 +205,8 @@ ALTER TABLE arquivos ADD CONSTRAINT arquivo_colaborador FOREIGN KEY arquivo_cola
     REFERENCES colaboradors (id);
 
 -- Reference: aulas_arquivos (table: aulas)
-ALTER TABLE aulas ADD CONSTRAINT aulas_arquivos FOREIGN KEY aulas_arquivos (arquivo_id)
-    REFERENCES arquivos (id);
+ALTER TABLE arquivos ADD CONSTRAINT arquivos_aulas FOREIGN KEY arquivos_aulas (aula_id)
+    REFERENCES aulas (id);
     
 -- Reference: aulas_cursos (table: aulas)
 ALTER TABLE aulas ADD CONSTRAINT aulas_cursos FOREIGN KEY aulas_cursos (curso_id)
@@ -249,6 +251,6 @@ ALTER TABLE pessoa_juridicas ADD CONSTRAINT pessoa_juridica_colaborador FOREIGN 
 use ionic;
 insert into departamentos(id, area, createdAt) values (1, "Administracão", "2022-04-13");
 insert into cargos(id, departamento_id, cargo, nivel, createdAt) values (1, 1, "Administrador", "diretoria", "2022-04-13");
-insert into cargos(id, departamento_id, cargo, createdAt) values (2, 1, "Head", "2022-04-13");
+insert into cargos(id, departamento_id, cargo, nivel, createdAt) values (2, 1, "Head", "diretoria", "2022-04-13");
 insert into colaboradors(id, cargos_id, nome, email, senha, status, createdAt) values (1, 1, "CEO", "ceo@ionic.com", "ceoionic","Ativo", "2022-04-13");
 insert into colaboradors(id, cargos_id, nome, email, senha, createdAt) values (2, 1, "Admin", "admin@ionic.com", "adminionic", "2022-04-13");
