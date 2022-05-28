@@ -15,11 +15,11 @@ const Cargos = db.define('cargos',{
     },
     cargo:{
         type:Sequelize.STRING,
-        allowNull: true
+        allowNull: false,
     },
     nivel:{
         type:Sequelize.STRING,
-        allowNull: true
+        allowNull: false,
     }
 })
 

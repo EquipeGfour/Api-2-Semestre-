@@ -9,7 +9,7 @@ export const verify = async (req, res) => {
         const senha = req.body.senha
         
         const dados = await sequelize.query(`
-            select c.email,c.senha,c.id, c.nome, c.status, ca.cargo, pf.cpf, pj.cnpj
+            select c.email,c.senha,c.id, c.nome, c.status, ca.cargo,ca.nivel, pf.cpf, pj.cnpj
                 from colaboradors c left join pessoa_fisicas as pf 
                     on c.id = pf.colaborador_id 
                 left join pessoa_juridicas as pj 
@@ -28,7 +28,7 @@ export const verify = async (req, res) => {
                 expiresIn: 60*60 // 1 Hora Para Expirar
             })
             console.log(token)
-            res.json({"message":"Login Realizado com Sucesso", dados, auth:true, token:token}) 
+            res.status(202).json({"message":"Login Realizado com Sucesso", dados, auth:true, token:token}) 
         } 
     } catch (error) {
         res.json({ message: error.message });
@@ -45,7 +45,13 @@ export const verifyJWT = (req, res, next) => {
     
     if (err) return res.status(401).json({ auth: false, message: 'Failed to authenticate token.' });
     
-    req.userId = decoded.id;
+    req.user = decoded.dados[0];
     next();
     });
+}
+
+export const verifyAdm = (req, res, next) => {
+    const nivel = req.user.nivel
+    if ( nivel !== 'diretoria' && nivel !== 'gerencia' ) return res.status(401).json({ auth: false, message: 'Sem Permissão' });
+    next();
 }

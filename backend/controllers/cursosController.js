@@ -9,7 +9,7 @@ export const criarCursos = async (req, res) => {
             carga_horaria_curso: req.body.carga_horaria_curso
         })
 
-        res.json(dados)
+        res.status(201).json(dados)
     }catch(error){
         res.status(500).json({ message:error })
     }

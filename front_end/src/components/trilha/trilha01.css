@@ -5,6 +5,15 @@
     font-size: 60px;
     font-family: 'IonicCoolvetica';
 }
+
+.botao{
+    
+    margin-top: 5rem;
+    margin-bottom: -68px;
+    margin-left: 12.5rem;
+   
+}
+
 .conteiner-cinza1{
     margin-top: 5rem;
 }
@@ -26,22 +35,29 @@
 .bg-cinza{
     background-color: #58595B;
     border-radius: 5px;
-    
+    margin-bottom: 4rem !important;
+    width: 75%;
+    margin: 0 auto; 
 }
 .bg-cinza-bar{
     background-color: #58595B;
     border-radius: 5px;
     height: 100%;
+    
+    
 }
 
 .card-cinza{
     margin: 0.5rem;
     background-color: #393B42;
+    padding: 1rem;
+    
    
 }
 .div-cursos{
     padding: 1rem;
     height: 100;
+   
 }
 .imgColabt{
     width: 162px;
@@ -59,11 +75,23 @@
     width: 162px;
     height: 154px;
 }
-.curso{
-    color: #53C4CD !important;
+.curso1{
+    color: #53C4CD;
+    font-size: 30px;
+    font-family: 'IonicCoolvetica';
+    margin: 0 0 0 2rem;
 }
-.descricao-curso{
+
+.card-cinza p{
+    margin: 0;
+    margin-left: 2rem;
+    color: white;
+}
+
+.descricao-curso1{
     color: white;
     margin-block-start: 3em;
-    margin-inline-start: -4em;
+    
+    padding-left: 3rem;
+   
 }

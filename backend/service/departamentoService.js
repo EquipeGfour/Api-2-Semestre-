@@ -8,10 +8,10 @@ export const departDados = async () => {
     include:{
         model:Cargos,
         attributes:['id','cargo','departamento_id'],
+        required:true,
         include:{
             model:Colaborador,
-            attributes:['id'],
-            where:{status:'Ativo'}
+            attributes:['id']
         }
     },
 })

@@ -28,7 +28,7 @@ export const getAllDepartamento = async (req,res) => {
             return {...d.dataValues, qtdCargos:d.cargos.length, Cargos, totalColab}
         })
         
-        res.json(filtrado)
+        res.status(202).json(filtrado)
     }catch(error){
         res.status(500).json({ message: error.message })
     }
@@ -50,7 +50,7 @@ export const getCargosDepartamentos = async (req,res) => {
             attributes:['id','area'],
             where:{id:req.params.id}
         })
-        res.json(dados)
+        res.status(202).json(dados)
     }catch(error){
         res.status(500).json({ message:error })
     }
