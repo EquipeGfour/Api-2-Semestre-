@@ -15,3 +15,25 @@ export const criarAula = async (req, res) => {
         res.status(500).json({ message:error })
     }
 }
+
+export const listarAula = async (req, res) => {
+    try{
+        const dados = await Aula.findAll()
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+    }
+}
+
+export const listarAulaID = async (req, res) => {
+    try{
+        const dados = await Aula.findOne({
+            where:{
+                id: req.params.id
+            }
+        })
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+    }
+}
