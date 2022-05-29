@@ -36,16 +36,16 @@ export const PdfDadosColab = async (req, res) => {
     let DadosAcademy = '' 
     user.DadosAcademicos.forEach(element => {
         if (element.formacao){
-            DadosAcademy +=`Formação: ${element.formacao}  | Status do Curso: ${element.status_curso}
-            Instituicao: ${element.instituicao} | Ano de Conclusão: ${element.ano_conclusao}<br>`
+            DadosAcademy +=`<p style='margin-top:0;'>Formação: ${element.formacao}  | Status do Curso: ${element.status_curso}
+            Instituicao: ${element.instituicao} | Ano de Conclusão: ${element.ano_conclusao}</p>`
         }
         else if (element.extra_curricular){
-            Extra_Curricular +=`Extra Curricular: ${element.extra_curricular}   | Instituicao: ${element.instituicao}
-            Ano de Conclusão: ${element.ano_conclusao}   | Carga Horaria: ${element.carga_horaria}<br>`
+            Extra_Curricular +=`<p style='margin-top:0;'>Extra Curricular: ${element.extra_curricular}   | Instituicao: ${element.instituicao}
+            Ano de Conclusão: ${element.ano_conclusao}   | Carga Horaria: ${element.carga_horaria}</p>`
         }
         else if (element.idioma){
-            Idiomas  += `<br>Idioma: ${element.idioma}
-            <br>status do curso: ${element.status_curso}<br>` 
+            Idiomas  += `<p style='margin-top:0;'>Idioma: ${element.idioma}<br>
+            status do curso: ${element.status_curso}</p>` 
         }
     
     });
@@ -54,7 +54,7 @@ export const PdfDadosColab = async (req, res) => {
     const text =  `
     <div style='margin:15px;'>
         <hr></hr>
-        <h3 style='color:black;text-align:center;height:5px;margin-top:5px'>Ficha De Dados Pessoais</h3>
+        <h3 style='color:black;text-align:center;margin-top:15px'>Ficha De Dados Pessoais</h3>
         <br>
         <p>A pessoa ${user.nome}, inscrita no (CNPJ)/(CPF) nº ${user.pessoa_juridica ? user.pessoa_juridica.cnpj : user.pessoa_fisica.cpf} , com sede em SAO PAULO ,
         doravante denominado CONTRATANTE e neste ato representada na forma de seus atos constitutivos,
@@ -67,11 +67,11 @@ export const PdfDadosColab = async (req, res) => {
         Telefone: ${user.telefone}
         <br>
         E Datado da Nacionalidade: ${user.nacionalidade} | Com o estado civil: ${user.estado_civil}
-        <h4>Dados Academicos</h4>
+        <h4 style='margin-bottom:0;'>Dados Academicos</h4>
         ${DadosAcademy}
-        <h4>Dados Extra Curriculares</h4>
+        <h4 style='margin-bottom:0;'>Dados Extra Curriculares</h4>
         ${Extra_Curricular}
-        <h4>Dados de Idiomas</h4>
+        <h4 style='margin-bottom:0;'>Dados de Idiomas</h4>
         ${Idiomas}
 Finalidade do Tratamento dos Dados<br>
 <br>
@@ -85,9 +85,7 @@ As partes poderão entrar em acordo, quanto aos eventuais danos causados, caso e
         </p> 
         <br>
         
-
-        
-    <footer style='text-align:center;'>
+    <footer style='text-align:center;margin-top:0;'>
         <h3 >Nome Completo do Assinante do Contrato:</h3>
         
         <h4 style='text-decoration: underline'>${user.nome} </h4>
