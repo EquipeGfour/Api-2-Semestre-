@@ -32,16 +32,14 @@ const TrilhaAdd: React.FC = (props) => {
 
 
             <div className="row">
-                <div className="input-field col s11">
+                <div className="input-field col s12">
 
                     <input placeholder="Nome do Curso" id="first_name2" type="text" className="validate" />
                     <label className="active" htmlFor="last_name">Nome do Curso</label>
 
                 </div>
 
-                <div className="col s1">
-                    <i className="small material-icons mais pointer" title='Novo Curso'>create</i>
-                </div>
+
             <form>
                 <div className="row">
                     <div className="input-field col s12 texto">

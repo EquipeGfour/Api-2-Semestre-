@@ -22,7 +22,7 @@ React.useEffect(()=>{
         <div className="row blocoCima">
             <div className="col s12 m4 l3 divColab"></div>        
                 <div className="col s12 m4 l3 divColab">
-                <Link to="">                   
+                <Link to="meu-perfil">                   
                     <button className=" waves-effect  botaoFunc"> <img className="imgColab" src={colabbranco}></img></button>
                 </Link>  
                     <div className="btnNomeHome">Meu Perfil</div>

@@ -30,6 +30,9 @@ import DocColab from './components/DocumentosColab/documentosColab'
 import DetalheCnpj from './components/detalheCnpj/detalheCnpj';
 import TrilhaAdd from './components/trilha_adicionar/trilha_add';
 import CriarCurso from './components/criarCurso/criarCurso';
+import MeuPerfil from './components/meuPerfil/meuPerfil'
+import MenuCurso from './components/menuCurso/menuCurso'
+import AssistirCurso from './components/assistirCurso/assistirCurso'
 
 type state = {
   tela: string
@@ -87,6 +90,9 @@ render(){
           <Route path='detalhe-cnpj' element={<DetalheCnpj/>}/>
           <Route path='trilha-adicionar' element={<TrilhaAdd/>}/>
           <Route path='criar-curso' element={<CriarCurso/>}/>
+          <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
+          <Route path='menu-curso' element = {<MenuCurso/>}/>
+          <Route path='assistir-curso' element = {<AssistirCurso/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>

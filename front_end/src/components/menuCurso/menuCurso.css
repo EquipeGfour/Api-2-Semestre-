@@ -1,8 +1,9 @@
+
 @font-face {
     font-family:'IonicCoolvetica' ;
     src: url('../../../static/coolvetica\ rg.otf');
 }
-.geralContainer{
+.geralContainer2{
     padding: 1rem;
     width: 100%;
     margin-top: 6rem;
@@ -31,6 +32,11 @@ tr{
     
 }
 
+.espacamento{
+    width:33%;
+    margin: 0 auto;
+}
+
 .Pesquisa{
     width: 35%;
     margin: 0 auto;
@@ -39,12 +45,12 @@ tr{
 }
 
 
-.infodep{
+.bodyCurso{
     background-color: #ffffff;
     border-radius: 10px;
     color: rgb(0, 0, 0);
     margin-top: 1rem !important;    
-    width: 60%;
+    width: 70%;
     margin: 0 auto; 
     
     
@@ -54,8 +60,8 @@ tr{
     margin-top: 0 !important;
 }
 
-.infodep1{
-    margin-top: 5rem !important;
+.headerCurso{
+    margin-top: 2rem !important;
     /*background-color: #393B42;*/
     color: rgb(255, 255, 255);
     border: none !important;
@@ -76,6 +82,7 @@ tr{
 
 .collapsible-header{
     border-bottom: none !important;
+    color: black !important;
    
 }
 
