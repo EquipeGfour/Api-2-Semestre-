@@ -84,7 +84,7 @@ export const inserirDadosColab = async (req, res) => {
             colaborador_id: req.body.id
         }
         const dados = await atualizarColaborador(colabId, objColab, objDadosAcadWithColabId, objEndereco, t)
-        resres.status(201).json(dados)
+        res.status(201).json(dados)
     } catch (error) {
         await t.rollback()
         res.status(400).json({ message: error.message });

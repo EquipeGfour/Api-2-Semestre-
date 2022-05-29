@@ -13,6 +13,7 @@ export const PdfContrato = async (req, res) => {
             model:PessoaJuridica
         }]
     });
+    
     const titulo ="Contrato"
     const text =  `
     <div style='margin:15px;'>
