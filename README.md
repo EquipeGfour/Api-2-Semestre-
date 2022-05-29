@@ -26,7 +26,7 @@ RF ID# | Sprint | Requisitos | Prioridade| Status|
 RNF ID# | Sprint | Requisitos | Prioridade| Status|
 :--------- | :------: | :-------: | :-------: | :------: |
 9 |1|Conexão com Banco de dados|ALTA|COMPLETO
-10 |1|NodeJs, Java Script, Type Script e React|ALTA|COMPLETO
+10 |1|Utilização NodeJs, Java Script, Type Script e React|ALTA|COMPLETO
 11 |2|Repositório para documentos dos colaboradores|ALTA|COMPLETO
 12 |2|Manual do usuário para navegação.|MÉDIA|COMPLETO
 13 |3|Desenho da arquitetura da solução|MÉDIA|ANDAMENTO
@@ -37,7 +37,10 @@ RNF ID# | Sprint | Requisitos | Prioridade| Status|
 
 <h2> ⏲️ Timeline Do Produto</h2>
 
-![WhatsApp Image 2022-05-27 at 13 16 37 (1)](https://user-images.githubusercontent.com/8519765/170739328-46312b34-708a-4a37-9076-1c94cdd39788.jpeg)
+![timeline](https://user-images.githubusercontent.com/8519765/170871218-1aaace74-c832-4eba-8afd-f29da78db71a.png)
+
+
+
  
 
 <br>
@@ -182,7 +185,8 @@ $ Senha = ceoionic
 <h2>:wrench: Tecnologias Utilizadas</h2>
 
 
-![Design sem nome](https://user-images.githubusercontent.com/8519765/169674652-41f4ebdf-1083-4b17-aa39-410be76d7bb2.png)
+![tecnologias](https://user-images.githubusercontent.com/8519765/170871603-796adc3a-038c-4907-8120-a4fe79c2ef60.png)
+
 
 
 <h2> 🖥️ Deploy Heroku</h2>
