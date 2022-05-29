@@ -56,3 +56,8 @@ export const uploadVideo = multer({
     storage:storage[process.env.STORAGE_TYPE],
     limits:{fileSize:tamanhoVideo}
 }).fields([{name:'video',maxCount:1}])
+
+export const uploadArquivosAula = multer({
+    storage:storage[process.env.STORAGE_TYPE],
+    limits:{fileSize:tamanhoVideo}
+}).fields([{name:'material',maxCount:1}])
