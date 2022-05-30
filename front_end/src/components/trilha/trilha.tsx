@@ -22,9 +22,10 @@ const Trilha: React.FC = () => {
       <h3 className="titulo-trilha">Trilha de Aprendizado</h3>
       <div className="row">
 
-      <a className="waves-effect waves-light btn-small botao"><i className="material-icons left">school</i>Criar Curso</a>
-
-        <div className="col s12 conteiner-cinza1">
+    <div className="botaoVoador">
+      <a className="waves-effect waves-light btn-small"><i className="material-icons left text-white">school</i>Criar Curso</a>
+    </div>
+        <div className="col s12 conteiner-cinza3">
           <div className="bg-cinza div-cursos">
             <div className=" card-cinza">
               <Link to={'/menu-curso'}>
