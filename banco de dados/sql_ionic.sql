@@ -59,6 +59,7 @@ CREATE TABLE colaboradors (
     id int NOT NULL AUTO_INCREMENT,
     cargos_id int ,
     gestor_id int ,
+    trilha_id int ,
     nome varchar(100) ,
     rg varchar(25) unique,
     email varchar(250) unique,
@@ -181,7 +182,8 @@ CREATE TABLE pessoa_juridicas (
 -- Table: trilha_aprendizados
 CREATE TABLE trilha_aprendizados (
     id int NOT NULL AUTO_INCREMENT,
-    pessoa_fisicas_colaborador_id int ,
+    pf_id int ,
+    nome varchar(100) ,
     status_curso varchar(30) ,
     data_inicio date ,
     data_fim date ,
@@ -247,6 +249,10 @@ ALTER TABLE pessoa_fisicas ADD CONSTRAINT pessoa_fisica_colaborador FOREIGN KEY 
 -- Reference: Pessoa_Juridica_Colaborador (table: Pessoa_Juridicas)
 ALTER TABLE pessoa_juridicas ADD CONSTRAINT pessoa_juridica_colaborador FOREIGN KEY pessoa_juridica_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
+
+ALTER TABLE trilha_aprendizados ADD CONSTRAINT trilha_id FOREIGN KEY pf_id (id)
+    REFERENCES colaboradors(id);
+
 
 use ionic;
 insert into departamentos(id, area, createdAt) values (1, "Administracão", "2022-04-13");

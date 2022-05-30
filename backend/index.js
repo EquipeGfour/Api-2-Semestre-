@@ -10,6 +10,7 @@ import pdf_router from './routes/pdf_router.js'
 import uploadRouter from './routes/uploadRouter.js'
 import cursoRouter from './routes/cursoRouter.js'
 import aulaRouter from './routes/aulaRouter.js'
+import trilhaRouter from './routes/trilhaRouter.js'
 import pessoaJuridicaRouter from './routes/pessoaJuridicaRouter.js'
 import path from 'path'
 
@@ -49,6 +50,8 @@ app.use('/api/curso', cursoRouter);
 app.use('/api/aula', aulaRouter);
 
 app.use('/api/pessoaJuridica', pessoaJuridicaRouter);
+
+app.use('/api/trilha',trilhaRouter)
 
 // para rodar o servidor heroku
 app.use(express.static(path.join(__dirname, '..','front_end','build')));

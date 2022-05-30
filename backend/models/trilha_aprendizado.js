@@ -9,6 +9,14 @@ const TrilhaAprendizado = db.define('trilha_aprendizados',{
         allowNull: false,
         primaryKey: true
     },
+    pf_id:{
+        type:Sequelize.INTEGER,
+        allowNull:true,
+    },
+    nome:{
+        type:Sequelize.STRING,
+        allowNull:true,
+    },
     status_curso:{
         type:Sequelize.STRING,
         allowNull:true,
@@ -21,10 +29,6 @@ const TrilhaAprendizado = db.define('trilha_aprendizados',{
         type:Sequelize.DATE,
         allowNull: true
     },
-    pessoa_fisicas_colaborador_id:{
-        type:Sequelize.INTEGER,
-        allowNull: true
-    }
 })
 
 
