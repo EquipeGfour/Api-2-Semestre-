@@ -10,11 +10,10 @@ import pdf_router from './routes/pdf_router.js'
 import uploadRouter from './routes/uploadRouter.js'
 import cursoRouter from './routes/cursoRouter.js'
 import aulaRouter from './routes/aulaRouter.js'
+import pessoaJuridicaRouter from './routes/pessoaJuridicaRouter.js'
 import path from 'path'
 
-
-const __dirname = path.resolve() 
-
+const __dirname = path.resolve();
 
 const app = express();
 
@@ -28,6 +27,7 @@ try {
 }
 
 app.use(cors());
+
 app.use(express.json());
 
 app.use('/api/colab', ColaboradorRouter);
@@ -47,6 +47,8 @@ app.use('/api/upload', uploadRouter);
 app.use('/api/curso', cursoRouter);
 
 app.use('/api/aula', aulaRouter);
+
+app.use('/api/pessoaJuridica', pessoaJuridicaRouter);
 
 // para rodar o servidor heroku
 app.use(express.static(path.join(__dirname, '..','front_end','build')));

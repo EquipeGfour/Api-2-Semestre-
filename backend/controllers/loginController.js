@@ -1,6 +1,6 @@
-import sequelize from '../config/db.js'
-import jwt from 'jsonwebtoken'
-import 'dotenv/config.js'
+import sequelize from '../config/db.js';
+import jwt from 'jsonwebtoken';
+import 'dotenv/config.js';
 
 
 export const verify = async (req, res) => {
