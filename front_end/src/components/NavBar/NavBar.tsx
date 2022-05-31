@@ -48,7 +48,6 @@ return(
 //---------Social Media-----------//
 <div className='geral'> 
 
-
     <div className= "socialbar">
         <a href="https://www.youtube.com/channel/UCtR3U-Qmb1h2GE9w0Fe3NrA" target="_blank" className="link-9">            
         <img className='youtube' src={Youtube}></img> </a>
@@ -63,7 +62,6 @@ return(
         <img className='youtube' src={Instagram}></img> </a>
     </div>
     
-
     <nav>
         <div className="nav-wrapper navbarBackground" >
 
@@ -72,9 +70,7 @@ return(
                 <>
 
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons sideNavBar">menu</i></a>
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                
-                                
+                <ul id="nav-mobile" className="right hide-on-med-and-down">                
                     {user.cargo === 'Administrador' || user.cargo === 'Gestor'?(
                     <><li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
@@ -97,5 +93,4 @@ return(
 </div>
 )
 }
-
 export default NavBar

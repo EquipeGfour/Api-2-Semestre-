@@ -10,8 +10,7 @@ import { CriaHeader } from '../../functions';
 
 const DadosEmpresa:React.FC=(props)=>{
     const navigate = useNavigate()
-    const [cookie,setCookie]=useCookies(['ionic-user'])
-    
+    const [cookie,setCookie]=useCookies(['ionic-user'])    
     const [empresacontratada,setEmpresacontratada] = React.useState('')
     const [cnpj,setCnpj] = React.useState('')
     const [rg,setRg] = React.useState('')
@@ -55,10 +54,8 @@ const DadosEmpresa:React.FC=(props)=>{
         }
         var elemsdate = document.querySelectorAll('.datepicker');
         var instancesdate = M.Datepicker.init(elemsdate,dateOptions);
-
         var elems = document.querySelectorAll('.collapsible');
-        var instances = M.Collapsible.init(elems, Option);
-        
+        var instances = M.Collapsible.init(elems, Option);        
     },[])
 
     const sendData = ()=>{
@@ -84,179 +81,148 @@ const DadosEmpresa:React.FC=(props)=>{
         }
 
     if(!ValidaCampo()){
-
         axios.post('/api/colab/cnpj',dados, {headers:CriaHeader()}).then(res=>{
-
         M.toast({html:'Cadastro Realizado com Sucesso !', classes:"modal1 rounded"})
             navigate('/upload')
-
         }).catch(erro=>{
             console.error('Erro', erro.response)
         })
     }
-       
     }
 
     const ValidaCampo = ()=>{
         let faltaDados = false
-
         if(empresacontratada === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Empresa Contratada', classes:"modalerro rounded"})
         }
-
         if(datafundacao === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Data de Fundação!', classes:"modalerro rounded"})
         }
-
         if(rua === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Rua!', classes:"modalerro rounded"})
         }
-
         if(estado === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Estado!', classes:"modalerro rounded"})
         }
-
         if(bairro === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Bairro !', classes:"modalerro rounded"})
         }
-
         if(cidade=== ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Cidade !', classes:"modalerro rounded"})
         }
-
         if(cep === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Cep!', classes:"modalerro rounded"})
         }
-
         if(telefone === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Telefone !', classes:"modalerro rounded"})
         }
-
         if(regiao === ''){
             faltaDados = true
             M.toast({html:'Preencha o campo Região !', classes:"modalerro rounded"})
         }
-
-
         return faltaDados
-
     }
 
     return(
-
-    <div>
-    <div className="dadosContainer titulo">
-    <span>Cadastro Pessoa Jurídica </span>
-    </div>
-    <form>
-
-    <ul className="collapsible expandable infodep1">
-    <li>
-      <div className="collapsible-header infodep infodep"><i className="material-icons">location_city</i>Dados Empresa</div>
-      <div className="collapsible-body">
-        <div className="row">
-            <div className="input-field col s6">
-                <input value={empresacontratada} placeholder="Nome Empresa" id="first_name2" type="text" className="validate" onChange={ (e) => setEmpresacontratada(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Nome Empresa</label>
+        <div>
+            <div className="dadosContainer titulo">
+            <span>Cadastro Pessoa Jurídica </span>
             </div>
+            <form>
+                <ul className="collapsible expandable infodep1">
+                    <li>
+                        <div className="collapsible-header infodep infodep"><i className="material-icons">location_city</i>Dados Empresa</div>
+                        <div className="collapsible-body">
+                        <div className="row">
+                            <div className="input-field col s6">
+                                <input value={empresacontratada} placeholder="Nome Empresa" id="first_name2" type="text" className="validate" onChange={ (e) => setEmpresacontratada(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Nome Empresa</label>
+                            </div>
 
-            <div className="input-field col s6">
-                <input value = {cnpj} placeholder="CNPJ" id="first_name2" type="text" className="validate"onChange={ (e) => setCnpj(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">CNPJ</label>
-            </div>
+                            <div className="input-field col s6">
+                                <input value = {cnpj} placeholder="CNPJ" id="first_name2" type="text" className="validate"onChange={ (e) => setCnpj(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">CNPJ</label>
+                            </div>
 
-            <div className="input-field col s6">
-                <input value={datafundacao} placeholder="Data de Fundação" id="first_name2" type="text" className="validate" onChange={ (e) => setDatafundacao(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Data de Fundação</label>
-            </div>
-
-
-            <div className="input-field col s6">
-                <input value={email} placeholder="email" id="first_name2" type="text" className="validate"onChange={ (e) => setEmail(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Email</label>
-            </div>
-
-            <div className="input-field col s6">
-                <input value={telefone} placeholder="(DDD) Telefone" id="first_name2" type="text" className="validate" onChange={ (e) => setTelefone(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Telefone</label>
-            </div>
-
-
-            <div className="input-field col s6">
-                <input value={nomerepresentante} placeholder="Nome Representante" id="first_name2" type="text" className="validate" onChange={(e) => setNomerepresentante(e.target.value)}/>
-                <label className="active" htmlFor="first_name2">Nome Representante</label>
-            </div>
+                            <div className="input-field col s6">
+                                <input value={datafundacao} placeholder="Data de Fundação" id="first_name2" type="text" className="validate" onChange={ (e) => setDatafundacao(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Data de Fundação</label>
+                            </div>
 
 
+                            <div className="input-field col s6">
+                                <input value={email} placeholder="email" id="first_name2" type="text" className="validate"onChange={ (e) => setEmail(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Email</label>
+                            </div>
+
+                            <div className="input-field col s6">
+                                <input value={telefone} placeholder="(DDD) Telefone" id="first_name2" type="text" className="validate" onChange={ (e) => setTelefone(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Telefone</label>
+                            </div>
 
 
+                            <div className="input-field col s6">
+                                <input value={nomerepresentante} placeholder="Nome Representante" id="first_name2" type="text" className="validate" onChange={(e) => setNomerepresentante(e.target.value)}/>
+                                <label className="active" htmlFor="first_name2">Nome Representante</label>
+                            </div>
+                        </div>              
+                    </div>
 
-        </div>              
-     </div>
+                    </li>
+                    <li>
+                        <div className="collapsible-header infodep"><i className="material-icons">place</i>Endereço</div>
+                        <div className="collapsible-body">
+                        <span>
+                            <div className="row">                          
+                            <div className="input-field col s6">
+                                <input value={rua} placeholder="Rua/Número" id="first_name2" type="text" className="validate" onChange={ (e) => setRua(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Rua/Número</label>
+                            </div>
 
-    </li>
-    <li>
-      <div className="collapsible-header infodep"><i className="material-icons">place</i>Endereço</div>
-      <div className="collapsible-body">
-          <span>
-            <div className="row"> 
-            
+                            <div className="input-field col s6">
+                                <input value={complemento} placeholder="Complemento" id="first_name2" type="text" className="validate" onChange={ (e) => setComplemento(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Complemento</label>
+                            </div>
 
-            <div className="input-field col s6">
-                <input value={rua} placeholder="Rua/Número" id="first_name2" type="text" className="validate" onChange={ (e) => setRua(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Rua/Número</label>
-            </div>
+                            <div className="input-field col s6">
+                                <input value={bairro} placeholder="Bairro" id="first_name2" type="text" className="validate"onChange={ (e) => setBairro(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Bairro</label>
+                            </div>
 
-            <div className="input-field col s6">
-                <input value={complemento} placeholder="Complemento" id="first_name2" type="text" className="validate" onChange={ (e) => setComplemento(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Complemento</label>
-            </div>
+                            <div className="input-field col s6">
+                                <input value={cidade} placeholder="Cidade" id="first_name2" type="text" className="validate"onChange={ (e) => setCidade(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Cidade</label>
+                            </div>
 
+                            <div className="input-field col s6">
+                                <input value={estado} placeholder="Estado" id="first_name2" type="text" className="validate" onChange={ (e) => setEstado(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Estado</label>
+                            </div>
 
-            <div className="input-field col s6">
-                <input value={bairro} placeholder="Bairro" id="first_name2" type="text" className="validate"onChange={ (e) => setBairro(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Bairro</label>
-            </div>
+                            <div className="input-field col s6">
+                                <input value={regiao} placeholder="Região" id="first_name2" type="text" className="validate" onChange={ (e) => setRegiao(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">Região</label>
+                            </div>
 
-            <div className="input-field col s6">
-                <input value={cidade} placeholder="Cidade" id="first_name2" type="text" className="validate"onChange={ (e) => setCidade(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Cidade</label>
-            </div>
-
-            <div className="input-field col s6">
-                <input value={estado} placeholder="Estado" id="first_name2" type="text" className="validate" onChange={ (e) => setEstado(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Estado</label>
-            </div>
-
-            <div className="input-field col s6">
-                <input value={regiao} placeholder="Região" id="first_name2" type="text" className="validate" onChange={ (e) => setRegiao(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">Região</label>
-            </div>
-
-            <div className="input-field col s6">
-                <input value={cep} placeholder="CEP" id="first_name2" type="text" className="validate" onChange={ (e) => setCep(e.target.value) }/>
-                <label className="active" htmlFor="first_name2">CEP</label>
-            </div>
-            </div> 
-          </span></div>
-    </li>
-    </ul>
-    <div className='centro'><a className="waves-effect waves-light btn-large btnAzulcadastro" onClick={sendData}>Enviar</a></div>
-    </form>
-    </div>
-    
-
-
-      
-          
+                            <div className="input-field col s6">
+                                <input value={cep} placeholder="CEP" id="first_name2" type="text" className="validate" onChange={ (e) => setCep(e.target.value) }/>
+                                <label className="active" htmlFor="first_name2">CEP</label>
+                            </div>
+                            </div> 
+                        </span></div>
+                    </li>
+                </ul>
+                <div className='centro'><a className="waves-effect waves-light btn-large btnAzulcadastro" onClick={sendData}>Enviar</a></div>
+            </form>
+        </div>   
     )
 }
 export default DadosEmpresa

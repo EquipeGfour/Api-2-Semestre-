@@ -8,7 +8,6 @@ import M from 'materialize-css/dist/js/materialize'
 import { Link, useParams } from "react-router-dom"
 import ReactTooltip from "react-tooltip";
 
-
 const MenuCurso: React.FC = (props) => {
 
     React.useEffect(() => {            

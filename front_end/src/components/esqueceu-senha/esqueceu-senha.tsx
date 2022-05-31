@@ -5,36 +5,31 @@ import axios from "../../functions/axios";
 import {useCookies} from 'react-cookie'
 import M from 'materialize-css/dist/js/materialize'
 
-
 const Esqueceu: React.FC = () => {
 const [email,setEmail] = React.useState('')
 console.log(email);
 
-const RecuperarSenha = (email)=>{
-  let url = "/api/colab/recuperar";
-  let obj = {
-    email:email, 
-  }
-  console.log(obj);
-  axios.post(url,obj).then(res => {
-  
-    setEmail('')
-    
+  const RecuperarSenha = (email)=>{
+    let url = "/api/colab/recuperar";
+    let obj = {
+      email:email, 
+    }
+    console.log(obj);
+    axios.post(url,obj).then(res => {  
+      setEmail('')
+    }).catch(erro => {
+      console.error('Erro', erro.response)    
+    })
+  } 
 
-  }).catch(erro => {
-    console.error('Erro', erro.response)
-    
-})
-}
-  
-    React.useEffect(() => {
-        document.title = 'Esqueceu'
-       
-      })
+  React.useEffect(() => {
+        document.title = 'Esqueceu'       
+  })
 
-      return (
-            <div className="loginContainer">
+  return (
+      <div className="loginContainer">
       <h1>Recuperar Senha</h1>
+
       <p className="texto">Verifique sua identidade digitando o seu E-mail e lá você receberá um código de confirmação.</p>
       <div className="centralizar">
       <div className="row senha">
@@ -42,19 +37,12 @@ const RecuperarSenha = (email)=>{
             <input value = {email} id="email" type="text" className="validate" onChange={ (e) => setEmail(e.target.value) } />
             <label htmlFor="password">E-mail</label>
           </div>
-        </div>
-
-       
-
-
+        </div>     
         <Link to={'/'}>
-        <a className="waves-effect waves-light btn-large btnAzulLogin" onClick={(e)=>RecuperarSenha(email)}>Enviar</a>
+          <a className="waves-effect waves-light btn-large btnAzulLogin" onClick={(e)=>RecuperarSenha(email)}>Enviar</a>
         </Link>
-
       </div>
     </div>
-
-      )
+  )
 }
-
 export default Esqueceu

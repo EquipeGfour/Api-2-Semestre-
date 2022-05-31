@@ -9,20 +9,13 @@ import { Link, useParams } from "react-router-dom"
 import ReactTooltip from "react-tooltip";
 import fileDownload from "js-file-download";
 
-
 const DetalheCnpj: React.FC = (props) => {
   const { id } = useParams();
   const [nome, setNome]=useState('');
   const [cargo, setCargo]=useState('');
   const [departamento, setDepartamento]=useState('');
- 
-  
-  
   const [email, setEmail]=useState('');
-  
-  const [telefone, setTelefone]=useState('');
-  
-  
+  const [telefone, setTelefone]=useState(''); 
   const [rua, setRua]=useState('');
   const [estado, setEstado]=useState('');
   const [cidade, setCidade]=useState('');
@@ -30,7 +23,6 @@ const DetalheCnpj: React.FC = (props) => {
   const [cep, setCep]=useState('');
   const [complemento, setComplemento]=useState('');
   const [regiao, setRegiao]=useState('');
-  
   const [status,setStatus]=useState('');
   const [cnpj, setCnpj]=useState('');
   const [datafundacao, setDataFundacao]=useState('');
@@ -59,17 +51,14 @@ const DetalheCnpj: React.FC = (props) => {
       setArquivos(res.data.arquivos) 
     }).catch(err=>{
       console.log(err)
-    })
-    
+    })    
   }
-
 
   const downloadFile = (id,nome,extensao) =>{
     axios.get(`/api/upload/download/${id}`, {headers: CriaHeader(), responseType: 'blob'}).then(res=>{      
       console.log('Baixar',id)
       const unirarq = nome + extensao
       fileDownload(res.data, unirarq)
-
     }).catch(err=>{
       console.log(err)
     })
@@ -80,25 +69,18 @@ const DetalheCnpj: React.FC = (props) => {
       console.log(res);
       setNome(res.data.nome);
       setCargo(res.data.cargo?.cargo);
-      setDepartamento(res.data.cargo?.departamento.area);
-      
-      
+      setDepartamento(res.data.cargo?.departamento.area);     
       setEmail(res.data.email);
-      
       setTelefone(res.data.telefone);
-      
       setRua(res.data.enderecos?.[0]?.rua);
       setEstado(res.data.enderecos?.[0]?.estado);
       setCidade(res.data.enderecos?.[0]?.cidade);
       setBairro(res.data.enderecos?.[0]?.bairro);
       setCep(res.data.enderecos?.[0]?.cep);
       setComplemento(res.data.enderecos?.[0]?.complemento);
-      setRegiao(res.data.enderecos?.[0]?.regiao);
-      
+      setRegiao(res.data.enderecos?.[0]?.regiao);      
     })
   }
-
-
 
   React.useEffect(() => {
     getColabById(id)
@@ -107,7 +89,6 @@ const DetalheCnpj: React.FC = (props) => {
     var el = document.querySelector('#tabs-swipe-demo')
     var instance = M.Tabs.init(el, Option);
   }, [])
-
 
   return (
     <div>
@@ -129,13 +110,11 @@ const DetalheCnpj: React.FC = (props) => {
               <input id="dadoRecebido" type="text" className="validate" value={cargo}onChange={()=>setCargo(cargo)} />
               <label className="fonte" htmlFor="icon_prefix">Cargo</label>
             </div>
-
           </form>
-
         </div>
-
-        {/* -----------------------------------ABAS Da Empresa------------------------------------------- */}
       </div>
+
+      {/* -----------------------------------ABAS Da Empresa------------------------------------------- */}
       <div className="container pjCor">
         <ul id="tabs-swipe-demo" className="tabs cabecalho">
           <li className="tab col s3"><a href="#test-swipe-2">Dados da Empresa</a></li>
@@ -143,7 +122,6 @@ const DetalheCnpj: React.FC = (props) => {
           <li className="tab col s3"><a href="#test-swipe-4">Contrato</a></li>
           <li className="tab col s3"><a href="#test-swipe-5">Arquivos</a></li>
         </ul>
-
 
         <div id="test-swipe-2" className="col s12">
           <form>
@@ -153,32 +131,29 @@ const DetalheCnpj: React.FC = (props) => {
                   <input placeholder="CNPJ" id="first_name2" type="text" className="validate dadoRecebido1" value={cnpj}onChange={()=>setCnpj(cnpj)} />
                   <label className="active fonte" htmlFor="first_name2">CNPJ</label>
                 </div>
-               
+
                 <div className=" input-field col s4 espaço">
                   <input placeholder="Data Fundação" id="first_name2" type="text" className="validate" value={datafundacao}onChange={()=>setDataFundacao} />
                   <label className="active fonte" htmlFor="first_name2">Data Fundação</label>
-                </div>
-              
+                </div>             
 
-              <div className=" input-field col s4 espaço">
-                  <input placeholder="Email" id="first_name2" type="text" className="validate dadoRecebido1" value={email}onChange={()=>setEmail} />
-                  <label className="active fonte" htmlFor="first_name2">Email</label>
+                <div className=" input-field col s4 espaço">
+                    <input placeholder="Email" id="first_name2" type="text" className="validate dadoRecebido1" value={email}onChange={()=>setEmail} />
+                    <label className="active fonte" htmlFor="first_name2">Email</label>
+                </div>
               </div>
-            </div>
 
               <div className="row">
-              <div className=" input-field col s4 espaço">
-                  <input placeholder="Telefone" id="first_name2" type="text" className="validate" value={telefone}onChange={()=>setTelefone}/>
-                  <label className="active fonte" htmlFor="first_name2">Telefone</label>
-              </div>
-               
-              <div className=" input-field col s4 espaço">
-                  <input placeholder="Nome Representante" id="first_name2" type="text" className="validate" value={nomerepresentante}onChange={()=>setNomeRepresentante}/>
-                  <label className="active fonte" htmlFor="first_name2">Nome Representante</label>
-              </div>
+                <div className=" input-field col s4 espaço">
+                    <input placeholder="Telefone" id="first_name2" type="text" className="validate" value={telefone}onChange={()=>setTelefone}/>
+                    <label className="active fonte" htmlFor="first_name2">Telefone</label>
+                </div>
 
-            </div>  
-              
+                <div className=" input-field col s4 espaço">
+                    <input placeholder="Nome Representante" id="first_name2" type="text" className="validate" value={nomerepresentante}onChange={()=>setNomeRepresentante}/>
+                    <label className="active fonte" htmlFor="first_name2">Nome Representante</label>
+                </div>
+              </div>              
             </div>
           </form>
         </div>    
@@ -226,14 +201,12 @@ const DetalheCnpj: React.FC = (props) => {
           </form>
         </div>
 
-        
         {/* -----------------------------------CONTRATO------------------------------------------- */}
         <div id="test-swipe-4" className="col s12 ">
           <form>
             <div className="col s12 dadosPessoais text-white">
               <span>Clique em "Gerar PDF" para visualizar o contrato</span>
-            </div>
-            
+            </div>            
             <a className="waves-effect waves-light btn-large btnAzulPDF" onClick={gerarpdf}>
             {status ==="" ?"Gerar PDF" : "carregando..." } 
             </a>
@@ -254,7 +227,6 @@ const DetalheCnpj: React.FC = (props) => {
                     <th>Baixar Arquivo</th>
                   </tr>
                 </thead>
-
                 <tbody>
                   {arquivos.map((file,index)=>(
                   <tr key={index}>
@@ -272,7 +244,6 @@ const DetalheCnpj: React.FC = (props) => {
                   </tr>
                   ))}
                 </tbody>
-
               </table>
               <br></br>
               <br></br>
@@ -283,5 +254,4 @@ const DetalheCnpj: React.FC = (props) => {
   </div> 
   )
 }
-
 export default DetalheCnpj

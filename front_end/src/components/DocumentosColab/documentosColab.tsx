@@ -8,7 +8,6 @@ import M from 'materialize-css/dist/js/materialize'
 import ReactTooltip from "react-tooltip";
 import fileDownload from "js-file-download";
 
-
 const DocColab:React.FC=()=>{
     const { id } = useParams();
     const [cookie,setCookie] = useCookies(['ionic-user', 'ionic-JWT'])
@@ -35,7 +34,7 @@ const DocColab:React.FC=()=>{
     const [idiomas, setIdiomas]=useState('');
     const [curso, setCurso]=useState('');
     const [status,setStatus]=useState('');
-  
+    // Função Upload/Download
     const [arquivos,setArquivos] = useState([])
     const [download, setDownload] = useState('')
 
@@ -64,16 +63,14 @@ const gerarpdf = () => {
       setArquivos(res.data.arquivos) 
     }).catch(err=>{
       console.log(err)
-    })
-    
+    })    
 }
-    /* Download Arquivo*/
+  /* Download Arquivo*/
   const downloadFile = (id,nome,extensao) =>{
     axios.get(`/api/upload/download/${id}`, {headers: CriaHeader(), responseType: 'blob'}).then(res=>{      
       console.log('Baixar',id)
       const unirarq = nome + extensao
       fileDownload(res.data, unirarq)
-
     }).catch(err=>{
       console.log(err)
     })
@@ -117,92 +114,79 @@ React.useEffect(()=>{
 },[])
 
 return(
-<div>
-
+  <div>
     <div className="geralContainer">
-        <span className="titulo">Documentos</span>
+      <span className="titulo">Documentos</span>
     </div>
-    <div className="Pesquisa">
+      <div className="Pesquisa">
     </div>
 
     <div className="container">
-        <ul id="tabs-swipe-demo" className="tabs cabecalho">
-          <li className="tab col s4"><a href="#test-swipe-2">Documentos Pessoais</a></li>
-          <li className="tab col s4"><a href="#test-swipe-1">Documentos Empresa</a></li>
-          <li className="tab col s4"><a href="#test-swipe-3">Contrato</a></li>
-        </ul>
-    
+      <ul id="tabs-swipe-demo" className="tabs cabecalho">
+        <li className="tab col s4"><a href="#test-swipe-2">Documentos Pessoais</a></li>
+        <li className="tab col s4"><a href="#test-swipe-1">Documentos Empresa</a></li>
+        <li className="tab col s4"><a href="#test-swipe-3">Contrato</a></li>
+      </ul>   
 
-        {/* -----------------------------------DOCUMENTOS PESSOAIS------------------------------------------- */}
-
-        <div id="test-swipe-2" className="col s12 ">
-            <form>
-                <div className="col s12 dadosPessoais">
-                <table className="highlight responsive-table centered tabelaUpload">
-                    <thead>
-                    <tr>
-                        <th>Nome do Arquivo</th>
-                        <th>Tipo</th>
-                        <th>Ver</th>
-                        <th>Baixar Arquivo</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    {arquivos.map((file,index)=>(
-                    <tr key={index}>
-                        <td>{file.nome_arquivos}</td>
-                        <td>{file.tipo}</td>
-                        <td>
-                        {file.url_arquivo&&(<a href={file.url_arquivo} target='_blank'className="corionic">Link</a>)}
-                        </td>                    
-                        <td>
-                        <ReactTooltip />
-                        <Link to="">               
-                        <i className="material-icons" data-tip='Baixar' onClick={()=>downloadFile(file.id,file.nome_arquivos,file.extensao)}>file_download</i>
-                        </Link>   
-                        </td>
-                    </tr>
-                    ))}
-                    </tbody>
-
-                </table>
-                <br></br>
-                <br></br>
-                </div>
-            </form>
-        </div>
-
-        {/* -----------------------------------DOCUMENTOS EMPRESA------------------------------------------- */}
-
-        <div id="test-swipe-1" className="col s12 ">
+          {/* -----------------------------------DOCUMENTOS PESSOAIS------------------------------------------- */}
+      <div id="test-swipe-2" className="col s12 ">
+        <form>
+          <div className="col s12 dadosPessoais">
+            <table className="highlight responsive-table centered tabelaUpload">
+              <thead>
+                <tr>
+                    <th>Nome do Arquivo</th>
+                    <th>Tipo</th>
+                    <th>Ver</th>
+                    <th>Baixar Arquivo</th>
+                </tr>
+              </thead>
+              <tbody>
+                {arquivos.map((file,index)=>(
+                <tr key={index}>
+                    <td>{file.nome_arquivos}</td>
+                    <td>{file.tipo}</td>
+                    <td>
+                    {file.url_arquivo&&(<a href={file.url_arquivo} target='_blank'className="corionic">Link</a>)}
+                    </td>                    
+                    <td>
+                    <ReactTooltip />
+                    <Link to="">               
+                    <i className="material-icons" data-tip='Baixar' onClick={()=>downloadFile(file.id,file.nome_arquivos,file.extensao)}>file_download</i>
+                    </Link>   
+                    </td>
+                </tr>
+                ))}
+              </tbody>
+            </table>
             <br></br>
             <br></br>
-        </div>
+          </div>
+        </form>
+      </div>
 
-        {/* -----------------------------------CONTRATO------------------------------------------- */}    
+            {/* -----------------------------------DOCUMENTOS EMPRESA------------------------------------------- */}
 
-        <div id="test-swipe-3" className="col s12 ">
+      <div id="test-swipe-1" className="col s12 ">
+              <br></br>
+              <br></br>
+      </div>
+
+          {/* -----------------------------------CONTRATO------------------------------------------- */}    
+
+      <div id="test-swipe-3" className="col s12 ">
           <form>
             <div className="col s12 dadosPessoais text-white">
               <span>Clique em "Gerar PDF" para visualizar o contrato</span>
-            </div>
-            
+            </div>            
             <a className="waves-effect waves-light btn-large btnAzulPDF" onClick={gerarpdf}>
             {status ==="" ?"Gerar PDF" : "carregando..." } 
             </a>
           </form>
-        </div>
-        <br></br>            
-
+      </div>
+      <br></br>         
     </div>
-
-
-</div>    
+  </div>    
 )
-
-
-
-
 }
 export default DocColab

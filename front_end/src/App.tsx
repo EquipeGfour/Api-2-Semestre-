@@ -3,7 +3,6 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
 
 //Import de meus componentes (páginas)
-
 import NavBar from './components/NavBar/NavBar';
 import DadosPessoais from './components/dados_pessoais/dadosPessoais';
 import Upload from './components/Upload/Upload.';
@@ -44,13 +43,11 @@ class App extends Component<{},state> {
     this.state = {
       tela: ''
     }
-
     this.selecionarTela = this.selecionarTela.bind(this)
   }
 
   selecionarTela(opcao:string, evento){
-    console.log('ta clicando....');
-    
+    console.log('ta clicando....');    
     evento.preventDefault()
     this.setState({
       tela:opcao
@@ -58,8 +55,6 @@ class App extends Component<{},state> {
   }
 
 render(){
-
-
   return(
     <div>     
       <BrowserRouter>        

@@ -19,12 +19,12 @@ interface iDepartamento {
   area: string;
   cargos: iCargo[];
 }
-
 interface iGestor {
   id?: number;
   nome?: string;
   cargo?: [];
 }
+
 const PreRegistro1: React.FC = () => {
   const navigate = useNavigate();
   const [cookie, setCookie] = useCookies(["ionic-user"]);
@@ -70,13 +70,10 @@ const PreRegistro1: React.FC = () => {
   const filtraGestores = (id) => {
     const filtrado = cargos.find(c => c.id == id)
     setCargo(id)
-    axios
-      .get(`/api/colab/head?nivel=${filtrado.nivel}&depart_id=${filtrado.departamento_id}`, { headers: CriaHeader() })
-      .then((res) => {
-        
-        setGestores(res.data);
-        ExeMaterializeSelect();
-      });
+    axios.get(`/api/colab/head?nivel=${filtrado.nivel}&depart_id=${filtrado.departamento_id}`, { headers: CriaHeader() }).then((res) => {        
+      setGestores(res.data);
+      ExeMaterializeSelect();
+    });
   };
 
   const EnviaDados = () => {
@@ -97,42 +94,30 @@ const PreRegistro1: React.FC = () => {
       obj.cnpj = cpfCnpj;
     }
 
-    axios
-      .post(url, obj, { headers: CriaHeader() })
-      .then((res) => {
-        M.toast({
-          html: "Pré Registro realizado com sucesso!",
-          classes: "modal1 rounded",
-        });
-        setEmail("");
-        setCpfCnpj("");
-        setNome("");
-        setCargo("");
-        setHead("");
-        setGestor("");
-        setGestores([]);
-        navigate("/home-admin");
-
-            
-      })
-      .catch((erro) => {
-        
-        M.toast({
-          html: "Email ou CPF/CNPJ Invalidos ou já cadastrados.",
-          classes: "modalerro rounded",
-        });
-      });
+    axios.post(url, obj, { headers: CriaHeader() }).then((res) => {
+      M.toast({html: "Pré Registro realizado com sucesso!",classes: "modal1 rounded",});
+      setEmail("");
+      setCpfCnpj("");
+      setNome("");
+      setCargo("");
+      setHead("");
+      setGestor("");
+      setGestores([]);
+      navigate("/home-admin");            
+    })
+    .catch((erro) => {        
+      M.toast({html: "Email ou CPF/CNPJ Invalidos ou já cadastrados.",classes: "modalerro rounded",});
+    });
   };
+
   const RegistraDados = () => {
     if (email === "" && cpf === "" && nome === "") {
       M.toast({
         html: "Preencha TODOS os campos !",
         classes: "modalerro rounded",
-      });
-    
+      });    
     } else {
       EnviaDados();
-           
     }
   };
 
@@ -178,33 +163,15 @@ const ConfigModal = () =>{
       <div className="centralizar">
         <div className="row">
           <div className="input-field col s12">
-            <input
-              value={nome}
-              placeholder="Nome Completo/Nome Empresa"
-              id="first_name2"
-              type="text"
-              className="validate"
-              onChange={(e) => setNome(e.target.value)}
-            />
-            <label className="active" htmlFor="first_name2">
-              Nome / Nome Empresa
-            </label>
+            <input value={nome} placeholder="Nome Completo/Nome Empresa" id="first_name2" type="text" className="validate"onChange={(e) => setNome(e.target.value)}/>          
+            <label className="active" htmlFor="first_name2">Nome / Nome Empresa</label>
           </div>
         </div>
-
+        
         <div className="row">
           <div className="input-field col s12">
-            <input
-              value={email}
-              placeholder="Email"
-              id="first_name2"
-              type="text"
-              className="validate"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label className="active" htmlFor="first_name2">
-              Email
-            </label>
+            <input value={email} placeholder="Email" id="first_name2" type="text" className="validate" onChange={(e) => setEmail(e.target.value)}/>      
+            <label className="active" htmlFor="first_name2">Email</label>
           </div>
         </div>
 
@@ -221,18 +188,14 @@ const ConfigModal = () =>{
                 setMask(type);
               }}
             />
-            <label className="active" htmlFor="first_name2">
-              CPF ou CNPJ
-            </label>
+            <label className="active" htmlFor="first_name2">CPF ou CNPJ</label>
           </div>
         </div>
 
         <div className="row">
           <div className="input-field col s12 seletor">
             <select defaultValue={0} onChange={FiltraCargo}>
-              <option value="0" disabled>
-                Departamento
-              </option>
+              <option value="0" disabled>Departamento</option>
               {departamentos.map((dpt) => (
                 <option value={dpt.id} key={dpt.id}>
                   {dpt.area}
@@ -246,9 +209,7 @@ const ConfigModal = () =>{
         <div className="row">
           <div className="input-field col s12 seletor ">
             <select defaultValue={0} onChange={(e) => filtraGestores(e.target.value)}>
-              <option value="0" disabled>
-                Cargo
-              </option>
+              <option value="0" disabled>Cargo</option>
               {cargos.map((c) => (
                 <option value={c.id} key={c.id}>
                   {" "}
@@ -260,61 +221,29 @@ const ConfigModal = () =>{
           </div>
         </div>
 
-        {/*<div className="row campoGestor">
-          <div className="input-field col s12 seletor">
-          <input
-              value={gestor?.nome || ''}
-              
-              id="first_name2"
-              type="text"
-              className="validate"
-              
-            />
-
-            <label>Gestor</label>
-          </div> <a
-            className="btn modal-trigger validate"
-            data-target="modal1"
-            onClick={ConfigModal}
-          >
-            Selecione
-          </a>
-              </div>*/}
-
-          <div className="row">
-            <div className="input-field col s12 seletor ">
-              <select defaultValue={0} onChange={e => setGestor(e.target.value)}>
-                <option value="0" disabled>
-                  Gestor
-                </option>
-                {gestores.map((c) => (
-                <option value={c.id} key={c.id}>
-                  {" "}
-                  {c.nome}
-                </option>
-              ))}
-              </select>
-              <label>Gestor</label>
-            </div>
-          </div>
-
         <div className="row">
-        
+          <div className="input-field col s12 seletor ">
+            <select defaultValue={0} onChange={e => setGestor(e.target.value)}>
+              <option value="0" disabled>Gestor</option>
+              {gestores.map((c) => (
+              <option value={c.id} key={c.id}>
+                {" "}
+                {c.nome}
+              </option>
+            ))}
+            </select>
+            <label>Gestor</label>
+          </div>
+        </div>
+
+        <div className="row">       
           <div
             ref={Modal}
             id="modal1"
-            className="modal"
-
-          >{/*<ModalGestor onSelect={OnGestorSelecionado}/>*/}
-            </div>
+            className="modal">
+          </div>
         </div>
-
-        <a
-          className="waves-effect waves-light btn-large btnAzul"
-          onClick={RegistraDados}
-        >
-          Registrar
-        </a>
+        <a className="waves-effect waves-light btn-large btnAzul" onClick={RegistraDados}>Registrar</a>
       </div>
     </div>
   );
