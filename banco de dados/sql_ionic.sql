@@ -60,6 +60,7 @@ CREATE TABLE colaboradors (
     cargos_id int ,
     gestor_id int ,
     trilha_id int ,
+    empresa_id int ,
     nome varchar(100) ,
     rg varchar(25) unique,
     email varchar(250) unique,
@@ -257,6 +258,9 @@ ALTER TABLE colaboradors ADD CONSTRAINT colaborador_trilha FOREIGN KEY colaborad
 
 ALTER TABLE cursos ADD CONSTRAINT cursos_trilha FOREIGN KEY cursos_trilha (trilha_id)
     REFERENCES trilha_aprendizados(id);
+
+ALTER TABLE colaboradors ADD CONSTRAINT colab_pj FOREIGN KEY colab_pj (empresa_id)
+    REFERENCES pessoa_juridicas(colaborador_id);
 
 
 use ionic;

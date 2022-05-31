@@ -3,16 +3,12 @@ import TrilhaAprendizado from '../models/trilha_aprendizado.js'
 
 export const criarCursos = async (req, res) => {
     try{
-        const teste = req.body
-        console.log(teste)
         const dados = await Cursos.create({
-            id:req.params.id,
+            trilha_id: req.params.id,
             nome_curso:req.body.nome_curso,
             descricao:req.body.descricao,
             nivel:req.body.nivel,
-            carga_horaria:req.body.carga_horaria,
-            trilha_id: req.body.trilha_id
-            
+            carga_horaria:req.body.carga_horaria
         },
         {
             include: TrilhaAprendizado
@@ -29,8 +25,9 @@ export const listarCursos = async (req, res) => {
     try{
         const dados = await Cursos.findAll({
             where:{
-                trilha_id:req.body.trilha_id
-            }
+                trilha_id:req.params.id
+            },
+            attributes:['id','trilha_id','nome_curso','descricao','nivel_curso','carga_horaria_curso']
         })
         res.json(dados)
     }catch(error){
@@ -43,7 +40,8 @@ export const listarcursoID = async (req, res) => {
         const dados = await Cursos.findOne({
             where:{
                 id: req.params.id
-            }
+            },
+            attributes:['id','trilha_id','nome_curso','descricao','nivel_curso','carga_horaria_curso']
         })
         res.json(dados)
     }catch(error){

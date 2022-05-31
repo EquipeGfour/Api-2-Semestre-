@@ -20,8 +20,9 @@ export const listarAula = async (req, res) => {
     try{
         const dados = await Aula.findAll({
             where:{ 
-                curso_id:req.body.curso_id 
-            }
+                curso_id:req.params.id 
+            },
+            attributes:['id','curso_id','titulo_video','descricao_aula','tempo_video']
         })
         res.json(dados)
     }catch(error){
@@ -33,8 +34,9 @@ export const listarAulaID = async (req, res) => {
     try{
         const dados = await Aula.findOne({
             where:{
-                id: req.params.id
-            }
+                curso_id: req.params.id
+            },
+            attributes:['id','curso_id','titulo_video','descricao_aula','tempo_video']
         })
         res.json(dados)
     }catch(error){

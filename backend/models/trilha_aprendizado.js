@@ -14,7 +14,7 @@ const TrilhaAprendizado = db.define('trilha_aprendizados',{
         type:Sequelize.INTEGER,
         allowNull:true,
     },
-    nome:{
+    nome_trilha:{
         type:Sequelize.STRING,
         allowNull:true,
     },
@@ -33,10 +33,12 @@ const TrilhaAprendizado = db.define('trilha_aprendizados',{
 })
 
 
+Cursos.belongsTo(TrilhaAprendizado, {foreignKey: 'trilha_id'})
+TrilhaAprendizado.hasMany(Cursos, {foreignKey: 'trilha_id'})
 
-Cursos.belongsToMany(TrilhaAprendizado,{through:'cursos_trilhas',foreignKey:"curso_id"})
-TrilhaAprendizado.belongsToMany(Cursos,{through:'cursos_trilhas',foreignKey:"trilha_id"})
 Colaborador.belongsTo(TrilhaAprendizado,{foreignKey:"trilha_id"})
 TrilhaAprendizado.Colaborador = TrilhaAprendizado.hasMany(Colaborador,{foreignKey:"trilha_id"})
+
+
 
 export default TrilhaAprendizado

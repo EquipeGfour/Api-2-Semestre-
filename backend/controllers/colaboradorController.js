@@ -364,7 +364,7 @@ export const dadosHistorico = async (req,res) => {
             attributes:['id'],
             include:{
                 model:DadosAcademicos,
-                attributes:['id','formacao','cursos','termo_pi','linguas'],
+                attributes:['id','formacao','extra_curricular','idioma','instituicao','carga_horaria','ano_conclusao','status_curso'],
                 as:"DadosAcademicos"
             }
         })
