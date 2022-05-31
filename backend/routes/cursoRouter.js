@@ -4,7 +4,7 @@ import { verifyAdm, verifyJWT } from "../controllers/loginController.js";
 
 const router = Router()
 
-router.post('/criarCurso', verifyJWT, verifyAdm, criarCursos)
+router.post('/criarCurso/:id', verifyJWT, verifyAdm, criarCursos)
 router.get('/listarCursos', verifyJWT, listarCursos)
 router.get('/listarCurso/:id', verifyJWT, listarcursoID)
 

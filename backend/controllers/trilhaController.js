@@ -5,7 +5,7 @@ import TrilhaAprendizado from "../models/trilha_aprendizado.js"
 export const criarTrilha = async (req, res) => {
     try{
         const dados = await TrilhaAprendizado.create({
-            nome:req.body.nome,
+            nome_trilha:req.body.nome_trilha,
             status:req.body.status,
             data_inicio:req.body.data_inicio,
             data_fim:req.body.data_fim,

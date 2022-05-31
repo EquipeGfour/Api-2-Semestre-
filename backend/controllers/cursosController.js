@@ -1,12 +1,20 @@
 import Cursos from '../models/cursos.js'
+import TrilhaAprendizado from '../models/trilha_aprendizado.js'
 
 export const criarCursos = async (req, res) => {
     try{
+        const teste = req.body
+        console.log(teste)
         const dados = await Cursos.create({
-            nome_curso: req.body.nome_curso,
-            descricao: req.body.descricao,
-            nivel_curso: req.body.nivel_curso,
-            carga_horaria_curso: req.body.carga_horaria_curso
+            id:req.params.id,
+            nome_curso:req.body.nome_curso,
+            descricao:req.body.descricao,
+            nivel:req.body.nivel,
+            carga_horaria:req.body.carga_horaria
+            
+        },
+        {
+            include: TrilhaAprendizado
         })
 
         res.status(201).json(dados)

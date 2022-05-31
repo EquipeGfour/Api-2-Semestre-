@@ -182,8 +182,7 @@ CREATE TABLE pessoa_juridicas (
 -- Table: trilha_aprendizados
 CREATE TABLE trilha_aprendizados (
     id int NOT NULL AUTO_INCREMENT,
-    pf_id int ,
-    nome varchar(100) ,
+    nome_trilha varchar(100) ,
     status_curso varchar(30) ,
     data_inicio date ,
     data_fim date ,
@@ -195,6 +194,8 @@ CREATE TABLE trilha_aprendizados (
 create table cursos_trilhas(
 	curso_id int,
     trilha_id int,
+    createdAt date NOT NULL default (current_date()),
+    updatedAt date ,
     foreign key (curso_id) references cursos(id),
     foreign key (trilha_id) references trilha_aprendizados(id),
     unique(curso_id, trilha_id)
@@ -250,8 +251,8 @@ ALTER TABLE pessoa_fisicas ADD CONSTRAINT pessoa_fisica_colaborador FOREIGN KEY 
 ALTER TABLE pessoa_juridicas ADD CONSTRAINT pessoa_juridica_colaborador FOREIGN KEY pessoa_juridica_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
 
-ALTER TABLE trilha_aprendizados ADD CONSTRAINT trilha_id FOREIGN KEY pf_id (id)
-    REFERENCES colaboradors(id);
+ALTER TABLE colaboradors ADD CONSTRAINT colaborador_trilha FOREIGN KEY colaborador_trilha (trilha_id)
+    REFERENCES trilha_aprendizados(id);
 
 
 use ionic;
