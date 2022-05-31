@@ -10,12 +10,23 @@ import ReactTooltip from "react-tooltip";
 
 const AssistirCurso: React.FC = (props) => {
 
+
+    
+
     React.useEffect(() => {            
         document.title = 'Assitir-Curso'
     }, [])
 
     return(
-        <></>
+        <div>
+        <video id="videoBanner" className="videoBanner" loop autoPlay muted controls  >
+            <source src='http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4' type='video/mp4'></source>            
+        </video>
+
+
+    
+
+        </div>
     )
 }
 export default AssistirCurso
