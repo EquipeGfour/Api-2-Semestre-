@@ -29,7 +29,7 @@ React.useEffect(()=>{
                 </div>
 
                 <div className="col s12 m4 l3">
-                <Link to="/trilha">
+                <Link to="/trilha-colaborador">
                     <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
                     <div className="btnNomeHome">Trilha</div>
                 </Link>             

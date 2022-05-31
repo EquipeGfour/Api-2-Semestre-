@@ -22,9 +22,6 @@ interface Cargo{
 }  
 
 const DetalheDep:React.FC=(props)=>{
-
-
-  
   
   const [cargo,setCargo] = useState<Cargo[]>([])
   const [departamento,setDepartamento]= useState<string>('')

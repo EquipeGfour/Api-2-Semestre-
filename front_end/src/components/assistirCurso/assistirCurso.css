@@ -18,17 +18,27 @@
 }
 
 .titulo-assistir {
-    margin-top: 6rem;
+    margin-top: 6rem !important;
     color: #53C4CD;
     text-align: center;
     font-size: 60px;
     font-family: 'IonicCoolvetica';
+    margin: 0 auto;
 }
+
+.titulo-menuassistir {
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'IonicCoolvetica';
+}
+
 
 .arquivosAssistir {
     margin-top: 5rem;
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin: 0 auto;
+    width:60%
 }
 
 .tabUp1 {
@@ -40,8 +50,8 @@
     color: #fff;
 }
 
-.linhaDivisao {
-    margin-top: 3rem;
-    margin-left: 10rem;
-    margin-right: 10rem;
+.linhaDivisaomenu {
+    width: 75%;
+    margin-top: 3rem !important;
+    margin: 0 auto;
 }

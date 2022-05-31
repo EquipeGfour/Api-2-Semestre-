@@ -78,3 +78,18 @@
 .collapsible-header{
     border-bottom: none !important;
 }
+
+.botaocriarcurso{
+    margin-top: 4rem ;
+    width: 15%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:#ffffff;
+    font-size: 20px;  
+}
+
+.centerbtn{
+    text-align: center;
+    margin-bottom: 1rem;
+}

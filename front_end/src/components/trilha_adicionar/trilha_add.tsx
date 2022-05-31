@@ -65,9 +65,9 @@ const TrilhaAdd: React.FC = (props) => {
                     <label className="active" htmlFor="last_name">Carga Horária do Curso</label>
                 </div>
             </div>
-
-            
-
+            <div className="centerbtn">
+            <Link to={`/criar-curso`} className="waves-effect waves-light  btn-large botaocriarcurso">Inserir Aulas</Link>
+            </div>
         </div>
 
 
