@@ -10,7 +10,8 @@ export const criarCursos = async (req, res) => {
             nome_curso:req.body.nome_curso,
             descricao:req.body.descricao,
             nivel:req.body.nivel,
-            carga_horaria:req.body.carga_horaria
+            carga_horaria:req.body.carga_horaria,
+            trilha_id: req.body.trilha_id
             
         },
         {

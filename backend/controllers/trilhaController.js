@@ -41,13 +41,31 @@ export const getTrilhaID = async (req, res) => {
     }
 }
 
-export const vinculotrilhaColab = async (req, res) => {
+export const vinculoTrilhaColab = async (req, res) => {
     try{
         const dados = await Colaborador.update({
             trilha_id:req.body.trilha_id
         })
         res.json(dados)
     } catch(error){
+        res.status(500).json({ message:error })
+    }
+}
+
+export const getTrilhaColab = async (req,res) => {
+    try{
+        const dados = await Colaborador.findAll({
+            where:{
+                trilha_id:req.params.id
+            },
+            include:{
+                model:TrilhaAprendizado,
+                attributes:['id','nome_trilha']
+            }
+        })
+        res.status(202).json( dados )
+
+    }catch{
         res.status(500).json({ message:error })
     }
 }
