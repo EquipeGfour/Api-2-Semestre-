@@ -17,36 +17,24 @@ RF ID# | Sprint | Requisitos | Prioridade| Status|
 3 |2|Charts com os organogramas em  diversos níveis e com inclusões, exclusões e adaptações|ALTA|COMPLETO
 4 |2|Dossiê gerado em PDF por colaborador para consulta do administrador e gestor|ALTA|COMPLETO
 5 |3|Cadastros de Trilha de Aprendizado e Status de Realização|ALTA|ANDAMENTO
-6 |3|Ajustes e validações|ALTA|ANDAMENTO
-7 |3|Desligamentos de colaboradores|MÉDIA|ANDAMENTO
-8 |3|Recuperar e redefinir senha|MÉDIA|ANDAMENTO
+6 |3|Desligamentos de colaboradores|MÉDIA|ANDAMENTO
+7 |3|Recuperar e redefinir senha|MÉDIA|ANDAMENTO
 
 <h4> 🛠️ Requisitos não Funcionais</h4>
 
 RNF ID# | Sprint | Requisitos | Prioridade| Status|
 :--------- | :------: | :-------: | :-------: | :------: |
-9 |1|Conexão com Banco de dados|ALTA|COMPLETO
-10 |1|Utilização NodeJs, Java Script, Type Script e React|ALTA|COMPLETO
-11 |2|Repositório para documentos dos colaboradores|ALTA|COMPLETO
-12 |2|Manual do usuário para navegação.|MÉDIA|COMPLETO
-13 |3|Desenho da arquitetura da solução|MÉDIA|ANDAMENTO
-14 |3|Documentação de testes e funcionais|MÉDIA|ANDAMENTO
-15 |3|Repositório de documentos da empresa|MÉDIA|ANDAMENTO
-16 |3|Implementação da Lei LGPD|MÉDIA|ANDAMENTO
-<br>
-
-<h2> ⏲️ Timeline Do Produto</h2>
-
-![timeline](https://user-images.githubusercontent.com/8519765/170871218-1aaace74-c832-4eba-8afd-f29da78db71a.png)
+8 |1|Conexão com Banco de dados|ALTA|COMPLETO
+9 |1|Utilização NodeJs, Java Script, Type Script e React|ALTA|COMPLETO
+10 |2|Repositório para documentos dos colaboradores|ALTA|COMPLETO
+11 |2|Manual do usuário para navegação.|MÉDIA|COMPLETO
+12 |3|Desenho da arquitetura da solução|MÉDIA|ANDAMENTO
+13 |3|Documentação de testes e funcionais|MÉDIA|ANDAMENTO
+14 |3|Repositório de documentos da empresa|MÉDIA|ANDAMENTO
+15 |3|Implementação da Lei LGPD|MÉDIA|ANDAMENTO
 
 
-
- 
-
-<br>
-
-### :card_file_box: Estruturação Das Pastas.
-
+<h2> :card_file_box: Estruturação Das Pastas.</h2>
 
 <br>
 
@@ -116,7 +104,6 @@ RNF ID# | Sprint | Requisitos | Prioridade| Status|
 ```
 <br>
 
-
 <h2>⛏️ Como rodar a aplicação</h2>
 
 ### Pré-requisitos
@@ -180,22 +167,24 @@ $ Email = ceo@ionic.com
 $ Senha = ceoionic
 ```
 
-<br>
+<br><br>
 
 <h2>:wrench: Tecnologias Utilizadas</h2>
 
 
-![tecnologias](https://user-images.githubusercontent.com/8519765/170871603-796adc3a-038c-4907-8120-a4fe79c2ef60.png)
+![tecnologias](https://user-images.githubusercontent.com/8519765/170871603-796adc3a-038c-4907-8120-a4fe79c2ef60.png)<br><br>
 
+<h2> ⏲️ Timeline Do Produto</h2>
 
+![timeline](https://user-images.githubusercontent.com/8519765/170871218-1aaace74-c832-4eba-8afd-f29da78db71a.png)<br><br>
 
 <h2> 🖥️ Deploy Heroku</h2>
 
  - O Sistema Esta Hospedado na Plataforma Heroku.<br>
  - Quer saber mais sobre a plataforma de hospedagem clique em saber mais abaixo.<br>
  - <a href="https://imaginedone.com.br/blog/o-que-e-o-heroku/">:link: Saber mais</a> 	
- <h4>📌Clique no link para Acessar o Sistema</h4>	
-<a href="https://api2semestreionic.herokuapp.com/">:link: Link</a> <br>
+ <h3>📌Clique no link para Acessar o Sistema</h3>	
+<a href="https://api2semestreionic.herokuapp.com/">:link: Link</a> <br><br>
 
 	
 <h2>:bulb: Metodologia Utilizada</h2>
@@ -210,11 +199,12 @@ Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
 #2 | 25.04.22 - 15.05.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">Aqui</a> | <a href="https://drive.google.com/file/d/1Byk6AviwSG9bucdXp7VVYlbTs07RJECw/view?usp=sharing">Link</a> | ✔️
-#3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑
+#3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑<br><br>
+
 
 
 <div id='equipe'>
-    <h3>Equipe Gfour</h3>
+<h2> 🎓 Equipe Gfour</h2>
     
 
 Integrantes da Equipe | Função | Linkedin | Github| Avatar|
@@ -234,8 +224,6 @@ Gustavo Borges Lima | DT |[Linkedin](https://www.linkedin.com)| [Github](https:/
 
 </div>
 	
-
-
 
  <h1 align="center"> <img src = "imagens_gerais/Fatec.jpg" height="90" /></h1>
  
