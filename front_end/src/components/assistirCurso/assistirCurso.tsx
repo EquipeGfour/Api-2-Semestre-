@@ -42,8 +42,8 @@ const AssistirCurso: React.FC = (props) => {
                             <td><span><button className="excluir">{/*<i className="material-icons delUp">clear</i>*/}</button></span></td>
                             <td></td>
                             <td>
-                                <div className="file-field input-field btn">
-                                    <i className="material-icons">file_download</i>
+                                <div className="file-field input-field ">
+                                    <i className="material-icons pointer">file_download</i>
                                 </div>
                             </td>
 
