@@ -13,15 +13,13 @@ const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
     let chart 
 
     const handleclick = (id)=>{
-        props.buscaColabByGestorID(id)
-        
+        props.buscaColabByGestorID(id)        
     }
 
     React.useEffect(()=>{
     },[props])
 
-    React.useEffect(()=> {
-        
+    React.useEffect(()=> {        
         chart = new OrgChart (divRef.current , {
             nodes: props.nodes,
             template: "ula",
@@ -47,8 +45,7 @@ const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
                 field_1: "departamento",
                 field_2: "cargo",
                 img: "img"
-            }
-            
+            }            
         });
     },[props])   
     

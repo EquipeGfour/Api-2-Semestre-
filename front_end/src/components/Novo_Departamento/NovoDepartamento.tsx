@@ -12,8 +12,7 @@ import Select from 'react-select'
 const NovoDepartamento: React.FC=()=>{
     const navigate=useNavigate()
     const [departamento,setDepartamento] = useState('')
-    const [head,setHead] = useState('')
-    
+    const [head,setHead] = useState('')    
 
     // ----------- FUNÇÃO DEPARTAMENTO --------------
     const sendData=()=>{
@@ -21,7 +20,6 @@ const NovoDepartamento: React.FC=()=>{
             M.toast({html:'Preencha o nome do Departamento!', classes:"modalerro rounded"})
             return
         }
-
         axios.post('/api/departamento/inserirDepart', {area:departamento,head_id:head}, {headers:CriaHeader()}).then(res=>{
             M.toast({html:'Departamento criado com sucesso!', classes:"modal1 rounded"})
             navigate('/geral-departamentos')  
@@ -30,7 +28,6 @@ const NovoDepartamento: React.FC=()=>{
             console.error('Erro', erro.response)
         })
     } 
-
 
     React.useEffect(()=>{
         document.title='Novo-Departamento'
@@ -52,5 +49,4 @@ return(
     </div>
 )      
 }
-
 export default NovoDepartamento

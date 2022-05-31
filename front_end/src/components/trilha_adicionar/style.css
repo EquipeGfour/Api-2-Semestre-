@@ -1,7 +1,7 @@
 .containerPrincipal{
     padding: 1rem;
-    margin-left: 6rem;
-    margin-right: 6rem;    
+    width:50%;
+    margin: 0 auto;
 }
 
 .dadosContainer{
@@ -71,8 +71,7 @@
     padding: 0 10px;
     border-bottom: none !important;
     margin: 0 auto;
-    width: 60%;
-     
+    width: 60%;     
 }
 
 .collapsible-header{

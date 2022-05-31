@@ -80,17 +80,14 @@ const getColabById = (id: string) => {
     setCursoex(res.data.DadosAcademicos.filter(item => item.extra_curricular))
     setBlocoidioma(res.data.DadosAcademicos.filter(item => item.idioma))
     console.log(formacoes);
-  })
-
-
+})
 }
-
     React.useEffect(() => { 
         getColabById(id)     
         document.title = 'Meu-Perfil'
         var el = document.querySelector('#tabs-swipe-demo')
         var instance = M.Tabs.init(el, Option);
-      }, [])
+    }, [])
 
     return(
     <div>
@@ -115,6 +112,7 @@ const getColabById = (id: string) => {
                 </form>
             </div>
         </div>
+
         {/* -----------------------------------ABAS DO FUNCIONÁRIO------------------------------------------- */}
         <div className="container perfil1">
             <ul id="tabs-swipe-demo" className="tabs cabecalho">
@@ -312,44 +310,8 @@ const getColabById = (id: string) => {
                 <a className="waves-effect waves-light btn-large btnAzulsenha">Redefinir senha</a>
                 </Link>
             </div>
-
-
-
-        </div>
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>   
     </div>
-
-
-
-
-
-
-
-
-
-
-
     )
-
-
 }
 export default MeuPerfil;

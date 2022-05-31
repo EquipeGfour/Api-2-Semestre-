@@ -7,7 +7,6 @@ import M from 'materialize-css/dist/js/materialize'
 import { CriaHeader } from '../../functions';
 
 const Redefinir: React.FC = () => {
-
   const [cookie,setCookie] = useCookies(['ionic-user', 'ionic-JWT'])
   const [senha,setSenha] = useState('')
   const [confirmasenha,setConfirmasenha] = useState('')
@@ -30,6 +29,7 @@ const Redefinir: React.FC = () => {
   React.useEffect(() => {
     document.title = 'Redefinir'
   })
+
   return (
     <div className="loginContainer">
       <h1>Redefinir Senha</h1>

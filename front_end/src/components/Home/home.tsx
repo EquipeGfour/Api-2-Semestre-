@@ -13,18 +13,17 @@ import GeralFunc from "../geralFunc/geralFunc";
 import PreRegistro1 from "../PreRegistro/PreRegistro";
 import axios from "../../functions/axios";
 
-
 const Home: React.FC=()=>{
-
     const [cookie,setCookie]=useCookies(['ionic-user'])
+
     React.useEffect(()=>{
         document.title='Home Admin'
     },[])
 
     return(
     <div className="loginContainer titulo">
-            <h3>Bem-Vindo Administrador</h3>       
-        
+            <h3>Bem-Vindo Administrador</h3>
+
         <div className="row blocoCima">        
             <div className="col s12 m4 l4 divColab">
             <Link to="/geral-funcionarios"   >                   
@@ -46,10 +45,6 @@ const Home: React.FC=()=>{
                 </Link>
                 <div className="btnNomeHome">Pré-Registro</div>
             </div>
-
-
-
-
         </div>
 
         <hr className="linha"></hr>
@@ -60,13 +55,13 @@ const Home: React.FC=()=>{
                 <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
                 <div className="btnNomeHome">Trilha</div>
             </Link>
-            </div>            
+        </div>            
 
             <div className="col s12 m4 l4">
-            <Link to="/organograma">
-                <button className="waves-effect botaoFunc"><img className="imgColab" src={organogramabranco}></img></button>
-                <div className="btnNomeHome">Organograma</div>
-            </Link>             
+                <Link to="/organograma">
+                    <button className="waves-effect botaoFunc"><img className="imgColab" src={organogramabranco}></img></button>
+                    <div className="btnNomeHome">Organograma</div>
+                </Link>             
             </div>
 
             <div className=" col s12 m4 l4">
@@ -75,10 +70,8 @@ const Home: React.FC=()=>{
                 <div className="btnNomeHome">Desligados</div>
                 </Link>                
             </div>
-        </div>     
-        
+        </div> 
     </div>  
 )
 }
-
 export default Home

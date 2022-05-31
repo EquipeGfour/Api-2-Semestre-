@@ -6,11 +6,9 @@ import axios from "../../functions/axios";
 import M from 'materialize-css/dist/js/materialize'
 import { CriaHeader } from '../../functions';
 
-
 const DadosPessoais: React.FC = (props) => {
     const navigate = useNavigate()
     const [cookie, setCookie] = useCookies(['ionic-user'])
-
     const [nomecompleto, setNomecompleto] = React.useState('')
     const [cpf, setCpf] = React.useState('')
     const [rg, setRg] = React.useState('')
@@ -45,11 +43,10 @@ const DadosPessoais: React.FC = (props) => {
      // --- Bloco Idiomas --- //
     const [blocoidioma,setBlocoidioma] = React.useState([])
     const [extraidioma, setExtraidioma] = React.useState('')
-    const [statusidioma, setStatusidioma] = React.useState('')
-    
+    const [statusidioma, setStatusidioma] = React.useState('')   
 
 
-// --- Funções de Formação Academica --- //
+    // --- Funções de Formação Academica --- //
     const addFormacao = () =>{        
         if(formacao == '' || status == '' || instituicao == '' || ano == ''){
             M.toast({ html: 'Preencha TODOS os campos! ', classes: "modalerro rounded" })
@@ -71,7 +68,7 @@ const DadosPessoais: React.FC = (props) => {
         setFormacoes(f => f.filter((form,i)=>i !== indice))
     }
 
-// --- Bloco Cursos --- //
+    // --- Bloco Cursos --- //
     const addCurso = () =>{
         if(extracurso == '' || extrainstituicao == '' || extraano == '' || extracarga == ''){
             M.toast({ html: 'Preencha TODOS os campos! ', classes: "modalerro rounded" })
@@ -93,7 +90,7 @@ const DadosPessoais: React.FC = (props) => {
         setCursoex(c => c.filter((form,i)=>i !== indice))
     }
 
-// --- Bloco Idioma --- //
+    // --- Bloco Idioma --- //
     const addIdioma = () =>{
         if(extraidioma == '' || statusidioma == '' ){
             M.toast({ html: 'Preencha TODOS os campos! ', classes: "modalerro rounded" })
@@ -110,8 +107,6 @@ const DadosPessoais: React.FC = (props) => {
     const delIdioma  = (indice:number) =>{
         setBlocoidioma(b => b.filter((form,b)=>b !== indice))
     }
-
-
 
     React.useEffect(() => {
         console.log(cookie['ionic-user'])
@@ -135,25 +130,19 @@ const DadosPessoais: React.FC = (props) => {
         }
         var elemsdate = document.querySelectorAll('.datepicker');
         var instancesdate = M.Datepicker.init(elemsdate, dateOptions);
-
         var elems = document.querySelectorAll('.collapsible');
         var instances = M.Collapsible.init(elems, Option);
-
         var elems1 = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems1, Option);
-       
-
-    }, [])
+        var instances = M.FormSelect.init(elems1, Option);      
+    },[])
 
     const sendData = () => {
         console.log(cookie)
         const logado = cookie['ionic-user']
         console.log(logado)
-        // formacao:'', extra_curricular: '', idioma: '', instituicao:'', carga_horaria:'', ano_conclusao:'', status_curso:''
         const dadosFormacao = formacoes.map((f)=>({formacao: f.formacao,  instituicao: f.instituicao, ano_conclusao: f.ano, status_curso: f.status}))
         const dadosCursos = cursoex.map((c)=>({extra_curricular: c.extracurso,  instituicao: c.extrainstituicao, ano_conclusao: c.extraano, carga_horaria: c.extracarga}))
-        const dadosIdioma = blocoidioma.map((i)=>({idioma: i.extraidioma,  status_curso: i.statusidioma}))
-        
+        const dadosIdioma = blocoidioma.map((i)=>({idioma: i.extraidioma,  status_curso: i.statusidioma}))        
         const dados = {
             id: logado.id,
             nome: nomecompleto,
@@ -176,7 +165,6 @@ const DadosPessoais: React.FC = (props) => {
             email,
             dados_academicos:[].concat(dadosFormacao).concat(dadosCursos).concat(dadosIdioma)
         }
-
         if (!ValidaCampo()) {
             axios.post('/api/colab/novo', dados, { headers: CriaHeader() }).then(res => {
                 M.toast({ html: 'Cadastro Realizado com Sucesso !', classes: "modal1 rounded" })
@@ -189,103 +177,71 @@ const DadosPessoais: React.FC = (props) => {
 
     const ValidaCampo = () => {
         let faltaDados = false
-
         if (rg === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo RG!', classes: "modalerro rounded" })
         }
-
         if (nacionalidade === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Nacionalidade !', classes: "modalerro rounded" })
         }
-
         if (naturalidade === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Naturalidade !', classes: "modalerro rounded" })
         }
-
         if (genero === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Gênero !', classes: "modalerro rounded" })
         }
-
         if (raca === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Raça!', classes: "modalerro rounded" })
         }
-
         if (datanascimento === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Data de Nascimento!', classes: "modalerro rounded" })
         }
-
         if (rua === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Rua!', classes: "modalerro rounded" })
         }
-
         if (estado === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Estado!', classes: "modalerro rounded" })
         }
-
         if (bairro === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Bairro !', classes: "modalerro rounded" })
         }
-
         if (cidade === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Cidade !', classes: "modalerro rounded" })
         }
-
         if (cep === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Cep!', classes: "modalerro rounded" })
         }
-
         if (telefone === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Telefone !', classes: "modalerro rounded" })
         }
-
         if (regiao === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Região !', classes: "modalerro rounded" })
         }
-
         if (estadocivil === '') {
             faltaDados = true
             M.toast({ html: 'Preencha o campo Estado Civil !', classes: "modalerro rounded" })
         }
-
-        // if (linguas === '') {
-        //     faltaDados = true
-        //     M.toast({ html: 'Preencha o campo Línguas !', classes: "modalerro rounded" })
-        // }
-
-        // if (formacao === '') {
-        //     faltaDados = true
-        //     M.toast({ html: 'Preencha o campo Formação !', classes: "modalerro rounded" })
-        // }
-
-        // if (cursos === '') {
-        //     faltaDados = true
-        //     M.toast({ html: 'Preencha o campo Curso !', classes: "modalerro rounded" })
-        // }
-
         return faltaDados
     }
 
     return (
-
         <div>
             <div className="dadosContainer titulo">
                 <span>Cadastro Pessoa Física </span>
             </div>
             <form>
-
                 <ul className="collapsible expandable infodep1">
                     <li>
                         <div className="collapsible-header infodep infodep"><i className="material-icons">account_box</i>Dados Pessoais</div>
@@ -412,7 +368,7 @@ const DadosPessoais: React.FC = (props) => {
                                         <div className="col s2" ><i className="material-icons pointer col" title='Nova Formação' onClick={()=> delFormacao(i)}>clear</i></div>
                                     </div>    
                                 ))}
-                           
+                        
                                 <div className="row">
                                     <div className="col s3">
                                         <div className="input-field">
@@ -535,31 +491,14 @@ const DadosPessoais: React.FC = (props) => {
                                     <div className="col s6">
                                         <i className="small material-icons mais pointer" title='Novo Idioma' onClick={addIdioma}>add</i>
                                     </div>
-
-
                                 </div>
-
-
-
                             </span>
                         </div>
                     </li>
-
-
-
                 </ul>
                 <div className='centro'><a className="waves-effect waves-light btn-large btnAzulcadastro" onClick={sendData}>Enviar</a></div>
-
-
-
-
             </form>
         </div>
-
-
-
-
-
     )
 }
 export default DadosPessoais

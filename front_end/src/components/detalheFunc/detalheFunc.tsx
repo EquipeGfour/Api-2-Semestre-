@@ -9,7 +9,6 @@ import { Link, useParams } from "react-router-dom"
 import ReactTooltip from "react-tooltip";
 import fileDownload from "js-file-download";
 
-
 const DetalheFunc: React.FC = (props) => {
   const { id } = useParams();
   const [nome, setNome]=useState('');
@@ -76,13 +75,11 @@ const DetalheFunc: React.FC = (props) => {
     
   }
 
-
   const downloadFile = (id,nome,extensao) =>{
     axios.get(`/api/upload/download/${id}`, {headers: CriaHeader(), responseType: 'blob'}).then(res=>{      
       console.log('Baixar',id)
       const unirarq = nome + extensao
       fileDownload(res.data, unirarq)
-
     }).catch(err=>{
       console.log(err)
     })
@@ -117,8 +114,6 @@ const DetalheFunc: React.FC = (props) => {
     })
   }
 
-
-
   React.useEffect(() => {
     getColabById(id)
     ListDownload(id)     
@@ -126,7 +121,6 @@ const DetalheFunc: React.FC = (props) => {
     var el = document.querySelector('#tabs-swipe-demo')
     var instance = M.Tabs.init(el, Option);
   }, [])
-
 
   return (
     <div>
@@ -148,9 +142,7 @@ const DetalheFunc: React.FC = (props) => {
               <input id="dadoRecebido" type="text" className="validate" value={cargo}onChange={()=>setCargo(cargo)} />
               <label className="fonte" htmlFor="icon_prefix">Cargo</label>
             </div>
-
           </form>
-
         </div>
 
         {/* -----------------------------------ABAS DO FUNCIONÁRIO------------------------------------------- */}
@@ -163,7 +155,6 @@ const DetalheFunc: React.FC = (props) => {
           <li className="tab col s3"><a href="#test-swipe-4">Contrato</a></li>
           <li className="tab col s3"><a href="#test-swipe-5">Arquivos</a></li>
         </ul>
-
 
         <div id="test-swipe-2" className="col s12">
           <form>
@@ -219,7 +210,6 @@ const DetalheFunc: React.FC = (props) => {
           </form>
         </div>
 
-
         {/* -----------------------------------ENDEREÇO------------------------------------------- */}
         <div id="test-swipe-1" className="col s12 ">
           <form>
@@ -267,8 +257,6 @@ const DetalheFunc: React.FC = (props) => {
         <div id="test-swipe-3" className="col s12 ">
           <form>
               {/*----------Formação----------*/}
-                                                  
-                            
               <div className="col s12 dadosPessoais">
                 <div className='nomeIdioma'><h5>Formação Acadêmica</h5></div>  
                   <table className="highlight responsive-table centered tabelainformacoes">
@@ -292,11 +280,8 @@ const DetalheFunc: React.FC = (props) => {
                     </tbody>
                   </table>
                 </div>
-
                 <form>
               {/*----------Cursos----------*/}
-                                                  
-                            
               <div className="col s12 dadosPessoais">
                 <div className='nomeIdioma'><h5>Cursos Extra-Curriculares</h5></div>  
                   <table className="highlight responsive-table centered tabelainformacoes">
@@ -324,8 +309,6 @@ const DetalheFunc: React.FC = (props) => {
 
           <form>
               {/*----------Idiomas----------*/}
-                                                  
-                            
               <div className="col s12 dadosPessoais">
                 <div className='nomeIdioma'><h5>Nível de Idiomas</h5></div>  
                   <table className="highlight responsive-table centered tabelainformacoes">
@@ -353,8 +336,7 @@ const DetalheFunc: React.FC = (props) => {
           <form>
             <div className="col s12 dadosPessoais text-white">
               <span>Clique em "Gerar PDF" para visualizar o contrato</span>
-            </div>
-            
+            </div>            
             <a className="waves-effect waves-light btn-large btnAzulPDF" onClick={gerarpdf}>
             {statuscontrato ==="" ?"Gerar PDF" : "carregando..." } 
             </a>
@@ -375,7 +357,6 @@ const DetalheFunc: React.FC = (props) => {
                     <th>Baixar Arquivo</th>
                   </tr>
                 </thead>
-
                 <tbody>
                   {arquivos.map((file,index)=>(
                   <tr key={index}>
@@ -403,5 +384,4 @@ const DetalheFunc: React.FC = (props) => {
   </div> 
   )
 }
-
 export default DetalheFunc

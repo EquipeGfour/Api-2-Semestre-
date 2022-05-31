@@ -16,8 +16,7 @@ React.useEffect(()=>{
 
     return(
     <div className="loginContainer titulo">
-        <h3>Bem-Vindo Colaborador</h3>
-    
+        <h3>Bem-Vindo Colaborador</h3>    
     
         <div className="row blocoCima">
             <div className="col s12 m4 l3 divColab"></div>        
@@ -58,7 +57,5 @@ React.useEffect(()=>{
         </div>
     </div>
     )
-
-
 }
 export default HomeColab

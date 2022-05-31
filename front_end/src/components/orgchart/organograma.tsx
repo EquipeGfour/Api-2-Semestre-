@@ -5,7 +5,7 @@ import { CriaHeader } from "../../functions";
 
 const Organograma: React.FC = () => {
 
-    const [colaboradores,setColaboradores] = useState([])
+  const [colaboradores,setColaboradores] = useState([])
 
   const DadosOrg = () => {
     axios.get(`/api/colab/gestor/1`, { headers: CriaHeader() }).then((res) => {       
@@ -32,12 +32,10 @@ const Organograma: React.FC = () => {
     }) 
   }
 
-
   React.useEffect(()=>{    
     document.title='Organogroma'   
     DadosOrg() 
   },[])
-
 
   return (
     <div style={{ height: "100%" }}>

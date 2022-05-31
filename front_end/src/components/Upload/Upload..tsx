@@ -16,8 +16,7 @@ const [nomearquivocert,setNomeArquivoCert] = useState('')
 const [nomearquivocomprov,setNomeArquivoComprov] = useState('')
 const [documentos,setDocumentos] = useState<File>()
 const [certificados,setCertificados] = useState<File>()
-const [comprovantes,setComprovantes] = useState<File>() 
-
+const [comprovantes,setComprovantes] = useState<File>()
 const [cookie,setCookie]=useCookies(['ionic-user'])
 
 
@@ -26,19 +25,16 @@ const EnviaDados = () =>{
   const form = new FormData();  
   form.append('documento', documentos);
   form.append('certificado', certificados)
-  form.append('comprovante', comprovantes)
-  
+  form.append('comprovante', comprovantes)  
 
   axios.post(`/api/upload/enviar/${logado.id}`, form, {headers:CriaHeader()}).then(res=>{
     if (nomearquivodoc)M.toast({html:`Arquivo ${nomearquivodoc} carregado com sucesso!`, classes:"modal1 rounded"})
     if (nomearquivocert)M.toast({html:`Arquivo ${nomearquivocert} carregado com sucesso!`, classes:"modal1 rounded"})  
-    if (nomearquivocomprov)M.toast({html:`Arquivo ${nomearquivocomprov} carregado com sucesso!`, classes:"modal1 rounded"})
-    
+    if (nomearquivocomprov)M.toast({html:`Arquivo ${nomearquivocomprov} carregado com sucesso!`, classes:"modal1 rounded"})    
     if(nomearquivodoc === null && nomearquivocert === null &&  nomearquivocomprov === null)
     M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
     console.log(form)
     DelArquivoUpload()
-
   }).catch(erro=>{
     console.error('Erro', erro.response)
 })
@@ -68,7 +64,7 @@ const OnFileChangeComprov = e=>{
   setNomeArquivoComprov(e.target.files[0].name)
 }
 
-  React.useEffect(()=>{
+React.useEffect(()=>{
     document.title='Upload'
 },[])
 
@@ -77,8 +73,7 @@ const OnFileChangeComprov = e=>{
       <h1>Uploads</h1>
 
       <div className="row">
-        <div className="">
-          
+        <div className="">          
           <table className="responsive-table centered tabUp">
             <thead>
               <tr className="">
@@ -93,8 +88,7 @@ const OnFileChangeComprov = e=>{
                 <td><span>{nomearquivodoc}{documentos &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>             
                 <td>
                 <div className="file-field input-field btn">
-                <span>Carregar<input type="file" onChange={OnFileChangeDoc}/></span>
-                
+                  <span>Carregar<input type="file" onChange={OnFileChangeDoc}/></span>                
                 </div>
                 </td>
               </tr>
@@ -104,7 +98,7 @@ const OnFileChangeComprov = e=>{
                 <td><span>{nomearquivocert}{certificados &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>       
                 <td>
                 <div className="file-field input-field btn">
-                <span>Carregar<input type="file" onChange={OnFileChangeCert}/></span>
+                  <span>Carregar<input type="file" onChange={OnFileChangeCert}/></span>
                 </div>
                 </td>
               </tr>
@@ -114,29 +108,15 @@ const OnFileChangeComprov = e=>{
                 <td><span>{nomearquivocomprov}{comprovantes &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>           
                 <td>
                 <div className="file-field input-field btn">
-                <span>Carregar<input type="file" onChange={OnFileChangeComprov}/></span>
+                  <span>Carregar<input type="file" onChange={OnFileChangeComprov}/></span>
                 </div>
                 </td>
               </tr>         
-              {/* {arquivo &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons">clear</i></button>} */}
-                
-                
-                
             </tbody> 
-          </table>           
-         
-          
-            
+          </table>       
         </div>
-
         
         <div className="row checkBox">
-          {/* <p>
-            <label>
-              <input type="checkbox"  className="filled-in" />
-              <span>Eu aceito os Termos de Uso</span>
-            </label>
-          </p> */}
           <p>
             <label>
               <input type="checkbox"  className="filled-in" />
@@ -146,16 +126,11 @@ const OnFileChangeComprov = e=>{
         </div>
       </div>
 
-      <a className="waves-effect waves-light btn-large btnAzulUpload" onClick={EnviaDados}>
-        Carregar
-      </a>
+      <a className="waves-effect waves-light btn-large btnAzulUpload" onClick={EnviaDados}>Carregar</a>
       <Link to='/home-colaborador'>
-        <a className="waves-effect waves-light btn-large btnAzulUpload">
-          Finalizar Cadastro
-        </a>
+        <a className="waves-effect waves-light btn-large btnAzulUpload">Finalizar Cadastro</a>
       </Link>
     </div>
   );
 }
-
 export default Upload;

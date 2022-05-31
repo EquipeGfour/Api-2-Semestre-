@@ -24,7 +24,6 @@ const GeralDep:React.FC=(props)=>{
     }).catch(erro=>{
       console.error(erro)
     })
-
   }
 
   React.useEffect(()=>{    
@@ -33,56 +32,50 @@ const GeralDep:React.FC=(props)=>{
   },[])
 
 
-    return(
+  return(
 
-<div className="geralContainer">
+  <div className="geralContainer">
         <span className="titulo">Departamentos</span>
-    <div className="Pesquisa">
-      <div className="nav-wrapper barPesquisa">
-        <form>
-            <div className="input-field">
-            <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
-            <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-            <i className="material-icons">close</i>
-            </div>
-        </form>
-        </div>
-    </div>
+      <div className="Pesquisa">
+        <div className="nav-wrapper barPesquisa">
+          <form>
+              <div className="input-field">
+              <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
+              <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
+              <i className="material-icons">close</i>
+              </div>
+          </form>
+          </div>
+      </div>
 
-    <table className="highlight responsive-table tablegeral centered">
-        <thead className="campos">
-          <tr>
-              <th>Nome Departamento</th>
-              <th>Num.Funcionários</th>
-              <th>Responsável</th>
-              <th>Num. de Cargos</th>             
-          </tr>
-        </thead>
+        <table className="highlight responsive-table tablegeral centered">
+          <thead className="campos">
+            <tr>
+                <th>Nome Departamento</th>
+                <th>Num.Funcionários</th>
+                <th>Responsável</th>
+                <th>Num. de Cargos</th>             
+            </tr>
+          </thead>
 
-        <tbody>
-          {departamento.map((d:Departamento)=>(
-              <tr key={d.id}>
-                <td>{d.area}</td>
-                <td>{d.totalColab}</td>
-                <td>{d.head}</td>
-                <td>{d.qtdCargos}</td>
-                <td><Link to={`/detalhe-departamento/${d.id}`}>
-                  <ReactTooltip />
-                
-                  <i className="material-icons" data-tip='Ver Cargos'>search</i>
-                  </Link></td>   
-                <td><i className="material-icons delete" data-tip='Deletar Departamento'>delete_forever</i></td>             
-              </tr>
-          ))}          
-             
-
-
-          
-        </tbody>
-      </table>
-
-      <Link to={"/novo-departamento"} className="waves-effect waves-light btn-large btnAzulLogin">Novo Departamento</Link>
-</div>
-    )
+          <tbody>
+            {departamento.map((d:Departamento)=>(
+                <tr key={d.id}>
+                  <td>{d.area}</td>
+                  <td>{d.totalColab}</td>
+                  <td>{d.head}</td>
+                  <td>{d.qtdCargos}</td>
+                  <td><Link to={`/detalhe-departamento/${d.id}`}>
+                    <ReactTooltip />                  
+                    <i className="material-icons" data-tip='Ver Cargos'>search</i>
+                    </Link></td>   
+                  <td><i className="material-icons delete" data-tip='Deletar Departamento'>delete_forever</i></td>             
+                </tr>
+            ))}       
+          </tbody>
+        </table>
+        <Link to={"/novo-departamento"} className="waves-effect waves-light btn-large btnAzulLogin">Novo Departamento</Link>
+  </div>
+)
 }
 export default GeralDep
