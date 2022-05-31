@@ -7,7 +7,7 @@ const router = Router()
 router.post('/criarTrilha',verifyJWT,verifyAdm,criarTrilha)
 router.get('/getTrilha',verifyJWT,verifyAdm,getTrilha)
 router.get('/getTrilhaID/:id',getTrilhaID)
-router.get('/trilaColaborador/:id', verifyJWT, getTrilhaColab)
+router.get('/trilhaColaborador/:id', verifyJWT, getTrilhaColab)
 router.put('/vincularTrilhaColab', verifyJWT, verifyAdm, vinculoTrilhaColab)
 
 export default router

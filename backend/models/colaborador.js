@@ -20,6 +20,10 @@ const Colaborador = db.define('colaboradors',{
         primaryKey: true
         
     },
+    trilha_id:{
+        type:Sequelize.INTEGER,
+        primaryKey: true
+    },
     nome:{
         type:Sequelize.STRING,
         allowNull:true,
