@@ -1,0 +1,47 @@
+/* player de video */
+@media (min-width:780px) {
+    #videoBanner {
+        display: flex;
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 5rem;
+    }
+
+    #videoBanner source {
+        min-width: 100%;
+    }
+}
+
+/* css da pagina */
+.containerAssistir {
+    padding-bottom: 5rem;
+}
+
+.titulo-assistir {
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'IonicCoolvetica';
+}
+
+.arquivosAssistir {
+    margin-top: 5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.tabUp1 {
+    margin-top: 2rem !important;
+    width: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    border-color: black;
+    color: #fff;
+}
+
+.linhaDivisao {
+    margin-top: 3rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
