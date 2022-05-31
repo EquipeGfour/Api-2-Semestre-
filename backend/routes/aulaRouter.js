@@ -5,7 +5,7 @@ import { verifyAdm, verifyJWT } from '../controllers/loginController.js'
 const router = Router()
 
 router.post('/criarAula/:id', verifyJWT, verifyAdm, criarAula)
-router.get('/listarAulas', verifyJWT,listarAula)
-router.get('/listarAulas/:id', verifyJWT,listarAulaID)
+router.get('/listarAulas/:id', verifyJWT,listarAula)
+router.get('/aulaById/:id', verifyJWT,listarAulaID)
 
 export default router

@@ -18,7 +18,11 @@ export const criarAula = async (req, res) => {
 
 export const listarAula = async (req, res) => {
     try{
-        const dados = await Aula.findAll()
+        const dados = await Aula.findAll({
+            where:{ 
+                curso_id:req.body.curso_id 
+            }
+        })
         res.json(dados)
     }catch(error){
         res.status(500).json({ message:error })

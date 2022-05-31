@@ -104,6 +104,7 @@ CREATE TABLE contratos (
 -- Table: cursos
 CREATE TABLE cursos (
     id int NOT NULL AUTO_INCREMENT,
+    trilha_id int ,
     nome_curso varchar(100) ,
     descricao varchar(400) ,
     nivel_curso varchar (35) ,
@@ -191,16 +192,16 @@ CREATE TABLE trilha_aprendizados (
     CONSTRAINT trilha_aprendizados_pk PRIMARY KEY (id)
 );
 
-create table cursos_trilhas(
-	curso_id int,
-    trilha_id int,
-    createdAt date NOT NULL default (current_date()),
-    updatedAt date ,
-    foreign key (curso_id) references cursos(id),
-    foreign key (trilha_id) references trilha_aprendizados(id),
-    unique(curso_id, trilha_id)
-);
-
+-- create table cursos_trilhas(
+-- 	curso_id int,
+--     trilha_id int,
+--     createdAt date NOT NULL default (current_date()),
+--     updatedAt date ,
+--     foreign key (curso_id) references cursos(id),
+--     foreign key (trilha_id) references trilha_aprendizados(id),
+--     unique(curso_id, trilha_id)
+-- );.
+    
 -- foreign keys
 
 -- Reference: arquivos_Colaborador (table: colaboradors)
@@ -252,6 +253,9 @@ ALTER TABLE pessoa_juridicas ADD CONSTRAINT pessoa_juridica_colaborador FOREIGN 
     REFERENCES colaboradors (id);
 
 ALTER TABLE colaboradors ADD CONSTRAINT colaborador_trilha FOREIGN KEY colaborador_trilha (trilha_id)
+    REFERENCES trilha_aprendizados(id);
+
+ALTER TABLE cursos ADD CONSTRAINT cursos_trilha FOREIGN KEY cursos_trilha (trilha_id)
     REFERENCES trilha_aprendizados(id);
 
 

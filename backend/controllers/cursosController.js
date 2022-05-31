@@ -26,7 +26,11 @@ export const criarCursos = async (req, res) => {
 
 export const listarCursos = async (req, res) => {
     try{
-        const dados = await Cursos.findAll()
+        const dados = await Cursos.findAll({
+            where:{
+                trilha_id:req.body.trilha_id
+            }
+        })
         res.json(dados)
     }catch(error){
         res.status(500).json({ message:error })
