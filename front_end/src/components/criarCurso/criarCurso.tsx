@@ -76,29 +76,11 @@ const CriarCurso: React.FC = (props) => {
     return (
         <div className="containerCriaCurso">
             <div className="dadosContainer cursos">
-                <span>Criar Aulas</span>
-            </div>
-
-            <div className="row camposaula">
-                    <div className="input-field col s12">
-                        <input value={tituloaula} placeholder="Nome da Aula" id="first_name2" type="text" className="validate" onChange={e=>setTituloAula(e.target.value)}/>
-                        <label className="active" htmlFor="last_name">Nome da Aula</label>
-                    </div>
-            </div>
-
-            <div className="row camposaula">
-                <div className="input-field col s12 ">
-                <textarea value={descricaoaula} id="textarea1" placeholder="Descrição Aula" className="materialize-textarea text-white textodesc" onChange={e=>setDescricaoAula(e.target.value)}></textarea>
-                    <label className="active labelaula" htmlFor="last_name">Descrição Aula</label>
-                </div>
-            </div>
-
-            <div className="tituloArquivos">
-                <h5>Adicionar Arquivos</h5>
-            </div>
+                <span>Upload de Arquivos</span>
+            </div>           
 
             <div className="arquivo">
-            <table className="responsive-table  tabUp1">
+            <table className="responsive-table centered tabUp1">
                 <thead>
                     <tr className="linha">
                         <th>Tipo</th>
@@ -131,52 +113,11 @@ const CriarCurso: React.FC = (props) => {
                 </tbody>
             </table>
             <div className="botaoFinal">
-            <a className=" btn-large  btnAzulUpload1" onClick={enviaArquivos}>Carregar</a>
+                <a className= "btn-large  btnAzulUpload1" onClick={enviaArquivos}>Carregar</a>
+                <Link to={'/trilha'}>
+                <a className="waves-effect waves-light btn-large  btnAzulUpload1">Finalizar</a>
+                </Link>
             </div>
-            </div>
-
-            <div className="tituloArquivos">
-                <h5>Lista de Aulas </h5>
-            </div>
-
-            <div className="listaCurso">
-                <table className="responsive-table tabUp2">
-                    <thead>
-                        <tr>
-                            <th>Aulas</th>
-                            <th>Descrição</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {arquivos.map((arq,index)=>(
-                        <tr key={index}>
-                            <td>{arq.nome_aula_arq}</td>
-                        </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-
-            <div className="listaCurso">
-                <table className="responsive-table tabUp2">
-                    <thead>
-                        <tr>
-                            <th>Vídeos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {arquivos.map((arqvideo,index)=>(                        
-                        <tr key={index}>
-                            <td>{arqvideo.nome_aula_arq}</td>
-                        </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-            <div className="botaoFinal">
-            <Link to={'/trilha'}>
-            <a className="waves-effect waves-light btn-large  btnAzulUpload1">Finalizar</a>
-            </Link>
             </div>
         </div>
     )

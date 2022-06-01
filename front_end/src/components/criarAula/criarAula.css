@@ -39,20 +39,20 @@
 }
 
 .espacoCampo{
-    width: 30% !important;
+    width: 60% !important;
     text-align: center;
     
 }
 
-.containerCriaCurso{
+.containerCriaAula{
     width: 50%;
     margin: 0 auto;
     padding: 1rem;
 
     padding-bottom: 5rem;
 }
-.btnAzulUpload1{
-    margin-right: 0.5rem;
+.btnAzulCriaraula{
+    
     margin-top: 4rem ;
     width: 20%;
     padding:  0;
@@ -60,6 +60,10 @@
     background-color: #53C4CD;
     color:#ffffff;
     font-size: 20px;
+}
+
+.aulabtn{
+    text-align: center;
 }
 
 .botaoFinal{

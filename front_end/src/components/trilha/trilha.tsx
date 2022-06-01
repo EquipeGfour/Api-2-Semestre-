@@ -39,7 +39,7 @@ const buscaTrilha = () =>{
         {nometrilha.map((n,index)=>
           <div className="col s12 conteiner-cinza3">
             <div className="bg-cinza highlight div-cursos">
-                <div key={n.id} className="card-cinza">
+                <div key={n.id} className="card-cinza" title="Visualizar os Cursos">
                   <Link to={`/geral-cursos/${n.id}`}>
                     <div>                  
                       <h5 className="curso1">{n.nome_trilha}</h5>
