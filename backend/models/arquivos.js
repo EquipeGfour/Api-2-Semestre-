@@ -23,10 +23,6 @@ const Arquivos = db.define('arquivos',{
     colaborador_id:{
         type:Sequelize.NUMBER,
         allowNull: true
-    },
-    aula_id:{
-        type:Sequelize.NUMBER,
-        allowNull: true
     }
 })
 

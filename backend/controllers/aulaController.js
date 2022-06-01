@@ -22,7 +22,7 @@ export const listarAula = async (req, res) => {
             where:{ 
                 curso_id:req.params.id 
             },
-            attributes:['id','curso_id','titulo_video','descricao_aula','tempo_video']
+            attributes:['id','curso_id','titulo_aula','descricao_aula','tempo_aula','nome_aula_arq','extensao_aula','url_arq_aula','tipo_arq_aula']
         })
         res.json(dados)
     }catch(error){
@@ -36,7 +36,7 @@ export const listarAulaID = async (req, res) => {
             where:{
                 curso_id: req.params.id
             },
-            attributes:['id','curso_id','titulo_video','descricao_aula','tempo_video']
+            attributes:['id','curso_id','titulo_aula','descricao_aula','tempo_aula','nome_aula_arq','extensao_aula','url_arq_aula','tipo_arq_aula']
         })
         res.json(dados)
     }catch(error){

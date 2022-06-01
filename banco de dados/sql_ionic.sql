@@ -24,13 +24,13 @@ CREATE TABLE arquivos (
 CREATE TABLE aulas (
 	id int not null auto_increment,
     curso_id int,
-    titulo_video varchar(300),
+    titulo_aula varchar(300),
     descricao_aula varchar(300),
-    tempo_video int,
-    nome_aula_arquivo varchar(300) ,
+    tempo_aula int,
+    nome_aula_arq varchar(300) ,
     extensao_aula varchar(10),
-    url_arquivo_aula varchar(250) not null,
-    tipo_arquivo_aula varchar(30),
+    url_arq_aula varchar(250) not null,
+    tipo_arq_aula varchar(30),
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
 	CONSTRAINT aulas_pk PRIMARY KEY (id)
