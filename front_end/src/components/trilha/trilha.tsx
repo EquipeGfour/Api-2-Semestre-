@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import './trilha01.css';
 import colabbranco from "../img/colabbranco.png";
 import trilhabranco from "../img/trilhabranco.png";
@@ -9,6 +9,7 @@ import axios from "../../functions/axios";
 const Trilha: React.FC = (props) => {
 const [nometrilha,setNomeTrilha] = React.useState([])
 const [descricaotrilha,setDescricaoTrilha] = React.useState('')
+
 
 const buscaTrilha = () =>{
   axios.get(`/api/trilha/getTrilha`,{headers:CriaHeader()}).then(res=>{ 
@@ -39,10 +40,10 @@ const buscaTrilha = () =>{
           <div className="col s12 conteiner-cinza3">
             <div className="bg-cinza highlight div-cursos">
                 <div key={n.id} className="card-cinza">
-                  <Link to={'/menu-curso'}>
+                  <Link to={`/geral-cursos/${n.id}`}>
                     <div>                  
                       <h5 className="curso1">{n.nome_trilha}</h5>
-                      <p>{n.descricao_trilha}</p>
+                      <p><b>Descrição da Trilha: </b>{n.descricao_trilha}</p>
                         <div className="addcurso">
                           <Link to={`/trilha-adicionar/${n.id}`}> 
                             <a className="waves-effect waves-light btn-small btcurso " title="Adicionar Curso à Trilha">Adicionar curso</a></Link>                        

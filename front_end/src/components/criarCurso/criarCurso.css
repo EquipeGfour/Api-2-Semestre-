@@ -1,7 +1,7 @@
 .tituloArquivos{
     font-family: 'IonicCoolvetica';
     color: #53C4CD;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .curso{
@@ -63,4 +63,18 @@
 
 .botaoFinal{
     text-align: center;
+}
+
+.camposaula{
+    margin-top: 3rem;
+    
+}
+
+.textodesc{
+    margin-top: 3rem !important;
+}
+
+.labelaula{
+    font-size: 30px !important;
+    
 }

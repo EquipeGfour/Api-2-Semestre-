@@ -33,6 +33,7 @@ import MenuCurso from './components/menuCurso/menuCurso'
 import AssistirCurso from './components/assistirCurso/assistirCurso'
 import CriarTrilha from './components/criarTrilha/criarTrilha'
 import VisualizarCurso from './components/vizualizarCurso/vizualizarCurso';
+import GeralCursos from './components/geralCursos/geralCursos'
 
 type state = {
   tela: string
@@ -87,9 +88,10 @@ render(){
           <Route path='trilha-adicionar/:id' element={<TrilhaAdd/>}/>
           <Route path='criar-curso/:id' element={<CriarCurso/>}/>
           <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
-          <Route path='menu-curso' element = {<MenuCurso/>}/>
+          <Route path='menu-curso/:id' element = {<MenuCurso/>}/>
           <Route path='assistir-curso' element = {<AssistirCurso/>}/>
           <Route path='visualizar-curso/:id' element={<VisualizarCurso />} />
+          <Route path='geral-cursos/:id' element={<GeralCursos />} />
         </Routes>      
       </BrowserRouter>      
     </div>
