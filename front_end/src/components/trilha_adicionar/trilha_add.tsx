@@ -35,7 +35,7 @@ const criaCurso = () =>{
         setDescricao('');
         setNivel('');
         setCargahoraria('')
-        navigate(`/criar-curso/${id}`)
+        navigate(`/trilha`)
     })
     .catch((erro) => {        
        
@@ -67,7 +67,7 @@ const FiltraNivel = (id)=>{
         <div className="containerPrincipal">
 
             <div className="dadosContainer titulo">
-                <span>Trilha de Aprendizado</span>
+                <span>Criar Curso</span>
             </div>
 
             <div className="row">
@@ -101,7 +101,7 @@ const FiltraNivel = (id)=>{
             </div>
 
             <div className="centerbtn">
-                <a className="waves-effect waves-light  btn-large botaocriarcurso" onClick={criaCurso}>Inserir Aulas</a>
+                <a className="waves-effect waves-light  btn-large botaocriarcurso" onClick={criaCurso}>Criar</a>
             </div>
         </div>
     )

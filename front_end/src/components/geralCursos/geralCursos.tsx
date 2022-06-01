@@ -40,7 +40,7 @@ const GeralCursos: React.FC = (props) => {
                     {curso.map((curso,index)=>(                         
                         <div className="bg-cinza highlight div-cursos">
                             <Link to={`/menu-curso/${curso.id}`}>
-                                <div className="card-cinza">
+                                <div className="card-cinza" title="Visualizar Aulas">
                                         <div key={curso.id}>                                                     
                                             <h5 className="curso1">{curso.nome_curso}</h5>
                                             <br></br>
@@ -50,6 +50,9 @@ const GeralCursos: React.FC = (props) => {
                                             <br></br>
                                             <p><b>Carga Horária: </b>{curso.carga_horaria_curso}</p>                                         
                                             <div className="addcurso">
+                                            <Link to={`/criar-aula/${curso.id}`}> 
+                                                <a className="waves-effect waves-light btn-small " title="Adicionar Curso à Trilha">Adicionar Aula</a></Link>                        
+                          
                                             </div>  
                                         </div>
                                 </div>
