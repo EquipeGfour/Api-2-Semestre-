@@ -4,7 +4,7 @@ import { criarTrilha, getTrilha, getTrilhaColab, getTrilhaID, vinculoTrilhaColab
 
 const router = Router()
 
-router.post('/criarTrilha',verifyJWT,verifyAdm,criarTrilha)
+router.post('/criarTrilha',criarTrilha)
 router.get('/getTrilha',verifyJWT,verifyAdm,getTrilha)
 router.get('/getTrilhaID/:id',getTrilhaID)
 router.get('/trilhaColaborador/:id', verifyJWT, getTrilhaColab)

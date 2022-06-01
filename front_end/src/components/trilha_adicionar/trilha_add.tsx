@@ -6,7 +6,49 @@ import { CriaHeader } from "../../functions"
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize'
 
+
+
 const TrilhaAdd: React.FC = (props) => {
+const {id} = useParams()   
+const navigate = useNavigate();
+const [nomecurso,setNomecurso] = useState('')
+const [descricao,setDescricao] = useState('')
+const [nivel,setNivel] = useState('')
+const [cargahoraria,setCargahoraria] = useState('')
+const [descricaotrilha,setDescricaoTrilha] = React.useState('')
+
+const criaCurso = () =>{
+    let url = `/api/curso/criarCurso/${id}`
+    let obj ={
+        nome_curso:nomecurso,
+        descricao,
+        nivel_curso:nivel,
+        carga_horaria_curso:cargahoraria,
+        trilha_id:id
+    }
+    axios.post(url,obj ,{ headers: CriaHeader() }).then((res) => {
+        M.toast({html: "Curso adicionado, Selecione os Arquivos!",classes: "modal1 rounded",});
+        setNomecurso('');
+        setDescricao('');
+        setNivel('');
+        setCargahoraria('')
+    })
+    .catch((erro) => {        
+       
+    });
+};
+
+const FiltraNivel = (id)=>{
+    console.log(id);
+    if(id === '1'){        
+        setNivel('Basico');
+    }if(id === '2'){
+        setNivel('Intermediario');
+    }if(id === '3'){
+        setNivel('Avançado');
+    } 
+}
+
     React.useEffect(() => {
         document.title = 'Trilha-adicionar'
 
@@ -26,20 +68,20 @@ const TrilhaAdd: React.FC = (props) => {
 
             <div className="row">
                 <div className="input-field col s12">
-                    <input placeholder="Nome do Curso" id="first_name2" type="text" className="validate" />
+                    <input value={nomecurso} placeholder="Nome do Curso" id="first_name2" type="text" className="validate" onChange={(e) => setNomecurso(e.target.value)}/>
                     <label className="active" htmlFor="last_name">Nome do Curso</label>
                 </div>
                 <form>
                     <div className="row">
                         <div className="input-field col s12 texto">
-                            <textarea id="textarea1" placeholder="Descrição Curso" className="materialize-textarea"></textarea>
+                            <textarea  value={descricao} id="textarea1" placeholder="Descrição Curso" className="materialize-textarea text-white" onChange={(e) => setDescricao(e.target.value)}></textarea>
                             <label className="labelstatus1" htmlFor="textarea1">Descrição do Curso</label>
                         </div>
                     </div>
                 </form>
                 <div className="col s12">
                     <div className="input-field col s12 input-select seletorstatus">
-                        <select className='select'>
+                        <select className='select' onChange={(e) => FiltraNivel(e.target.value)}>
                             <option value="1">Status</option>
                             <option value="2">Basico</option>
                             <option value="3">Intermediário</option>
@@ -49,13 +91,13 @@ const TrilhaAdd: React.FC = (props) => {
                     </div>
                 </div>
                 <div className="input-field col s12">
-                    <input placeholder="Carga Horária do Curso" id="first_name2" type="text" className="validate" />
+                    <input value={cargahoraria} placeholder="Carga Horária do Curso" id="first_name2" type="text" className="validate" onChange={(e) => setCargahoraria(e.target.value)}/>
                     <label className="active" htmlFor="last_name">Carga Horária do Curso</label>
                 </div>
             </div>
 
             <div className="centerbtn">
-                <Link to={`/criar-curso`} className="waves-effect waves-light  btn-large botaocriarcurso">Inserir Aulas</Link>
+                <Link to={`/criar-curso`} className="waves-effect waves-light  btn-large botaocriarcurso" onClick={criaCurso}>Inserir Aulas</Link>
             </div>
         </div>
     )

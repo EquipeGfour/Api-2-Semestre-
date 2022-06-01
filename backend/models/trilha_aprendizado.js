@@ -30,6 +30,10 @@ const TrilhaAprendizado = db.define('trilha_aprendizados',{
         type:Sequelize.DATE,
         allowNull: true
     },
+    descricao_trilha:{
+        type:Sequelize.STRING,
+        allowNull: true
+    },
 })
 
 

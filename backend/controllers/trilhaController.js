@@ -9,6 +9,7 @@ export const criarTrilha = async (req, res) => {
             status:req.body.status,
             data_inicio:req.body.data_inicio,
             data_fim:req.body.data_fim,
+            descricao_trilha:req.body.descricao_trilha
         })
         res.json(dados)
     } catch(error){
@@ -19,7 +20,7 @@ export const criarTrilha = async (req, res) => {
 export const getTrilha = async (req, res) => {
     try{
         const dados = await TrilhaAprendizado.findAll({
-            attributes:['id','nome']
+            attributes:['id','nome_trilha', 'descricao_trilha']
         })
         res.json(dados)
     } catch(error){

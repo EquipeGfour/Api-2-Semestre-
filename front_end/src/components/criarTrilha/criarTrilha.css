@@ -1,0 +1,51 @@
+.acessoContainertrilha{
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    font-family:'IonicCoolvetica'
+    
+}
+
+.input-field input[type=text]{
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.input-field input[type=text] + label {
+    color: #53C4CD;
+    font-size: 30px;
+    
+}
+
+.validate{
+    color: #fff;
+    
+}
+
+.centralizar{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 6rem;
+}
+
+.btnAzulnovo{
+    margin-top: 4rem ;
+    width: 20%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:#ffffff;
+    font-size: 20px;
+
+
+}
+
+.modal1{
+    background-color: #53C4CD;
+    margin-top: 4rem;
+}
+
+.modalerro{
+    background-color: #cd6153;
+    margin-top: 4rem;
+}

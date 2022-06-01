@@ -185,6 +185,7 @@ CREATE TABLE pessoa_juridicas (
 CREATE TABLE trilha_aprendizados (
     id int NOT NULL AUTO_INCREMENT,
     nome_trilha varchar(100) ,
+    descricao_trilha varchar(500),
     status_curso varchar(30) ,
     data_inicio date ,
     data_fim date ,

@@ -31,6 +31,7 @@ import CriarCurso from './components/criarCurso/criarCurso';
 import MeuPerfil from './components/meuPerfil/meuPerfil'
 import MenuCurso from './components/menuCurso/menuCurso'
 import AssistirCurso from './components/assistirCurso/assistirCurso'
+import CriarTrilha from './components/criarTrilha/criarTrilha'
 
 type state = {
   tela: string
@@ -81,7 +82,8 @@ render(){
           <Route path='trilha-colaborador' element={<TrilhaColaborador/>}/>
           <Route path='documentos-colab' element={<DocColab/>}/>
           <Route path='detalhe-cnpj' element={<DetalheCnpj/>}/>
-          <Route path='trilha-adicionar' element={<TrilhaAdd/>}/>
+          <Route path='criar-trilha' element={<CriarTrilha/>}/>
+          <Route path='trilha-adicionar/:id' element={<TrilhaAdd/>}/>
           <Route path='criar-curso' element={<CriarCurso/>}/>
           <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
           <Route path='menu-curso' element = {<MenuCurso/>}/>
