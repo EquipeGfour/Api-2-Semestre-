@@ -46,6 +46,8 @@ export const dadosArquivoBaixar = async (id) => {
     return dados
 }
 
+
+// não esta sendo usado
 export const armazenarAulaMaterials = async (curso_id,titulo_aula,descricao_aula,tempo_aula,name,ext,tipo) => {
     let url_arquivo = ''
 

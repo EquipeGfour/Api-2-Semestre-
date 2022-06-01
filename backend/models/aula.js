@@ -2,7 +2,6 @@ import { Sequelize } from "sequelize";
 import db from '../config/db.js';
 import Arquivo from './arquivos.js';
 
-// define the model with attributes id,titulo_video,descricao_aula,tempo_video
 const Aula = db.define('aulas',{
     id:{
         type:Sequelize.INTEGER,
@@ -10,7 +9,7 @@ const Aula = db.define('aulas',{
         allowNull: false,
         primaryKey: true
     },
-    titulo_aula:{
+    titulo_video:{
         type:Sequelize.STRING,
         allowNull:true,
     },
@@ -18,31 +17,18 @@ const Aula = db.define('aulas',{
         type:Sequelize.STRING,
         allowNull:true,
     },
-    tempo_aula:{
+    tempo_video:{
         type:Sequelize.STRING,
         allowNull:true,
     },
     curso_id:{
         type:Sequelize.INTEGER,
         allowNull:true,
-    },
-    nome_aula_arq:{
-        type:Sequelize.STRING,
-        allowNull:true,
-    },
-    extensao_aula:{
-        type:Sequelize.STRING,
-        allowNull:true,
-    },
-    url_arq_aula:{
-        type:Sequelize.STRING,
-        allowNull:true,
-    },
-    tipo_arq_aula:{
-        type:Sequelize.STRING,
-        allowNull:true,
     }
 })
 
+
+Arquivo.Aula = Arquivo.belongsTo(Aula,{foreignKey:"aula_id"})
+Aula.Arquivo = Aula.hasMany(Arquivo,{foreignKey:"aula_id"})
 
 export default Aula
