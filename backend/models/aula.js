@@ -10,7 +10,7 @@ const Aula = db.define('aulas',{
         allowNull: false,
         primaryKey: true
     },
-    titulo_video:{
+    titulo_aula:{
         type:Sequelize.STRING,
         allowNull:true,
     },
@@ -18,18 +18,31 @@ const Aula = db.define('aulas',{
         type:Sequelize.STRING,
         allowNull:true,
     },
-    tempo_video:{
+    tempo_aula:{
         type:Sequelize.STRING,
         allowNull:true,
     },
     curso_id:{
         type:Sequelize.INTEGER,
         allowNull:true,
+    },
+    nome_aula_arq:{
+        type:Sequelize.STRING,
+        allowNull:true,
+    },
+    extensao_aula:{
+        type:Sequelize.STRING,
+        allowNull:true,
+    },
+    url_arq_aula:{
+        type:Sequelize.STRING,
+        allowNull:true,
+    },
+    tipo_arq_aula:{
+        type:Sequelize.STRING,
+        allowNull:true,
     }
 })
 
-
-Arquivo.Aula = Arquivo.belongsTo(Aula,{foreignKey:"aula_id"})
-Aula.Arquivo = Aula.hasMany(Arquivo,{foreignKey:"aula_id"})
 
 export default Aula

@@ -20,8 +20,6 @@ const buscaTrilha = () =>{
   })
 }
 
-
-
   React.useEffect(() => {
     document.title = 'Trilha'
     buscaTrilha()
@@ -37,29 +35,31 @@ const buscaTrilha = () =>{
           </Link>
           
         </div>
+        {nometrilha.map((n,index)=>
           <div className="col s12 conteiner-cinza3">
             <div className="bg-cinza highlight div-cursos">
-              {nometrilha.map((n,index)=>
                 <div key={n.id} className="card-cinza">
                   <Link to={'/menu-curso'}>
                     <div>                  
                       <h5 className="curso1">{n.nome_trilha}</h5>
                       <p>{n.descricao_trilha}</p>
-                    </div>
-                    <div className="">                      
-                      <Link to={`/trilha-adicionar/${n.id}`}>
-                        <i className="material-icons pointer posicao" title="Adicionar Curso à Trilha">add</i>
-                      </Link>                  
+                        <div className="addcurso">
+                          <Link to={`/trilha-adicionar/${n.id}`}> 
+                            <a className="waves-effect waves-light btn-small btcurso " title="Adicionar Curso à Trilha">Adicionar curso</a></Link>                        
+                          <div>
+                            <Link to={`/visualizar-curso/${n.id}`}>
+                            <a className="waves-effect waves-light btn-small bttrilha" title="Vincular à Trilha">Vincular Trilha</a></Link>
+                          </div>
+                        </div>                      
                     </div>
                   </Link>
                 </div>
-              )}                       
             </div>
           </div>
+        )}                       
       </div>
   </div>
   )
-
 }
 export default Trilha
 

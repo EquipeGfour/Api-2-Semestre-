@@ -1,5 +1,5 @@
 import aws from 'aws-sdk';
-import { dadosArquivoBaixar, inserirArquivo, pegarArquivoById, pegarDadosArquivo } from "../service/uploadService.js";
+import { armazenarAulaMaterials, dadosArquivoBaixar, inserirArquivo, pegarArquivoById, pegarDadosArquivo } from "../service/uploadService.js";
 import path,{dirname} from 'path'
 import { fileURLToPath } from "url";
 import fs from "fs"
@@ -19,7 +19,7 @@ export const dadosUpload = async (req,res) => {
         const comprovantes = req.files.comprovante??[]
         const dados = [...documentos, ...certificados, ...comprovantes]
         
-        const salvos =  await Promise.all(dados.map(async file=>{
+        const salvos =  await Promise.all(dados.map(async file=> {
 
             let nomeDados = ''
 
@@ -82,7 +82,8 @@ export const downloadAws = async (req,res) => {
     }
 }
 
-export const videosUpload = async (req,res) => {
+// não está sendo usado
+export const UploadAulaMaterials = async (req,res) => {
     try{
         const video = req.files.video
         const file = video[0]
@@ -115,6 +116,7 @@ export const videosUpload = async (req,res) => {
     }
 }
 
+// não está sendo usado
 export const listarAulaArquivos = async (req,res) => {
     try{
         const dados = await Arquivos.findAll({
@@ -128,34 +130,30 @@ export const listarAulaArquivos = async (req,res) => {
     }
 }
 
-export const uploadMateriaisAula = async (req,res) => {
+// upload de arquivos para aula
+export const aulaMateriaisUpload = async (req,res) => {
     try{
-        const material = req.files.material
-        const file = material[0]
+        const video = req.files.video??[]
+        const material = req.files.material??[]
+        const dados = [...video, ...material]
 
-        let nomeDados = ''
+        const salvos = await Promise.all(dados.map(async file => {
+
+            let nomeDados = ''
 
             if(file.key){
                 nomeDados = file.key
             }else{
                 nomeDados = file.filename
             }
+
             const { name, ext } = path.parse(nomeDados);
+            const curso_id = req.params.id
+            const uploadAula = await armazenarAulaMaterials(curso_id, req.body.titulo_aula, req.body.descricao_aula, req.body.tempo_aula,name,ext,file.fieldname )
+            return { uploadAula, tipo:file.fieldname }
+        }))
 
-        let url_arquivo = ''
-
-        if (process.env.STORAGE_TYPE === 's3'){
-            url_arquivo =  `https://${process.env.BUCKET_NAME}.s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${name}${ext}`
-        }
-
-        const dados = await Arquivos.create({
-            nome_arquivos:name,
-            url_arquivo:url_arquivo,
-            extensao:ext,
-            aula_id:req.params.id,
-            tipo:'material'
-            })
-        res.json(dados)
+        res.json(salvos)
 
     }catch(error){
         res.status(500).json({ message:error })

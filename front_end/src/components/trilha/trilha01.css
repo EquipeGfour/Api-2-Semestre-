@@ -98,3 +98,19 @@
    
 }
 
+.addcurso{
+    text-align: end;
+    width: auto;   
+}
+
+.btcurso{
+    float: right;   
+    background-color:#53C4CD;
+    color: #fff; 
+}
+
+.bttrilha{
+    margin-right: 1rem;
+    background-color:#53C4CD;
+    color: #fff;
+}

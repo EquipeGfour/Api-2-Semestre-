@@ -127,7 +127,9 @@ const CriarCurso: React.FC = (props) => {
                     </tbody>
                 </table>
             </div>
-            <a className="waves-effect waves-light btn-large  btnAzulUpload" onClick={enviaVideo}>Carregar</a>
+            <div className="botaoFinal">
+            <a className="waves-effect waves-light btn-large  btnAzulUpload1" onClick={enviaVideo}>Criar Curso</a>
+            </div>
         </div>
     )
 }

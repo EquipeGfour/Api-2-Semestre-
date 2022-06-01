@@ -52,12 +52,12 @@ export const upload = multer({
     limits:{fileSize:tamanho}
 }).fields([{name:'documento',maxCount:1},{name:'certificado',maxCount:1},{name:'comprovante',maxCount:1}])
 
-export const uploadVideo = multer({
+export const uploadMateriais = multer({
     storage:storage[process.env.STORAGE_TYPE],
     limits:{fileSize:tamanhoVideo}
-}).fields([{name:'video',maxCount:1}])
+}).fields([{name:'video',maxCount:1}, {name:'material',maxCount:1}])
 
-export const uploadArquivosAula = multer({
-    storage:storage[process.env.STORAGE_TYPE],
-    limits:{fileSize:tamanhoVideo}
-}).fields([{name:'material',maxCount:1}])
+// export const uploadArquivosAula = multer({
+//     storage:storage[process.env.STORAGE_TYPE],
+//     limits:{fileSize:tamanhoVideo}
+// }).fields([{name:'material',maxCount:1}])
