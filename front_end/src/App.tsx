@@ -33,6 +33,7 @@ import MenuCurso from './components/menuCurso/menuCurso'
 import AssistirCurso from './components/assistirCurso/assistirCurso'
 import CriarTrilha from './components/criarTrilha/criarTrilha'
 import VisualizarCurso from './components/vizualizarCurso/vizualizarCurso';
+import RedefinirDados from './components/redefinirDados/redefinirDados';
 
 type state = {
   tela: string
@@ -90,6 +91,7 @@ render(){
           <Route path='menu-curso' element = {<MenuCurso/>}/>
           <Route path='assistir-curso' element = {<AssistirCurso/>}/>
           <Route path='visualizar-curso/:id' element={<VisualizarCurso />} />
+          <Route path='redefinir-dados/' element={<RedefinirDados/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>
