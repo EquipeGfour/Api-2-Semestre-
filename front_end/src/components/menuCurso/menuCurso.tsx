@@ -14,6 +14,8 @@ const MenuCurso: React.FC = (props) => {
         document.title = 'Menu-Curso'
         var elems = document.querySelectorAll('.collapsible');
         var instances = M.Collapsible.init(elems, Option);
+        var elems1 = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems1, Option);
     }, [])
 
     return(
@@ -21,6 +23,44 @@ const MenuCurso: React.FC = (props) => {
             <div className="geralContainer2 ">
                 <span className="titulo">Java </span>
             </div>
+            <ul className="collapsible expandable headerCurso">        
+                <li className="blocos">
+                    <div className="collapsible-header bodyCurso" title='Ver Colaboradores'><i className="material-icons">info_outline</i>Informações Curso</div>
+                    <div className="collapsible-body tabelaCargo">
+                    <div className="row informacoescurso">
+                        <div className="input-field col s12">
+                            <input placeholder="Nome do Curso" id="first_name2" type="text" className="validate" />
+                            <label className="active" htmlFor="last_name">Nome do Curso</label>
+                        </div>
+                        <form>
+                            <div className="row">
+                                <div className="input-field col s12 texto">
+                                    <textarea   id="textarea1" placeholder="Descrição Curso" className="materialize-textarea text-white" ></textarea>
+                                    <label className="labelstatus1" htmlFor="textarea1">Descrição do Curso</label>
+                                </div>
+                            </div>
+                        </form>
+                        <div className="col s12">
+                            <div className="input-field col s12 input-select seletorstatus">
+                                <select className='select'>
+                                    <option value="1">Status</option>
+                                    <option value="2">Basico</option>
+                                    <option value="3">Intermediário</option>
+                                    <option value="4">Avançado</option>
+                                </select>
+                                <label className="labelstatus">Nível do Curso</label>
+                            </div>
+                        </div>
+                        <div className="input-field col s12">
+                            <input placeholder="Carga Horária do Curso" id="first_name2" type="text" className="validate" />
+                            <label className="active" htmlFor="last_name">Carga Horária do Curso</label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
             <ul className="collapsible expandable headerCurso">        
                 <li className="blocos">
                     <div className="collapsible-header bodyCurso" title='Ver Colaboradores'><i className="material-icons">school</i>Material de Apoio</div>

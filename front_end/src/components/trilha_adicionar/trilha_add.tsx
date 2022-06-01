@@ -97,7 +97,7 @@ const FiltraNivel = (id)=>{
             </div>
 
             <div className="centerbtn">
-                <Link to={`/criar-curso`} className="waves-effect waves-light  btn-large botaocriarcurso" onClick={criaCurso}>Inserir Aulas</Link>
+                <Link to={`/criar-curso/${id}`} className="waves-effect waves-light  btn-large botaocriarcurso" onClick={criaCurso}>Inserir Aulas</Link>
             </div>
         </div>
     )

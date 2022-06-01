@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./styleup.css";
-import { MdCloudUpload } from "react-icons/md";
 import { TextInput } from "react-materialize";
 import axios from "../../functions/axios";
 import { useCookies } from "react-cookie";

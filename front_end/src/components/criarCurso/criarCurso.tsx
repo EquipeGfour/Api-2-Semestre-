@@ -7,6 +7,37 @@ import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize'
 
 const CriarCurso: React.FC = (props) => {
+    const [cookie,setCookie]=useCookies(['ionic-user'])
+    const [nomearquivoaula,setNomeArquivoAula] = useState('')
+    const [nomearquivovideo,setNomeArquivoVideo] = useState('')
+    const [aula,setAula] = useState<File>()
+    const [video,setVideo] = useState<File>()
+
+    const enviaVideo = () =>{        
+        const form = new FormData();  
+        form.append('video', video);
+
+        axios.post(`/api/upload/uploadVideo/1`, form, {headers:CriaHeader()}).then(res=>{
+            if (nomearquivovideo)M.toast({html:`Arquivo ${nomearquivovideo} carregado com sucesso!`, classes:"modal1 rounded"})   
+            if (nomearquivovideo === null )
+            M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
+            console.log(form)
+            DelArquivoUpload()
+          }).catch(erro=>{
+            console.error('Erro', erro.response)
+        })
+    }
+
+    const DelArquivoUpload = () =>{
+        setVideo(null)
+        setNomeArquivoVideo(null)
+    }
+
+    const OnFileChangeVideo = e=>{  
+        setVideo(e.target.files[0]) 
+        setNomeArquivoVideo(e.target.files[0].name)  
+    }
+      
 
     React.useEffect(() => {
         document.title = 'Cria-Curso'
@@ -15,7 +46,6 @@ const CriarCurso: React.FC = (props) => {
         var elems1 = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems1, Option);
     }, [])
-
 
     return (
         <div className="containerCriaCurso">
@@ -51,10 +81,10 @@ const CriarCurso: React.FC = (props) => {
                 <tbody>
                 <tr>       
                     <td>Vídeos</td>
-                    <td><span><button className="excluir"></button></span></td>             
+                    <td><span>{nomearquivovideo}{video &&<button className="excluir" onClick={DelArquivoUpload}><i className="material-icons delUp">clear</i></button>}</span></td>             
                     <td>
                     <div className="file-field input-field btn">
-                    <span>Carregar<input type="file"/></span>                    
+                    <span>Carregar<input type="file" onChange={OnFileChangeVideo}/></span>                    
                     </div>
                     </td>
                 </tr>
@@ -97,6 +127,7 @@ const CriarCurso: React.FC = (props) => {
                     </tbody>
                 </table>
             </div>
+            <a className="waves-effect waves-light btn-large  btnAzulUpload" onClick={enviaVideo}>Carregar</a>
         </div>
     )
 }

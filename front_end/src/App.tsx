@@ -84,7 +84,7 @@ render(){
           <Route path='detalhe-cnpj' element={<DetalheCnpj/>}/>
           <Route path='criar-trilha' element={<CriarTrilha/>}/>
           <Route path='trilha-adicionar/:id' element={<TrilhaAdd/>}/>
-          <Route path='criar-curso' element={<CriarCurso/>}/>
+          <Route path='criar-curso/:id' element={<CriarCurso/>}/>
           <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
           <Route path='menu-curso' element = {<MenuCurso/>}/>
           <Route path='assistir-curso' element = {<AssistirCurso/>}/>
