@@ -4,7 +4,7 @@
     margin-top: 2rem;
 }
 
-.containerVizualizar {
+.containerVincular {
     width: 50%;
     margin: 0 auto;
     padding: 1rem;
@@ -17,7 +17,7 @@
     font-size: 30px !important;
 }
 
-.seletorstatusVizualizar {
+.seletorstatusVincular {
     margin-top: 4rem;
 }
 
@@ -25,7 +25,7 @@
     margin-top: 20rem;
 }
 
-.linhaDivisaoVizualizar {
+.linhaDivisaoVincular {
     width: 100%;
     margin-top: 3rem !important;
     margin: 0 auto;
