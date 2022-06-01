@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 //Import de meus componentes (páginas)
@@ -32,13 +32,14 @@ import MeuPerfil from './components/meuPerfil/meuPerfil'
 import MenuCurso from './components/menuCurso/menuCurso'
 import AssistirCurso from './components/assistirCurso/assistirCurso'
 import CriarTrilha from './components/criarTrilha/criarTrilha'
+import VizualizarCurso from './components/vizualizarCurso/vizualizarCurso';
 
 type state = {
   tela: string
 }
 
-class App extends Component<{},state> {
-  constructor(props){
+class App extends Component<{}, state> {
+  constructor(props) {
     super(props)
     this.state = {
       tela: ''
@@ -46,11 +47,11 @@ class App extends Component<{},state> {
     this.selecionarTela = this.selecionarTela.bind(this)
   }
 
-  selecionarTela(opcao:string, evento){
-    console.log('ta clicando....');    
+  selecionarTela(opcao: string, evento) {
+    console.log('ta clicando....');
     evento.preventDefault()
     this.setState({
-      tela:opcao
+      tela: opcao
     })
   }
 
@@ -88,6 +89,7 @@ render(){
           <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
           <Route path='menu-curso' element = {<MenuCurso/>}/>
           <Route path='assistir-curso' element = {<AssistirCurso/>}/>
+          <Route path='vizualizar-curso' element={<VizualizarCurso />} />
         </Routes>      
       </BrowserRouter>      
     </div>

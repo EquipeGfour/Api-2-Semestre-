@@ -12,10 +12,9 @@ CREATE TABLE arquivos (
     id int NOT NULL AUTO_INCREMENT,
     nome_arquivos varchar(300) ,
     extensao varchar(10),
-    url_arquivo varchar(500) not null,
+    url_arquivo varchar(300) not null,
     tipo varchar(50),
     colaborador_id int not null,
-    aula_id int,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
     CONSTRAINT arquivos_pk PRIMARY KEY (id)
@@ -28,6 +27,10 @@ CREATE TABLE aulas (
     titulo_video varchar(300),
     descricao_aula varchar(300),
     tempo_video int,
+    nome_aula_arquivo varchar(300) ,
+    extensao_aula varchar(10),
+    url_arquivo_aula varchar(250) not null,
+    tipo_arquivo_aula varchar(30),
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
 	CONSTRAINT aulas_pk PRIMARY KEY (id)
@@ -209,10 +212,6 @@ CREATE TABLE trilha_aprendizados (
 -- Reference: arquivos_Colaborador (table: colaboradors)
 ALTER TABLE arquivos ADD CONSTRAINT arquivo_colaborador FOREIGN KEY arquivo_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
-
--- Reference: aulas_arquivos (table: aulas)
-ALTER TABLE arquivos ADD CONSTRAINT arquivos_aulas FOREIGN KEY arquivos_aulas (aula_id)
-    REFERENCES aulas (id);
     
 -- Reference: aulas_cursos (table: aulas)
 ALTER TABLE aulas ADD CONSTRAINT aulas_cursos FOREIGN KEY aulas_cursos (curso_id)
@@ -254,12 +253,15 @@ ALTER TABLE pessoa_fisicas ADD CONSTRAINT pessoa_fisica_colaborador FOREIGN KEY 
 ALTER TABLE pessoa_juridicas ADD CONSTRAINT pessoa_juridica_colaborador FOREIGN KEY pessoa_juridica_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
 
+-- Reference: colaborador_trilha (table: Colaboradors)
 ALTER TABLE colaboradors ADD CONSTRAINT colaborador_trilha FOREIGN KEY colaborador_trilha (trilha_id)
     REFERENCES trilha_aprendizados(id);
 
+-- Reference: cursos_trilha (table: Cursos)
 ALTER TABLE cursos ADD CONSTRAINT cursos_trilha FOREIGN KEY cursos_trilha (trilha_id)
     REFERENCES trilha_aprendizados(id);
 
+-- Reference: cursos_trilha (table: Colaboradors)
 ALTER TABLE colaboradors ADD CONSTRAINT colab_pj FOREIGN KEY colab_pj (empresa_id)
     REFERENCES pessoa_juridicas(colaborador_id);
 

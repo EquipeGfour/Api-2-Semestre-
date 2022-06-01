@@ -1,0 +1,36 @@
+.tituloVincular {
+    font-family: 'IonicCoolvetica';
+    color: #53C4CD;
+    margin-top: 2rem;
+}
+
+.containerVizualizar {
+    width: 50%;
+    margin: 0 auto;
+    padding: 1rem;
+
+    padding-bottom: 5rem;
+}
+
+.labelname {
+    left: 0.6rem !important;
+    font-size: 45px !important;
+}
+
+.seletorstatusVizualizar {
+    margin-top: 4rem;
+}
+
+.selectCursos {
+    margin-top: 20rem;
+}
+
+.linhaDivisaoVizualizar {
+    width: 100%;
+    margin-top: 3rem !important;
+    margin: 0 auto;
+}
+
+.botaoSalvar {
+    text-align: center;
+}
