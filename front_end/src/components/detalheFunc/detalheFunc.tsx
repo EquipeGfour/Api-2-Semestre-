@@ -65,6 +65,21 @@ const DetalheFunc: React.FC = (props) => {
     .catch(err => console.log(err));
   }
 
+  const gerarDossie = () => {
+    setStatuscontrato('Gerando PDF...')
+    const getUrl = window.location;     
+    const baseUrl = getUrl.host.includes("3000")? "localhost:5000" : getUrl.host;
+    const url = getUrl.protocol + "//" + baseUrl + "/api/pdf/gerarpdfDados?id=" + id;
+    fetch (url, { method: 'GET',headers: CriaHeader()})
+    .then(res => res.blob())
+    .then(blob => {
+      const _url = window.URL.createObjectURL(blob);
+      setStatuscontrato('');
+      window.open(_url, '_blank').focus();
+    })
+    .catch(err => console.log(err));
+  }
+
   const ListDownload = (id:string) => {
     axios.get(`/api/upload/listarArquivos/${id}`,{headers: CriaHeader()}).then(res=>{
       console.log(res)
@@ -335,10 +350,13 @@ const DetalheFunc: React.FC = (props) => {
         <div id="test-swipe-4" className="col s12 ">
           <form>
             <div className="col s12 dadosPessoais text-white">
-              <span>Clique em "Gerar PDF" para visualizar o contrato</span>
+              <span>Clique para visualizar PDF </span>
             </div>            
             <a className="waves-effect waves-light btn-large btnAzulPDF" onClick={gerarpdf}>
-            {statuscontrato ==="" ?"Gerar PDF" : "carregando..." } 
+            {statuscontrato ==="" ?"Contrato" : "carregando..." } 
+            </a>
+            <a className="waves-effect waves-light btn-large btnAzulPDF pdfdossie" onClick={gerarDossie}>
+            {statuscontrato ==="" ?"Dados Pessoais" : "carregando..." } 
             </a>
           </form>
         </div>
