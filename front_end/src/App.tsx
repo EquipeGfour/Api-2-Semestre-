@@ -32,7 +32,7 @@ import MeuPerfil from './components/meuPerfil/meuPerfil'
 import MenuCurso from './components/menuCurso/menuCurso'
 import AssistirCurso from './components/assistirCurso/assistirCurso'
 import CriarTrilha from './components/criarTrilha/criarTrilha'
-import VizualizarCurso from './components/vizualizarCurso/vizualizarCurso';
+import VisualizarCurso from './components/vizualizarCurso/vizualizarCurso';
 
 type state = {
   tela: string
@@ -89,7 +89,7 @@ render(){
           <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
           <Route path='menu-curso' element = {<MenuCurso/>}/>
           <Route path='assistir-curso' element = {<AssistirCurso/>}/>
-          <Route path='vizualizar-curso' element={<VizualizarCurso />} />
+          <Route path='visualizar-curso/:id' element={<VisualizarCurso />} />
         </Routes>      
       </BrowserRouter>      
     </div>
