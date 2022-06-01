@@ -1,22 +1,23 @@
+.containerTudo{
+    padding-bottom: 3rem;
+}
+
 .container{
     margin-top: 4rem;
     text-align: center;
     background: #58595B;
-    border-radius: 5px;
-    
+    border-radius: 5px;      
 }
 
 .fotoColab{
     margin-top: 2rem;
     width:200px;
     height:200px;
-    border-radius: 30px;
-    
+    border-radius: 30px;    
 }
 
 .dadosBasicos{
-    margin-top: 2rem;
-    
+    margin-top: 2rem;    
 }
 
 .fonte{

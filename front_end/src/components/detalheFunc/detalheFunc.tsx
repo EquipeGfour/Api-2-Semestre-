@@ -138,7 +138,7 @@ const DetalheFunc: React.FC = (props) => {
   }, [])
 
   return (
-    <div>
+    <div className="containerTudo">
       <div className="container">
         <img className="responsive-img fotoColab" src={Colab}/>
         <div className="row">
