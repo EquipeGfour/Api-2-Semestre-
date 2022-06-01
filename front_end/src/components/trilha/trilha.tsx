@@ -48,7 +48,7 @@ const buscaTrilha = () =>{
                           <Link to={`/trilha-adicionar/${n.id}`}> 
                             <a className="waves-effect waves-light btn-small btcurso " title="Adicionar Curso à Trilha">Adicionar curso</a></Link>                        
                           <div>
-                            <Link to={`/visualizar-curso/${n.id}`}>
+                            <Link to={`/vincular-curso/${n.id}`}>
                             <a className="waves-effect waves-light btn-small bttrilha" title="Vincular à Trilha">Vincular Trilha</a></Link>
                           </div>
                         </div>                      

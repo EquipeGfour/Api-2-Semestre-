@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import "./VincularCurso.css";
+import "./vincularCurso.css";
 import { useCookies } from 'react-cookie'
 import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
