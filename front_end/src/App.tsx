@@ -32,8 +32,9 @@ import MeuPerfil from './components/meuPerfil/meuPerfil'
 import MenuCurso from './components/menuCurso/menuCurso'
 import AssistirCurso from './components/assistirCurso/assistirCurso'
 import CriarTrilha from './components/criarTrilha/criarTrilha'
-import VisualizarCurso from './components/vizualizarCurso/vizualizarCurso';
+import VincularCurso from './components/vincularCurso/vincularCurso';
 import GeralCursos from './components/geralCursos/geralCursos'
+import RedefinirDados from './components/redefinirDados/redefinirDados';
 
 type state = {
   tela: string
@@ -90,8 +91,9 @@ render(){
           <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
           <Route path='menu-curso/:id' element = {<MenuCurso/>}/>
           <Route path='assistir-curso' element = {<AssistirCurso/>}/>
-          <Route path='visualizar-curso/:id' element={<VisualizarCurso />} />
+          <Route path='vincular-curso/:id' element={<VincularCurso />} />
           <Route path='geral-cursos/:id' element={<GeralCursos />} />
+          <Route path='redefinir-dados/' element={<RedefinirDados/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>

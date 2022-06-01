@@ -1,12 +1,12 @@
 import React, { useState } from "react"
-import "./vizualizarCurso.css";
+import "./VincularCurso.css";
 import { useCookies } from 'react-cookie'
 import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize'
 
-const VizualizarCurso: React.FC = (props) => {
+const VincularCurso: React.FC = (props) => {
 
     React.useEffect(() => {
         var elems = document.querySelectorAll('select');
@@ -15,14 +15,14 @@ const VizualizarCurso: React.FC = (props) => {
 
 
     return (
-        <div className="containerVizualizar">
+        <div className="containerVincular">
             <div className="dadosContainer cursos">
                 <span>Vincular Cursos e Colaboradores</span>
             </div>
 
 
             <div className="col s12 row">
-                <div className="input-field col s12 input-select seletorstatusVizualizar">
+                <div className="input-field col s12 input-select seletorstatusVincular">
                     <select className='select'>
                         <option value="" disabled selected>Cursos</option>
                         <option value="1">Javascript</option>
@@ -35,7 +35,7 @@ const VizualizarCurso: React.FC = (props) => {
 
 
             <div className="col s12 row">
-                <div className="input-field col s12 input-select seletorstatusVizualizar">
+                <div className="input-field col s12 input-select seletorstatusVincular">
                     <select multiple className='select'>
                         <option value="" disabled selected>Escolha o Colaborador</option>
                         <option value="1">Gerson</option>
@@ -53,7 +53,7 @@ const VizualizarCurso: React.FC = (props) => {
         </div>
     )
 }
-export default VizualizarCurso
+export default VincularCurso
 
 
 

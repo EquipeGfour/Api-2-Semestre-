@@ -98,7 +98,7 @@ const CriarCurso: React.FC = (props) => {
             </div>
 
             <div className="arquivo">
-            <table className="responsive-table centered tabUp1">
+            <table className="responsive-table  tabUp1">
                 <thead>
                     <tr className="linha">
                         <th>Tipo</th>
