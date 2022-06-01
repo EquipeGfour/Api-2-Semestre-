@@ -37,10 +37,11 @@ const VizualizarCurso: React.FC = (props) => {
             <div className="col s12 row">
                 <div className="input-field col s12 input-select seletorstatusVizualizar">
                     <select multiple className='select'>
+                        <option value="" disabled selected>Escolha o Colaborador</option>
                         <option value="1">Gerson</option>
                         <option value="2">Rafa</option>
                         <option value="3">Junior</option>
-                        <option value="4">bertholdt</option>
+                        <option value="4">Bertholdt</option>
                     </select>
                     <label className="labelname">Vincular Colaboradores</label>
                 </div>

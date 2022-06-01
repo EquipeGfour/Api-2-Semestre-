@@ -7,7 +7,6 @@ import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize'
 
 
-
 const TrilhaAdd: React.FC = (props) => {
 const {id} = useParams()   
 const navigate = useNavigate();
@@ -26,12 +25,17 @@ const criaCurso = () =>{
         carga_horaria_curso:cargahoraria,
         trilha_id:id
     }
+    if(nomecurso === "" || descricao === "" || nivel === "" || cargahoraria === ""){
+        M.toast({html:'Preencha TODOS os campos!', classes:"modalerro rounded"})
+        return
+    }
     axios.post(url,obj ,{ headers: CriaHeader() }).then((res) => {
         M.toast({html: "Curso adicionado, Selecione os Arquivos!",classes: "modal1 rounded",});
         setNomecurso('');
         setDescricao('');
         setNivel('');
         setCargahoraria('')
+        navigate(`/criar-curso/${id}`)
     })
     .catch((erro) => {        
        
@@ -97,7 +101,7 @@ const FiltraNivel = (id)=>{
             </div>
 
             <div className="centerbtn">
-                <Link to={`/criar-curso/${id}`} className="waves-effect waves-light  btn-large botaocriarcurso" onClick={criaCurso}>Inserir Aulas</Link>
+                <a className="waves-effect waves-light  btn-large botaocriarcurso" onClick={criaCurso}>Inserir Aulas</a>
             </div>
         </div>
     )
