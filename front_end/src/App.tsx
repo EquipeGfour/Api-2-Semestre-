@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 //Import de meus componentes (páginas)
@@ -32,13 +32,14 @@ import MeuPerfil from './components/meuPerfil/meuPerfil'
 import MenuCurso from './components/menuCurso/menuCurso'
 import AssistirCurso from './components/assistirCurso/assistirCurso'
 import CriarTrilha from './components/criarTrilha/criarTrilha'
+import VizualizarCurso from './components/vizualizarCurso/vizualizarCurso';
 
 type state = {
   tela: string
 }
 
-class App extends Component<{},state> {
-  constructor(props){
+class App extends Component<{}, state> {
+  constructor(props) {
     super(props)
     this.state = {
       tela: ''
@@ -46,53 +47,54 @@ class App extends Component<{},state> {
     this.selecionarTela = this.selecionarTela.bind(this)
   }
 
-  selecionarTela(opcao:string, evento){
-    console.log('ta clicando....');    
+  selecionarTela(opcao: string, evento) {
+    console.log('ta clicando....');
     evento.preventDefault()
     this.setState({
-      tela:opcao
+      tela: opcao
     })
   }
 
-render(){
-  return(
-    <div>     
-      <BrowserRouter>        
-        <NavBar>
-        </NavBar>
-        <Routes >
-          <Route path='/' element={<Login/>}/>
-          <Route path='dados-pessoais' element={<DadosPessoais/>}/>
-          <Route path='dados-empresa' element={<DadosEmpresa/>}/>
-          <Route path='geral-funcionarios' element={<GeralFunc/>}/>
-          <Route path='home-admin' element={<Home/>}/>
-          <Route path='upload' element={<Upload/>}/>
-          <Route path='pre-registro' element={<PreRegistro/>}/>
-          <Route path='geral-departamentos' element={<GeralDep/>}/>
-          <Route path='novo-departamento' element={<NovoDepartamento/>}/>
-          <Route path='novo-cargo/:id' element={<NovoCargo/>}/>
-          <Route path='detalhe-departamento/:id' element={<DetalheDep/>}/>
-          <Route path='detalhe-funcionario/:id' element={<DetalheFunc/>}/>
-          <Route path='organograma' element={<Orgchart/>}/>
-          <Route path='trilha' element={<Trilha/>}/>
-          <Route path='redefinir-senha' element={<Redefinir/>}/>
-          <Route path='desligados' element={<Desligados/>}/>
-          <Route path='esqueceu' element={<Esqueceu/>}/>
-          <Route path='home-colaborador' element={<HomeColab/>}/>
-          <Route path='trilha-colaborador' element={<TrilhaColaborador/>}/>
-          <Route path='documentos-colab' element={<DocColab/>}/>
-          <Route path='detalhe-cnpj' element={<DetalheCnpj/>}/>
-          <Route path='criar-trilha' element={<CriarTrilha/>}/>
-          <Route path='trilha-adicionar/:id' element={<TrilhaAdd/>}/>
-          <Route path='criar-curso' element={<CriarCurso/>}/>
-          <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
-          <Route path='menu-curso' element = {<MenuCurso/>}/>
-          <Route path='assistir-curso' element = {<AssistirCurso/>}/>
-        </Routes>      
-      </BrowserRouter>      
-    </div>
-  )
-}
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <NavBar>
+          </NavBar>
+          <Routes >
+            <Route path='/' element={<Login />} />
+            <Route path='dados-pessoais' element={<DadosPessoais />} />
+            <Route path='dados-empresa' element={<DadosEmpresa />} />
+            <Route path='geral-funcionarios' element={<GeralFunc />} />
+            <Route path='home-admin' element={<Home />} />
+            <Route path='upload' element={<Upload />} />
+            <Route path='pre-registro' element={<PreRegistro />} />
+            <Route path='geral-departamentos' element={<GeralDep />} />
+            <Route path='novo-departamento' element={<NovoDepartamento />} />
+            <Route path='novo-cargo/:id' element={<NovoCargo />} />
+            <Route path='detalhe-departamento/:id' element={<DetalheDep />} />
+            <Route path='detalhe-funcionario/:id' element={<DetalheFunc />} />
+            <Route path='organograma' element={<Orgchart />} />
+            <Route path='trilha' element={<Trilha />} />
+            <Route path='redefinir-senha' element={<Redefinir />} />
+            <Route path='desligados' element={<Desligados />} />
+            <Route path='esqueceu' element={<Esqueceu />} />
+            <Route path='home-colaborador' element={<HomeColab />} />
+            <Route path='trilha-colaborador' element={<TrilhaColaborador />} />
+            <Route path='documentos-colab' element={<DocColab />} />
+            <Route path='detalhe-cnpj' element={<DetalheCnpj />} />
+            <Route path='criar-trilha' element={<CriarTrilha />} />
+            <Route path='trilha-adicionar/:id' element={<TrilhaAdd />} />
+            <Route path='criar-curso' element={<CriarCurso />} />
+            <Route path='home-colaborador/meu-perfil' element={<MeuPerfil />} />
+            <Route path='menu-curso' element={<MenuCurso />} />
+            <Route path='assistir-curso' element={<AssistirCurso />} />
+            <Route path='vizualizar-curso' element={<VizualizarCurso />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    )
+  }
 }
 
 export default App;
