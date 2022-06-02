@@ -47,6 +47,12 @@ const AssistirCurso: React.FC = (props) => {
                     </tbody>
                 </table>
             </div>
+
+            <div className="botaoFinal">
+                <Link to={'/trilha'}>
+                    <a className="waves-effect waves-light btn-large  btnAzulFimCurso">Finalizado</a>
+                </Link>                   
+            </div>
         </div>
     )
 }
