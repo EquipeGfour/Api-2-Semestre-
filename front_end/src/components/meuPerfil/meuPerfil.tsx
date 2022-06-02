@@ -31,7 +31,7 @@ const [bairro, setBairro]=useState('');
 const [cep, setCep]=useState('');
 const [complemento, setComplemento]=useState('');
 const [regiao, setRegiao]=useState(''); 
-const [statuscontrato,setStatuscontrato]=useState('');
+const [estado_civil, setEstado_civil] = useState('')
 // --- Bloco Formação Acadêmica --- //
 const [formacoes,setFormacoes] = React.useState([])
 const [formacao, setFormacao] = React.useState('')    
@@ -51,7 +51,7 @@ const [statusidioma, setStatusidioma] = React.useState('')
 const [arquivos,setArquivos] = useState([])
 const [download, setDownload] = useState('')
 
-const getColabById = (id: string) => {
+const getColabById = () => {
     console.log(id);
     const logado = cookie['ionic-user']
     setIdpessoal(logado.id)
@@ -75,15 +75,17 @@ const getColabById = (id: string) => {
     setBairro(res.data.endereco?.bairro);
     setCep(res.data.endereco?.cep);
     setComplemento(res.data.endereco?.complemento);
+    setEstado_civil(res.data.estado_civil);
     setRegiao(res.data.endereco?.regiao);
     setFormacoes(res.data.DadosAcademicos.filter( item => item.formacao))
     setCursoex(res.data.DadosAcademicos.filter(item => item.extra_curricular))
     setBlocoidioma(res.data.DadosAcademicos.filter(item => item.idioma))
-    console.log(formacoes);
+
+    console.log(res.data)
 })
 }
     React.useEffect(() => { 
-        getColabById(id)     
+        getColabById()     
         document.title = 'Meu-Perfil'
         var el = document.querySelector('#tabs-swipe-demo')
         var instance = M.Tabs.init(el, Option);
@@ -171,6 +173,11 @@ const getColabById = (id: string) => {
                     <div className=" input-field col s4 espaço">
                         <input placeholder="Naturalidade" id="first_name2" type="text" className="validate" value={naturalidade}onChange={()=>setNaturalidade}/>
                         <label className="active fonte" htmlFor="first_name2">Naturalidade</label>
+                    </div>
+
+                    <div className=" input-field col s4 espaço">
+                        <input placeholder="Estado Civil" id="first_name2" type="text" className="validate" value={estado_civil}onChange={()=>setEstado_civil}/>
+                        <label className="active fonte" htmlFor="first_name2">Estado Civil</label>
                     </div>
                 </div>
                 </div>
@@ -304,10 +311,15 @@ const getColabById = (id: string) => {
             </form>
             </form>
             </div>
-        {/* -----------------------------------REDEFINIR SENHA------------------------------------------- */}
+        {/* -----------------------------------REDEFINIR DADOS------------------------------------------- */}
             <div id="test-swipe-4" className="col s12 ">
                 <Link to={'/redefinir-senha'}>
                 <a className="waves-effect waves-light btn-large btnAzulsenha">Redefinir senha</a>
+                </Link>
+            </div>
+            <div id="test-swipe-4" className="col s12 ">
+                <Link to={'/redefinir-dados'}>
+                <a className="waves-effect waves-light btn-large btnAzulsenha">Redefinir Dados</a>
                 </Link>
             </div>
         </div>   

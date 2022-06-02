@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import { upload, uploadArquivosAula, uploadVideo } from "../functions/upload.js";
 import { verifyJWT } from "../controllers/loginController.js";
-import { dadosUpload, listarArquivos, downloadAws, videosUpload, listarAulaArquivos, uploadMateriaisAula } from "../controllers/uploadController.js";
+import { dadosUpload, listarArquivos, downloadAws, videosUpload, listarAulaArquivos, uploadMateriaisAula, getVideo } from "../controllers/uploadController.js";
 
 
 const router = Router();
@@ -16,6 +16,8 @@ router.post('/uploadVideo/:id', verifyJWT, uploadVideo, videosUpload);
 router.get('/listarAulasCursos/:id', verifyJWT, listarAulaArquivos);
 
 router.post('/uploadMaterialAula/:id', uploadArquivosAula, uploadMateriaisAula);
+
+router.get('/assistirAula/:id', getVideo)
 
 
 
