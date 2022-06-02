@@ -14,7 +14,7 @@ CREATE TABLE arquivos (
     extensao varchar(10),
     url_arquivo varchar(500) not null,
     tipo varchar(50),
-    colaborador_id int not null,
+    colaborador_id int,
     aula_id int,
     createdAt date NOT NULL default (current_date()),
     updatedAt date ,
