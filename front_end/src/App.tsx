@@ -36,6 +36,7 @@ import VincularCurso from './components/vincularCurso/vincularCurso';
 import GeralCursos from './components/geralCursos/geralCursos'
 import RedefinirDados from './components/redefinirDados/redefinirDados';
 import CriarAula from './components/criarAula/criarAula';
+import RemoveTrilha from './components/Remover da Trilha/removeTrilha';
 
 type state = {
   tela: string
@@ -96,6 +97,7 @@ render(){
           <Route path='geral-cursos/:id' element={<GeralCursos />} />
           <Route path='redefinir-dados/' element={<RedefinirDados/>}/>
           <Route path='criar-aula/:id' element={<CriarAula/>}/>
+          <Route path='remove-trilha' element={<RemoveTrilha/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>
