@@ -188,7 +188,22 @@ export const DonwloadID = async (req,res)=>{
             fileStream.pipe(res);
         }   
         res.json(arquivoIDs)
-    } catch(error){
+    }
+    catch(error){
         res.status(500).json({message:error})
+    }
+}
+
+export const getVideo = async (req, res) => {
+    try{
+        const dados = await Arquivos.findOne({
+            where:{
+                id:req.params.id
+            }
+        })
+        res.json(dados)
+
+    }catch(error){
+        res.status(500).json({ message:error })
     }
 }
