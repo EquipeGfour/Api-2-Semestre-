@@ -5,6 +5,7 @@
     color: #53C4CD;
     text-align: center;
     color: white;
+    padding-bottom: 3rem;
 }
 
 .tituloRemoveTrilha{
@@ -18,7 +19,7 @@
 }
 
 .tabelaCargoRemoveTrilha{
-    margin-top: 1rem;
+    margin-top: 0rem !important;
 }
 
 .tableRemoveTrilha{
@@ -33,5 +34,5 @@
 }
 
 .moverLixeira{
-  margin-top: ;
+  padding-top: 0;
 }

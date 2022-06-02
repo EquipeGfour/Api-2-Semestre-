@@ -1,10 +1,10 @@
-import React, {useState} from "react"
-import "./removeTrilha.css"
-import {useCookies} from 'react-cookie'
+import React, {useState} from "react";
+import "./removeTrilha.css";
+import {useCookies} from 'react-cookie';
 import axios from "../../functions/axios";
-import { CriaHeader } from "../../functions"
+import { CriaHeader } from "../../functions";
 import {Link,Navigate,useNavigate,useParams} from 'react-router-dom';
-import M from 'materialize-css/dist/js/materialize'
+import M from 'materialize-css/dist/js/materialize';
 
 const RemoveTrilha:React.FC=(props)=>{
 
@@ -22,7 +22,7 @@ const RemoveTrilha:React.FC=(props)=>{
             <span className="tituloRemoveTrilha">Remover da Trilha</span>
 
             <ul className="collapsible expandable infodep1">
-                <li className="blocosRemoveTrilha">
+                <li className="blocos">
                     <div className="collapsible-header infodep" title=''><i className="material-icons" >school</i>Nome Curso</div>
                         <div className="collapsible-body tabelaCargoRemoveTrilha">
                             <table className="highlight responsive-table tableRemoveTrilha">
@@ -33,7 +33,7 @@ const RemoveTrilha:React.FC=(props)=>{
                                         <th></th>              
                                     </tr>
                                 </thead>
-                                <tbody className="moverLixeira">
+                                <tbody>
                                     <tr>
                                         <td>Rafael</td>
                                         <i className="Small material-icons lixeira">delete_forever</i>
@@ -43,6 +43,7 @@ const RemoveTrilha:React.FC=(props)=>{
                             </table>
                         </div>
                 </li>
+                
             </ul>
         </div>            
       )
