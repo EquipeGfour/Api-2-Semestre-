@@ -29,9 +29,8 @@ RNF ID# | Sprint | Requisitos | Prioridade| Status|
 10 |2|Repositório para documentos dos colaboradores|ALTA|COMPLETO
 11 |2|Manual do usuário para navegação.|MÉDIA|COMPLETO
 12 |3|Desenho da arquitetura da solução|MÉDIA|ANDAMENTO
-13 |3|Documentação de testes e funcionais|MÉDIA|ANDAMENTO
-14 |3|Repositório de documentos da empresa|MÉDIA|ANDAMENTO
-15 |3|Implementação da Lei LGPD|MÉDIA|ANDAMENTO
+13 |3|Repositório de documentos da empresa|MÉDIA|ANDAMENTO
+14 |3|Implementação da Lei LGPD|MÉDIA|ANDAMENTO
 
 
 <h2> :card_file_box: Estruturação Das Pastas.</h2>
@@ -176,7 +175,7 @@ $ Senha = ceoionic
 
 <h2> ⏲️ Timeline Do Produto</h2>
 
-![timeline](https://user-images.githubusercontent.com/8519765/170871218-1aaace74-c832-4eba-8afd-f29da78db71a.png)<br><br>
+![time line](https://user-images.githubusercontent.com/8519765/171739243-35a69607-9f61-42ca-9ed1-3dc7715d8f33.png)<br><br>
 
 <h2> 🖥️ Deploy Heroku</h2>
 
