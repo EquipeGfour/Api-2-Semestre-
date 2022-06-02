@@ -25,7 +25,7 @@ CREATE TABLE arquivos (
 CREATE TABLE aulas (
 	id int not null auto_increment,
     curso_id int,
-    titulo_video varchar(300),
+    titulo_aula varchar(300),
     descricao_aula varchar(500),
     tempo_video int,
     createdAt date NOT NULL default (current_date()),

@@ -47,6 +47,7 @@ const DetalheFunc: React.FC = (props) => {
   const [blocoidioma,setBlocoidioma] = React.useState([])
   const [extraidioma, setExtraidioma] = React.useState('')
   const [statusidioma, setStatusidioma] = React.useState('')
+  
   const [arquivos,setArquivos] = useState([])
   const [download, setDownload] = useState('')
 

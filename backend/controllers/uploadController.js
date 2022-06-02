@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import fs from "fs"
 import Arquivos from '../models/arquivos.js';
 import Aula from '../models/aula.js';
+import { Op } from "sequelize";
 
 
 
@@ -116,8 +117,19 @@ export const listarAulaArquivos = async (req,res) => {
     try{
         const dados = await Arquivos.findAll({
             where:{
-                aula_id:req.params.id
+                tipo:{
+                    [Op.or]:['material', 'video']
+                }
+                
+            },
+            include:{
+                model:Aula,
+                where:{
+                    curso_id:req.params.id
+                }
+                
             }
+
         })
         res.status(202).json(dados)
     }catch(error){

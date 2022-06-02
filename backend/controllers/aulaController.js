@@ -3,7 +3,7 @@ import Aula from "../models/aula.js"
 export const criarAula = async (req, res) => {
     try{
         const dados = await Aula.create({
-            titulo_video: req.body.titulo_video,
+            titulo_aula: req.body.titulo_aula,
             descricao_aula: req.body.descricao_aula,
             tempo_video: req.body.tempo_video,
             carga_horaria_aula: req.body.carga_horaria_aula,
@@ -22,7 +22,7 @@ export const listarAula = async (req, res) => {
             where:{ 
                 curso_id:req.params.id 
             },
-            attributes:['id','curso_id','titulo_video','descricao_aula','tempo_video']
+            attributes:['id','curso_id','titulo_aula','descricao_aula','tempo_video']
         })
         res.json(dados)
     }catch(error){
@@ -36,7 +36,7 @@ export const listarAulaID = async (req, res) => {
             where:{
                 curso_id: req.params.id
             },
-            attributes:['id','curso_id','titulo_video','descricao_aula','tempo_video']
+            attributes:['id','curso_id','titulo_aula','descricao_aula','tempo_video']
         })
         res.json(dados)
     }catch(error){

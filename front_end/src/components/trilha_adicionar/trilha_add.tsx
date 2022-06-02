@@ -15,6 +15,10 @@ const [descricao,setDescricao] = useState('')
 const [nivel,setNivel] = useState('')
 const [cargahoraria,setCargahoraria] = useState('')
 const [descricaotrilha,setDescricaoTrilha] = React.useState('')
+const ExeMaterializeSelect = () => {
+    var elems = document.querySelectorAll("select");
+    var instances = M.FormSelect.init(elems, Option);
+  };
 
 const criaCurso = () =>{
     let url = `/api/curso/criarCurso/${id}`
@@ -30,7 +34,7 @@ const criaCurso = () =>{
         return
     }
     axios.post(url,obj ,{ headers: CriaHeader() }).then((res) => {
-        M.toast({html: "Curso adicionado, Selecione os Arquivos!",classes: "modal1 rounded",});
+        M.toast({html: "Curso adicionado com sucesso!",classes: "modal1 rounded",});
         setNomecurso('');
         setDescricao('');
         setNivel('');
@@ -49,18 +53,16 @@ const FiltraNivel = (id)=>{
     }if(id === '2'){
         setNivel('Intermediario');
     }if(id === '3'){
-        setNivel('Avançado');
+        setNivel('Avancado');
     } 
 }
 
     React.useEffect(() => {
         document.title = 'Trilha-adicionar'
-
         var elems = document.querySelectorAll('.collapsible');
         var instances = M.Collapsible.init(elems, Option);
+        ExeMaterializeSelect()
 
-        var elems1 = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems1, Option);
     }, [])
 
     return (
@@ -86,10 +88,10 @@ const FiltraNivel = (id)=>{
                 <div className="col s12">
                     <div className="input-field col s12 input-select seletorstatus">
                         <select className='select' onChange={(e) => FiltraNivel(e.target.value)}>
-                            <option value="1">Status</option>
-                            <option value="2">Basico</option>
-                            <option value="3">Intermediário</option>
-                            <option value="4">Avançado</option>
+                            <option value="0" disabled >Nivel</option>
+                            <option value="1">Basico</option>
+                            <option value="2">Intermediário</option>
+                            <option value="3">Avançado</option>
                         </select>
                         <label className="labelstatus">Nível do Curso</label>
                     </div>

@@ -9,7 +9,7 @@ const Aula = db.define('aulas',{
         allowNull: false,
         primaryKey: true
     },
-    titulo_video:{
+    titulo_aula:{
         type:Sequelize.STRING,
         allowNull:true,
     },

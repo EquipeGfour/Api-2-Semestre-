@@ -12,20 +12,14 @@ const CriarCurso: React.FC = (props) => {
     const [nomearquivovideo,setNomeArquivoVideo] = useState('')
     const [aula,setAula] = useState<File>()
     const [video,setVideo] = useState<File>()
-    const [tituloaula,setTituloAula] = useState('')
-    const [descricaoaula,setDescricaoAula] = useState('')
-    const [arquivos,setArquivos] = useState([])
     const{id}=useParams()
 
     const enviaArquivos = () => {        
-        const form = new FormData();  
-        form.append('video', video);
+        const form = new FormData();    
         form.append('material', aula)
-
-        axios.post(`/api/upload/uploadMateriais/${id}`,form, {headers:CriaHeader()}).then(res=>{
-            if (nomearquivovideo)M.toast({html:`Arquivo ${nomearquivovideo} carregado com sucesso!`, classes:"modal1 rounded"})
+        axios.post(`/api/upload/uploadMaterialAula/${id}`,form, {headers:CriaHeader()}).then(res=>{
             if (nomearquivoaula)M.toast({html:`Arquivo ${nomearquivoaula} carregado com sucesso!`, classes:"modal1 rounded"})      
-            if (nomearquivoaula === null || nomearquivovideo === null )
+            if (nomearquivoaula === null )
             M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
             console.log(form)
             DelArquivoUpload()
@@ -34,14 +28,23 @@ const CriarCurso: React.FC = (props) => {
         })
     }
 
-    const ListAulas = (id) =>{
-        axios.get(`/api/aula/listarAulas/${id}`,{headers: CriaHeader()}).then(res=>{
-            console.log(res)
-            setArquivos(res.data)
-          }).catch(err=>{
-            console.log(err)
-          })
-          
+    const enviaVideos = () => {        
+        const form = new FormData();    
+        form.append('video', video)
+        axios.post(`/api/upload/uploadVideo/${id}`,form, {headers:CriaHeader()}).then(res=>{
+            if (nomearquivovideo)M.toast({html:`Arquivo ${nomearquivovideo} carregado com sucesso!`, classes:"modal1 rounded"})      
+            if (nomearquivovideo === null )
+            M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
+            console.log(form)
+            DelArquivoUpload()
+          }).catch(erro=>{
+            console.error('Erro', erro.response)
+        })
+    }
+
+    const EnviaTudo = () =>{
+        enviaArquivos()
+        enviaVideos()
     }
 
     const DelArquivoUpload = () =>{
@@ -49,8 +52,6 @@ const CriarCurso: React.FC = (props) => {
         setNomeArquivoVideo(null)
         setAula(null)
         setNomeArquivoAula(null)
-        setTituloAula(null)
-        setDescricaoAula(null)
     }
 
     const OnFileChangeVideo = e=>{  
@@ -65,12 +66,12 @@ const CriarCurso: React.FC = (props) => {
       
 
     React.useEffect(() => {
-        document.title = 'Cria-Curso'
+        document.title = 'Upload Aulas'
         var elems = document.querySelectorAll('.collapsible');
         var instances = M.Collapsible.init(elems, Option);
         var elems1 = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems1, Option);
-        ListAulas(id)
+
     }, [])
 
     return (
@@ -113,7 +114,7 @@ const CriarCurso: React.FC = (props) => {
                 </tbody>
             </table>
             <div className="botaoFinal">
-                <a className= "btn-large  btnAzulUpload1" onClick={enviaArquivos}>Carregar</a>
+                <a className= "btn-large  btnAzulUpload1" onClick={EnviaTudo}>Carregar</a>
                 <Link to={'/trilha'}>
                 <a className="waves-effect waves-light btn-large  btnAzulUpload1">Finalizar</a>
                 </Link>
