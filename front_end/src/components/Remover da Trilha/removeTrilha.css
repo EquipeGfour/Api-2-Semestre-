@@ -1,0 +1,38 @@
+.geralContainerRemoveTrilha{
+    padding: 1rem;
+    width: 100%;
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    color: white;
+    padding-bottom: 3rem;
+}
+
+.tituloRemoveTrilha{
+    color: #53C4CD;
+    font-size: 60px;
+    font-family: 'IonicCoolvetica';
+}
+
+.camposRemoveTrilha{
+    color: #53C4CD;
+}
+
+.tabelaCargoRemoveTrilha{
+    margin-top: 0rem !important;
+}
+
+.tableRemoveTrilha{
+    margin-top: 0;
+    background-color: #393B42;
+}
+
+.lixeira{
+    color: rgb(245, 75, 75);
+    padding-left: 45rem;
+    margin-top: 1rem;
+}
+
+.moverLixeira{
+  padding-top: 0;
+}
