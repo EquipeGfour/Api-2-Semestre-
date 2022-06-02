@@ -5,11 +5,35 @@ import axios from "../../functions/axios";
 import { CriaHeader } from "../../functions"
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize'
+import { navigate } from "../../functions/navigation";
 
 const CriarAula: React.FC = (props) => {
     const [tituloaula,setTituloAula] = useState('')
     const [descricaoaula,setDescricaoAula] = useState('')
     const {id} = useParams()
+    const navigate = useNavigate();
+
+    const criaAula = () =>{
+        let url = `/api/aula/criarAula/${id}`
+        let obj ={
+            titulo_aula:tituloaula,
+            descricao_aula:descricaoaula,
+            curso_id:id
+        }
+        if(tituloaula === "" || descricaoaula === ""){
+            M.toast({html:'Preencha TODOS os campos!', classes:"modalerro rounded"})
+            return
+        }
+        axios.post(url,obj ,{ headers: CriaHeader() }).then((res) => {
+            M.toast({html: "Aula adicionada com sucesso!",classes: "modal1 rounded",});
+            setTituloAula('');
+            setDescricaoAula('');
+        })
+        .catch((erro) => {        
+           
+        });
+    };
+    
 
 
     React.useEffect(() => {
@@ -37,9 +61,9 @@ const CriarAula: React.FC = (props) => {
                     <label className="active labelaula" htmlFor="last_name">Descrição Aula</label>
                 </div>
             </div>
-            <Link to={`/criar-curso/${id}`}>
+            <Link to={`/trilha`}>
             <div className="aulabtn">
-                <a className="waves-effect waves-light btn-large btnAzulCriaraula">Upload Aulas</a>
+                <a className="waves-effect waves-light btn-large btnAzulCriaraula" onClick={criaAula}>Upload Aulas</a>
             </div>
             </Link>
         </div>
