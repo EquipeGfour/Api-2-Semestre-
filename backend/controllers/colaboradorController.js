@@ -184,7 +184,7 @@ export const getColaboradorById = async (req, res) => {
                 id: req.params.id
             },
             attributes:['id', 'cargos_id', 'gestor_id','nome', 'email', 'senha', 'rg', 'naturalidade', 'nacionalidade',
-            'genero', 'raca', 'telefone', 'data_nascimento'],
+            'genero', 'raca', 'telefone', 'data_nascimento','estado_civil'],
             include: [
                 {
                     model: Colaborador, as: 'Gestor',
@@ -443,6 +443,7 @@ export const editColaborador = async (req,res) => {
             return {message:'Atualizado com sucesso'}
             })
         })
+        console.log('----------------------',dados)
         res.json(dados)
     }catch(error){
         console.log(error)
