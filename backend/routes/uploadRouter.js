@@ -13,9 +13,9 @@ router.get('/download/:id', verifyJWT, downloadAws);
 
 router.post('/uploadVideo/:id', verifyJWT, uploadVideo, videosUpload);
 
-router.get('/listarVideos/:id', verifyJWT, listarAulaArquivos);
+router.get('/listarAulasCursos/:id', verifyJWT, listarAulaArquivos);
 
-router.post('/uploadMaterialAula/:id', verifyJWT, uploadArquivosAula, uploadMateriaisAula);
+router.post('/uploadMaterialAula/:id', uploadArquivosAula, uploadMateriaisAula);
 
 router.get('/uploadArquivos/:id', verifyJWT,DonwloadID );
 
