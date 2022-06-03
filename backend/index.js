@@ -49,7 +49,7 @@ app.use('/api/curso', cursoRouter);
 
 app.use('/api/aula', aulaRouter);
 
-app.use('/api/pessoaJuridica', pessoaJuridicaRouter);
+app.use('/api/pj', pessoaJuridicaRouter);
 
 app.use('/api/trilha',trilhaRouter)
 

@@ -3,12 +3,9 @@ import Contrato from "../models/contrato.js"
 import PessoaJuridica from "../models/pessoa_juridica.js"
 
 export const createPessoaJuridica = async (dados, t) => {
-    const res = await PessoaJuridica.create(dados, {
-        include: [{
-            model: Colaborador,
-        }],
+    const res = await Colaborador.create(dados, {
         transaction: t
-        
+
     })
 
     const contratoAdmissao = await Contrato.create({

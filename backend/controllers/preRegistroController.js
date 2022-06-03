@@ -43,14 +43,13 @@ export const insertPreRegistroCnpj = async(req, res) => {
         const senha = geradorSenha()
         const email = req.body.email
         const pessoaJuridica = {
-            cnpj:req.body.cnpj,
-            colaborador:{
                 nome:req.body.nome,
                 email:req.body.email,
                 cargos_id:req.body.cargos_id,
                 gestor_id:req.body.gestor_id,
+                empresa_id:req.body.empresa_id,
                 senha:senha,
-            }
+
         }
         const dados = await createPessoaJuridica(pessoaJuridica,t);
         await sendMail(email,senha)
@@ -58,6 +57,7 @@ export const insertPreRegistroCnpj = async(req, res) => {
 
     }catch (error) {
         await t.rollback()
+        console.log(error)
         res.status(500).json({ message: error.message });
     }
 }

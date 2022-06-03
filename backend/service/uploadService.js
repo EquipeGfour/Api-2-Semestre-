@@ -70,3 +70,15 @@ export const armazenarAulaMaterials = async (curso_id,titulo_aula,descricao_aula
     return dados
 
 }
+
+
+export const arquivoIDs = async (id,aula_id) =>{
+    const dados = await  Arquivos.findOne ({
+        where:{
+            id,
+            aula_id:aula_id
+        },
+        attributes:['id','nome_arquivos','extensao','url_arquivo']
+    })
+    return dados
+}

@@ -62,7 +62,7 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
     return {dadosColab,dadosAcademicos,dadosEndereco}
 }
 
-export const atualizarColaboradorCnpj = async(colabId,objCnpj,colabDados,objEndereco,t)=>{
+export const atualizarColaboradorCnpj = async(colabId,colabDados,objEndereco,t)=>{
 
     //atualizar dados do colaborador
     const dadosColab = await Colaborador.update(colabDados,{
@@ -72,24 +72,24 @@ export const atualizarColaboradorCnpj = async(colabId,objCnpj,colabDados,objEnde
         transaction:t
     })
 
-    //atualizar ou criar dados CNPJ
-    const dadosCnpj = await PessoaJuridica.findOne({
-        where:{
-            colaborador_id:colabId
-        }
-    }).then(id=>{
-        if(id){
-            return PessoaJuridica.update(objCnpj,{
-                where:{
-                    colaborador_id:colabId
-                },
-                transaction:t
-            })
-        }
-    else{
-        return PessoaJuridica.create(objCnpj,{transaction:t})
-    }
-    })
+    // //atualizar ou criar dados CNPJ
+    // const dadosCnpj = await PessoaJuridica.findOne({
+    //     where:{
+    //         colaborador_id:colabId
+    //     }
+    // }).then(id=>{
+    //     if(id){
+    //         return PessoaJuridica.update(objCnpj,{
+    //             where:{
+    //                 colaborador_id:colabId
+    //             },
+    //             transaction:t
+    //         })
+    //     }
+    // else{
+    //     return PessoaJuridica.create(objCnpj,{transaction:t})
+    // }
+    // })
 
     //atualizar ou criar dados Endereço
     const dadosEndereco = await Endereco.findOne({

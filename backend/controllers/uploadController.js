@@ -172,6 +172,29 @@ export const uploadMateriaisAula = async (req,res) => {
     }
 }
 
+export const DonwloadID = async (req,res)=>{
+    try{
+        const dados = await arquivoIDs(req.params.id,req.params.aula_id)
+        console.log(dados)
+        if(dados.url_arquivo){
+
+            const arquivo = `${dados.nome_arquivos}${dados.extensao}`
+            const s3 = new aws.S3();
+            const options = {
+                Bucket: process.env.BUCKET_NAME,
+                Key: arquivo,
+            };  
+            res.attachment(arquivo);
+            var fileStream = s3.getObject(options).createReadStream();
+            fileStream.pipe(res);
+        }   
+        res.json(arquivoIDs)
+    }
+    catch(error){
+        res.status(500).json({message:error})
+    }
+}
+
 export const getVideo = async (req, res) => {
     try{
         const dados = await Arquivos.findOne({
