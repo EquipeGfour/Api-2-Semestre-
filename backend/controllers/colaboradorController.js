@@ -97,12 +97,6 @@ export const inserirDadosColabCnpj = async (req, res) => {
         
         const colabId = req.body.id
 
-        const objCnpj = {
-            cnpj: req.body.cnpj,
-            empresa_contratada: req.body.empresa_contratada,
-            data_fundacao: req.body.data_fundacao
-        }
-
         const objColab = {
             id: req.body.id,
             nome: req.body.id,
@@ -123,7 +117,7 @@ export const inserirDadosColabCnpj = async (req, res) => {
         }
 
 
-        const dadosCnpj = await atualizarColaboradorCnpj(colabId, objCnpj, objColab, objEndereco,t)
+        const dadosCnpj = await atualizarColaboradorCnpj(colabId, objColab, objEndereco,t)
         res.status(201).json(dadosCnpj)
     } catch (error) {
         await t.rollback()
@@ -259,8 +253,17 @@ export const pegarGestorById = async (req, res) => {
 
 export const updateColabForDelete = async (req,res) => {
     try{
-        const valores = { gestor_id:null, status:"Desligado", data_desligamento:new Date().toISOString().slice(0,10) }
-        const condicao = { where:{ id:req.params.id } }
+        const valores = {
+            gestor_id:null,
+            status:"Desligado",
+            data_desligamento:new Date().toISOString().slice(0,10),
+            pesquisa_desligamento:req.body.pesquisa_desligamento 
+        }
+        const condicao = {
+            where:{
+                id:req.params.id 
+            } 
+        }
         const dados = await Colaborador.update( valores, condicao )
         res.json('Dados Atualizados')
     }catch(error){

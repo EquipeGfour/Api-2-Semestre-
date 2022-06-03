@@ -13,7 +13,7 @@ export const verify = async (req, res) => {
                 from colaboradors c left join pessoa_fisicas as pf 
                     on c.id = pf.colaborador_id 
                 left join pessoa_juridicas as pj 
-                    on c.id = pj.colaborador_id
+                    on c.id = pj.id
                 left join cargos as ca 
                     on c.cargos_id = ca.id
                 where c.email = '${email}' and c.senha = '${senha}'`,

@@ -3,7 +3,7 @@ import db from '../config/db.js'
 import Colaborador from './colaborador.js'
 
 const PessoaJuridica = db.define('pessoa_juridicas',{
-    colaborador_id:{
+    id:{
         type:Sequelize.INTEGER,
         primaryKey: true
     },
@@ -29,7 +29,10 @@ const PessoaJuridica = db.define('pessoa_juridicas',{
     }  
 })
 
-PessoaJuridica.Colaborador = PessoaJuridica.belongsTo(Colaborador,{foreignKey:{name:'colaborador_id'}})
-Colaborador.PessoaJuridica = Colaborador.hasOne(PessoaJuridica,{foreignKey:'colaborador_id'})
+Colaborador.PessoaJuridica = Colaborador.belongsTo(PessoaJuridica,{foreignKey:{name:'empresa_id'}})
+PessoaJuridica.Colaborador = PessoaJuridica.hasMany(Colaborador,{foreignKey:'empresa_id'})
+
+// PessoaJuridica.Colaborador = PessoaJuridica.belongsTo(Colaborador,{foreignKey:{name:'id'}})
+// Colaborador.PessoaJuridica = Colaborador.hasOne(PessoaJuridica,{foreignKey:'id'})
 
 export default PessoaJuridica
