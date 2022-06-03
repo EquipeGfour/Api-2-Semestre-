@@ -127,6 +127,7 @@ export const listarAulaArquivos = async (req,res) => {
                     }
                     
                 },
+                required:false
 
                 
             }

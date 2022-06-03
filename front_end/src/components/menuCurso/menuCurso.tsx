@@ -72,7 +72,7 @@ const MenuCurso: React.FC = (props) => {
                                     <td>{a.tipo}</td>                               
                                     <td>
                                         {a.tipo === 'video'?
-                                        <Link to={'/assistir-curso'}>
+                                        <Link to={`/assistir-curso/${a.id}`}>
                                         <i className="material-icons pointer" title="Assistir">play_arrow</i>
                                         </Link>:
                                         <a href={a.url_arquivo} target="_blank"><i className="material-icons pointer" title="Baixar">download</i></a>}

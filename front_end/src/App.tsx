@@ -92,7 +92,7 @@ render(){
           <Route path='criar-curso/:id' element={<CriarCurso/>}/>
           <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
           <Route path='menu-curso/:id' element = {<MenuCurso/>}/>
-          <Route path='assistir-curso' element = {<AssistirCurso/>}/>
+          <Route path='assistir-curso/:id' element = {<AssistirCurso/>}/>
           <Route path='vincular-curso/:id' element={<VincularCurso />} />
           <Route path='geral-cursos/:id' element={<GeralCursos />} />
           <Route path='redefinir-dados/' element={<RedefinirDados/>}/>

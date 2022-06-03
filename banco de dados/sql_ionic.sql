@@ -194,15 +194,15 @@ CREATE TABLE trilha_aprendizados (
     CONSTRAINT trilha_aprendizados_pk PRIMARY KEY (id)
 );
 
--- create table cursos_trilhas(
--- 	curso_id int,
---     trilha_id int,
---     createdAt date NOT NULL default (current_date()),
---     updatedAt date ,
---     foreign key (curso_id) references cursos(id),
---     foreign key (trilha_id) references trilha_aprendizados(id),
---     unique(curso_id, trilha_id)
--- );.
+create table colab_trilhas(
+	colab_id int,
+    trilha_id int,
+    createdAt date NOT NULL default (current_date()),
+    updatedAt date ,
+    foreign key (colab_id) references colaboradors(id),
+    foreign key (trilha_id) references trilha_aprendizados(id),
+    unique(colab_id, trilha_id)
+);
     
 -- foreign keys
 
@@ -252,8 +252,8 @@ ALTER TABLE pessoa_fisicas ADD CONSTRAINT pessoa_fisica_colaborador FOREIGN KEY 
 
 
 
-ALTER TABLE colaboradors ADD CONSTRAINT colaborador_trilha FOREIGN KEY colaborador_trilha (trilha_id)
-    REFERENCES trilha_aprendizados(id);
+-- ALTER TABLE colaboradors ADD CONSTRAINT colaborador_trilha FOREIGN KEY colaborador_trilha (trilha_id)
+--     REFERENCES trilha_aprendizados(id);
 
 ALTER TABLE cursos ADD CONSTRAINT cursos_trilha FOREIGN KEY cursos_trilha (trilha_id)
     REFERENCES trilha_aprendizados(id);

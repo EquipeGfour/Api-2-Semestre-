@@ -8,21 +8,36 @@ import M from 'materialize-css/dist/js/materialize'
 import { Link, useParams } from "react-router-dom"
 import ReactTooltip from "react-tooltip";
 
-const AssistirCurso: React.FC = (props) => {
+const AssistirCurso: React.FC = (props) => {    
+    const [videoaula,setVideoaula] = useState({url_arquivo:''})
+    const {id} = useParams()
+
+    const VideoAulas = (id:string) => {
+        axios.get(`/api/upload/assistirAula/${id}`,{headers: CriaHeader()}).then(res=>{
+            console.log(res.data)
+            setVideoaula(res.data)
+            console.log(videoaula);          
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+
+    const RenderVideo = React.useMemo(()=>(
+        <video id="videoBanner" className="videoBanner" controls src={videoaula.url_arquivo}></video>
+    ),[videoaula])
 
     React.useEffect(() => {
         document.title = 'Assistir-Curso'
-    }, [])
+        VideoAulas(id)
+    },[])
 
-    return (
-        <div className="containerAssistir">
-            <h3 className="titulo-assistir">Nome do curso</h3>
-            <video id="videoBanner" className="videoBanner" controls  >
-                <source src="https://api-ionic-uploads.s3.sa-east-1.amazonaws.com/9419da444ac024cebe41057c61f52096-Aula02-python.mp4" type='video/mp4'></source>
-            </video>
+    return(
+        <div className="containerAssistir">            
+            <h3 className="titulo-assistir">Aula</h3>          
+            {RenderVideo}            
             <div className="botaoFinal">
                 <Link to={'/trilha'}>
-                    <a className="waves-effect waves-light btn-large  btnAzulFimCurso">Finalizado</a>
+                    <a className="waves-effect waves-light btn-large btnAzulFimCurso">Finalizado</a>
                 </Link>                   
             </div>
         </div>
