@@ -63,7 +63,7 @@ const CriarAula: React.FC = (props) => {
             </div>
             <Link to={`/trilha`}>
             <div className="aulabtn">
-                <a className="waves-effect waves-light btn-large btnAzulCriaraula" onClick={criaAula}>Upload Aulas</a>
+                <a className="waves-effect waves-light btn-large btnAzulCriaraula" onClick={criaAula}>Criar Aula</a>
             </div>
             </Link>
         </div>

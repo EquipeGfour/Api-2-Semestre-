@@ -19,9 +19,7 @@ router.post('/uploadMaterialAula/:id', uploadArquivosAula, uploadMateriaisAula);
 
 router.get('/uploadArquivos/:id', verifyJWT,DonwloadID );
 
-router.get('/assistirAula/:id', getVideo)
-
-
+router.get('/assistirAula/:id',verifyJWT, getVideo)
 
 
 export default router

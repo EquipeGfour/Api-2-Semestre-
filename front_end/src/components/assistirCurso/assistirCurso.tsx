@@ -8,49 +8,36 @@ import M from 'materialize-css/dist/js/materialize'
 import { Link, useParams } from "react-router-dom"
 import ReactTooltip from "react-tooltip";
 
-const AssistirCurso: React.FC = (props) => {
+const AssistirCurso: React.FC = (props) => {    
+    const [videoaula,setVideoaula] = useState({url_arquivo:''})
+    const {id} = useParams()
+
+    const VideoAulas = (id:string) => {
+        axios.get(`/api/upload/assistirAula/${id}`,{headers: CriaHeader()}).then(res=>{
+            console.log(res.data)
+            setVideoaula(res.data)
+            console.log(videoaula);          
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+
+    const RenderVideo = React.useMemo(()=>(
+        <video id="videoBanner" className="videoBanner" controls src={videoaula.url_arquivo}></video>
+    ),[videoaula])
 
     React.useEffect(() => {
-        document.title = 'Assitir-Curso'
-    }, [])
+        document.title = 'Assistir-Curso'
+        VideoAulas(id)
+    },[])
 
-    return (
-        <div className="containerAssistir">
-            <h3 className="titulo-assistir">Nome do curso</h3>
-            <video id="videoBanner" className="videoBanner" controls  >
-                <source src='http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4' type='video/mp4'></source>
-            </video>
-            <h3 className="titulo-menuassistir ">Nome do video</h3>
-            <hr className="linhaDivisaomenu"></hr>
-            <h3 className="titulo-menuassistir ">Arquivos da aula</h3>
-            <div className="arquivosAssistir">
-                <table className="responsive-table centered tabUp1">
-                    <thead>
-                        <tr className="linha">
-                            <th>Arquivo</th>
-                            <th></th>
-                            <th></th>
-                            <th>Assistir</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Aula 2 - Conceitos Basicos</td>
-                            <td><span><button className="excluir"></button></span></td>
-                            <td></td>
-                            <td>
-                                <div className="file-field input-field ">
-                                    <i className="material-icons pointer">play_arrow</i>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
+    return(
+        <div className="containerAssistir">            
+            <h3 className="titulo-assistir">Aula</h3>          
+            {RenderVideo}            
             <div className="botaoFinal">
                 <Link to={'/trilha'}>
-                    <a className="waves-effect waves-light btn-large  btnAzulFimCurso">Finalizado</a>
+                    <a className="waves-effect waves-light btn-large btnAzulFimCurso">Finalizado</a>
                 </Link>                   
             </div>
         </div>
