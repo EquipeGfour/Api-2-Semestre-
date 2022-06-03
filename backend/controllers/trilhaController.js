@@ -44,13 +44,19 @@ export const getTrilhaID = async (req, res) => {
 
 export const vinculoTrilhaColab = async (req, res) => {
     try{
-        const condicao = {
-            where:{ id:req.body.id }
-        }
-        const valores = {
-            trilha_id:req.body.trilha_id
-        }
-        const dados = await Colaborador.update(valores,condicao)
+        const dados = await TrilhaAprendizado.findByPk(req.body.trilha_id).then( (trilha) => {
+            if(!trilha) return { message:'Trilha não encontrada' }
+            return Colaborador.findByPk(req.body.colab_id).then( async (colab) => {
+                try{
+                    const verify = await trilha.hasColaborador(colab)
+                    if(verify) return { message:'Colaborador já vinculado a trilha' }
+                    await trilha.addColaborador(colab)
+                    return trilha
+                }catch(error){
+                    return { message:error }
+                }
+            })
+        })
         res.json(dados)
         
     } catch(error){

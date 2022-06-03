@@ -203,6 +203,17 @@ create table colab_trilhas(
     foreign key (trilha_id) references trilha_aprendizados(id),
     unique(colab_id, trilha_id)
 );
+
+create table colab_aulas(
+	colab_id int,
+    aula_id int,
+    status varchar(30),
+    createdAt date NOT NULL default (current_date()),
+    updatedAt date ,
+    foreign key (colab_id) references colaboradors(id),
+    foreign key (aula_id) references aulas(id),
+    unique(colab_id, aula_id)
+);
     
 -- foreign keys
 
@@ -249,8 +260,6 @@ ALTER TABLE enderecos ADD CONSTRAINT endereco_colaborador FOREIGN KEY endereco_c
 -- Reference: Pessoa_Fisica_Colaborador (table: pessoa_fisicas)
 ALTER TABLE pessoa_fisicas ADD CONSTRAINT pessoa_fisica_colaborador FOREIGN KEY pessoa_fisica_colaborador (colaborador_id)
     REFERENCES colaboradors (id);
-
-
 
 -- ALTER TABLE colaboradors ADD CONSTRAINT colaborador_trilha FOREIGN KEY colaborador_trilha (trilha_id)
 --     REFERENCES trilha_aprendizados(id);
