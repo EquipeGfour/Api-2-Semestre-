@@ -24,6 +24,10 @@ const Colaborador = db.define('colaboradors',{
         type:Sequelize.INTEGER,
         primaryKey: true
     },
+    empresa_id:{
+        type:Sequelize.INTEGER,
+        primaryKey: true
+    },
     nome:{
         type:Sequelize.STRING,
         allowNull:true,
