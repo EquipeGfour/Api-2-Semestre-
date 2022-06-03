@@ -1,0 +1,23 @@
+.acessoContainerCriaEmpresa{
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    font-family:'IonicCoolvetica';
+    padding-bottom: 3rem;
+}
+
+.centralizarCriaEmpresa{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 6rem;
+}
+
+.btnAzulCriaEmpresa{
+    margin-top: 4rem ;
+    width: 20%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:#ffffff;
+    font-size: 20px;
+}
