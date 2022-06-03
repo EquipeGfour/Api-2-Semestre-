@@ -13,10 +13,7 @@ interface Aula{
     arquivos: any;
     id: number
     titulo_aula:string
-
 }
-
-
 
 const MenuCurso: React.FC = (props) => {
     const[tituloaula,setTituloAula] = useState<Aula[]>([])
@@ -24,18 +21,7 @@ const MenuCurso: React.FC = (props) => {
     const [videosaula,setVideosAula] = useState()
     const {id} = useParams()
 
-    const GetAula = (id:string) =>{
-        axios.get(`/api/aula/listarAulas/${id}`,{headers:CriaHeader()}).then(res=>{
-           
-            setTituloAula(res.data)     
-            //Função do Collapsible
-            var elems = document.querySelectorAll('.collapsible');
-            var instances = M.Collapsible.init(elems, Option);          
-        }).catch(erro=>{
-            console.error(erro)
-        })
-        
-    }
+
     const ListAulas = (id:string) => {
         axios.get(`/api/upload/listarAulasCursos/${id}`,{headers: CriaHeader()}).then(res=>{
           console.log(res.data)
@@ -51,7 +37,7 @@ const MenuCurso: React.FC = (props) => {
         var instances = M.Collapsible.init(elems, Option);
         var elems1 = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems1, Option);
-        GetAula(id)
+        
         ListAulas(id)
     }, [])
 
@@ -62,7 +48,7 @@ const MenuCurso: React.FC = (props) => {
             </div>        
 
             <ul className="collapsible expandable headerCurso">
-                {tituloaula.map((t:Aula)=>(                     
+                {arquivosaula.map((t:Aula)=>(                     
                 <li className="blocos">
                     <div className="collapsible-header bodyCurso" title=''>
                         <i className="material-icons">computer</i>{t.titulo_aula}
@@ -80,14 +66,16 @@ const MenuCurso: React.FC = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {arquivosaula.map((a,index)=>(                    
+                                {t.arquivos.map((a,index)=>(                    
                                 <tr key={a.id}>
                                     <td>{a.nome_arquivos}</td>
                                     <td>{a.tipo}</td>                               
                                     <td>
+                                        {a.tipo === 'video'?
                                         <Link to={'/assistir-curso'}>
-                                        <i className="material-icons" title="Assistir">play_arrow</i>
-                                        </Link>
+                                        <i className="material-icons pointer" title="Assistir">play_arrow</i>
+                                        </Link>:
+                                        <a href={a.url_arquivo} target="_blank"><i className="material-icons pointer" title="Baixar">download</i></a>}
                                     </td>                                                           
                                 </tr>
                                 ))}                                                    

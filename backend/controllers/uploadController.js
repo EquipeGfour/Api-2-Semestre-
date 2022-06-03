@@ -115,18 +115,19 @@ export const videosUpload = async (req,res) => {
 
 export const listarAulaArquivos = async (req,res) => {
     try{
-        const dados = await Arquivos.findAll({
+        const dados = await Aula.findAll({
             where:{
-                tipo:{
-                    [Op.or]:['material', 'video']
-                }
-                
+                curso_id:req.params.id
             },
             include:{
-                model:Aula,
+                model:Arquivos,
                 where:{
-                    curso_id:req.params.id
-                }
+                    tipo:{
+                        [Op.or]:['material', 'video']
+                    }
+                    
+                },
+
                 
             }
 
