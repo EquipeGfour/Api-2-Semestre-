@@ -9,12 +9,22 @@ import { MdSettingsBackupRestore } from "react-icons/md";
 
 const GeralFunc:React.FC=(props)=>{
   const [colaboradores,setColaboradores] = React.useState([])
+  const [searchColab, setSearchColab ] = useState('')
 
   const BuscaDados = () =>{
     axios.get('/api/colab/geral',{headers:CriaHeader()}).then(res=>{
       setColaboradores(res.data.dados)
     }).catch(erro=>{
       console.error(erro)
+    })
+  }
+
+  const searchColaborador = (searchColab) => {
+    axios.get(`/api/colab/searchColaborador?nome=${searchColab}`,{ headers: CriaHeader()}).then( res => {
+      setColaboradores(res.data)
+
+    }).catch(err=>{
+      console.log(err)
     })
   }
 
@@ -30,7 +40,8 @@ const GeralFunc:React.FC=(props)=>{
   React.useEffect(()=>{
     document.title='Geral-Funcionários'
     BuscaDados()  
-  },[])
+    if(searchColab !== '')searchColaborador(searchColab) 
+  },[searchColab])
 
   return(
 
@@ -41,7 +52,7 @@ const GeralFunc:React.FC=(props)=>{
           <div className="nav-wrapper barPesquisa">
           <form>
               <div className="input-field">
-              <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
+              <input value={searchColab} id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required onChange={ (e) => setSearchColab( e.target.value ) }/>
               <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
               <i className="material-icons pesquisa">close</i>
               </div>
