@@ -45,7 +45,7 @@ React.useEffect(()=>{
         <div className="row blocoCima">
                 <div className="col s12 m4 l3 divColab"></div>        
                 <div className="col s12 m4 l3 divColab">
-                <Link to="/upload"   >                   
+                <Link to="/upload-colab"   >                   
                     <button className=" waves-effect  botaoFunc"> <img className="imgColab" src={uploadfoto}></img></button>
                 </Link>  
                     <div className="btnNomeHome">Uploads</div>

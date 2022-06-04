@@ -7,21 +7,32 @@ import {Link,Navigate,useNavigate} from 'react-router-dom';
 import { useCookies } from "react-cookie";
 
 const Desligados:React.FC=(props)=>{    
-    const [nome,setNome] = useState('');
     const [colaboradores,setColaboradores] = React.useState([])
+    const [searchDesligado,setSearchDesligado] = useState('');
 
     const TrazerDesligados = () =>{
-    axios.get(`/api/colab/desligados`,{headers:CriaHeader()}).then(res=>{
-    setColaboradores(res.data)
-}).catch(erro=>{
-    console.error(erro)
-})
-}
+        axios.get(`/api/colab/desligados`,{headers:CriaHeader()}).then(res=>{
+            setColaboradores(res.data)
+            
+        }).catch(erro=>{
+            console.error(erro)
+        })
+    }
+
+    const searchColabDesligado = (searchDesligado) => {
+        axios.get(`/api/colab/searchDesligados?nome=${searchDesligado}`, {headers:CriaHeader()}).then( res => {
+            setColaboradores(res.data)
+            
+        }).catch(erro=>{
+            console.error(erro)
+        })
+    }
 
 React.useEffect(()=>{
     document.title='Desligados'
-    TrazerDesligados()        
-},[])
+    TrazerDesligados()  
+    if(searchDesligado !== '')searchColabDesligado(searchDesligado)     
+},[searchDesligado])
 
 return(
     <div className="geralContainerdes">
@@ -30,7 +41,7 @@ return(
             <div className="nav-wrapper barPesquisa">
                 <form>
                     <div className="input-field">
-                        <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
+                        <input value={searchDesligado} id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required onChange={ (e) => setSearchDesligado( e.target.value )}/>
                         <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
                         <i className="material-icons">close</i>
                     </div>
@@ -44,7 +55,6 @@ return(
                     <th>Nome</th>
                     <th>Ex-Cargo</th>
                     <th>Email</th>
-                    <th>Telefone</th>
                     <th>Data Admissão</th>
                     <th>Data Demissão</th>               
                 </tr>
@@ -55,7 +65,6 @@ return(
                         <td>{colab.nome}</td>
                         <td>{colab.cargo?.cargo}</td>
                         <td>{colab.email}</td>
-                        <td>{colab.telefone}</td>
                         <td>{colab.contratos?.[0]?.data_Admissao}</td>
                         <td>{colab.data_desligamento}</td>                
                     </tr>
