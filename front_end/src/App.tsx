@@ -38,6 +38,7 @@ import RedefinirDados from './components/redefinirDados/redefinirDados';
 import CriarAula from './components/criarAula/criarAula';
 import RemoveTrilha from './components/Remover da Trilha/removeTrilha';
 import Empresa from './components/Empresa/empresa';
+import RelatorioDesligamento from './components/RelatorioDesligamento/relatorioDesligamento';
 
 type state = {
   tela: string
@@ -100,6 +101,7 @@ render(){
           <Route path='criar-aula/:id' element={<CriarAula/>}/>
           <Route path='remove-trilha' element={<RemoveTrilha/>}/>
           <Route path='empresa' element={<Empresa/>}/>
+          <Route path='relatorioDesligamento' element={<RelatorioDesligamento/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>
