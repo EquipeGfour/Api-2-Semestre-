@@ -2,18 +2,18 @@ import { transporter } from "../config/email.js";
 import "dotenv/config"
 
 
-export const sendForm = async (email) => {
+export const sendPesquisa = async (email) => {
     const mailOptions = {
         from: 'gfourtestes@mail.ee',
         to: `${email} `,
-        subject: 'G-four Questionario',
+        subject: 'G-four token de acesso',
         html: `<h2> </h2>
         <p>Questionario:<p><br> <strong> 
-        <a src="https://docs.google.com/forms/d/e/1FAIpQLSdkixgHOEei409YNLik5_Qppxqo4DSrhIjfTfLkHNb_3nnyMw/viewform?usp=sf_link">link </a> </strong>`,
+        <a src="https://docs.google.com/forms/d/e/1FAIpQLScCnvYX-SxI0J_BIVfB54unVhI64LJIYiWSMrKJCpvhmkjK2A/viewform">link </a> </strong>`,
         
 
     };
-    transporter.sendForm(mailOptions, (err, info) => {
+    transporter.sendPesquisa(mailOptions, (err, info) => {
         if (err)
             console.log(err)
         else
