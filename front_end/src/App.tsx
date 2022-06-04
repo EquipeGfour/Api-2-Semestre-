@@ -40,6 +40,8 @@ import RemoveTrilha from './components/Remover da Trilha/removeTrilha';
 import Empresa from './components/Empresa/empresa';
 import RelatorioDesligamento from './components/RelatorioDesligamento/relatorioDesligamento';
 import CriaEmpresa from './components/CriarEmpresa/cria_empresa';
+import MenuCursoColab from './components/menuCursoColab/menuCursoColab'
+import GeralCursosColab from './components/geralCursosColab/geralCursosColab'
 
 type state = {
   tela: string
@@ -87,7 +89,6 @@ render(){
           <Route path='desligados' element={<Desligados/>}/>
           <Route path='esqueceu' element={<Esqueceu/>}/>
           <Route path='home-colaborador' element={<HomeColab/>}/>
-          <Route path='trilha-colaborador' element={<TrilhaColaborador/>}/>
           <Route path='documentos-colab' element={<DocColab/>}/>
           <Route path='detalhe-cnpj' element={<DetalheCnpj/>}/>
           <Route path='criar-trilha' element={<CriarTrilha/>}/>
@@ -95,15 +96,18 @@ render(){
           <Route path='criar-curso/:id' element={<CriarCurso/>}/>
           <Route path='home-colaborador/meu-perfil' element = {<MeuPerfil/>}/>
           <Route path='menu-curso/:id' element = {<MenuCurso/>}/>
+          <Route path='menu-curso-colab/:id' element = {<MenuCursoColab/>}/>
           <Route path='assistir-curso/:id' element = {<AssistirCurso/>}/>
           <Route path='vincular-curso/:id' element={<VincularCurso />} />
           <Route path='geral-cursos/:id' element={<GeralCursos />} />
+          <Route path='geral-cursos-colab/:id' element={<GeralCursosColab />} />
           <Route path='redefinir-dados/' element={<RedefinirDados/>}/>
           <Route path='criar-aula/:id' element={<CriarAula/>}/>
           <Route path='remove-trilha' element={<RemoveTrilha/>}/>
           <Route path='empresa' element={<Empresa/>}/>
           <Route path='relatorioDesligamento' element={<RelatorioDesligamento/>}/>
           <Route path='cria-empresa' element={<CriaEmpresa/>}/>
+          <Route path='trilha-colaborador/:id' element={<TrilhaColaborador/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>

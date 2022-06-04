@@ -52,11 +52,10 @@ const [arquivos,setArquivos] = useState([])
 const [download, setDownload] = useState('')
 
 const getColabById = () => {
-    console.log(id);
     const logado = cookie['ionic-user']
     setIdpessoal(logado.id)
     axios.get(`/api/colab/funcionario/${logado.id}`, { headers: CriaHeader() }).then(res => {
-    console.log(res.data);
+    
     setNome(res.data.nome);
     setCargo(res.data.cargo?.cargo);
     setDepartamento(res.data.cargo?.departamento.area);
@@ -81,7 +80,6 @@ const getColabById = () => {
     setCursoex(res.data.DadosAcademicos.filter(item => item.extra_curricular))
     setBlocoidioma(res.data.DadosAcademicos.filter(item => item.idioma))
 
-    console.log(res.data)
 })
 }
     React.useEffect(() => { 
