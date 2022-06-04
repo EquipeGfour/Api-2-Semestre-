@@ -3,7 +3,7 @@ import Cargo from "../models/cargo.js";
 import Departamento from "../models/departamentos.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
-import { atualizarColaborador, atualizarColaboradorCnpj } from "../service/colaboradorService.js";
+import { atualizarColaborador, atualizarColaboradorCnpj, getEmailColaborador } from "../service/colaboradorService.js";
 import pessoafisica from "../models/pessoafisica.js";
 import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
@@ -253,6 +253,7 @@ export const pegarGestorById = async (req, res) => {
 
 export const updateColabForDelete = async (req,res) => {
     try{
+        const email = req.query.email
         const valores = {
             gestor_id:null,
             status:"Desligado",
@@ -260,11 +261,17 @@ export const updateColabForDelete = async (req,res) => {
         }
         const condicao = {
             where:{
-                id:req.params.id 
+                id:req.params.id
             } 
         }
-        const dados = await Colaborador.update( valores, condicao )
+        getEmailColaborador(email)
+        
+        const dados = await Colaborador.update( valores, condicao)
+        
         res.json('Dados Atualizados')
+
+        
+        
     }catch(error){
         console.log(error)
         res.status(500).json({ message:error })
