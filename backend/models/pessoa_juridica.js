@@ -5,7 +5,8 @@ import Colaborador from './colaborador.js'
 const PessoaJuridica = db.define('pessoa_juridicas',{
     id:{
         type:Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true,
     },
     cnpj:{
         type:Sequelize.STRING,
@@ -30,7 +31,7 @@ const PessoaJuridica = db.define('pessoa_juridicas',{
 })
 
 Colaborador.PessoaJuridica = Colaborador.belongsTo(PessoaJuridica,{foreignKey:{name:'empresa_id'}})
-PessoaJuridica.Colaborador = PessoaJuridica.hasMany(Colaborador,{foreignKey:'empresa_id'})
+PessoaJuridica.Colaborador = PessoaJuridica.hasOne(Colaborador,{foreignKey:'empresa_id'})
 
 // PessoaJuridica.Colaborador = PessoaJuridica.belongsTo(Colaborador,{foreignKey:{name:'id'}})
 // Colaborador.PessoaJuridica = Colaborador.hasOne(PessoaJuridica,{foreignKey:'id'})

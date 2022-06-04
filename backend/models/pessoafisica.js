@@ -8,7 +8,6 @@ const pessoafisica = db.define('pessoa_fisicas',{
         type:Sequelize.INTEGER,
         primaryKey:true,
     },
-    
     cpf:{
         type:Sequelize.STRING,
         allowNull:true,

@@ -48,6 +48,7 @@ export const insertPreRegistroCnpj = async(req, res) => {
                 cargos_id:req.body.cargos_id,
                 gestor_id:req.body.gestor_id,
                 empresa_id:req.body.empresa_id,
+                cnpj: req.body.cnpj,
                 senha:senha,
 
         }

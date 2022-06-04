@@ -9,16 +9,16 @@ export const verify = async (req, res) => {
         const senha = req.body.senha
         
         const dados = await sequelize.query(`
-            select c.email,c.senha,c.id, c.nome, c.status, ca.cargo,ca.nivel, pf.cpf, pj.cnpj
+            select c.email,c.senha,c.id, c.nome, c.status, ca.cargo,ca.nivel, pf.cpf, pj.cnpj, c.empresa_id
                 from colaboradors c left join pessoa_fisicas as pf 
                     on c.id = pf.colaborador_id 
                 left join pessoa_juridicas as pj 
-                    on c.id = pj.id
+                    on c.empresa_id = pj.id
                 left join cargos as ca 
                     on c.cargos_id = ca.id
                 where c.email = '${email}' and c.senha = '${senha}'`,
             {type:sequelize.QueryTypes.SELECT})
-        
+            
         if(dados.length < 1 ){
             res.status(401).json({"message":"Email ou Senha incorretos"})
         }
