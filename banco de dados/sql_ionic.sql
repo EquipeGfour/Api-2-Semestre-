@@ -268,7 +268,7 @@ ALTER TABLE cursos ADD CONSTRAINT cursos_trilha FOREIGN KEY cursos_trilha (trilh
     REFERENCES trilha_aprendizados(id);
 
 ALTER TABLE colaboradors ADD CONSTRAINT colab_pj FOREIGN KEY colab_pj (empresa_id)
-    REFERENCES pessoa_juridicas(id);
+    REFERENCES pessoa_juridicas(id) ON DELETE SET NULL;
 
 
 use ionic;
