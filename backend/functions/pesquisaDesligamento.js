@@ -6,12 +6,12 @@ export const sendMail = async (email) => {
     const mailOptions = {
         from: 'gfourtestes@mail.ee',
         to: `${email} `,
-        subject: 'G-four Questionario Trilha de Aprendizado',
+        subject: 'Pesquisa de Desligamento',
         html: `<h2> </h2>
         <p>Questionario:<p><br> <strong> 
-        ${process.env.EMAIL_TERMINO_TRILHA}  </strong>`,
+        ${process.env.EMAIL_PESQUISA_DESLIGAMENTO} 
+        </strong>`,
     };
-    
     transporter.sendMail(mailOptions, (err, info) => {
         if (err)
             console.log(err)

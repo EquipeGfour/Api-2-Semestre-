@@ -124,8 +124,8 @@ return(
     <div className="container">
       <ul id="tabs-swipe-demo" className="tabs cabecalho">
         <li className="tab col s4"><a href="#test-swipe-2">Documentos Pessoais</a></li>
-        <li className="tab col s4"><a href="#test-swipe-1">Documentos Empresa</a></li>
-        <li className="tab col s4"><a href="#test-swipe-3">Contrato</a></li>
+        {/* <li className="tab col s4"><a href="#test-swipe-1">Documentos Empresa</a></li> */}
+        <li className="tab col s4"><a href="#test-swipe-1">Contrato</a></li>
       </ul>   
 
           {/* -----------------------------------DOCUMENTOS PESSOAIS------------------------------------------- */}
@@ -167,14 +167,14 @@ return(
 
             {/* -----------------------------------DOCUMENTOS EMPRESA------------------------------------------- */}
 
-      <div id="test-swipe-1" className="col s12 ">
+      {/* <div id="test-swipe-1" className="col s12 ">
               <br></br>
               <br></br>
-      </div>
+      </div> */}
 
           {/* -----------------------------------CONTRATO------------------------------------------- */}    
 
-      <div id="test-swipe-3" className="col s12 ">
+      <div id="test-swipe-1" className="col s12 ">
           <form>
             <div className="col s12 dadosPessoais text-white">
               <span>Clique em "Gerar PDF" para visualizar o contrato</span>

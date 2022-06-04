@@ -73,12 +73,28 @@ export const searchDepartamento = async (req, res) => {
             where:{
                 area: {[Op.like]: `%${req.query.area}%` }
             },
-            attributes:['id','area']
+            attributes:['id','area'],
+            include:{
+                model:Cargos,
+                attributes:['id','cargo','departamento_id'],
+                include:{
+                    model:Colaborador,
+                    attributes:['id']
+                }
+            },
             // where:{
             //     nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.nome.toLowerCase()}%`)
             // },
         })
-        res.json(dados)
+        const filtrado = dados.map(d => {
+            let totalColab = 0
+            const Cargos = d.cargos.map(c => {
+                totalColab += c.colaboradors.length
+                return {...c.dataValues, qtdColab:c.colaboradors.length}
+            })
+            return {...d.dataValues, qtdCargos:d.cargos.length, Cargos, totalColab}
+        })
+        res.json(filtrado)
     }catch(error){
         console.log(error)
         res.status(500).json({ message:error })

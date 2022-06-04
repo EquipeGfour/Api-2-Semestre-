@@ -15,6 +15,7 @@ export const selectAllPj = async (req, res) => {
 
 export const insertEmpresa = async (req, res) => {
     try{
+
         const dados = await PessoaJuridica.create(req.body)
         res.json(dados)
 
@@ -47,6 +48,20 @@ export const getAllColabEmpresa = async (req, res) => {
             include:{
                 model:Colaborador
             }
+        })
+        res.json(dados)
+    }catch(error){
+        res.status(500).json({ message:error })
+    }
+}
+
+export const deleteEmpresa = async (req, res) => {
+    try{
+        const dados = await PessoaJuridica.destroy({
+            where:{
+                id:req.params.id
+            }
+
         })
         res.json(dados)
     }catch(error){

@@ -22,10 +22,10 @@ const Empresa:React.FC=(props)=>{
     React.useEffect(()=>{    
         document.title='Empresa'
         buscaEmpresa()
-      },[])
+    },[])
     
     
-      return(
+    return(
         <div className="geralContainerEmpresa">
             <span className="tituloEmpresa">Empresas</span>
                 <table className="highlight responsive-table tablegeral centered">
@@ -40,7 +40,7 @@ const Empresa:React.FC=(props)=>{
                     <tbody>
                     {empresa.map((emp,index)=>(
                         <tr key={index}>
-                        <td className="text-white">{emp.empresa_contratada}a</td>
+                        <td className="text-white">{emp.empresa_contratada}</td>
                         <td className="text-white">{emp.cnpj}</td>
                         
                         <td className="text-white">{emp.tempo_formalizacao}</td>
@@ -51,12 +51,11 @@ const Empresa:React.FC=(props)=>{
                         <td><i className="material-icons delete pointer" data-tip='Deletar Departamento'>delete_forever</i></td>             
                     </tr>
                     ))}
-                     
                     </tbody>
                 </table>
-                <Link to={"/novo-departamento"} className="waves-effect waves-light btn-large btnAzulLogin">Nova Empresa</Link>
+                <Link to={"/cria-empresa"} className="waves-effect waves-light btn-large btnAzulLogin">Nova Empresa</Link>
         </div>
-      )
+    )
 }
 
 export default Empresa

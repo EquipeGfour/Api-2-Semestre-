@@ -1,0 +1,115 @@
+/*{
+    border:  solid 1px chocolate;
+}*/
+.uploadContainer{
+    margin-top: 8rem;
+    color: #53C4CD;
+    text-align: center;
+    padding-bottom: 5rem;
+    
+}
+
+.input-field input[type=text]{
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.input-field input[type=text] + label {
+    color: #53C4CD;
+    font-size: 30px;
+    
+}
+
+.validate{
+    color: #fff;
+    
+}
+
+.centralizar{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 6rem;
+}
+
+.uploadContainer .btnAzulCarregar{
+    margin-top: 2rem ;
+    width: 20%;
+    padding:  0;
+    border-radius: 30px;
+    background-color: #53C4CD;
+    color:#414042;
+    font-size: 20px;
+
+
+}
+
+
+
+.btnCarregar{
+    margin-top: 5rem;
+    /* border: 2px solid #53C4CD ; */
+    background-color: transparent;
+    width: 30%;
+    padding: 0.5rem;
+    
+    
+}
+
+.Nuvem{
+    font-size: 35px;
+    color: #53C4CD;
+    margin-left: 30rem;
+    vertical-align: middle; 
+    margin-bottom: 0.5rem;
+}
+
+.checkBox{
+    margin-top: 2rem !important;
+    margin: 0 auto;
+    width: 12%;
+    
+    
+    
+}
+
+.checkBox p{
+    text-align: left;
+}
+
+
+.file-field input-field{
+    width: 100%;
+
+}
+
+.excluir{
+    background-color: transparent;
+    border: none;
+    
+    
+}
+
+.btnAzulUpload{
+    margin-top: 3rem !important;
+    border: 2px solid #53C4CD ;
+    background-color: #53C4CD;
+    width: 15%;    
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-right: 1rem;
+}
+
+.tabUp{
+    margin-top: 2rem !important;
+    width: 40%;
+    margin: 0 auto;
+    background-color: transparent;
+    border-color: black;
+    color: #fff;
+}
+
+.delUp{
+    color: #fff !important;
+
+}
+

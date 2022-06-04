@@ -3,7 +3,7 @@ import Cargo from "../models/cargo.js";
 import Departamento from "../models/departamentos.js";
 import sequelize from "../config/db.js";
 import { findAllPessoaFisica } from "../service/pessoaFisicaService.js";
-import { atualizarColaborador, atualizarColaboradorCnpj } from "../service/colaboradorService.js";
+import { atualizarColaborador, atualizarColaboradorCnpj, getEmailColaborador } from "../service/colaboradorService.js";
 import pessoafisica from "../models/pessoafisica.js";
 import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
@@ -253,19 +253,25 @@ export const pegarGestorById = async (req, res) => {
 
 export const updateColabForDelete = async (req,res) => {
     try{
+        const email = req.query.email
         const valores = {
             gestor_id:null,
             status:"Desligado",
             data_desligamento:new Date().toISOString().slice(0,10),
-            pesquisa_desligamento:req.body.pesquisa_desligamento 
         }
         const condicao = {
             where:{
-                id:req.params.id 
+                id:req.params.id
             } 
         }
-        const dados = await Colaborador.update( valores, condicao )
+        getEmailColaborador(email)
+        
+        const dados = await Colaborador.update( valores, condicao)
+        
         res.json('Dados Atualizados')
+
+        
+        
     }catch(error){
         console.log(error)
         res.status(500).json({ message:error })
@@ -276,7 +282,7 @@ export const getDesligados = async (req,res) =>{
     try{
         const dados = await Colaborador.findAll({
             where:{ status: 'Desligado' },
-            attributes:['id','nome','email','telefone', 'data_desligamento'],
+            attributes:['id','nome','email','data_desligamento'],
             include:[
                 {
                     model:Cargo,
@@ -350,7 +356,17 @@ export const searchDesligado = async (req,res) => {
                 status:'Desligado',
                 nome:{ [Op.like]: `%${req.query.nome}%` }
             },
-            attributes:['id','nome','status']
+            attributes:['id','nome','email','data_desligamento','status'],
+            include:[
+                {
+                    model:Cargo,
+                    attributes:['id','cargo']
+                },
+                {
+                    model:Contrato,
+                    attributes:['id','data_Admissao']
+                }
+            ]
         })
         res.json(dados)
     }catch(error){
@@ -422,7 +438,15 @@ export const searchColaborador = async (req, res) => {
                 status:'Ativo',
                 nome: {[Op.like]: `%${req.query.nome}%` }
             },
-            attributes:['id','nome','status']
+            attributes:['nome', 'telefone', 'id', 'email','status'],
+            include: {
+                model: Cargo,
+                attributes: ['cargo', 'id'],
+                include: {
+                    model: Departamento, 
+                    attributes: ['area', 'id']
+                }
+            }
             // where:{
             //     nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.nome.toLowerCase()}%`)
             // },

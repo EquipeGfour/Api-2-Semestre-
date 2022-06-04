@@ -9,6 +9,7 @@ import { MdSettingsBackupRestore } from "react-icons/md";
 
 const GeralFunc:React.FC=(props)=>{
   const [colaboradores,setColaboradores] = React.useState([])
+  const [searchColab, setSearchColab ] = useState('')
 
   const BuscaDados = () =>{
     axios.get('/api/colab/geral',{headers:CriaHeader()}).then(res=>{
@@ -18,8 +19,18 @@ const GeralFunc:React.FC=(props)=>{
     })
   }
 
-  const desligarColab = (id) =>{    
-    axios.put(`api/colab/updateColab/${id}`, null, {headers:CriaHeader()} ).then(res=>{      
+      
+  const searchColaborador = (searchColab) => {
+    axios.get(`/api/colab/searchColaborador?nome=${searchColab}`,{ headers: CriaHeader()}).then( res => {
+      setColaboradores(res.data)
+
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+
+  const desligarColab = (id,email) =>{    
+    axios.put(`api/colab/updateColab/${id}?email=${email}`, null, {headers:CriaHeader()} ).then(res=>{       
       const Novalista = colaboradores.filter((c)=>c.id !== id)      
       setColaboradores(Novalista)
     }).catch(erro=>{
@@ -30,7 +41,8 @@ const GeralFunc:React.FC=(props)=>{
   React.useEffect(()=>{
     document.title='Geral-Funcionários'
     BuscaDados()  
-  },[])
+    if(searchColab !== '')searchColaborador(searchColab) 
+  },[searchColab])
 
   return(
 
@@ -41,7 +53,7 @@ const GeralFunc:React.FC=(props)=>{
           <div className="nav-wrapper barPesquisa">
           <form>
               <div className="input-field">
-              <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
+              <input value={searchColab} id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required onChange={ (e) => setSearchColab( e.target.value ) }/>
               <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
               <i className="material-icons pesquisa">close</i>
               </div>
@@ -75,7 +87,7 @@ const GeralFunc:React.FC=(props)=>{
               </td>
               <td><Link to={``}>
                                   
-                    <i className="material-icons desligar" onClick={()=>desligarColab(colab.id)} data-tip='Desligar Colaborador'>power_settings_new</i>                  
+                    <i className="material-icons desligar" onClick={()=>desligarColab(colab.id,colab.email)} data-tip='Desligar Colaborador'>power_settings_new</i>                  
                     </Link>
               </td>
               </tr>

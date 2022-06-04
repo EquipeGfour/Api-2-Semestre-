@@ -25,11 +25,11 @@ const RemoveTrilha:React.FC=(props)=>{
         const obj ={
             trilha_id:params.id,
             colab_id:id
-        }         
+        }
         axios.post(`/api/trilha/updateColab`, obj,  {headers: CriaHeader()}).then(res => {
             M.toast({html:res.data.message, classes:"modal1 rounded"})
             const newlistcolab = colabs.filter(c=>c.id !== id)
-            setColabs(newlistcolab)           
+            setColabs(newlistcolab)
         }).catch(err => {
             M.toast({html:`Falha`, classes:"modalerro rounded"})
         })
