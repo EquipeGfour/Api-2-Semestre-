@@ -6,48 +6,78 @@ import { CriaHeader } from "../../functions"
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize'
 
-const VincularCurso: React.FC = (props) => {
 
-    React.useEffect(() => {
+const VincularCurso: React.FC = (props) => {
+    const params = useParams()
+    const navigate = useNavigate()
+    const [colaboradores,setColaboradores] = React.useState([])
+    const [colabSelecionados, setColabSelecionados] = React.useState([])
+
+    const BuscaColab = () =>{
+        axios.get('/api/colab/geral',{headers:CriaHeader()}).then(res=>{
+            setColaboradores(res.data.dados)
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, Option);
+        }).catch(erro=>{
+            console.error(erro)
+        })
+    }
+
+    const SetColabTrilha = () =>{
+        const obj = {
+            ids: colabSelecionados,
+            trilha_id: params.id
+        }
+        axios.put('/api/trilha/vincularTrilhaColab',obj,{headers:CriaHeader()}).then(res=>{
+            navigate('/trilha')
+            M.toast({html:`Colaborador(res) carregado(os) com sucesso!`, classes:"modal1 rounded"})
+        }).catch(erro=>{
+            erro.response.data.forEach(erro => M.toast({html:erro.message, classes:"modalerro rounded"}))
+            console.error(erro)
+        })
+    }
+
+    const handleChangeSelect = (e) => {
+        var options = e.target.options;
+        var value = [];
+        for (var i = 0, l = options.length; i < l; i++) {
+          if (options[i].selected && options[i].value !== '' ) {
+            value.push(options[i].value);
+          }
+        }
+        setColabSelecionados(value)
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems, Option);
+      }
+    
+
+    React.useEffect(() => {
+        BuscaColab()
     }, [])
 
 
     return (
         <div className="containerVincular">
             <div className="dadosContainer cursos">
-                <span>Vincular Cursos e Colaboradores</span>
+                <span>Vincular Trilha</span>
             </div>
-
 
             <div className="col s12 row">
                 <div className="input-field col s12 input-select seletorstatusVincular">
-                    <select className='select'>
-                        <option value="" disabled selected>Cursos</option>
-                        <option value="1">Javascript</option>
-                        <option value="2">Python</option>
-                        <option value="3">Virar o titan colossal</option>
-                    </select>
-                    <label className="labelname">Vincular cursos</label>
-                </div>
-            </div>
-
-
-            <div className="col s12 row">
-                <div className="input-field col s12 input-select seletorstatusVincular">
-                    <select multiple className='select'>
-                        <option value="" disabled selected>Escolha o Colaborador</option>
-                        <option value="1">Gerson</option>
-                        <option value="2">Rafa</option>
-                        <option value="3">Junior</option>
-                        <option value="4">Bertholdt</option>
+                  
+                    <select multiple className='select' onChange={handleChangeSelect}>  
+                    <option value="" disabled>Escolha o Colaborador</option>
+                    {colaboradores.map((colab,index)=>(
+                        <option key ={index} value={colab.id}>{colab.nome}</option>
+                    ))}
                     </select>
                     <label className="labelname">Vincular Colaboradores</label>
                 </div>
             </div>
             <div className="botaoSalvar">
-                <a className="waves-effect waves-light btn-large btnAzulnovo">Salvar</a>
+                {/* <Link to={'/trilha'}> */}
+                <a className="waves-effect waves-light btn-large btnAzulnovo" onClick={SetColabTrilha}>Salvar</a>
+                {/* </Link> */}
             </div>
 
         </div>

@@ -9,10 +9,20 @@ import ReactTooltip from 'react-tooltip';
 
 
 const Empresa:React.FC=(props)=>{
+    const [empresa,setEmpresa] = useState([])
+
+    const buscaEmpresa = () =>{
+        axios.get('/api/pj/trazerEmpresas',{headers:CriaHeader()}).then(res => {
+            setEmpresa(res.data)
+            console.log(res.data)
+        }).catch(erro=>{
+            console.error(erro)
+          })
+    }
 
     React.useEffect(()=>{    
         document.title='Empresa'
-        
+        buscaEmpresa()
       },[])
     
     
@@ -24,24 +34,28 @@ const Empresa:React.FC=(props)=>{
                         <tr>
                             <th>Nome Empresa</th>
                             <th>CNPJ</th>
-                            <th>Responsável</th>
+                            
                             <th>Tempo de Formalização</th>             
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>                               
-                            <i className="material-icons" data-tip='Ver Cargos'>search</i>
-                            </td>   
-                            <td><i className="material-icons delete" data-tip='Deletar Departamento'>delete_forever</i></td>             
-                        </tr>
+                    {empresa.map((emp,index)=>(
+                        <tr key={index}>
+                        <td className="text-white">{emp.empresa_contratada}a</td>
+                        <td className="text-white">{emp.cnpj}</td>
+                        
+                        <td className="text-white">{emp.tempo_formalizacao}</td>
+                        <td>               
+                        <ReactTooltip />                
+                        <i className="material-icons pointer" data-tip='Ver Colaboradores'>search</i>
+                        </td>   
+                        <td><i className="material-icons delete pointer" data-tip='Deletar Departamento'>delete_forever</i></td>             
+                    </tr>
+                    ))}
+                     
                     </tbody>
                 </table>
-                {/*<Link to={"/novo-departamento"} className="waves-effect waves-light btn-large btnAzulLogin">Nova Empresa</Link>*/}
+                <Link to={"/novo-departamento"} className="waves-effect waves-light btn-large btnAzulLogin">Nova Empresa</Link>
         </div>
       )
 }

@@ -72,7 +72,8 @@ return(
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons sideNavBar">menu</i></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">                
                     {user.cargo === 'Administrador' || user.cargo === 'Gestor'?(
-                    <><li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
+                    <><li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>
+                    <li><Link className='botaoLog' to={'/empresa'}>Empresas</Link></li>                 
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
                     <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
                     <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>
@@ -83,7 +84,8 @@ return(
 
     </nav>
                 <ul className="sidenav navBarMenu" id="mobile-demo">
-                    <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>               
+                    <li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>
+                    <li><Link className='botaoLog' to={'/empresa'}>Empresas</Link></li>               
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
                     <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
                     <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>

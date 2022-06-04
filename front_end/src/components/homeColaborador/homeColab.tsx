@@ -9,8 +9,12 @@ import {useCookies} from 'react-cookie'
 
 
 const HomeColab: React.FC=()=>{
+    const [idColab, setIdColab] = React.useState('')
+    const [cookie,setCookie] = useCookies(['ionic-user', 'ionic-JWT'])
 
 React.useEffect(()=>{
+    const logado = cookie['ionic-user']
+    setIdColab(logado.id)
     document.title=`Home Colaborador`
 },[])
 
@@ -28,7 +32,7 @@ React.useEffect(()=>{
                 </div>
 
                 <div className="col s12 m4 l3">
-                <Link to="/trilha-colaborador">
+                <Link to={`/trilha-colaborador/${idColab}`}>
                     <button className="waves-effect botaoFunc"><img className="imgColab" src={trilhabranco}></img></button>
                     <div className="btnNomeHome">Trilha</div>
                 </Link>             

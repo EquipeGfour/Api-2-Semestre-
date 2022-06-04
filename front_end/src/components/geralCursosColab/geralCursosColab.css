@@ -1,0 +1,116 @@
+.titulo-trilha{
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'IonicCoolvetica';
+}
+
+.botaoVoador{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 3.5rem;
+    padding-left: 0.75rem;
+}
+
+.botaoVoador a{
+    background-color:#53C4CD;
+    color: #fff;
+}
+
+.conteiner-cinza3{
+    margin-top: 1.5rem;
+}
+
+.caixinha{
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+}
+.usuario-trilha{
+    color: white;
+    text-align: center;
+}
+.cargo-trilha{
+    color: white;
+    text-align: center;
+}
+.bg-cinza{
+    background-color: #58595B;
+    border-radius: 5px;
+    margin-bottom: 4rem !important;
+    width: 75%;
+    margin: 0 auto; 
+}
+.bg-cinza-bar{
+    background-color: #58595B;
+    border-radius: 5px;
+    height: 100%;
+    
+    
+}
+
+.card-cinza{
+    margin: 0.5rem;
+    background-color: #393B42;
+    padding: 1rem;
+    
+   
+}
+.div-cursos{
+    padding: 1rem;
+    height: 100;
+   
+}
+.imgColabt{
+    width: 162px;
+    height: 154px;
+    background: #58595B;
+    border: 0px solid #58595B;
+    box-sizing:content-box;
+    border-radius: 20px;
+    display: block;
+    margin: 0px auto;
+    padding-top: 1rem;
+}
+
+.imgtrilha{
+    width: 162px;
+    height: 154px;
+}
+.curso1{
+    color: #53C4CD;
+    font-size: 30px;
+    font-family: 'IonicCoolvetica';
+    margin: 0 0 0 2rem;
+}
+
+.card-cinza p{
+    margin: 0;
+    margin-left: 2rem;
+    color: white;
+}
+
+.descricao-curso1{
+    color: white;
+    margin-block-start: 3em;
+    
+    padding-left: 3rem;
+   
+}
+
+.addcurso{
+    text-align: end;
+    width: auto;   
+}
+
+.btcurso{
+    float: right;   
+    background-color:#53C4CD;
+    color: #fff; 
+}
+
+.bttrilha{
+    margin-right: 1rem;
+    background-color:#53C4CD;
+    color: #fff;
+}
