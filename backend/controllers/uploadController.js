@@ -181,7 +181,6 @@ export const DonwloadID = async (req,res)=>{
                 Bucket: process.env.BUCKET_NAME,
                 Key: arquivo,
             };
-            console.log('sssssssssssssssss',arquivo)
             res.attachment(arquivo);
             var fileStream = s3.getObject(options).createReadStream();
             fileStream.pipe(res);
