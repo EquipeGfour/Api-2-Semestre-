@@ -53,7 +53,7 @@ const Empresa:React.FC=(props)=>{
                     ))}
                     </tbody>
                 </table>
-                <Link to={"/cria-empresa"} className="waves-effect waves-light btn-large btnAzulLogin">Nova Empresa</Link>
+               
         </div>
     )
 }
