@@ -2,18 +2,17 @@ import { transporter } from "../config/email.js";
 import "dotenv/config"
 
 
-export const sendPesquisa = async (email) => {
+export const sendMail = async (email) => {
     const mailOptions = {
         from: 'gfourtestes@mail.ee',
         to: `${email} `,
-        subject: 'G-four token de acesso',
+        subject: 'Pesquisa de Desligamento',
         html: `<h2> </h2>
         <p>Questionario:<p><br> <strong> 
-        <a src="https://docs.google.com/forms/d/e/1FAIpQLScCnvYX-SxI0J_BIVfB54unVhI64LJIYiWSMrKJCpvhmkjK2A/viewform">link </a> </strong>`,
-        
-
+        ${process.env.EMAIL_PESQUISA_DESLIGAMENTO} 
+        </strong>`,
     };
-    transporter.sendPesquisa(mailOptions, (err, info) => {
+    transporter.sendMail(mailOptions, (err, info) => {
         if (err)
             console.log(err)
         else

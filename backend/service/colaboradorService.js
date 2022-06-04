@@ -2,6 +2,7 @@ import Colaborador from "../models/colaborador.js";
 import Endereco from "../models/endereco.js";
 import DadosAcademicos from "../models/Dados_Academicos.js";
 import PessoaJuridica from "../models/pessoa_juridica.js";
+import { sendMail } from "../functions/pesquisaDesligamento.js";
 
 
 
@@ -114,3 +115,11 @@ export const atualizarColaboradorCnpj = async(colabId,colabDados,objEndereco,t)=
 
     return {dadosCnpj, dadosColab, dadosEndereco}
 }
+
+export const getEmailColaborador = (email)=>{
+    sendMail(email)
+    console.log(email,"email enviado")
+    return email
+}
+
+
