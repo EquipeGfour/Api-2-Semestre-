@@ -15,7 +15,6 @@ const RemoveTrilha:React.FC=(props)=>{
 
     const getColabByTrilha = () =>{
         axios.get(`/api/trilha/getColabByTrilhaId/${params.id}`, {headers: CriaHeader()}).then(res=>{
-            console.log(res.data);            
             setColabs(res.data)
         }).catch(err=> {
             M.toast({html:`Falha ao Buscar Dados`, classes:"modalerro rounded"})
