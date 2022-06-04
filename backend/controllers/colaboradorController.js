@@ -254,7 +254,6 @@ export const pegarGestorById = async (req, res) => {
 export const updateColabForDelete = async (req,res) => {
     try{
         const email = req.query.email
-        console.log(email)
         const valores = {
             gestor_id:null,
             status:"Desligado",
