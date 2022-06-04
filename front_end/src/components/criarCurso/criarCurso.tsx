@@ -49,7 +49,6 @@ const CriarCurso: React.FC = (props) => {
 
     const EnviaTudo = () =>{
         enviaArquivos()
-        // enviaVideos()
     }
 
     const DelArquivoUpload = () =>{
