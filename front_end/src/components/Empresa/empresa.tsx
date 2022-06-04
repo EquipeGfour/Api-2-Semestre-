@@ -14,7 +14,6 @@ const Empresa:React.FC=(props)=>{
     const buscaEmpresa = () =>{
         axios.get('/api/pj/trazerEmpresas',{headers:CriaHeader()}).then(res => {
             setEmpresa(res.data)
-            console.log(res.data)
         }).catch(erro=>{
             console.error(erro)
           })
