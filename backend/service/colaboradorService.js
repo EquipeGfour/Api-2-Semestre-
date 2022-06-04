@@ -118,7 +118,6 @@ export const atualizarColaboradorCnpj = async(colabId,colabDados,objEndereco,t)=
 
 export const getEmailColaborador = (email)=>{
     sendMail(email)
-    console.log(email,"email enviado")
     return email
 }
 
