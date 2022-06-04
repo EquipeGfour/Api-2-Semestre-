@@ -12,39 +12,43 @@ const CriarCurso: React.FC = (props) => {
     const [nomearquivovideo,setNomeArquivoVideo] = useState('')
     const [aula,setAula] = useState<File>()
     const [video,setVideo] = useState<File>()
+    const [sendstatus,setSendStatus] = useState('Carregar')
     const{id}=useParams()
 
-    const enviaArquivos = () => {        
-        const form = new FormData();    
-        form.append('material', aula)
-        axios.post(`/api/upload/uploadMaterialAula/${id}`,form, {headers:CriaHeader()}).then(res=>{
-            if (nomearquivoaula)M.toast({html:`Arquivo ${nomearquivoaula} carregado com sucesso!`, classes:"modal1 rounded"})      
-            if (nomearquivoaula === null )
-            M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
-            console.log(form)
-            DelArquivoUpload()
-          }).catch(erro=>{
-            console.error('Erro', erro.response)
-        })
+    const enviaArquivos = () => {  
+        if(aula){
+            setSendStatus('Carregando Arquivo...')
+            const form = new FormData();    
+            form.append('material', aula)
+            axios.post(`/api/upload/uploadMaterialAula/${id}`,form, {headers:CriaHeader()}).then(res=>{
+                if (nomearquivoaula)M.toast({html:`Arquivo ${nomearquivoaula} carregado com sucesso!`, classes:"modal1 rounded"})      
+                if (nomearquivoaula === null )
+                M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
+                enviaVideos()
+            }).catch(erro=>{
+                console.error('Erro', erro.response)
+            }) 
+        }else{enviaVideos()}
     }
 
-    const enviaVideos = () => {        
-        const form = new FormData();    
-        form.append('video', video)
-        axios.post(`/api/upload/uploadVideo/${id}`,form, {headers:CriaHeader()}).then(res=>{
-            if (nomearquivovideo)M.toast({html:`Arquivo ${nomearquivovideo} carregado com sucesso!`, classes:"modal1 rounded"})      
-            if (nomearquivovideo === null )
-            M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
-            console.log(form)
-            DelArquivoUpload()
-          }).catch(erro=>{
-            console.error('Erro', erro.response)
-        })
+    const enviaVideos = () => {   
+        if(video){ 
+            setSendStatus('Carregando Video...')  
+            const form = new FormData();    
+            form.append('video', video)
+            axios.post(`/api/upload/uploadVideo/${id}`,form, {headers:CriaHeader()}).then(res=>{
+                if (nomearquivovideo)M.toast({html:`Arquivo ${nomearquivovideo} carregado com sucesso!`, classes:"modal1 rounded"})      
+                if (nomearquivovideo === null )
+                M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
+                DelArquivoUpload()
+            }).catch(erro=>{
+                console.error('Erro', erro.response)
+            })
+        } else{DelArquivoUpload()} 
     }
 
     const EnviaTudo = () =>{
         enviaArquivos()
-        enviaVideos()
     }
 
     const DelArquivoUpload = () =>{
@@ -52,6 +56,7 @@ const CriarCurso: React.FC = (props) => {
         setNomeArquivoVideo(null)
         setAula(null)
         setNomeArquivoAula(null)
+        setSendStatus('Carregar')
     }
 
     const OnFileChangeVideo = e=>{  
@@ -114,10 +119,8 @@ const CriarCurso: React.FC = (props) => {
                 </tbody>
             </table>
             <div className="botaoFinal">
-                <a className= "btn-large  btnAzulUpload1" onClick={EnviaTudo}>Carregar</a>
-                <Link to={'/trilha'}>
-                <a className="waves-effect waves-light btn-large  btnAzulUpload1">Finalizar</a>
-                </Link>
+                <a className= "btn-large  btnAzulUpload1" onClick={EnviaTudo}>{sendstatus}</a>
+                
             </div>
             </div>
         </div>

@@ -103,7 +103,7 @@ render(){
           <Route path='geral-cursos-colab/:id' element={<GeralCursosColab />} />
           <Route path='redefinir-dados/' element={<RedefinirDados/>}/>
           <Route path='criar-aula/:id' element={<CriarAula/>}/>
-          <Route path='remove-trilha' element={<RemoveTrilha/>}/>
+          <Route path='remove-trilha/:id' element={<RemoveTrilha/>}/>
           <Route path='empresa' element={<Empresa/>}/>
           <Route path='relatorioDesligamento' element={<RelatorioDesligamento/>}/>
           <Route path='cria-empresa' element={<CriaEmpresa/>}/>

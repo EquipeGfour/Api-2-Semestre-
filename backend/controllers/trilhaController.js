@@ -74,6 +74,29 @@ export const vinculoTrilhaColab = async (req, res) => {
     }
 }
 
+
+export const getColabByTrilhaId = async (req,res) => {
+    try{
+        const dados = await Colaborador.findAll({
+
+            attributes:['id','nome', 'email'],
+            include:{
+                where:{
+                    id:req.params.id
+                },
+                model:TrilhaAprendizado,
+                attributes:['id']
+            }
+        })
+        res.status(202).json(dados)
+
+    }catch(error){
+        console.log(error);
+        res.status(500).json({messge:error})
+    }
+}
+
+
 export const getTrilhaColab = async (req,res) => {
     try{
         const dados = await Colaborador.findOne({
@@ -113,15 +136,34 @@ export const BuscarTrilhaColab = async (req,res) => {
 }
 
 export const updateTrilhaColab = async (req, res) => {
+
     try{
-        const condicao = {
-            where:{ id:req.params.id }
-        }
-        const valores = {
-            trilha_id:null
-        }
-        const dados = await Colaborador.update(valores,condicao)
-        res.json(dados)
+        const colab_id = req.body.colab_id;
+        let temErro = false;
+        const dados = await TrilhaAprendizado.findByPk(req.body.trilha_id).then( async (trilha)=>{
+            if(!trilha){
+                temErro = true;
+                return { message:'Trilha não encontrada' }
+            } 
+            return await Colaborador.findByPk(colab_id).then( async (colab) =>{
+                if(!colab){
+                    temErro = true;
+                    return { message:'Colaborador não encontrado' }}
+                const verify = await trilha.hasColaborador(colab)
+                if(!verify) {
+                    temErro = true;
+                    return { message:`Colaborador ${colab.nome} já removido da trilha` }
+                }
+                const removido = await trilha.removeColaborador(colab)
+                if(removido>0){
+                    return { message:`Colaborador ${colab.nome} foi removido da trilha` }
+                }
+                    return {message: `Removido com sucesso`}
+            })
+        })
+        let status = 200
+        if (temErro) status = 500
+        res.status(status).json(dados)
     } catch(error){
         res.status(500).json({ message:error })
     }
