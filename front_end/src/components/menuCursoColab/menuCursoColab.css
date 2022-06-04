@@ -1,0 +1,98 @@
+
+@font-face {
+    font-family:'IonicCoolvetica' ;
+    src: url('../../../static/coolvetica\ rg.otf');
+}
+.geralContainer2{
+    padding: 1rem;
+    width: 100%;
+    margin-top: 6rem;
+    color: #53C4CD;
+    text-align: center;
+    color: white;
+}
+
+.titulo{
+    color: #53C4CD;
+    font-size: 60px;
+    font-family: 'IonicCoolvetica';
+}
+
+.campos{  
+    color: #53C4CD;
+}
+
+table{
+    margin-top: 0;
+    background-color: #393B42;
+}
+
+tr{
+    border-bottom: 1px solid #53C4CD;
+    
+}
+
+.espacamento{
+    width:33%;
+    margin: 0 auto;
+}
+
+.Pesquisa{
+    width: 35%;
+    margin: 0 auto;
+    background-color: transparent !important;
+
+}
+
+
+.bodyCurso{
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    margin-top: 1rem !important;    
+    width: 70%;
+    margin: 0 auto; 
+    
+    
+}
+
+.tabelaCargo{
+    margin-top: 0 !important;
+}
+
+.headerCurso{
+    margin-top: 2rem !important;
+    /*background-color: #393B42;*/
+    color: rgb(255, 255, 255);
+    border: none !important;
+    -webkit-box-shadow: none; 
+    box-shadow: none;    
+    width: 100%;
+    margin: 0 auto; 
+    
+}
+
+.collapsible-body{
+    padding: 0 10px;
+    border-bottom: none !important;
+    margin: 0 auto;
+    width: 60%;
+     
+}
+
+.collapsible-header{
+    border-bottom: none !important;
+    color: black !important;
+   
+}
+
+
+.btnAzulLogin{
+    margin-top: 6rem;
+    color:  white;
+}
+
+.informacoescurso{
+    margin-top: 2rem;
+}
+

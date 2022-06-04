@@ -37,8 +37,8 @@ Cursos.belongsTo(TrilhaAprendizado, {foreignKey: 'trilha_id'})
 TrilhaAprendizado.hasMany(Cursos, {foreignKey: 'trilha_id'})
 
 
-Colaborador.belongsToMany(TrilhaAprendizado, {foreignKey: 'colab_id', through:'colab_trilhas'})
-TrilhaAprendizado.belongsToMany(Colaborador, {foreignKey: 'trilha_id', through:'colab_trilhas'})
+Colaborador.TrilhaAprendizado = Colaborador.belongsToMany(TrilhaAprendizado, {foreignKey: 'colab_id', through:'colab_trilhas'})
+TrilhaAprendizado.Colaborador = TrilhaAprendizado.belongsToMany(Colaborador, {foreignKey: 'trilha_id', through:'colab_trilhas'})
 
 
 export default TrilhaAprendizado

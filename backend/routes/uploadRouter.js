@@ -17,7 +17,7 @@ router.get('/listarAulasCursos/:id', verifyJWT, listarAulaArquivos);
 
 router.post('/uploadMaterialAula/:id', uploadArquivosAula, uploadMateriaisAula);
 
-router.get('/uploadArquivos/:id', verifyJWT,DonwloadID );
+router.get('/downloadArquivos/:id', DonwloadID );
 
 router.get('/assistirAula/:id',verifyJWT, getVideo)
 

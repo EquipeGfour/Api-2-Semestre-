@@ -1,5 +1,5 @@
 import aws from 'aws-sdk';
-import { armazenarAulaMaterials, dadosArquivoBaixar, inserirArquivo, pegarArquivoById, pegarDadosArquivo } from "../service/uploadService.js";
+import { armazenarAulaMaterials, dadosArquivoBaixar, inserirArquivo, pegarArquivoById, pegarDadosArquivo, arquivoIDs } from "../service/uploadService.js";
 import path,{dirname} from 'path'
 import { fileURLToPath } from "url";
 import fs from "fs"
@@ -57,7 +57,7 @@ export const listarArquivos = async (req,res) => {
 export const downloadAws = async (req,res) => {
     try{
         const dados = await dadosArquivoBaixar(req.params.id,req.params.colaborador_id)
-        console.log(dados)
+        
         if(dados.url_arquivo){
 
             const arquivo = `${dados.nome_arquivos}${dados.extensao}`
@@ -72,11 +72,7 @@ export const downloadAws = async (req,res) => {
             fileStream.pipe(res);
             
         }
-        else{
-            const idArquivo = req.params.id
-            const dados = await pegarArquivoById(idArquivo)
-            res.download(caminhoArquivo + `/${dados.nome_arquivos}${dados.extensao}`)
-        }
+        
 
     }catch(error){
         console.log(error)
@@ -175,7 +171,7 @@ export const uploadMateriaisAula = async (req,res) => {
 
 export const DonwloadID = async (req,res)=>{
     try{
-        const dados = await arquivoIDs(req.params.id,req.params.aula_id)
+        const dados = await arquivoIDs(req.params.id)
         console.log(dados)
         if(dados.url_arquivo){
 
@@ -184,14 +180,21 @@ export const DonwloadID = async (req,res)=>{
             const options = {
                 Bucket: process.env.BUCKET_NAME,
                 Key: arquivo,
-            };  
+            };
             res.attachment(arquivo);
             var fileStream = s3.getObject(options).createReadStream();
             fileStream.pipe(res);
-        }   
-        res.json(arquivoIDs)
+            
+        } 
+        else{
+            const idArquivo = req.params.id
+            const dados = await pegarArquivoById(idArquivo)
+            res.download(caminhoArquivo + `/${dados.nome_arquivos}${dados.extensao}`)
+        }  
+        res.json(dados)
     }
     catch(error){
+        console.log(error)
         res.status(500).json({message:error})
     }
 }
