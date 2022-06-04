@@ -42,6 +42,7 @@ import RelatorioDesligamento from './components/RelatorioDesligamento/relatorioD
 import CriaEmpresa from './components/CriarEmpresa/cria_empresa';
 import MenuCursoColab from './components/menuCursoColab/menuCursoColab'
 import GeralCursosColab from './components/geralCursosColab/geralCursosColab'
+import GeralFuncPJ from './components/geralFuncPJ/geralFuncPJ'
 import UploadColab from './components/Upload colab/UploadColab'
 
 type state = {
@@ -110,6 +111,7 @@ render(){
           <Route path='relatorioDesligamento' element={<RelatorioDesligamento/>}/>
           <Route path='cria-empresa' element={<CriaEmpresa/>}/>
           <Route path='trilha-colaborador/:id' element={<TrilhaColaborador/>}/>
+          <Route path='geral-funcionariosPJ' element ={<GeralFuncPJ/>}/>
         </Routes>      
       </BrowserRouter>      
     </div>
