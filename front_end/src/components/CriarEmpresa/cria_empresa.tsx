@@ -10,6 +10,44 @@ import { CriaHeader } from "../../functions";
 
 const CriaEmpresa: React.FC=()=>{
 
+    const [nomeEmpresa, setNomeEmpresa] = useState('')
+    const [cnpj, setCnpj] = useState('')
+    const [tempoFormalizacao, setTempoFormalizacao] = useState('')
+
+    const criarEmpresa = () => {
+        const obj = {
+            empresa_contratada:nomeEmpresa,
+            cnpj: cnpj,
+            tempo_formalizacao:tempoFormalizacao
+        }
+        console.log(obj)
+        if(!ValidaCampo()){
+            axios.post('/api/pj/criarEmpresa',{ empresa_contratada:nomeEmpresa, cnpj: cnpj, tempo_formalizacao:tempoFormalizacao },{headers: CriaHeader()}).then(res=>{
+                M.toast({html:'Empresa Cadastrada com sucesso!', classes:"modal1 rounded"})
+                setNomeEmpresa('')
+                setCnpj('')
+                setTempoFormalizacao('')
+            })
+        }
+        
+    }
+
+    const ValidaCampo = () => {
+        let faltaDados = false
+        if (cnpj === '') {
+            faltaDados = true
+            M.toast({ html: 'Preencha o campo Cnpj !', classes: "modalerro rounded" })
+        }
+        if (nomeEmpresa === '') {
+            faltaDados = true
+            M.toast({ html: 'Preencha o campo Nome da Empresa !', classes: "modalerro rounded" })
+        }
+        if (tempoFormalizacao === '') {
+            faltaDados = true
+            M.toast({ html: 'Preencha o campo Tempo de Formalização !', classes: "modalerro rounded" })
+        }
+        return faltaDados
+    }
 
     React.useEffect(()=>{
         document.title='Nova Empresa'
@@ -23,30 +61,22 @@ const CriaEmpresa: React.FC=()=>{
                 <div className="centralizarCriaEmpresa">
                     <div className="row">
                         <div className="input-field col s12">
-                            <input value='' placeholder="Nome da Empresa" id="first_name2" type="text" className="validate" />
+                            <input value={ nomeEmpresa } placeholder="Nome da Empresa" id="first_name2" type="text" className="validate" onChange = { e => setNomeEmpresa( e.target.value ) } />
                             <label className="active" htmlFor="first_name2">Nome da Empresa</label>
                         </div>
 
                         <div className="input-field col s12">
-                            <input value='' placeholder="CNPJ" id="first_name2" type="text" className="validate" />
+                            <input value={cnpj} placeholder="CNPJ" id="first_name2" type="text" className="validate" onChange = { e => setCnpj( e.target.value ) } />
                             <label className="active" htmlFor="first_name2">CNPJ</label>
                         </div>
 
                         <div className="input-field col s12">
-                            <input value='' placeholder="Representante" id="first_name2" type="text" className="validate" />
-                            <label className="active" htmlFor="first_name2">Representante</label>
-                        </div>
-
-                        <div className="input-field col s12">
-                            <input value='' placeholder="Tempo de Formalização" id="first_name2" type="text" className="validate" />
+                            <input value={tempoFormalizacao} placeholder="Tempo de Formalização" id="first_name2" type="text" className="validate" onChange = { e => setTempoFormalizacao( e.target.value ) } />
                             <label className="active" htmlFor="first_name2">Tempo de Formalização</label>
                         </div>
                     </div>
                 </div>
-
-                
-                    <a className="waves-effect waves-light btn-large btnAzulCriaEmpresa">Salvar</a>
-                
+                    <a className="waves-effect waves-light btn-large btnAzulCriaEmpresa" onClick = { criarEmpresa }> Salvar </a>
         </div>
     )
 }

@@ -257,7 +257,6 @@ export const updateColabForDelete = async (req,res) => {
             gestor_id:null,
             status:"Desligado",
             data_desligamento:new Date().toISOString().slice(0,10),
-            pesquisa_desligamento:req.body.pesquisa_desligamento 
         }
         const condicao = {
             where:{
