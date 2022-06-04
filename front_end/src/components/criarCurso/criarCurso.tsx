@@ -24,7 +24,6 @@ const CriarCurso: React.FC = (props) => {
                 if (nomearquivoaula)M.toast({html:`Arquivo ${nomearquivoaula} carregado com sucesso!`, classes:"modal1 rounded"})      
                 if (nomearquivoaula === null )
                 M.toast({html:'Nenhum Arquivo foi carregado, Carregue pelo menos um item!', classes:'modalerro rounded'})
-                console.log(form)
                 enviaVideos()
             }).catch(erro=>{
                 console.error('Erro', erro.response)
