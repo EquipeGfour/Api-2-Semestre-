@@ -275,7 +275,7 @@ export const getDesligados = async (req,res) =>{
     try{
         const dados = await Colaborador.findAll({
             where:{ status: 'Desligado' },
-            attributes:['id','nome','email','telefone', 'data_desligamento'],
+            attributes:['id','nome','email','data_desligamento'],
             include:[
                 {
                     model:Cargo,
@@ -349,7 +349,17 @@ export const searchDesligado = async (req,res) => {
                 status:'Desligado',
                 nome:{ [Op.like]: `%${req.query.nome}%` }
             },
-            attributes:['id','nome','status']
+            attributes:['id','nome','email','data_desligamento','status'],
+            include:[
+                {
+                    model:Cargo,
+                    attributes:['id','cargo']
+                },
+                {
+                    model:Contrato,
+                    attributes:['id','data_Admissao']
+                }
+            ]
         })
         res.json(dados)
     }catch(error){
@@ -421,7 +431,15 @@ export const searchColaborador = async (req, res) => {
                 status:'Ativo',
                 nome: {[Op.like]: `%${req.query.nome}%` }
             },
-            attributes:['id','nome','status']
+            attributes:['nome', 'telefone', 'id', 'email','status'],
+            include: {
+                model: Cargo,
+                attributes: ['cargo', 'id'],
+                include: {
+                    model: Departamento, 
+                    attributes: ['area', 'id']
+                }
+            }
             // where:{
             //     nome: sequelize.where(sequelize.fn('LOWER',sequelize.col('nome')), 'LIKE', `%${req.query.nome.toLowerCase()}%`)
             // },

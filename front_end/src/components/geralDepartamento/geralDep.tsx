@@ -16,10 +16,23 @@ interface Departamento{
   totalColab: number
 }
 
+
+
 const GeralDep:React.FC=(props)=>{
-  const [departamento,setDepartamento]=useState<Departamento[]>([])
+
+  const [departamento,setDepartamento] = useState<Departamento[]>([])
+  const [searchDepart, setSearchDepart] = useState('')
+
   const BuscaDados = () =>{
     axios.get('/api/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{      
+      setDepartamento(res.data)
+    }).catch(erro=>{
+      console.error(erro)
+    })
+  }
+
+  const searchDepartamento = (searchDepart) => {
+    axios.get(`/api/departamento/searchDepartamento?area=${searchDepart}`, {headers:CriaHeader()}).then( res => {
       setDepartamento(res.data)
     }).catch(erro=>{
       console.error(erro)
@@ -29,7 +42,8 @@ const GeralDep:React.FC=(props)=>{
   React.useEffect(()=>{    
     document.title='Departamentos-Geral'
     BuscaDados()
-  },[])
+    if(searchDepart !== '')searchDepartamento(searchDepart)
+  },[searchDepart])
 
 
   return(
@@ -40,7 +54,7 @@ const GeralDep:React.FC=(props)=>{
         <div className="nav-wrapper barPesquisa">
           <form>
               <div className="input-field">
-              <input id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required/>
+              <input value={searchDepart} id="search" type="search" placeholder="Pesquisar por (Nome,Cargo,Área)" required onChange={ (e) => setSearchDepart( e.target.value )}/>
               <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
               <i className="material-icons">close</i>
               </div>
@@ -53,7 +67,6 @@ const GeralDep:React.FC=(props)=>{
             <tr>
                 <th>Nome Departamento</th>
                 <th>Num.Funcionários</th>
-                <th>Responsável</th>
                 <th>Num. de Cargos</th>             
             </tr>
           </thead>
@@ -63,7 +76,6 @@ const GeralDep:React.FC=(props)=>{
                 <tr key={d.id}>
                   <td>{d.area}</td>
                   <td>{d.totalColab}</td>
-                  <td>{d.head}</td>
                   <td>{d.qtdCargos}</td>
                   <td><Link to={`/detalhe-departamento/${d.id}`}>
                     <ReactTooltip />                  

@@ -42,6 +42,7 @@ import RelatorioDesligamento from './components/RelatorioDesligamento/relatorioD
 import CriaEmpresa from './components/CriarEmpresa/cria_empresa';
 import MenuCursoColab from './components/menuCursoColab/menuCursoColab'
 import GeralCursosColab from './components/geralCursosColab/geralCursosColab'
+import UploadColab from './components/Upload colab/UploadColab'
 
 type state = {
   tela: string
@@ -77,6 +78,7 @@ render(){
           <Route path='geral-funcionarios' element={<GeralFunc/>}/>
           <Route path='home-admin' element={<Home/>}/>
           <Route path='upload' element={<Upload/>}/>
+          <Route path='upload-colab' element={<UploadColab/>}/>
           <Route path='pre-registro' element={<PreRegistro/>}/>
           <Route path='geral-departamentos' element={<GeralDep/>}/>
           <Route path='novo-departamento' element={<NovoDepartamento/>}/>
