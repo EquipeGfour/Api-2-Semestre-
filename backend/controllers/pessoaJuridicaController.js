@@ -15,6 +15,7 @@ export const selectAllPj = async (req, res) => {
 
 export const insertEmpresa = async (req, res) => {
     try{
+
         const dados = await PessoaJuridica.create(req.body)
         res.json(dados)
 
