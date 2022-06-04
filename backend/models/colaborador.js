@@ -2,6 +2,8 @@ import Cargos from "./cargo.js";
 import db from '../config/db.js'
 import { Sequelize } from "sequelize";
 import Arquivos from "./arquivos.js";
+import Aula from "./aula.js";
+import colab_aula from './colab_aula.js'
 
 const Colaborador = db.define('colaboradors',{
     id:{
@@ -103,5 +105,8 @@ Colaborador.Arquivos = Colaborador.hasMany(Arquivos, {foreignKey:'colaborador_id
 
 Colaborador.Colaborador = Colaborador.belongsTo(Colaborador,{foreignKey:{name:'gestor_id'}, as:'Gestor'})
 Colaborador.Colaborador = Colaborador.hasMany(Colaborador, {foreignKey:'gestor_id', as:'funcionarios'})
+
+Aula.belongsToMany(Colaborador, {foreignKey:'colab_id', through:colab_aula })
+Colaborador.belongsToMany(Aula, {foreignKey:'aula_id', through:colab_aula })
 
 export default Colaborador
