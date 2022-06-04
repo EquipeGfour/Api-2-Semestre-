@@ -96,10 +96,10 @@ export const inserirDadosColabCnpj = async (req, res) => {
     try {
         
         const colabId = req.body.id
+        const empresaID = req.body.empresa_id
 
         const objColab = {
-            id: req.body.id,
-            nome: req.body.id,
+            nome: req.body.nome,
             email: req.body.email,
             telefone: req.body.telefone,
             status:"Ativo"
@@ -115,9 +115,14 @@ export const inserirDadosColabCnpj = async (req, res) => {
             complemento: req.body.complemento,
             colaborador_id: req.body.id
         }
+        const objCnpj = {
+            cnpj: req.body.cnpj,
+            id: empresaID,
+            empresa_contratada: req.body.empresa_contratada
+        }
 
 
-        const dadosCnpj = await atualizarColaboradorCnpj(colabId, objColab, objEndereco,t)
+        const dadosCnpj = await atualizarColaboradorCnpj(colabId, objColab, objEndereco,objCnpj,t )
         res.status(201).json(dadosCnpj)
     } catch (error) {
         await t.rollback()

@@ -40,22 +40,9 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
     const dadosAcademicos = await DadosAcademicos.bulkCreate( objDadosAcademicos, {transaction:t})
 
     //atualizar ou criar dados Endereço
-    const dadosEndereco = await Endereco.findOne({
-        where:{
-            colaborador_id:colabId
-        }
-    }).then(id=>{
-        if(id){
-            return Endereco.update(objEndereco,
-            {
-                where:{
-                    colaborador_id:colabId
-            },
-            transaction:t
-        })
-    }else{
-        return Endereco.create(objEndereco,{transaction:t})
-        } 
+    const dadosEndereco = await Endereco.upsert(objEndereco,
+        {
+        transaction:t
     })
 
     await t.commit()
@@ -63,54 +50,23 @@ export const atualizarColaborador = async(colabId, colabDados, objDadosAcademico
     return {dadosColab,dadosAcademicos,dadosEndereco}
 }
 
-export const atualizarColaboradorCnpj = async(colabId,colabDados,objEndereco,t)=>{
-
+export const atualizarColaboradorCnpj = async(colabId,colabDados,objEndereco,objCnpj,t)=>{
     //atualizar dados do colaborador
-    const dadosColab = await Colaborador.update(colabDados,{
-        where:{
-            id:colabId
-        },
+    const dadosColab = await Colaborador.findByPk(colabId).then(async colab =>{
+        colab.update(colabDados)
+        await colab.save()
+        return colab
+    })
+    //atualizar ou criar dados CNPJ
+    const dadosCnpj = await PessoaJuridica.upsert(objCnpj,{
         transaction:t
     })
 
-    // //atualizar ou criar dados CNPJ
-    // const dadosCnpj = await PessoaJuridica.findOne({
-    //     where:{
-    //         colaborador_id:colabId
-    //     }
-    // }).then(id=>{
-    //     if(id){
-    //         return PessoaJuridica.update(objCnpj,{
-    //             where:{
-    //                 colaborador_id:colabId
-    //             },
-    //             transaction:t
-    //         })
-    //     }
-    // else{
-    //     return PessoaJuridica.create(objCnpj,{transaction:t})
-    // }
-    // })
-
     //atualizar ou criar dados Endereço
-    const dadosEndereco = await Endereco.findOne({
-        where:{
-            colaborador_id:colabId
-        }
-    }).then(id=>{
-        if(id){
-            return Endereco.update(objEndereco,
-            {
-                where:{
-                    colaborador_id:colabId
-            },
-            transaction:t
-        })
-    }else{
-        return Endereco.create(objEndereco,{transaction:t})
-        } 
+    const dadosEndereco = await Endereco.upsert(objEndereco,
+        {
+        transaction:t
     })
-
     await t.commit()
 
     return {dadosCnpj, dadosColab, dadosEndereco}

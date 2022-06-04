@@ -23,5 +23,6 @@ router.post('/redefinirSenha/:id', verifyJWT, redefinirSenha)
 router.get('/searchColaborador', verifyJWT, searchColaborador)
 router.put('/editColab/:id', verifyJWT, editColaborador)
 
+
 export default router
 
