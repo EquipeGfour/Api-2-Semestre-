@@ -15,7 +15,8 @@ console.log(email);
       email:email, 
     }
     console.log(obj);
-    axios.post(url,obj).then(res => {  
+    axios.post(url,obj).then(res => { 
+      M.toast({html:'Senha enviada para seu Email cadastrado !', classes:"modal1 rounded"}) 
       setEmail('')
     }).catch(erro => {
       console.error('Erro', erro.response)    

@@ -21,7 +21,6 @@ const MenuCurso: React.FC = (props) => {
     const [videosaula,setVideosAula] = useState()
     const {id} = useParams()
 
-
     const ListAulas = (id:string) => {
         axios.get(`/api/upload/listarAulasCursos/${id}`,{headers: CriaHeader()}).then(res=>{
           console.log(res.data)
@@ -47,14 +46,14 @@ const MenuCurso: React.FC = (props) => {
                 <span className="titulo">Aulas</span>
             </div>        
 
-            <ul className="collapsible expandable headerCurso">
+            <ul className="collapsible expandable headerCurso ">
                 {arquivosaula.map((t:Aula)=>(                     
                 <li className="blocos">
-                    <div className="collapsible-header bodyCurso" title=''>
+                    <div className="collapsible-header bodyCurso" title=''>                                        
                         <i className="material-icons">computer</i>{t.titulo_aula}
-                        <Link to={`/criar-curso/${t.id}`}>
-                            <i className="material-icons" title="Add Arquivos">add</i>
-                        </Link>
+                            <Link to={`/criar-curso/${t.id}`}>
+                                <i className="material-icons" title="Add Arquivos">add</i>
+                            </Link>                          
                     </div>
                     <div className="collapsible-body tabelaCargo">
                         <table className="highlight responsive-table centered">

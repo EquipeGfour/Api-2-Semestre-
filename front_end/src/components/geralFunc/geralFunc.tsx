@@ -11,6 +11,7 @@ import M from 'materialize-css/dist/js/materialize';
 const GeralFunc:React.FC=(props)=>{
   const [colaboradores,setColaboradores] = React.useState([])
   const [searchColab, setSearchColab ] = useState('')
+  const cancelar = React.useRef<any>()
 
   const BuscaDados = () =>{
     axios.get('/api/colab/geral',{headers:CriaHeader()}).then(res=>{
@@ -22,6 +23,11 @@ const GeralFunc:React.FC=(props)=>{
 
       
   const searchColaborador = (searchColab) => {
+    if(cancelar.current){
+      cancelar.current.cancel()
+    }
+      const cancelToken = axios.CancelToken
+      cancelar.current = cancelToken.source()
     axios.get(`/api/colab/searchColaborador?nome=${searchColab}`,{ headers: CriaHeader()}).then( res => {
       setColaboradores(res.data)
 
@@ -42,9 +48,12 @@ const GeralFunc:React.FC=(props)=>{
 
   React.useEffect(()=>{
     document.title='Geral-Funcionários'
-    BuscaDados()  
-    if(searchColab !== '')searchColaborador(searchColab) 
-  },[searchColab])
+    BuscaDados()    
+  },[])
+
+  React.useEffect(() => {
+    searchColaborador(searchColab)
+},[searchColab])
 
   return(
 

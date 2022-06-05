@@ -11,7 +11,7 @@ export const selectAllPj = async (req, res) => {
         const dados = await PessoaJuridica.findAll({
             include:{
                 model:Colaborador,
-                attributes:['id'],
+                attributes:['id', 'nome'],
                 where:{
                     status:'Ativo'
                 }

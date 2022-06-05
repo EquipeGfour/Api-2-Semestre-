@@ -119,7 +119,7 @@ const getColabById = () => {
                 <li className="tab col s3"><a href="#test-swipe-2">Dados Pessoais</a></li>
                 <li className="tab col s3"><a href="#test-swipe-1">Endereço</a></li>
                 <li className="tab col s3"><a href="#test-swipe-3">Dados Acadêmicos</a></li>
-                <li className="tab col s3"><a href="#test-swipe-4">Redefinir Senha</a></li>         
+                <li className="tab col s3"><a href="#test-swipe-4">Redefinir Dados</a></li>         
             </ul>
 
         {/* -----------------------------------DADOS PESSOAIS------------------------------------------- */}
@@ -314,14 +314,13 @@ const getColabById = () => {
                 <Link to={'/redefinir-senha'}>
                 <a className="waves-effect waves-light btn-large btnAzulsenha">Redefinir senha</a>
                 </Link>
-            </div>
-
-                {/* TODO BOTÃO REDEFINIR DADOS ESTÁ APARECENDO EM TODAS AS ABAS */}
-
+                <div>
+                    <Link to={'/redefinir-dados'}>
+                    <a className="waves-effect waves-light btn-large btnAzulsenha">Redefinir Dados</a>
+                    </Link>
+                </div>
+            </div>              
             <div id="test-swipe-4" className="col s12 ">
-                <Link to={'/redefinir-dados'}>
-                <a className="waves-effect waves-light btn-large btnAzulsenha">Redefinir Dados</a>
-                </Link>
             </div>
         </div>   
     </div>
