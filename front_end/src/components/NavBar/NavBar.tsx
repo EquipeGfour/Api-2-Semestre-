@@ -71,13 +71,14 @@ return(
 
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons sideNavBar">menu</i></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">                
-                    {user.cargo === 'Administrador' || user.cargo === 'Gestor'?(
+                    {user.nivel === 'diretoria' || user.nivel === 'Gestor'?(
                     <><li><Link className='botaoLog' to={'/home-admin'}>Home</Link></li>
                     <li><Link className='botaoLog' to={'/empresa'}>Empresas</Link></li>                 
                     <li><Link className='botaoLog' to={'/geral-departamentos'}>Departamentos</Link></li>
                     <li><Link className='botaoLog' to={'/geral-funcionarios'}>Colaboradores</Link></li>               
                     <li><Link className='botaoLog' to={'/desligados'}>Desligados</Link></li>
-                    <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li></>):null}                
+                    <li><Link className='botaoLog' to={`/home-colaborador/`}>Meu Perfil</Link></li>
+                    <li><Link className='botaoLog' to={'/trilha'}>Trilha</Link></li></>):null}                 
                     <li><a className='botaoLog '><i className='material-icons logout' title='Deslogar' onClick={Desloga}>exit_to_app</i></a></li>               
                 </ul></>):null}    
         </div>

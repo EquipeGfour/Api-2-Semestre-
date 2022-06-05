@@ -22,6 +22,7 @@ const GeralDep:React.FC=(props)=>{
 
   const [departamento,setDepartamento] = useState<Departamento[]>([])
   const [searchDepart, setSearchDepart] = useState('')
+  const cancelar = React.useRef<any>()
 
   const BuscaDados = () =>{
     axios.get('/api/departamento/getAllDepart',{headers:CriaHeader()}).then((res)=>{      
@@ -32,7 +33,12 @@ const GeralDep:React.FC=(props)=>{
   }
 
   const searchDepartamento = (searchDepart) => {
-    axios.get(`/api/departamento/searchDepartamento?area=${searchDepart}`, {headers:CriaHeader()}).then( res => {
+    if(cancelar.current){
+      cancelar.current.cancel()
+    }
+      const cancelToken = axios.CancelToken
+      cancelar.current = cancelToken.source()
+    axios.get(`/api/departamento/searchDepartamento?area=${searchDepart}`, {headers:CriaHeader(),cancelToken:cancelar.current.token}).then( res => {
       setDepartamento(res.data)
     }).catch(erro=>{
       console.error(erro)
@@ -41,8 +47,11 @@ const GeralDep:React.FC=(props)=>{
 
   React.useEffect(()=>{    
     document.title='Departamentos-Geral'
-    BuscaDados()
-    if(searchDepart !== '')searchDepartamento(searchDepart)
+    BuscaDados()    
+  },[])
+
+  React.useEffect(() => {
+    searchDepartamento(searchDepart)
   },[searchDepart])
 
 

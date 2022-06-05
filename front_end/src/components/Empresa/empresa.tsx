@@ -14,6 +14,7 @@ const Empresa:React.FC=(props)=>{
 
     const buscaEmpresa = () =>{
         axios.get('/api/pj/trazerEmpresas',{headers:CriaHeader()}).then(res => {
+            
             setEmpresa(res.data)
         }).catch(erro=>{
             console.error(erro)
@@ -45,7 +46,7 @@ const Empresa:React.FC=(props)=>{
                             <th>Nome Empresa</th>
                             <th>CNPJ</th>
                             
-                            <th>Tempo de Formalização</th>             
+                            <th>Representante</th>             
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +55,7 @@ const Empresa:React.FC=(props)=>{
                         <td className="text-white">{emp.empresa_contratada}</td>
                         <td className="text-white">{emp.cnpj}</td>
                         
-                        <td className="text-white">{emp.tempo_formalizacao}</td>
+                        <td className="text-white">{emp.colaborador?.nome}</td>
                         <td>               
                         <ReactTooltip />
                         {emp.colaborador &&

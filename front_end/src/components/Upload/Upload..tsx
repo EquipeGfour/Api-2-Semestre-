@@ -9,14 +9,16 @@ import M from 'materialize-css/dist/js/materialize'
 
 const Upload: React.FC=()=> {
 
-// const [arquivo,setArquivo]= useState()
+const navigate=useNavigate()
 const [nomearquivodoc,setNomeArquivoDoc] = useState('')
 const [nomearquivocert,setNomeArquivoCert] = useState('')
 const [nomearquivocomprov,setNomeArquivoComprov] = useState('')
 const [documentos,setDocumentos] = useState<File>()
 const [certificados,setCertificados] = useState<File>()
 const [comprovantes,setComprovantes] = useState<File>()
-const [cookie,setCookie]=useCookies(['ionic-user'])
+const [cookie,setCookie,removeCookie]=useCookies(['ionic-user'])
+const [logout,setLogout] = React.useState(false)
+
 
 
 const EnviaDados = () =>{
@@ -37,6 +39,13 @@ const EnviaDados = () =>{
   }).catch(erro=>{
     console.error('Erro', erro.response)
 })
+}
+
+const Desloga=()=>{
+  removeCookie('ionic-user')
+  setLogout(false)
+  M.toast({html:'Deslogado com Sucesso!',classes:"modalerro rounded"})
+  navigate('/')
 }
 
 const DelArquivoUpload = () =>{
@@ -126,9 +135,8 @@ React.useEffect(()=>{
       </div>
 
       <a className="waves-effect waves-light btn-large btnAzulUpload" onClick={EnviaDados}>Carregar</a>
-      {/* TODO VERIFICAR PARA QUAL ROTA SERÁ REDIRECIONADA E QUAL A CONDIÇÃO PARA TAL */}
-      <Link to='/home-colaborador'>
-        <a className="waves-effect waves-light btn-large btnAzulUpload">Finalizar Cadastro</a>
+      <Link to='/'>
+        <a className="waves-effect waves-light btn-large btnAzulUpload" onClick={Desloga}> Finalizar Cadastro</a>
       </Link>
     </div>
   );

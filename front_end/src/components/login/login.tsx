@@ -11,6 +11,7 @@ const Login : React.FC=(props)=> {
     const [cookie,setCookie] = useCookies(['ionic-user', 'ionic-JWT'])
     const [email,setEmail] = React.useState('')
     const [senha,setSenha] = React.useState('')
+    const [nivel,setNivel] = React.useState('')
 
     const teclaEnter = (event)=>{
         if(event.key==='Enter') GetLogin()
@@ -19,30 +20,30 @@ const Login : React.FC=(props)=> {
     const GetLogin = async () =>{    
         axios.post('/api/login/',{
             email: email,
-            senha: senha
+            senha: senha,
+            nivel: nivel
         }).then(res=>{          
             const cargo=res.data.dados[0].cargo
             const cpf=res.data.dados[0].cpf
             const cnpj=res.data.dados[0].cnpj
             const status=res.data.dados[0].status
+            const nivel = res.data.dados[0].nivel
 
-            {/* TODO ARRUMAR VERIFICAÇÃO DO LOGIN PARA VEFICAR POR NIVEL DE HIERARQUIA DO CARGO AO LOGAR */}
-
-            if (status !== 'Desligado'){
+            if (status !== 'Desligado'){                
                 setCookie('ionic-user',res.data.dados[0])
                 setCookie('ionic-JWT', res.data.token)
             }
-            if (cargo === 'Administrador' && !status || cargo === 'Administrador' && status === "Ativo" ||  cargo === 'Gestor' && status === "Ativo"){
+            if (nivel === 'diretoria' && status === 'Ativo' || cargo === 'gerencia' && status === "Ativo" || cargo === 'Administrador'){
                 navigate('home-admin')
             }else if(cpf && !status){
                 navigate('dados-pessoais')
             }else if(cnpj && !status){
                 navigate('dados-empresa')
-            }else if (status === "Ativo"){
+            }else if (status === "Ativo" && nivel === 'lideranca' || status === "Ativo" && nivel === 'colaboradores'){
                 navigate('home-colaborador')
             }
             else{
-                M.toast({html:'Nenhum CPF/CNPJ está cadasrado, Entre em contato com o Administrador',classes:"modalerro rounded"})
+                M.toast({html:'Nenhum CPF/CNPJ está cadastrado ou usuário está desligado, Entre em contato com o Administrador',classes:"modalerro rounded"})
             }
         }).catch(erro=>{
             

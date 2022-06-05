@@ -33,16 +33,6 @@ CREATE TABLE aulas (
 	CONSTRAINT aulas_pk PRIMARY KEY (id)
 );
 
--- Table: acessos
-CREATE TABLE acessos (
-    id int NOT NULL AUTO_INCREMENT,
-    cargos_id int ,
-    nivel_acesso int ,
-    createdAt date NOT NULL default (current_date()),
-    updatedAt date ,
-    CONSTRAINT acessos_pk PRIMARY KEY (id)
-);
-
 -- Table: cargos
 CREATE TABLE cargos (
     id int NOT NULL AUTO_INCREMENT,
@@ -228,10 +218,6 @@ ALTER TABLE arquivos ADD CONSTRAINT arquivos_aulas FOREIGN KEY arquivos_aulas (a
 -- Reference: aulas_cursos (table: aulas)
 ALTER TABLE aulas ADD CONSTRAINT aulas_cursos FOREIGN KEY aulas_cursos (curso_id)
     REFERENCES cursos (id);
-
--- Reference: acesso_cargo (table: acessos)
-ALTER TABLE acessos ADD CONSTRAINT acesso_cargo FOREIGN KEY acesso_cargo (cargos_id)
-    REFERENCES cargos (id);
 
 -- Reference: Cargo_Colaborador (table: cargos)
 ALTER TABLE colaboradors ADD CONSTRAINT colaboradors_Cargo FOREIGN KEY colaboradors_Cargo (cargos_id)

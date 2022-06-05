@@ -118,7 +118,8 @@ export const inserirDadosColabCnpj = async (req, res) => {
         const objCnpj = {
             cnpj: req.body.cnpj,
             id: empresaID,
-            empresa_contratada: req.body.empresa_contratada
+            empresa_contratada: req.body.empresa_contratada,
+            data_fundacao: req.body.data_fundacao
         }
 
 

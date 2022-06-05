@@ -8,7 +8,8 @@ import { CriaHeader } from '../../functions';
 
 const DadosPessoais: React.FC = (props) => {
     const navigate = useNavigate()
-    const [cookie, setCookie] = useCookies(['ionic-user'])
+    const [cookie, setCookie,removeCookie] = useCookies(['ionic-user'])
+    const [logout,setLogout] = React.useState(false)
     const [nomecompleto, setNomecompleto] = React.useState('')
     const [cpf, setCpf] = React.useState('')
     const [rg, setRg] = React.useState('')
@@ -234,6 +235,13 @@ const DadosPessoais: React.FC = (props) => {
             M.toast({ html: 'Preencha o campo Estado Civil !', classes: "modalerro rounded" })
         }
         return faltaDados
+    }
+
+    const Desloga=()=>{
+        removeCookie('ionic-user')
+        setLogout(false)
+        M.toast({html:'Deslogado com Sucesso!',classes:"modalerro rounded"})
+        navigate('/')
     }
 
     return (
