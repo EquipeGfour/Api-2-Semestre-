@@ -6,6 +6,7 @@ import { CriaHeader } from "../../functions"
 import ReactTooltip from 'react-tooltip';
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import { MdSettingsBackupRestore } from "react-icons/md";
+import M from 'materialize-css/dist/js/materialize';
 
 const GeralFunc:React.FC=(props)=>{
   const [colaboradores,setColaboradores] = React.useState([])
@@ -31,8 +32,9 @@ const GeralFunc:React.FC=(props)=>{
 
   const desligarColab = (id,email) =>{    
     axios.put(`api/colab/updateColab/${id}?email=${email}`, null, {headers:CriaHeader()} ).then(res=>{       
-      const Novalista = colaboradores.filter((c)=>c.id !== id)      
+      const Novalista = colaboradores.filter((c)=>c.id !== id)
       setColaboradores(Novalista)
+      M.toast({html: "Colaborador Desligado com sucesso!",classes: "modal1 round"})
     }).catch(erro=>{
       console.error(erro);      
     })

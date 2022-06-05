@@ -9,14 +9,26 @@ import ReactTooltip from 'react-tooltip';
 
 
 const Empresa:React.FC=(props)=>{
+
     const [empresa,setEmpresa] = useState([])
 
     const buscaEmpresa = () =>{
         axios.get('/api/pj/trazerEmpresas',{headers:CriaHeader()}).then(res => {
+            console.log(res.data)
             setEmpresa(res.data)
         }).catch(erro=>{
             console.error(erro)
           })
+    }
+
+    const desligarEmpresa = (id) => {
+        axios.put(`/api/colab/updateColab/${id}`,null,{headers:CriaHeader()}).then( res => {
+            M.toast({html: "Empresa desligada com sucesso!",classes: "modal1 rounded",});
+            const Novalista = empresa.filter( (e) => e.colaborador?.id !== id )
+            setEmpresa(Novalista)
+        }).catch( erro => {
+            console.error(erro)
+        })
     }
 
     React.useEffect(()=>{    
@@ -45,10 +57,17 @@ const Empresa:React.FC=(props)=>{
                         
                         <td className="text-white">{emp.tempo_formalizacao}</td>
                         <td>               
-                        <ReactTooltip />                
-                        <i className="material-icons pointer" data-tip='Ver Colaboradores'>search</i>
-                        </td>   
-                        <td><i className="material-icons delete pointer" data-tip='Deletar Departamento'>delete_forever</i></td>             
+                        <ReactTooltip />
+                        {emp.colaborador &&
+                            <Link to={`/detalhe-cnpj/${emp.colaborador?.id}`}>                
+                                <i className="material-icons pointer" data-tip='Ver Colaborador'>search</i>
+                            </Link>
+                        }
+                        </td>      
+                        <td>
+                            <i className="material-icons delete pointer" data-tip='Desligar Empresa' onClick={()=> desligarEmpresa(emp.colaborador.id)}>power_settings_new</i>
+                        </td>
+                                 
                     </tr>
                     ))}
                     </tbody>

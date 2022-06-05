@@ -26,7 +26,7 @@ const MyTree: React.FC<OrgProps> = (props:OrgProps) =>{
             enableDragDrop: false,
             scaleInitial: 0.8,
             searchFields: ["nome", "cargo"],
-            enableSearch: true,                  
+            enableSearch: false,                  
             mouseScrool: OrgChart.action.ctrlZoom,
 
             nodeMenu: {
