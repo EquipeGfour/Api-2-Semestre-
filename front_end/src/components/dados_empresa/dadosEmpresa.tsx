@@ -13,11 +13,6 @@ const DadosEmpresa:React.FC=(props)=>{
     const [cookie,setCookie]=useCookies(['ionic-user'])    
     const [empresacontratada,setEmpresacontratada] = React.useState('')
     const [cnpj,setCnpj] = React.useState('')
-    const [rg,setRg] = React.useState('')
-    const [nacionalidade,setNacionalidade] = React.useState('')
-    const [naturalidade,setNaturalidade] = React.useState('')
-    const [genero,setGenero] = React.useState('')
-    const [raca,setRaca] = React.useState('')
     const [nomerepresentante,setNomerepresentante] = React.useState('')
     const [datafundacao,setDatafundacao] = React.useState('')
     const [complemento,setComplemento] = React.useState('')
@@ -35,7 +30,7 @@ const DadosEmpresa:React.FC=(props)=>{
     React.useEffect(()=>{
         console.log(cookie['ionic-user'])
         const logado = cookie['ionic-user']
-        setEmpresacontratada(logado.nome)
+        setNomerepresentante(logado.nome)
         setCnpj(logado.cnpj)
         setEmail(logado.email)        
         document.title='Dados Empresa'
@@ -67,7 +62,6 @@ const DadosEmpresa:React.FC=(props)=>{
             empresa_contratada:empresacontratada,
             cnpj,
             data_fundacao:datafundacao,
-            nome_representante:nomerepresentante,
             complemento,
             rua,
             bairro,
@@ -76,7 +70,6 @@ const DadosEmpresa:React.FC=(props)=>{
             cep,
             telefone,
             regiao,
-            estado_civil:estadocivil,
             email,
         }
 
