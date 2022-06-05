@@ -48,8 +48,10 @@ const MenuCurso: React.FC = (props) => {
             <ul className="collapsible expandable headerCurso ">
                 {arquivosaula.map((t:Aula)=>(                     
                 <li className="blocos">
-                    <div className="collapsible-header bodyCurso" title=''>                                        
-                        <i className="material-icons">computer</i>{t.titulo_aula}
+                    <div className="collapsible-header bodyCurso" title=''>  
+                        <div className="quadrado">                                   
+                        <i className="material-icons">computer</i> </div>
+                        <span className="quadrado2">{t.titulo_aula}</span>
                             <Link to={`/criar-curso/${t.id}`}>
                                 <i className="material-icons" title="Add Arquivos">add</i>
                             </Link>                          

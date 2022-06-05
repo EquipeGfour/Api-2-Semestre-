@@ -34,7 +34,7 @@ const NavBar:React.FC=(props)=>{
         }        
         var elems = document.querySelectorAll('.sidenav');
         var instances = M.Sidenav.init(elems, Option);
-    })
+    },[cookie])
 
     const Desloga=()=>{
         removeCookie('ionic-user')
