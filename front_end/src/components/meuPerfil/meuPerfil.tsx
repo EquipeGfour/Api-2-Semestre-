@@ -315,6 +315,9 @@ const getColabById = () => {
                 <a className="waves-effect waves-light btn-large btnAzulsenha">Redefinir senha</a>
                 </Link>
             </div>
+
+                {/* TODO BOTÃO REDEFINIR DADOS ESTÁ APARECENDO EM TODAS AS ABAS */}
+
             <div id="test-swipe-4" className="col s12 ">
                 <Link to={'/redefinir-dados'}>
                 <a className="waves-effect waves-light btn-large btnAzulsenha">Redefinir Dados</a>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import "./homeColab.css"
 import {Link,Navigate,useNavigate} from 'react-router-dom';
 import colabbranco from "../img/colabbranco.png";
@@ -11,13 +11,14 @@ import {useCookies} from 'react-cookie'
 const HomeColab: React.FC=()=>{
     const [idColab, setIdColab] = React.useState('')
     const [cookie,setCookie] = useCookies(['ionic-user', 'ionic-JWT'])
+    const [user, setUser] = useState({ cpf: '', cnpj: '' })
 
 React.useEffect(()=>{
     const logado = cookie['ionic-user']
+    setUser(logado)
     setIdColab(logado.id)
     document.title=`Home Colaborador`
 },[])
-
     return(
     <div className="loginContainer titulo">
         <h3>Bem-Vindo Colaborador</h3>    
@@ -25,8 +26,8 @@ React.useEffect(()=>{
         <div className="row blocoCima">
             <div className="col s12 m4 l3 divColab"></div>        
                 <div className="col s12 m4 l3 divColab">
-                <Link to="meu-perfil">                   
-                    <button className=" waves-effect  botaoFunc"> <img className="imgColab" src={colabbranco}></img></button>
+                <Link to={user.cnpj ?`/detalhe-cnpj/${idColab}`: "meu-perfil"}>                   
+                    <button className=" waves-effect botaoFunc"> <img className="imgColab" src={colabbranco}></img></button>
                 </Link>  
                     <div className="btnNomeHome">Meu Perfil</div>
                 </div>

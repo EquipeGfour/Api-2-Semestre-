@@ -126,6 +126,7 @@ React.useEffect(()=>{
       </div>
 
       <a className="waves-effect waves-light btn-large btnAzulUpload" onClick={EnviaDados}>Carregar</a>
+      {/* TODO VERIFICAR PARA QUAL ROTA SERÁ REDIRECIONADA E QUAL A CONDIÇÃO PARA TAL */}
       <Link to='/home-colaborador'>
         <a className="waves-effect waves-light btn-large btnAzulUpload">Finalizar Cadastro</a>
       </Link>
