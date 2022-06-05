@@ -78,7 +78,7 @@ Gustavo Borges Lima | DT |[Linkedin](https://www.linkedin.com)| [Github](https:/
 	
 <h2> 🗺️ Mapa Mental</h2>
 	
-![mapa mentalg4](https://user-images.githubusercontent.com/8519765/172056646-67fddf85-38e9-4bb0-8361-fa62f4c49237.png)
+![mapamental](https://user-images.githubusercontent.com/8519765/172065694-2e455af6-09d9-4c5a-a4ca-74d8fd9d06be.png)
 
 
 <h2> :card_file_box: Estruturação Das Pastas.</h2>
