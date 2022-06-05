@@ -52,7 +52,8 @@ tr{
     margin-top: 1rem !important;    
     width: 70%;
     margin: 0 auto; 
-    
+    display: flex;
+    justify-content: space-between
     
 }
 
@@ -94,5 +95,9 @@ tr{
 
 .informacoescurso{
     margin-top: 2rem;
+}
+.quadrado2{
+    
+    flex:1;
 }
 

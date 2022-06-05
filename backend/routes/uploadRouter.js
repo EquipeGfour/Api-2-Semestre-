@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { upload, uploadArquivosAula, uploadVideo } from "../functions/upload.js";
-import { verifyJWT } from "../controllers/loginController.js";
+import { verifyAdm, verifyJWT } from "../controllers/loginController.js";
 import { dadosUpload, listarArquivos, downloadAws, videosUpload, listarAulaArquivos, uploadMateriaisAula, DonwloadID, getVideo } from "../controllers/uploadController.js";
 
 

@@ -32,9 +32,10 @@ const NavBar:React.FC=(props)=>{
         }else{
             alteraUserLogado()
         }        
+        console.log(logado)
         var elems = document.querySelectorAll('.sidenav');
         var instances = M.Sidenav.init(elems, Option);
-    })
+    },[cookie])
 
     const Desloga=()=>{
         removeCookie('ionic-user')
