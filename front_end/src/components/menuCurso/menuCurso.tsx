@@ -23,7 +23,6 @@ const MenuCurso: React.FC = (props) => {
 
     const ListAulas = (id:string) => {
         axios.get(`/api/upload/listarAulasCursos/${id}`,{headers: CriaHeader()}).then(res=>{
-          console.log(res.data)
           setArquivosAula(res.data)
         }).catch(err=>{
           console.log(err)
