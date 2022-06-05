@@ -1,6 +1,14 @@
 <p align="center">
 <h1 align="center"> FATEC Profº Jessen Vidal, SJC - 2º Semestre DSM </h1>
 
+<h1 align="center">
+	
+![imagem](https://user-images.githubusercontent.com/8519765/172056264-3cd8f694-2b99-4de5-91ab-2138ada7c3dc.png)
+	
+</h1>
+
+
+
 <h2> :briefcase: Objetivo</h2>
 O nosso objetivo é apoiar a área de Recursos Humanos e Departamento Pessoal a desenvolver uma plataforma para controle de todos os talentos da empresa (pessoas). Após a aprovação no processo seletivo se faz necessário o cadastro do colaborador (CLT ou PJ) em um sistema que traga informações sobre sua contratação, controle de documentação, dados, entre outros dados. Temos que levar em consideração da LGPD para que o acesso seja restrito.
 
@@ -16,22 +24,61 @@ RF ID# | Sprint | Requisitos | Prioridade| Status|
 2 |2|Perfis diferentes para os usuarios|ALTA|COMPLETO
 3 |2|Charts com os organogramas em  diversos níveis e com inclusões, exclusões e adaptações|ALTA|COMPLETO
 4 |2|Dossiê gerado em PDF por colaborador para consulta do administrador e gestor|ALTA|COMPLETO
-5 |3|Cadastros de Trilha de Aprendizado e Status de Realização|ALTA|ANDAMENTO
-6 |3|Desligamentos de colaboradores|MÉDIA|ANDAMENTO
-7 |3|Recuperar e redefinir senha|MÉDIA|ANDAMENTO
+5 |3|Cadastros de Trilha de Aprendizado|ALTA|COMPLETO
+6 |3|Desligamentos de colaboradores|MÉDIA|COMPLETO
+7 |3|Recuperar e redefinir senha|MÉDIA|COMPLETO
 
 <h4> 🛠️ Requisitos não Funcionais</h4>
 
 RNF ID# | Sprint | Requisitos | Prioridade| Status|
 :--------- | :------: | :-------: | :-------: | :------: |
-8 |1|Conexão com Banco de dados|ALTA|COMPLETO
+8 |1|Banco de Dados relacional|ALTA|COMPLETO
 9 |1|Utilização NodeJs, Java Script, Type Script e React|ALTA|COMPLETO
 10 |2|Repositório para documentos dos colaboradores|ALTA|COMPLETO
 11 |2|Manual do usuário para navegação.|MÉDIA|COMPLETO
-12 |3|Desenho da arquitetura da solução|MÉDIA|ANDAMENTO
-13 |3|Documentação de testes e funcionais|MÉDIA|ANDAMENTO
-14 |3|Repositório de documentos da empresa|MÉDIA|ANDAMENTO
-15 |3|Implementação da Lei LGPD|MÉDIA|ANDAMENTO
+12 |3|Desenho da arquitetura da solução|MÉDIA|COMPLETO
+13 |3|Repositório de documentos da empresa|MÉDIA|COMPLETO
+14 |3|Implementação da Lei LGPD|MÉDIA|COMPLETO
+
+
+<h2> ⏲️ Timeline Do Produto</h2>
+
+![timeline (2)](https://user-images.githubusercontent.com/8519765/172056213-9110d5a1-bd88-48f6-b9f8-971d294f4ebb.png)
+
+<br>
+
+
+### 🎯 Entregas
+
+Sprint ID | Data | Tag | Vídeo | Status
+----------|------|-----|-------|--------
+#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
+#2 | 25.04.22 - 15.05.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">Aqui</a> | <a href="https://drive.google.com/file/d/1Byk6AviwSG9bucdXp7VVYlbTs07RJECw/view?usp=sharing">Link</a> | ✔️
+#3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑<br><br>
+
+<h2>:wrench: Tecnologias Utilizadas</h2>
+
+
+![tecnologias](https://user-images.githubusercontent.com/8519765/170871603-796adc3a-038c-4907-8120-a4fe79c2ef60.png)<br>
+
+<div id='equipe'>
+<h2> 🎓 Equipe Gfour</h2>
+    
+
+Integrantes da Equipe | Função | Linkedin | Github| Avatar|
+:--------- | :------: | :-------: | :-------: | :------: |
+Natália Bessa de Moura | PO | [Linkedin](https://www.linkedin.com/in/natalia-bessa-59b671220/) | [Github](https://github.com/lirabessa)|<img src = "imagens_gerais/natalia.jpg" width="60" height="60">|     
+Rodrigo Ribeiro dos Santos | SM | [Linkedin](https://www.linkedin.com/in/rodrigo-ribeiro-5008211b8/) | [Github](https://github.com/rodrigoribeiro027)|<img src = "imagens_gerais/rodrigo1.jpg" width="60" height="60">|
+Rafael Peressoni Waltrick | DT | [Linkedin](https://www.linkedin.com/in/rafael-p-waltrick-7211b4221) |  [Github](https://github.com/rafawaltrick)|<img src = "imagens_gerais/rafa(1).jpg" width="60" height="60">|
+Nicolas Lima de Holanda Galindo | DT | [Linkedin](https://www.linkedin.com/in/nicolas-lima-2a75a3220/) | [Github](https://github.com/Nicolas734)|<img src = "imagens_gerais/nicolas11.jpg" width="60" height="60">| 
+Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens_gerais/raniel.png" width="60" height="60">|
+Gustavo Borges Lima | DT |[Linkedin](https://www.linkedin.com)| [Github](https://github.com/Miojoguu)|<img src = "imagens_gerais/gustavo.jpg" width="60" height="60">|
+<br>
+
+	
+<h2> 🗺️ Mapa Mental</h2>
+	
+![mapa mentalg4](https://user-images.githubusercontent.com/8519765/172056646-67fddf85-38e9-4bb0-8361-fa62f4c49237.png)
 
 
 <h2> :card_file_box: Estruturação Das Pastas.</h2>
@@ -169,14 +216,7 @@ $ Senha = ceoionic
 
 <br><br>
 
-<h2>:wrench: Tecnologias Utilizadas</h2>
 
-
-![tecnologias](https://user-images.githubusercontent.com/8519765/170871603-796adc3a-038c-4907-8120-a4fe79c2ef60.png)<br><br>
-
-<h2> ⏲️ Timeline Do Produto</h2>
-
-![timeline](https://user-images.githubusercontent.com/8519765/170871218-1aaace74-c832-4eba-8afd-f29da78db71a.png)<br><br>
 
 <h2> 🖥️ Deploy Heroku</h2>
 
@@ -193,29 +233,8 @@ $ Senha = ceoionic
 
 
 
-### 🎯 Entregas
-
-Sprint ID | Data | Tag | Vídeo | Status
-----------|------|-----|-------|--------
-#1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
-#2 | 25.04.22 - 15.05.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">Aqui</a> | <a href="https://drive.google.com/file/d/1Byk6AviwSG9bucdXp7VVYlbTs07RJECw/view?usp=sharing">Link</a> | ✔️
-#3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑<br><br>
 
 
-
-<div id='equipe'>
-<h2> 🎓 Equipe Gfour</h2>
-    
-
-Integrantes da Equipe | Função | Linkedin | Github| Avatar|
-:--------- | :------: | :-------: | :-------: | :------: |
-Natália Bessa de Moura | PO | [Linkedin](https://www.linkedin.com/in/natalia-bessa-59b671220/) | [Github](https://github.com/lirabessa)|<img src = "imagens_gerais/natalia.jpg" width="60" height="60">|     
-Rodrigo Ribeiro dos Santos | SM | [Linkedin](https://www.linkedin.com/in/rodrigo-ribeiro-5008211b8/) | [Github](https://github.com/rodrigoribeiro027)|<img src = "imagens_gerais/rodrigo1.jpg" width="60" height="60">|
-Rafael Peressoni Waltrick | DT | [Linkedin](https://www.linkedin.com/in/rafael-p-waltrick-7211b4221) |  [Github](https://github.com/rafawaltrick)|<img src = "imagens_gerais/rafa(1).jpg" width="60" height="60">|
-Nicolas Lima de Holanda Galindo | DT | [Linkedin](https://www.linkedin.com/in/nicolas-lima-2a75a3220/) | [Github](https://github.com/Nicolas734)|<img src = "imagens_gerais/nicolas11.jpg" width="60" height="60">| 
-Raniel Francisco Santos de Paula | DT |[Linkedin](https://www.linkedin.com/in/raniel-santos-204878222/)| [Github](https://github.com/Raniel-Santos)|<img src = "imagens_gerais/raniel.png" width="60" height="60">|
-Gustavo Borges Lima | DT |[Linkedin](https://www.linkedin.com)| [Github](https://github.com/Miojoguu)|<img src = "imagens_gerais/gustavo.jpg" width="60" height="60">|
-<br>
 
    
 `PO - Product Owner`<br>
