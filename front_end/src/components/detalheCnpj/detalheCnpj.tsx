@@ -11,7 +11,7 @@ import fileDownload from "js-file-download";
 
 const DetalheCnpj: React.FC = (props) => {
   const { id } = useParams();
-  const [nome, setNome]=useState('');
+  const [nomeempresa, setNomeEmpresa]=useState('');
   const [cargo, setCargo]=useState('');
   const [departamento, setDepartamento]=useState('');
   const [email, setEmail]=useState('');
@@ -26,7 +26,7 @@ const DetalheCnpj: React.FC = (props) => {
   const [status,setStatus]=useState('');
   const [cnpj, setCnpj]=useState('');
   const [datafundacao, setDataFundacao]=useState('');
-  const [nomerepresentante, setNomeRepresentante]=useState('');
+  const [nomerepresentante, setNomeRepresentante]=useState('');  
   const [arquivos,setArquivos] = useState([]);
   const [download, setDownload] = useState('');
 
@@ -47,7 +47,6 @@ const DetalheCnpj: React.FC = (props) => {
 
   const ListDownload = (id:string) => {
     axios.get(`/api/upload/listarArquivos/${id}`,{headers: CriaHeader()}).then(res=>{
-      console.log(res)
       setArquivos(res.data.arquivos) 
     }).catch(err=>{
       console.log(err)
@@ -64,27 +63,31 @@ const DetalheCnpj: React.FC = (props) => {
     })
   }
 
-  const getColabById = (id: string) => {
-    axios.get(`/api/colab/funcionario/${id}`, { headers: CriaHeader() }).then(res => {
-      console.log(res);
-      setNome(res.data.nome);
+
+  const getCnpj = (id) => {
+    axios.get(`/api/pj/funcPj/${id}`, { headers: CriaHeader() }).then( res => {
+      setNomeEmpresa(res.data.pessoa_juridica.empresa_contratada);
+      setNomeRepresentante(res.data.nome)
+      setCnpj(res.data.pessoa_juridica?.cnpj)
       setCargo(res.data.cargo?.cargo);
       setDepartamento(res.data.cargo?.departamento.area);     
       setEmail(res.data.email);
+      setDataFundacao(res.data.pessoa_juridica.data_fundacao)      
       setTelefone(res.data.telefone);
-      setRua(res.data.enderecos?.[0]?.rua);
-      setEstado(res.data.enderecos?.[0]?.estado);
-      setCidade(res.data.enderecos?.[0]?.cidade);
-      setBairro(res.data.enderecos?.[0]?.bairro);
-      setCep(res.data.enderecos?.[0]?.cep);
-      setComplemento(res.data.enderecos?.[0]?.complemento);
-      setRegiao(res.data.enderecos?.[0]?.regiao);      
+      setRua(res.data.endereco?.rua);
+      setEstado(res.data.endereco?.estado);
+      setCidade(res.data.endereco?.cidade);
+      setBairro(res.data.endereco?.bairro);
+      setCep(res.data.endereco?.cep);
+      setComplemento(res.data.endereco?.complemento);
+      setRegiao(res.data.endereco?.regiao);      
     })
   }
 
   React.useEffect(() => {
-    getColabById(id)
-    ListDownload(id)     
+    
+    ListDownload(id)  
+    getCnpj(id)   
     document.title = 'Detalhe-CNPJ'
     var el = document.querySelector('#tabs-swipe-demo')
     var instance = M.Tabs.init(el, Option);
@@ -98,7 +101,7 @@ const DetalheCnpj: React.FC = (props) => {
           <form className="col s12 dadosBasicos">
             <div className="">
               <div className="input-field col s4">
-                <input id="dadoRecebido" type="text" className="validate" value={nome}onChange={()=>setNome(nome)}/>
+                <input id="dadoRecebido" type="text" className="validate" value={nomeempresa}onChange={()=>setNomeEmpresa(nomeempresa)}/>
                 <label className="fonte" htmlFor="icon_prefix">Nome Empresa</label>
               </div>
             </div>

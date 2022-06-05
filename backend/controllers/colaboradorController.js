@@ -274,8 +274,6 @@ export const updateColabForDelete = async (req,res) => {
         const dados = await Colaborador.update( valores, condicao)
         
         res.json('Dados Atualizados')
-
-        
         
     }catch(error){
         console.log(error)

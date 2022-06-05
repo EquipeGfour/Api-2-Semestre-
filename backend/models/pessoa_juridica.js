@@ -31,7 +31,7 @@ const PessoaJuridica = db.define('pessoa_juridicas',{
 })
 
 Colaborador.PessoaJuridica = Colaborador.belongsTo(PessoaJuridica,{foreignKey:{name:'empresa_id'}})
-PessoaJuridica.Colaborador = PessoaJuridica.hasOne(Colaborador,{foreignKey:'empresa_id'})
+PessoaJuridica.Colaborador = PessoaJuridica.hasOne(Colaborador,{foreignKey:'empresa_id', onDelete:'cascade'})
 
 // PessoaJuridica.Colaborador = PessoaJuridica.belongsTo(Colaborador,{foreignKey:{name:'id'}})
 // Colaborador.PessoaJuridica = Colaborador.hasOne(PessoaJuridica,{foreignKey:'id'})

@@ -47,7 +47,7 @@ const Contrato = db.define('contratos',{
     },
 })
 
-Colaborador.Contrato = Colaborador.hasMany(Contrato,{foreignKey:'colaborador_id'})
+Colaborador.Contrato = Colaborador.hasOne(Contrato,{foreignKey:'colaborador_id'})
 Contrato.Colaborador = Contrato.belongsTo(Colaborador,{foreignKey:'colaborador_id'})
 
 export default Contrato

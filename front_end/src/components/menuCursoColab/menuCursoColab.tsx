@@ -72,7 +72,7 @@ const MenuCurso: React.FC = (props) => {
                                 <tr>             
                                     <th className="espacamento">Arquivos</th>
                                     <th className="espacamento">Tipo</th>  
-                                    <th className="espacamento">Assistir</th>
+                                    <th className="espacamento">Assistir / Baixar</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,7 +82,7 @@ const MenuCurso: React.FC = (props) => {
                                     <td>{a.tipo}</td>                                 
                                     <td>
                                         {a.tipo === 'video'?
-                                        <Link to={''}>
+                                        <Link to={`/assistir-curso/${a.id}`}>
                                         <i className="material-icons pointer" title="Assistir">play_arrow</i>
                                         </Link>:
                                         <i className="material-icons pointer" title="Baixar" data-tip='Baixar' onClick={()=>downloadFile(a.id,a.nome_arquivos,a.extensao)}>file_download</i>}

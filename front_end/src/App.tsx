@@ -93,7 +93,7 @@ render(){
           <Route path='esqueceu' element={<Esqueceu/>}/>
           <Route path='home-colaborador' element={<HomeColab/>}/>
           <Route path='documentos-colab' element={<DocColab/>}/>
-          <Route path='detalhe-cnpj' element={<DetalheCnpj/>}/>
+          <Route path='detalhe-cnpj/:id' element={<DetalheCnpj/>}/>
           <Route path='criar-trilha' element={<CriarTrilha/>}/>
           <Route path='trilha-adicionar/:id' element={<TrilhaAdd/>}/>
           <Route path='criar-curso/:id' element={<CriarCurso/>}/>
