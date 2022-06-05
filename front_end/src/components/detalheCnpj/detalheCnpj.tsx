@@ -66,7 +66,6 @@ const DetalheCnpj: React.FC = (props) => {
 
   const getCnpj = (id) => {
     axios.get(`/api/pj/funcPj/${id}`, { headers: CriaHeader() }).then( res => {
-      console.log(res);
       
       setNomeEmpresa(res.data.pessoa_juridica.empresa_contratada);
       setNomeRepresentante(res.data.nome)
