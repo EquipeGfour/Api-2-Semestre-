@@ -9,6 +9,7 @@ import { useCookies } from "react-cookie";
 const Desligados:React.FC=(props)=>{    
     const [colaboradores,setColaboradores] = React.useState([])
     const [searchDesligado,setSearchDesligado] = useState('');
+    const cancelar = React.useRef<any>()
 
     const TrazerDesligados = () =>{
         axios.get(`/api/colab/desligados`,{headers:CriaHeader()}).then(res=>{
@@ -20,7 +21,12 @@ const Desligados:React.FC=(props)=>{
     }
 
     const searchColabDesligado = (searchDesligado) => {
-        axios.get(`/api/colab/searchDesligados?nome=${searchDesligado}`, {headers:CriaHeader()}).then( res => {
+        if(cancelar.current){
+            cancelar.current.cancel()
+        }
+        const cancelToken = axios.CancelToken
+        cancelar.current = cancelToken.source()
+        axios.get(`/api/colab/searchDesligados?nome=${searchDesligado}`, {headers:CriaHeader(), cancelToken:cancelar.current.token}).then( res => {
             setColaboradores(res.data)
             
         }).catch(erro=>{
@@ -31,7 +37,10 @@ const Desligados:React.FC=(props)=>{
 React.useEffect(()=>{
     document.title='Desligados'
     TrazerDesligados()  
-    if(searchDesligado !== '')searchColabDesligado(searchDesligado)     
+},[])
+
+React.useEffect(() => {
+    searchColabDesligado(searchDesligado)
 },[searchDesligado])
 
 return(

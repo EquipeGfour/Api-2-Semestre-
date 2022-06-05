@@ -19,7 +19,9 @@ import DetalheFunc from './components/detalheFunc/detalheFunc';
 import Orgchart from './components/orgchart/organograma'
 import Trilha from './components/trilha/trilha'
 import Desligados from './components/desligados/desligados';
-import { navigationRef } from './functions/navigation';
+
+
+
 import Redefinir from './components/Redefinir-senha/redefinir-senha';
 import Esqueceu from './components/esqueceu-senha/esqueceu-senha';
 import HomeColab from './components/homeColaborador/homeColab'

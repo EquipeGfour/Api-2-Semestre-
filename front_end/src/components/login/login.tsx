@@ -26,15 +26,17 @@ const Login : React.FC=(props)=> {
             const cnpj=res.data.dados[0].cnpj
             const status=res.data.dados[0].status
 
+            {/* TODO ARRUMAR VERIFICAÇÃO DO LOGIN PARA VEFICAR POR NIVEL DE HIERARQUIA DO CARGO AO LOGAR */}
+
             if (status !== 'Desligado'){
                 setCookie('ionic-user',res.data.dados[0])
                 setCookie('ionic-JWT', res.data.token)
             }
-            if (cargo === 'Administrador' && status === null|| cargo === 'Administrador' && status === "Ativo" ||  cargo === 'Gestor' && status === "Ativo"){
+            if (cargo === 'Administrador' && !status || cargo === 'Administrador' && status === "Ativo" ||  cargo === 'Gestor' && status === "Ativo"){
                 navigate('home-admin')
-            }else if(cpf && status === null){
+            }else if(cpf && !status){
                 navigate('dados-pessoais')
-            }else if(cnpj && status === null){
+            }else if(cnpj && !status){
                 navigate('dados-empresa')
             }else if (status === "Ativo"){
                 navigate('home-colaborador')

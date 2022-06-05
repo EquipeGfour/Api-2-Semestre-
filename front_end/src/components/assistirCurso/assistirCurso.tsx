@@ -10,13 +10,13 @@ import ReactTooltip from "react-tooltip";
 
 const AssistirCurso: React.FC = (props) => {    
     const [videoaula,setVideoaula] = useState({url_arquivo:''})
+    const [cookie,setCookie] = useCookies(['ionic-user', 'ionic-JWT'])
+    const [idColab, setIdColab] =useState('')
     const {id} = useParams()
 
     const VideoAulas = (id:string) => {
         axios.get(`/api/upload/assistirAula/${id}`,{headers: CriaHeader()}).then(res=>{
-            console.log(res.data)
             setVideoaula(res.data)
-            console.log(videoaula);          
         }).catch(err=>{
             console.log(err)
         })
@@ -27,6 +27,8 @@ const AssistirCurso: React.FC = (props) => {
     ),[videoaula])
 
     React.useEffect(() => {
+        const logado = cookie['ionic-user']
+        setIdColab(logado.id)
         document.title = 'Assistir-Curso'
         VideoAulas(id)
     },[])
@@ -36,7 +38,7 @@ const AssistirCurso: React.FC = (props) => {
             <h3 className="titulo-assistir">Aula</h3>          
             {RenderVideo}            
             <div className="botaoFinal">
-                <Link to={'/trilha'}>
+                <Link to={`/trilha-colaborador/${idColab}`}>
                     <a className="waves-effect waves-light btn-large btnAzulFimCurso">Finalizado</a>
                 </Link>                   
             </div>
