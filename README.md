@@ -54,7 +54,7 @@ Sprint ID | Data | Tag | Vídeo | Status
 ----------|------|-----|-------|--------
 #1 | 25.03.22 - 14.04.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/1.0">Aqui</a> | <a href="https://drive.google.com/file/d/1uCD5gcSgUYE3DYMdf70ZzBRJimSCmw0R/view">Link</a> | ✔️
 #2 | 25.04.22 - 15.05.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/2.0">Aqui</a> | <a href="https://drive.google.com/file/d/1Byk6AviwSG9bucdXp7VVYlbTs07RJECw/view?usp=sharing">Link</a> | ✔️
-#3 | 16.05.22 - 05.06.22 | 🛑 | 🛑 | 🛑<br><br>
+#3 | 16.05.22 - 05.06.22 | <a href="https://github.com/EquipeGfour/Api-2-Semestre-/releases/tag/3.0">Aqui</a> | <a href="#">Link</a> | ✔️<br><br>
 
 <h2>:wrench: Tecnologias Utilizadas</h2>
 
