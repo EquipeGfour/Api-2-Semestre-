@@ -92,6 +92,7 @@ const PreRegistro1: React.FC = () => {
     if (mask === "CNPJ") {
       url = "/api/preRegistro/cnpj";
       obj.cnpj = cpfCnpj;
+      
     }
 
     axios.post(url, obj, { headers: CriaHeader() }).then((res) => {
