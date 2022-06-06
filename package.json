@@ -12,5 +12,9 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://github.com/EquipeGfour/Api-2-Semestre-#readme"
+  "homepage": "https://github.com/EquipeGfour/Api-2-Semestre-#readme",
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
 }
