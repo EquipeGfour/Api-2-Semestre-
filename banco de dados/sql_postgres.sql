@@ -79,7 +79,7 @@ CREATE TABLE contratos (
     "data_Admissao" date ,
     plano_saude varchar(40) ,
     "createdAt" date NOT NULL DEFAULT now(),
-    "updatedAt" int ,
+    "updatedAt" date,
     data_desligamento date 
 );
 
