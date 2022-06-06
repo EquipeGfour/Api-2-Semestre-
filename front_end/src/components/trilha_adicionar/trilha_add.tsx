@@ -47,7 +47,6 @@ const criaCurso = () =>{
 };
 
 const FiltraNivel = (id)=>{
-    console.log(id);
     if(id === '1'){        
         setNivel('Basico');
     }if(id === '2'){
@@ -88,7 +87,7 @@ const FiltraNivel = (id)=>{
                 <div className="col s12">
                     <div className="input-field col s12 input-select seletorstatus">
                         <select className='select' onChange={(e) => FiltraNivel(e.target.value)}>
-                            <option value="0" disabled >Nivel</option>
+                            <option value="0">Nivel</option>
                             <option value="1">Basico</option>
                             <option value="2">Intermediário</option>
                             <option value="3">Avançado</option>
